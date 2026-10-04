@@ -1,27 +1,49 @@
 
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width">
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>makola intelligence</title>
 <style>
-body{text-align:center;font-family:Arial;margin:0}
-.logo{margin-top:100px;font-size:60px;font-weight:900}
-.small{font-size:24px;letter-spacing:8px;color:#666}
-.box{border:1px solid #ccc;border-radius:30px;width:90%;max-width:500px;margin:30px auto;padding:15px;display:flex}
-.box input{border:none;outline:none;width:100%;font-size:16px}
-button{padding:10px 20px;margin:10px;border:none;background:#f2f2f2;border-radius:5px}
+body{font-family:Arial;text-align:center;margin:0;padding:20px}
+.logo{margin-top:80px;font-size:60px;font-weight:900;line-height:0.9}
+.small{font-size:22px;letter-spacing:8px;color:#666;margin-top:5px}
+.box{border:1px solid #ccc;border-radius:30px;width:90%;max-width:500px;margin:30px auto;padding:12px 20px;display:flex;align-items:center}
+.box input{border:none;outline:none;width:100%;font-size:16px;margin-left:10px}
+button{padding:10px 20px;margin:10px;border:none;background:#4285F4;color:white;border-radius:20px;cursor:pointer}
+#reponse{max-width:600px;margin:20px auto;text-align:left;background:#f9f9f9;padding:20px;border-radius:10px;display:none}
 </style>
 </head>
 <body>
 <div class="logo">makola</div>
 <div class="small">INTELLIGENCE</div>
-<div class="box">🔍 <input id="q" placeholder="Pose ta question..." onkeypress="if(event.key==='Enter')go()"></div>
+<div class="box">🔍 <input id="q" placeholder="Pose ta question sur Kolwezi, cuivre, électricité..." onkeypress="if(event.key==='Enter')go()"></div>
 <button onclick="go()">Rechercher</button>
+<div id="reponse"></div>
+
 <script>
+const base = {
+"electricite": "L'électricité à Kolwezi : C'est l'énergie qui fait marcher les machines minières. Produite par barrage hydroélectrique comme Nseke.",
+"cuivre": "Le cuivre de Kolwezi : Métal rouge, 70% de la production mondiale vient du Lualaba. Utilisé pour les câbles électriques.",
+"cobalt": "Le cobalt : Kolwezi est la capitale mondiale du cobalt, utilisé pour les batteries de téléphones et voitures électriques.",
+"ia": "L'Intelligence Artificielle : Programme qui apprend comme un humain pour répondre aux questions."
+};
+
 function go(){
-let v=document.getElementById('q').value;
-if(!v)return alert('Écris une question');
-window.location.href='https://wa.me/243983356734?text='+encodeURIComponent(v);
+let v=document.getElementById('q').value.toLowerCase().trim();
+let r=document.getElementById('reponse');
+if(!v){alert('Écris une question');return;}
+
+for(let mot in base){
+ if(v.includes(mot)){
+   r.style.display='block';
+   r.innerHTML='<b>makola intelligence répond :</b><br><br>'+base[mot]+'<br><br><i>Source: Kolwezi Intelligence</i>';
+   return;
+ }
+}
+// si pas trouvé, envoie sur WhatsApp
+window.location.href='https://wa.me/243983356734?text=Question depuis Makola Intelligence: '+encodeURIComponent(v);
 }
 </script>
 </body>
