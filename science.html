@@ -2,48 +2,36 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>makola intelligence</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>makola intelligence - Science</title>
 <style>
-body{font-family:Arial;text-align:center;margin:0;padding:20px}
-.logo{margin-top:80px;font-size:60px;font-weight:900;line-height:0.9}
-.small{font-size:22px;letter-spacing:8px;color:#666;margin-top:5px}
-.box{border:1px solid #ccc;border-radius:30px;width:90%;max-width:500px;margin:30px auto;padding:12px 20px;display:flex;align-items:center}
+body{font-family:Arial;text-align:center;padding:20px}
+.logo{font-size:55px;font-weight:900;margin-top:40px}
+.small{letter-spacing:7px;color:#666}
+.box{border:1px solid #aaa;border-radius:30px;max-width:600px;margin:20px auto;padding:12px 20px;display:flex}
 .box input{border:none;outline:none;width:100%;font-size:16px;margin-left:10px}
-button{padding:10px 20px;margin:10px;border:none;background:#4285F4;color:white;border-radius:20px;cursor:pointer}
-#reponse{max-width:600px;margin:20px auto;text-align:left;background:#f9f9f9;padding:20px;border-radius:10px;display:none}
+#rep{max-width:700px;margin:20px auto;text-align:left;background:#f5f7ff;padding:20px;border-radius:12px;display:none;line-height:1.6}
 </style>
 </head>
 <body>
 <div class="logo">makola</div>
-<div class="small">INTELLIGENCE</div>
-<div class="box">🔍 <input id="q" placeholder="Pose ta question sur Kolwezi, cuivre, électricité..." onkeypress="if(event.key==='Enter')go()"></div>
-<button onclick="go()">Rechercher</button>
-<div id="reponse"></div>
-
+<div class="small">SCIENCE INTELLIGENCE</div>
+<div class="box">🔬 <input id="q" placeholder="Pose n'importe quelle question scientifique..." onkeypress="if(event.key==='Enter')go()"></div>
+<button onclick="go()" style="padding:10px 25px;background:#4285F4;color:white;border:none;border-radius:20px">Chercher</button>
+<div id="rep"></div>
 <script>
-const base = {
-"electricite": "L'électricité à Kolwezi : C'est l'énergie qui fait marcher les machines minières. Produite par barrage hydroélectrique comme Nseke.",
-"cuivre": "Le cuivre de Kolwezi : Métal rouge, 70% de la production mondiale vient du Lualaba. Utilisé pour les câbles électriques.",
-"cobalt": "Le cobalt : Kolwezi est la capitale mondiale du cobalt, utilisé pour les batteries de téléphones et voitures électriques.",
-"ia": "L'Intelligence Artificielle : Programme qui apprend comme un humain pour répondre aux questions."
-};
-
-function go(){
-let v=document.getElementById('q').value.toLowerCase().trim();
-let r=document.getElementById('reponse');
-if(!v){alert('Écris une question');return;}
-
-for(let mot in base){
- if(v.includes(mot)){
-   r.style.display='block';
-   r.innerHTML='<b>makola intelligence répond :</b><br><br>'+base[mot]+'<br><br><i>Source: Kolwezi Intelligence</i>';
-   return;
- }
-}
-// si pas trouvé, envoie sur WhatsApp
-window.location.href='https://wa.me/243983356734?text=Question depuis Makola Intelligence: '+encodeURIComponent(v);
+const localDB={"cuivre":"Cuivre Kolwezi: 9500$/t, 70% production RDC.","cobalt":"Cobalt: capitale mondiale Kolwezi, batterie.","electricite":"Électricité: barrage Busanga 240MW pour Kolwezi.","atome":"Atome: plus petite partie de la matière, noyau + électrons.","photosynthese":"Photosynthèse: plante transforme soleil + CO2 en sucre + oxygène.","gravite":"Gravité: force qui attire les objets vers la terre, 9.8 m/s²."};
+async function go(){
+let v=document.getElementById('q').value.trim(); if(!v)return alert('Écris une question');
+let r=document.getElementById('rep'); r.style.display='block'; r.innerHTML='Recherche en cours... 🔍';
+let vl=v.toLowerCase();
+for(let k in localDB){ if(vl.includes(k)){ r.innerHTML='<b>Makola répond (Local):</b><br><br>'+localDB[k]; return; } }
+try{
+let res=await fetch('https://fr.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(v));
+let data=await res.json();
+if(data.extract){ r.innerHTML='<b>Réponse Scientifique (Wikipédia):</b><br><br><b>'+data.title+'</b><br>'+data.extract+'<br><br><a href="'+data.content_urls.desktop.page+'" target="_blank">Lire plus sur Wikipédia</a>'; return; }
+} catch(e){}
+r.innerHTML='Je n\'ai pas trouvé sur Wikipédia. Je transfère à l\'expert.<br><br><a href="https://wa.me/243983356734?text='+encodeURIComponent(v)+'"><button style="padding:10px 20px;background:green;color:white;border:none;border-radius:10px">Demander sur WhatsApp</button></a>';
 }
 </script>
 </body>
