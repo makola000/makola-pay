@@ -36,21 +36,40 @@ button{width:100%;padding:14px;background:#ffd700;color:#000;border:none;border-
 
 <hr>
 <h4>🔑 Tu as déjà un code?</h4>
-<input id="code" placeholder="Entre CODE ici (ex: MAKOLA2026)" style="width:90%;padding:12px;border-radius:8px;border:none;text-align:center;font-weight:bold">
+<input id="code" placeholder="Entre CODE ici (ex: MAKOLA0510)" style="width:90%;padding:12px;border-radius:8px;border:none;text-align:center;font-weight:bold">
 <button onclick="check()" style="background:white;color:black">ACCÉDER À L'UNIVERSITÉ IA</button>
 <p id="err" style="color:red;font-size:12px"></p>
+<p id="info" style="color:#ffd700;font-size:12px"></p>
 </div>
 
 <script>
+// Affiche le code du jour pour toi (ADMIN)
+let d=new Date();
+let jour=String(d.getDate()).padStart(2,'0');
+let mois=String(d.getMonth()+1).padStart(2,'0');
+document.getElementById('info').innerText="Code du jour pour clients: MAKOLA"+jour+mois;
+
 function check(){
  let c=document.getElementById('code').value.trim().toUpperCase();
- let codes=['MAKOLA2026','KOLWEZI','PAYE','MAKOLA','ETUDIANT'];
- if(codes.includes(c) || c.length>5){
+ let d=new Date();
+ let jour=String(d.getDate()).padStart(2,'0');
+ let mois=String(d.getMonth()+1).padStart(2,'0');
+ 
+ let codeDuJour = 'MAKOLA'+jour+mois;
+ let codesValables = [
+   codeDuJour,
+   'MAKOLA'+jour,
+   'KOLWEZI'+jour,
+   'MAKOLA2026',
+   'ADMIN0820'
+ ];
+
+ if(codesValables.includes(c)){
    localStorage.setItem('makola_paye','oui');
    localStorage.setItem('makola_code',c);
    window.location.href='science.html';
  }else{
-   document.getElementById('err').innerText='Code incorrect. Envoie preuve paiement sur WhatsApp pour recevoir code.';
+   document.getElementById('err').innerText='Code invalide. Code du jour: '+codeDuJour+' - Contacte Makola sur WhatsApp pour l\'obtenir après paiement.';
  }
 }
 </script>
