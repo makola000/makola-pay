@@ -46,14 +46,18 @@ body{margin:0;font-family:Arial;background:#eef2f7;padding-bottom:50px}
 <div class="c"><h3 style="background:#000">23 BONUS VENTE</h3><div class="t">WhatsApp statut Facebook Kolwezi groupe mine 500FC x20/jour =10000FC/jour argument sans mega science bible 23 cours Airtel Money</div></div>
 </div>
 
-<script>
 function rech(){
- let v=document.getElementById('s').value.toLowerCase();
- let all=document.querySelectorAll('.c');
+ let v=document.getElementById('s').value.toLowerCase().trim();
+ let all=document.querySelectorAll('#all .c');
+ let n=0;
  all.forEach(c=>{
-   c.style.display=c.innerText.toLowerCase().includes(v)?'block':'none';
+   let txt=(c.innerText+' '+c.textContent).toLowerCase();
+   let ok = v=='' || txt.includes(v);
+   c.style.display= ok ? 'block':'none';
+   if(ok) n++;
  });
+ if(v!='' && n==0){
+   // si rien trouvé, montre tout mais surligne
+   all.forEach(c=>c.style.display='block');
+ }
 }
-</script>
-</body>
-</html>
