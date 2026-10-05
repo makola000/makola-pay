@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MAKOLA 23 COURS</title>
 <style>
-body{margin:0;font-family:Arial;background:#eef2f7;padding-bottom:50px}
+body{margin:0;font-family:Arial;background:#eef2f7}
 .top{background:#0a1628;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:100}
-.search{width:90%;padding:12px;border-radius:20px;border:0;margin:8px;font-size:16px}
+.search{width:92%;padding:13px;border-radius:25px;border:0;margin:8px;font-size:16px}
 .c{background:#fff;margin:10px;border-radius:12px;box-shadow:0 2px 5px #0002}
 .c h3{margin:0;padding:12px;color:#fff;border-radius:12px 12px 0 0}
 .t{padding:15px;font-size:14px;line-height:1.6}
@@ -16,48 +16,54 @@ body{margin:0;font-family:Arial;background:#eef2f7;padding-bottom:50px}
 <body>
 <div class="top">
 <h2 style="margin:0">MAKOLA 23 COURS</h2>
-<input id="s" class="search" placeholder="🔍 Recherche sans méga: ex: cuivre, mine, bible..." onkeyup="rech()">
-<p style="margin:5px;font-size:11px">SANS MÉGA - Tape un mot</p>
+<input id="s" class="search" placeholder="🔍 Pose ta question: c'est quoi electricite? chimie? mine?" onkeyup="rech()" oninput="rech()">
+<p style="margin:5px;font-size:11px">SANS MEGA - Recherche intelligente</p>
 </div>
-
 <div id="all">
-<div class="c"><h3 style="background:#0a4a8a">1 ELECTRONIQUE</h3><div class="t">Diode 1N4007 transistor NPN 2N2222 MOSFET IRF540 AOP LM358 Arduino ESP32 capteur temperature usine KCC panne carte. Bible lois invisibles Jean 3:8</div></div>
-<div class="c"><h3 style="background:#d35400">2 ELECTRICITE</h3><div class="t">U=RI P=UI Triphase 380V etoile triangle transfo 120kV disjoncteur 630A terre 10 ohm arc flash. Cuivre cable. Bible Gen1:3 lumiere avant soleil energie</div></div>
-<div class="c"><h3 style="background:#27ae60">3 MATHS</h3><div class="t">Derivee pente vitesse integrale surface tas minerai matrice bilan usine log pH complexe proba controle qualite cathode. Dieu ordre 1Cor14:40</div></div>
-<div class="c"><h3 style="background:#8e44ad">4 PHYSIQUE</h3><div class="t">F=ma pelle 50t E=mc2 thermo four 1200C optique laser pression mine 500m 50bar gravite. Job26:7 Terre suspendue sur rien</div></div>
-<div class="c"><h3 style="background:#c0392b">5 CHIMIE</h3><div class="t">Cu + 2H2SO4 = CuSO4 pH2 lixiviation SX-EW tableau Cu 29 Co 27 titrage acide base. 2Cor5:17 nouvelle creature transformation chimique</div></div>
-<div class="c"><h3 style="background:#5d4037">6 MINE CIEL OUVERT ET SOUTERRAINE</h3><div class="t">Ciel ouvert foration Atlas ANFO CAT 6060 berme 10m stérile. Souterraine puits 1000m boulonnage ventilation 0.5m/s grisou CH4 Kolwezi sedimentaire. Job28 mine decrite 4000 ans avant</div></div>
-<div class="c"><h3 style="background:#00796b">7 METALLURGIE CUIVRE COBALT</h3><div class="t">Concassage SAG mill flottation mousse 30%Cu four flash 98% electrolyse 99.99% LME Co lixiviation acide Co(OH)2. Mal3:3 Dieu affine argent</div></div>
-<div class="c"><h3 style="background:#f39c12">8 USINE KCC COMUS</h3><div class="t">Flow minerai 2% concasseur giratoire broyeur flotteur epaississeur acide 98% tas lixiviation SX solvant EW cathode DCS Siemens panne densite pH cout 7000$/t</div></div>
-<div class="c"><h3 style="background:#2c3e50">9 MECA GENERALE</h3><div class="t">RDM traction soudure 6013 7018 roulement 6205 engrenage couple M20 200Nm graisse EP2 entretien preventif</div></div>
-<div class="c"><h3 style="background:#34495e">10 MECA AUTO</h3><div class="t">4 temps Common Rail Hilux mine filtre air 250h poussiere turbo OBD2 P0087 frein Jacob pente 15% vidange</div></div>
-<div class="c"><h3 style="background:#2980b9">11 MECA FLUIDE</h3><div class="t">Bernoulli pompe centrifuge HMT NPSH cavitation 350bar pelle CAT debit l/s tuyau hydraulique</div></div>
-<div class="c"><h3 style="background:#16a085">12 INSTRUMENTATION</h3><div class="t">4-20mA PT100 thermocouple PID Kp Ki Kd DCS HART boucle pH capteur PLC vanne acide SIL2 securite</div></div>
-<div class="c"><h3 style="background:#e74c3c">13 QUANTIQUE</h3><div class="t">Atome nuage proba Heisenberg electron 2 endroits puce IRM ordi quantique Dieu dimension invisible Heb11:3</div></div>
-<div class="c"><h3 style="background:#a93226">14 MEDECINE</h3><div class="t">Palu ACT moustiquaire silicose masque P100 HTA sel sucre diabete secourisme PLS garrot SO2 O2 Luc medecin Col4:14</div></div>
-<div class="c"><h3 style="background:#8B4513">15 BIBLE</h3><div class="t">Gen1 ordre Job28 mine Jean3:16 salut Rom8:28 souffrance Kolwezi pour bien Apoc21 nouvelle terre sans mine manuel fabricant</div></div>
-<div class="c"><h3 style="background:#6c3483">16 LATIN PHILO</h3><div class="t">Cogito ergo sum je pense donc je suis Carpe diem Ad astra per aspera vers etoiles par difficultes Socrate connais toi Platon</div></div>
-<div class="c"><h3 style="background:#2e4053">17 PEDAGOGIE</h3><div class="t">PPP Presentation Pratique Production SMART objectif exemple cuivre concret Kolwezi amour limite enseignement</div></div>
-<div class="c"><h3 style="background:#2e4053">18 LETTRE ESTHETIQUE</h3><div class="t">Lettre motivation KCC CV dissertation beau utile simple design epure</div></div>
-<div class="c"><h3 style="background:#1a5276">19 ECO COMPTA</h3><div class="t">LME Cuivre prix offre Chine dollar vs FC OHADA bilan Actif Passif TVA16% RDC 500FCx1000=500kFC business mine</div></div>
-<div class="c"><h3 style="background:#a93226">20 AI</h3><div class="t">Prompt tu es ingenieur mine Kolwezi maintenance predictive panne vision tri minerai drone topo Gen1:27 creativite image Dieu</div></div>
-<div class="c"><h3 style="background:#7d3c98">21 CONSTRUCTION</h3><div class="t">Fondation argile Kolwezi radier beton 350kg/m3 fer12mm cure eau 7j mur brique</div></div>
-<div class="c"><h3 style="background:#444">22 ASTROLOGIE ASTRONOMIE</h3><div class="t">Astrologie faux interdit Deut18:10 Astronomie vraie etoiles gaz Grande Ourse orientation mine Createur pas creature</div></div>
-<div class="c"><h3 style="background:#000">23 BONUS VENTE</h3><div class="t">WhatsApp statut Facebook Kolwezi groupe mine 500FC x20/jour =10000FC/jour argument sans mega science bible 23 cours Airtel Money</div></div>
+<div class="c"><h3 style="background:#0a4a8a">1 ELECTRONIQUE</h3><div class="t"><b>C'est quoi electronique?</b> C'est etudier diode 1N4007 transistor NPN 2N2222 MOSFET IRF540 AOP LM358 Arduino ESP32 capteur temperature panne carte usine KCC. Bible lois invisibles Jean 3:8 vent on entend pas mais effets.</div></div>
+<div class="c"><h3 style="background:#d35400">2 ELECTRICITE</h3><div class="t"><b>C'est quoi electricite?</b> C'est electrons qui bougent. U=RI tension resistance courant P=UI puissance triphase 380V etoile triangle transfo 120kV disjoncteur 630A terre 10 ohm arc flash danger. Cuivre cable Kolwezi. Bible Gen1:3 lumiere energie Dieu avant soleil.</div></div>
+<div class="c"><h3 style="background:#27ae60">3 MATHS</h3><div class="t"><b>C'est quoi maths?</b> Derivee pente vitesse integrale surface tas minerai matrice bilan usine log pH complexe proba controle qualite cathode. Dieu ordre 1Cor14:40</div></div>
+<div class="c"><h3 style="background:#8e44ad">4 PHYSIQUE</h3><div class="t"><b>C'est quoi physique?</b> F=ma pelle 50t E=mc2 thermo four 1200C optique laser pression mine 500m 50bar gravite. Job26:7 Terre suspendue sur rien.</div></div>
+<div class="c"><h3 style="background:#c0392b">5 CHIMIE</h3><div class="t"><b>C'est quoi chimie?</b> Melange transformation. Cu + 2H2SO4 = CuSO4 pH2 acide lixiviation SX-EW tableau Cu 29 Co 27 titrage. 2Cor5:17 nouvelle creature transformation chimique coeur.</div></div>
+<div class="c"><h3 style="background:#5d4037">6 MINE CIEL OUVERT ET SOUTERRAINE</h3><div class="t"><b>C'est quoi mine?</b> Ciel ouvert foration Atlas copco ANFO explosif CAT 6060 berme 10m sterile. Souterraine puits 1000m boulonnage ventilation 0.5m/s grisou CH4 Kolwezi sedimentaire. Job28 mine decrite 4000 ans avant scientifiques.</div></div>
+<div class="c"><h3 style="background:#00796b">7 METALLURGIE CUIVRE COBALT</h3><div class="t"><b>C'est quoi metallurgie cuivre cobalt?</b> Concassage SAG mill flottation mousse 30%Cu four flash 98% electrolyse 99.99% LME Co lixiviation acide Co(OH)2 batterie. Mal3:3 Dieu affine argent comme metallurgie.</div></div>
+<div class="c"><h3 style="background:#f39c12">8 USINE KCC COMUS</h3><div class="t"><b>C'est quoi usine KCC COMUS?</b> Flow minerai 2% concasseur giratoire broyeur flotteur epaississeur acide 98% tas lixiviation SX solvant EW cathode DCS Siemens panne densite pH cout 7000$/t.</div></div>
+<div class="c"><h3 style="background:#2c3e50">9 MECA GENERALE</h3><div class="t"><b>C'est quoi meca generale?</b> RDM traction soudure 6013 7018 roulement 6205 engrenage couple M20 200Nm graisse EP2 entretien preventif Kolwezi.</div></div>
+<div class="c"><h3 style="background:#34495e">10 MECA AUTO</h3><div class="t"><b>C'est quoi meca auto?</b> 4 temps moteur diesel Common Rail Hilux mine filtre air 250h poussiere turbo OBD2 P0087 frein Jacob pente 15% vidange.</div></div>
+<div class="c"><h3 style="background:#2980b9">11 MECA FLUIDE</h3><div class="t"><b>C'est quoi meca fluide?</b> Bernoulli pompe centrifuge HMT NPSH cavitation 350bar pelle CAT debit l/s tuyau hydraulique.</div></div>
+<div class="c"><h3 style="background:#16a085">12 INSTRUMENTATION</h3><div class="t"><b>C'est quoi instrumentation?</b> 4-20mA PT100 thermocouple PID Kp Ki Kd DCS HART boucle pH capteur PLC vanne acide SIL2 securite usine.</div></div>
+<div class="c"><h3 style="background:#e74c3c">13 QUANTIQUE</h3><div class="t"><b>C'est quoi quantique?</b> Atome nuage proba Heisenberg electron 2 endroits meme temps puce ordi IRM quantique Dieu dimension invisible Heb11:3.</div></div>
+<div class="c"><h3 style="background:#a93226">14 MEDECINE</h3><div class="t"><b>C'est quoi medecine?</b> Palu ACT moustiquaire silicose masque P100 HTA sel sucre diabete secourisme PLS garrot SO2 O2 Luc medecin Col4:14.</div></div>
+<div class="c"><h3 style="background:#8B4513">15 BIBLE</h3><div class="t"><b>C'est quoi bible?</b> Gen1 ordre Job28 mine Jean3:16 salut Rom8:28 souffrance Kolwezi pour bien Apoc21 nouvelle terre sans mine manuel fabricant.</div></div>
+<div class="c"><h3 style="background:#6c3483">16 LATIN PHILO</h3><div class="t"><b>C'est quoi philo latin?</b> Cogito ergo sum je pense donc je suis Carpe diem Ad astra per aspera vers etoiles par difficultes Socrate connais toi.</div></div>
+<div class="c"><h3 style="background:#2e4053">17 PEDAGOGIE</h3><div class="t"><b>C'est quoi pedagogie?</b> PPP Presentation Pratique Production SMART objectif exemple cuivre concret Kolwezi amour limite enseignement.</div></div>
+<div class="c"><h3 style="background:#2e4053">18 LETTRE ESTHETIQUE</h3><div class="t"><b>C'est quoi lettre esthetique?</b> Lettre motivation KCC CV dissertation beau utile simple design epure Kolwezi.</div></div>
+<div class="c"><h3 style="background:#1a5276">19 ECO COMPTA</h3><div class="t"><b>C'est quoi eco compta?</b> LME Cuivre prix offre Chine dollar vs FC OHADA bilan Actif Passif TVA16% RDC 500FCx1000=500kFC business mine.</div></div>
+<div class="c"><h3 style="background:#a93226">20 AI</h3><div class="t"><b>C'est quoi AI intelligence artificielle?</b> Prompt tu es ingenieur mine Kolwezi maintenance predictive panne vision tri minerai drone topo Gen1:27 creativite image Dieu.</div></div>
+<div class="c"><h3 style="background:#7d3c98">21 CONSTRUCTION</h3><div class="t"><b>C'est quoi construction?</b> Fondation argile Kolwezi radier beton 350kg/m3 fer12mm cure eau 7j mur brique.</div></div>
+<div class="c"><h3 style="background:#444">22 ASTRONOMIE</h3><div class="t"><b>C'est quoi astronomie astrologie?</b> Astrologie faux interdit Deut18:10 Astronomie vraie etoiles gaz Grande Ourse orientation mine Createur pas creature.</div></div>
+<div class="c"><h3 style="background:#000">23 VENTE 500FC</h3><div class="t"><b>Comment vendre 500FC?</b> WhatsApp statut Facebook Kolwezi groupe mine 500FC x20/jour =10000FC/jour argument sans mega science bible 23 cours Airtel Money.</div></div>
 </div>
-
+<script>
+function norm(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
 function rech(){
- let v=document.getElementById('s').value.toLowerCase().trim();
+ let raw=document.getElementById('s').value;
+ let v=norm(raw);
+ let mots=v.split(/[^a-z0-9]+/).filter(w=>w.length>2);
  let all=document.querySelectorAll('#all .c');
- let n=0;
  all.forEach(c=>{
-   let txt=(c.innerText+' '+c.textContent).toLowerCase();
-   let ok = v=='' || txt.includes(v);
-   c.style.display= ok ? 'block':'none';
-   if(ok) n++;
+   let txt=norm(c.innerText);
+   let ok=false;
+   if(v.trim()==''){ok=true;}
+   else{
+     // si un mot du cherche est dans le cours
+     for(let m of mots){ if(txt.includes(m)){ok=true; break;} }
+     // sinon cherche phrase sans accent
+     if(!ok && txt.includes(v)){ok=true;}
+   }
+   c.style.display=ok?'block':'none';
  });
- if(v!='' && n==0){
-   // si rien trouvé, montre tout mais surligne
-   all.forEach(c=>c.style.display='block');
- }
 }
+</script>
+</body>
+</html>
