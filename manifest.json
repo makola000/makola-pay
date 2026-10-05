@@ -1,0 +1,13 @@
+{
+  "name": "Makola Pay Kolwezi",
+  "short_name": "Makola AI",
+  "start_url": "/makola-pay/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ffd700",
+  "icons": [{
+      "src": "https://via.placeholder.com/192/ffd700/000000?text=M",
+      "sizes": "192x192",
+      "type": "image/png"
+    }]
+}
