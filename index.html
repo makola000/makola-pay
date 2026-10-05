@@ -3,31 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAKOLA PAY 500 FC - Kolwezi</title>
+<title>MAKOLA PAY 500 FC</title>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#ffd700">
 <style>
 body{background:#000;color:#fff;font-family:Arial;text-align:center;padding:20px}
-.box{border:2px solid #ffd700;padding:20px;border-radius:15px;max-width:400px;margin:auto}
-input{padding:12px;width:80%;margin:10px;border-radius:8px;border:none}
-button{padding:12px 25px;background:#ffd700;color:#000;font-weight:bold;border:none;border-radius:8px}
+.box{border:2px solid gold;padding:20px;border-radius:15px;max-width:400px;margin:auto}
+input{padding:12px;width:80%;margin:10px;border-radius:8px}
+button{padding:12px 25px;background:gold;color:#000;font-weight:bold;border:none;border-radius:8px}
 </style>
 </head>
 <body>
 <div class="box">
 <h2>MAKOLA PAY 500 FC</h2>
 <p>Code du jour: MAKOLA0510</p>
-<input id="code" placeholder="Entre ton code">
+<input id="code" placeholder="Entre code">
 <br>
 <button onclick="verif()">ACCÉDER SANS MÉGA</button>
-<p id="msg"></p>
+<p id="msg" style="color:gold;margin-top:15px"></p>
 </div>
 <script>
 function verif(){
- if(document.getElementById('code').value==='MAKOLA0510'){
-   location.href='science.html';
+ let c = document.getElementById('code').value.trim().toUpperCase();
+ if(c==='MAKOLA0510'){
+   document.getElementById('msg').innerText='✅ Code OK! Ouverture...';
+   setTimeout(()=>{ window.location.href='./science.html'; }, 800);
  }else{
-   document.getElementById('msg').innerText='Code faux! Paye 500FC au 0820479539';
+   document.getElementById('msg').innerText='❌ Code faux! Tu as tapé: '+c+' | Paye 500FC au 0820479539';
  }
 }
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}
