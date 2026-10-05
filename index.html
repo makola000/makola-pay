@@ -3,59 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAKOLA UNIVERSITE COMPLETE 500FC</title>
+<title>MAKOLA 23 COURS COMPLET</title>
 <style>
 body{margin:0;font-family:Arial;background:#eef2f7}
 #pay{position:fixed;inset:0;background:#0a1628;z-index:9999;display:flex;align-items:center;justify-content:center;padding:15px}
 .card{background:#fff;padding:25px;border-radius:20px;max-width:380px;width:100%;text-align:center}
 .btn{width:100%;padding:16px;background:#00c853;color:#fff;border:0;border-radius:12px;font-size:20px;font-weight:bold}
-.top{background:#0a1628;color:#fff;padding:20px;text-align:center;position:sticky;top:0;z-index:100}
-.search{width:90%;padding:12px;border-radius:10px;border:0;margin-top:10px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px}
-.cat{padding:14px;border-radius:12px;color:#fff;font-weight:bold;text-align:center;cursor:pointer;font-size:13px}
-.cours{background:#fff;margin:10px;border-radius:14px;box-shadow:0 2px 6px rgba(0,0,0,.1);display:none}
-.cours.active{display:block}
-.cours h3{margin:0;padding:12px;color:#fff;border-radius:14px 14px 0 0;font-size:15px}
-.txt{padding:14px;font-size:14px;line-height:1.7;max-height:400px;overflow-y:auto}
+.top{background:#0a1628;color:#fff;padding:15px;text-align:center;position:sticky;top:0}
+.cours{background:#fff;margin:12px;border-radius:12px;padding:0;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+.cours h3{margin:0;padding:12px 15px;color:#fff;border-radius:12px 12px 0 0}
+.txt{padding:15px;font-size:14px;line-height:1.7}
 </style>
 </head>
 <body>
 
 <div id="pay"><div class="card">
-<h2>MAKOLA UNIVERSITÉ</h2>
-<h1 style="color:#0a4a8a">500 FC</h1>
-<p><b>23 FACULTÉS COMPLÈTES</b><br>Tous les cours + Bible profonde<br><b>SANS MEGA À VIE</b></p>
-<button class="btn" onclick="payer()">PAYER 500FC ET OUVRIR</button>
+<h2>MAKOLA UNIVERSITE</h2><h1 style="color:#0a4a8a">500 FC</h1>
+<p>23 COURS COMPLETS SANS MEGA</p>
+<button class="btn" onclick="localStorage.setItem('makola','oui');document.getElementById('pay').style.display='none'">PAYER 500FC</button>
 </div></div>
 
-<div class="top">
-<h2 style="margin:0">MAKOLA UNIVERSITÉ COMPLÈTE</h2>
-<input class="search" id="search" placeholder="Cherche un cours... ex: cuivre, quantique" onkeyup="filtrer()">
-<div id="stat" style="font-size:12px;margin-top:8px">● Sans méga prêt</div>
-</div>
+<div class="top"><h2 style="margin:0">MAKOLA - 23 FACULTES - SANS MEGA</h2><p id="ok" style="margin:5px;font-size:12px">Chargement...</p></div>
 
-<div class="grid">
-<div class="cat" style="background:#0a4a8a" onclick="show('elec')">ÉLECTRONIQUE</div>
-<div class="cat" style="background:#d35400" onclick="show('elect')">ÉLECTRICITÉ</div>
-<div class="cat" style="background:#27ae60" onclick="show('maths')">MATHS</div>
-<div class="cat" style="background:#8e44ad" onclick="show('phys')">PHYSIQUE</div>
-<div class="cat" style="background:#c0392b" onclick="show('chim')">CHIMIE PURE</div>
-<div class="cat" style="background:#5d4037" onclick="show('mine')">MINE SOUT/CIELO</div>
-<div class="cat" style="background:#00796b" onclick="show('meta')">MÉTALLURGIE Cu/Co</div>
-<div class="cat" style="background:#f39c12" onclick="show('usine')">USINE CUIVRE</div>
-<div class="cat" style="background:#2c3e50" onclick="show('mecag')">MÉCA GÉNÉRALE</div>
-<div class="cat" style="background:#34495e" onclick="show('mecaa')">MÉCA AUTO</div>
-<div class="cat" style="background:#2980b9" onclick="show('fluide')">MÉCA FLUIDE</div>
-<div class="cat" style="background:#16a085" onclick="show('instru')">INSTRUMENTATION</div>
-<div class="cat" style="background:#e74c3c" onclick="show('quant')">MÉCA QUANTIQUE</div>
-<div class="cat" style="background:#d35400" onclick="show('med')">MÉDECINE</div>
-<div class="cat" style="background:#8B4513" onclick="show('bible')">BIBLE PROFONDE</div>
-<div class="cat" style="background:#6c3483" onclick="show('philo')">LATIN PHILO</div>
-<div class="cat" style="background:#2e4053" onclick="show('pedag')">PÉDAGOGIE</div>
-<div class="cat" style="background:#a93226" onclick="show('ai')">AI - INTELLIGENCE</div>
-<div class="cat" style="background:#1a5276" onclick="show('eco')">ÉCONOMIE/COMPTA</div>
-<div class="cat" style="background:#7d3c98" onclick="show('let')">LETTRE/ESTHÉTIQUE</div>
-</div>
+<div class="cours"><h3 style="background:#0a4a8a">1. ELECTRONIQUE TOUT</h3><div class="txt">Diode 1N4007, transistor NPN 2N2222, MOSFET IRF540 pour commande moteur KCC. AOP LM358, filtre RC f=1/2πRC, oscillateur 1kHz. Arduino: analogRead capteur T°. Bible: Lois invisibles comme Saint-Esprit Jean 3:8</div></div>
 
-<!-- COURS -->
-<div id="elec" class="cours active"><h3 style="background:#0a4a8a">ÉLECTRONIQUE TOUT</h3><div class="txt"><b>1. Diode, Transistor, MOSFET:</b> NPN = courant base commande collecteur. MOSFET pour KCC. <br><b>2. AOP, Oscillateur, Filtre RC:</b> F=1/2πRC<br><b>3. Arduino
+<div class="cours"><h3 style="background:#d35400">2. ELECTRICITE TOUT</h3><div class="txt">U=RI, P=UI, Triphasé 380V étoile/triangle.
