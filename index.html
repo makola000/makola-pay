@@ -1,24 +1,58 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<title>Makola Pay</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAKOLA PAY - Kolwezi</title>
 <style>
-body{font-family:Arial;background:#0f172a;color:white;text-align:center;padding:20px}
-.card{background:white;color:black;padding:25px;border-radius:20px;max-width:380px;margin:20px auto}
-button{background:#22c55e;color:white;border:0;padding:15px;border-radius:10px;width:100%;font-size:18px}
-input{padding:14px;width:90%;border-radius:10px;border:1px solid #ccc;margin:8px 0}
+body{font-family:Arial;text-align:center;padding:15px;background:#000;color:#fff}
+.card{max-width:450px;margin:20px auto;background:#111;padding:25px;border-radius:16px;border:2px solid #ffd700}
+.price{border:1px solid #333;padding:10px;border-radius:10px;margin:8px 0;display:flex;justify-content:space-between}
+button{width:100%;padding:14px;background:#ffd700;color:#000;border:none;border-radius:10px;font-weight:900;margin-top:12px;font-size:16px}
+.num{color:#ffd700;font-weight:bold;font-size:18px}
 </style>
 </head>
 <body>
-<h1>Makola Pay 💰</h1>
-<p>Kolwezi - Paiement Rapide</p>
+<div style="font-size:50px;font-weight:900;color:#ffd700">makola</div>
+<div style="letter-spacing:5px">UNIVERSITÉ PAYANTE - KOLWEZI</div>
+
 <div class="card">
-<input placeholder="Numéro (ex: 081...)">
-<input placeholder="Montant CDF" type="number">
-<button>Envoyer Maintenant</button>
-<p>by makola000</p>
+<h3>💰 Frais de Recherche IA</h3>
+<div class="price"><span>1 Question</span><b>1 500 FC</b></div>
+<div class="price"><span>Accès 1 Jour illimité</span><b>5 000 FC</b></div>
+<div class="price"><span>Accès 1 Mois étudiant</span><b>25 000 FC</b></div>
+<hr>
+<p>Payez à l'un de ces numéros:</p>
+<p>Vodacom M-Pesa: <br><span class="num">082 047 9539</span></p>
+<p>Airtel Money: <br><span class="num">098 335 6734</span></p>
+<p style="font-size:12px;color:#aaa">Nom: MAKOLA M. - Après paiement, gardez le message MPesa</p>
+
+<button onclick="window.open('https://wa.me/243983356734?text=Bonjour%20Makola%20j%27ai%20pay%C3%A9%20'+document.getElementById('tel').value+'%20FC%20sur%20le%20'+document.getElementById('reseau').value+'%20je%20veux%20mon%20code%20d%27acc%C3%A8s')">J'AI PAYÉ - ENVOYER PREUVE WHATSAPP</button>
+
+<div style="margin-top:15px;text-align:left">
+<label style="font-size:12px">Montant payé:</label><input id="tel" placeholder="Ex: 5000" style="width:95%;padding:8px;border-radius:6px;border:none;margin-bottom:5px">
+<label style="font-size:12px">Réseau:</label><select id="reseau" style="width:98%;padding:8px;border-radius:6px"><option>M-Pesa 0820479539</option><option>Airtel Money 0983356734</option></select>
 </div>
+
+<hr>
+<h4>🔑 Tu as déjà un code?</h4>
+<input id="code" placeholder="Entre CODE ici (ex: MAKOLA2026)" style="width:90%;padding:12px;border-radius:8px;border:none;text-align:center;font-weight:bold">
+<button onclick="check()" style="background:white;color:black">ACCÉDER À L'UNIVERSITÉ IA</button>
+<p id="err" style="color:red;font-size:12px"></p>
+</div>
+
+<script>
+function check(){
+ let c=document.getElementById('code').value.trim().toUpperCase();
+ let codes=['MAKOLA2026','KOLWEZI','PAYE','MAKOLA','ETUDIANT'];
+ if(codes.includes(c) || c.length>5){
+   localStorage.setItem('makola_paye','oui');
+   localStorage.setItem('makola_code',c);
+   window.location.href='science.html';
+ }else{
+   document.getElementById('err').innerText='Code incorrect. Envoie preuve paiement sur WhatsApp pour recevoir code.';
+ }
+}
+</script>
 </body>
 </html>
