@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,47 +14,47 @@ body{font-family:Arial;text-align:center;padding:10px;background:#000;color:#fff
 </style>
 </head>
 <body>
+<script>
+// BLOCAGE PAIEMENT - Si pas payé, retourne au paiement
+if(localStorage.getItem('makola_paye')!=='oui'){
+  window.location.href='index.html';
+}
+</script>
+
 <div class="logo">makola AI</div>
-<div class="small">TOUTES LES SCIENCES + IA INTÉGRÉE</div>
-<div class="box">🤖 <input id="q" placeholder="Demande à l'IA: n'importe quelle science..." onkeypress="if(event.key==='Enter')go()"></div>
-<button onclick="go()" style="padding:12px 35px;background:#ffd700;color:#000;border:none;border-radius:20px;font-weight:bold">DEMANDER À L'IA MAKOLA</button>
+<div class="small">TOUTES LES SCIENCES + IA - ACCÈS PAYÉ</div>
+<div class="box">🤖 <input id="q" placeholder="Pose ta question scientifique..." onkeypress="if(event.key==='Enter')go()"></div>
+<button onclick="go()" style="padding:12px 35px;background:#ffd700;color:#000;border:none;border-radius:20px;font-weight:bold">DEMANDER À L'IA</button>
+<button onclick="logout()" style="padding:8px 15px;background:#333;color:#fff;border:none;border-radius:10px;margin-left:10px">Sortir</button>
 <div id="rep"></div>
+
 <script>
 const LOCAL={
 "cuivre":"CUIVRE Kolwezi: 9500$/t, 70% prod RDC.",
 "cobalt":"COBALT: 33000$/t, capitale Kolwezi.",
-"plc":"PLC: Siemens S7-1200, Ladder, SCADA.",
-"spectre":"SPECTRE EM: Radio < Micro-onde < IR < Visible(400-700nm) < UV < X < Gamma. c=λf, c=3e8 m/s.",
+"plc":"PLC: Siemens S7-1200, Ladder, SCADA WinCC.",
+"spectre":"SPECTRE EM: Radio < Micro-onde < IR < Visible(400-700nm) < UV < X < Gamma. c=λf",
 "beton":"BÉTON: 350kg/m3, fondation 1.5m Kolwezi.",
 "adn":"ADN: double hélice A-T-C-G, 46 chromosomes."
 };
 
 async function go(){
-let v=document.getElementById('q').value.trim(); if(!v)return alert('Pose ta question');
+let v=document.getElementById('q').value.trim(); if(!v)return;
 let r=document.getElementById('rep'); r.style.display='block'; r.innerHTML='🤖 Makola AI réfléchit...';
 let vl=v.toLowerCase();
-
-// 1. LOCAL RAPIDE
-for(let k in LOCAL){ if(vl.includes(k)){ r.innerHTML='<span class="tag">MAKOLA LOCAL</span><br><br>'+LOCAL[k]; return; } }
-
-// 2. VRAIE IA INTÉGRÉE - Pollinations AI gratuite (comme ChatGPT)
+for(let k in LOCAL){ if(vl.includes(k)){ r.innerHTML='<span class="tag">LOCAL</span><br><br>'+LOCAL[k]; return; } }
 try{
- let aiRes = await fetch('https://text.pollinations.ai/'+encodeURIComponent('Tu es Makola Intelligence, expert toutes sciences, mines Kolwezi, construction, électronique, biologie, chimie, spectre EM. Réponds en français simple et court à: '+v));
+ let aiRes = await fetch('https://text.pollinations.ai/'+encodeURIComponent('Tu es Makola Intelligence expert toutes sciences Kolwezi. Réponds français court à: '+v));
  let aiText = await aiRes.text();
- if(aiText && aiText.length>10){
-   r.innerHTML='<span class="tag">MAKOLA AI - INTELLIGENCE ARTIFICIELLE</span><br><br>'+aiText+'<br><br><hr><small>🧠 Réponse générée par IA intégrée</small>';
-   return;
- }
+ if(aiText && aiText.length>10){ r.innerHTML='<span class="tag">MAKOLA AI</span><br><br>'+aiText; return; }
 }catch(e){}
-
-// 3. FALLBACK WIKIPEDIA SI IA COUPÉE
 try{
  let w=await fetch('https://fr.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(v));
- let d=await w.json(); if(d.extract){ r.innerHTML='<span class="tag">WIKIPÉDIA</span><br><br><b>'+d.title+'</b><br><br>'+d.extract; return; }
+ let d=await w.json(); if(d.extract){ r.innerHTML='<span class="tag">WIKIPÉDIA</span><br><br>'+d.extract; return; }
 }catch(e){}
-
-r.innerHTML='IA occupée. WhatsApp: <a href="https://wa.me/243983356734?text='+encodeURIComponent(v)+'" style="color:#ffd700">Clique ici</a>';
+r.innerHTML='IA occupée.';
 }
+function logout(){ localStorage.removeItem('makola_paye'); window.location.href='index.html'; }
 </script>
 </body>
 </html>
