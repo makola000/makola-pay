@@ -3,69 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAKOLA 500FC - SCIENCE + BIBLE Sans Mega</title>
+<title>MAKOLA UNIVERSITE COMPLETE 500FC</title>
 <style>
-body{margin:0;font-family:Arial;line-height:1.7;background:#f8fafc}
-#pay{position:fixed;inset:0;background:#0a1628;display:flex;align-items:center;justify-content:center;z-index:9999;padding:15px}
-.card{background:#fff;padding:28px;border-radius:22px;max-width:360px;width:100%;text-align:center}
-.btn{width:100%;padding:18px;background:#00c853;color:#fff;border:0;border-radius:14px;font-size:20px;font-weight:bold}
-.top{background:#0a1628;color:#fff;padding:25px;text-align:center}
-.cours{background:#fff;margin:12px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);overflow:hidden}
-.cours h3{margin:0;padding:14px;color:#fff}
-.science h3{background:#0a4a8a}
-.bible h3{background:#8B4513}
-.txt{padding:16px}
+body{margin:0;font-family:Arial;background:#eef2f7}
+#pay{position:fixed;inset:0;background:#0a1628;z-index:9999;display:flex;align-items:center;justify-content:center;padding:15px}
+.card{background:#fff;padding:25px;border-radius:20px;max-width:380px;width:100%;text-align:center}
+.btn{width:100%;padding:16px;background:#00c853;color:#fff;border:0;border-radius:12px;font-size:20px;font-weight:bold}
+.top{background:#0a1628;color:#fff;padding:20px;text-align:center;position:sticky;top:0;z-index:100}
+.search{width:90%;padding:12px;border-radius:10px;border:0;margin-top:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px}
+.cat{padding:14px;border-radius:12px;color:#fff;font-weight:bold;text-align:center;cursor:pointer;font-size:13px}
+.cours{background:#fff;margin:10px;border-radius:14px;box-shadow:0 2px 6px rgba(0,0,0,.1);display:none}
+.cours.active{display:block}
+.cours h3{margin:0;padding:12px;color:#fff;border-radius:14px 14px 0 0;font-size:15px}
+.txt{padding:14px;font-size:14px;line-height:1.7;max-height:400px;overflow-y:auto}
 </style>
 </head>
 <body>
 
-<div id="pay">
-<div class="card">
-<h2>MAKOLA</h2>
+<div id="pay"><div class="card">
+<h2>MAKOLA UNIVERSITÉ</h2>
 <h1 style="color:#0a4a8a">500 FC</h1>
-<p><b>SCIENCE + BIBLE</b><br>Explications Profondes<br>SANS MEGA à vie</p>
-<button class="btn" onclick="payer()">PAYER 500 FC</button>
-</div>
-</div>
+<p><b>23 FACULTÉS COMPLÈTES</b><br>Tous les cours + Bible profonde<br><b>SANS MEGA À VIE</b></p>
+<button class="btn" onclick="payer()">PAYER 500FC ET OUVRIR</button>
+</div></div>
 
 <div class="top">
-<h1>MAKOLA 500FC</h1>
-<p>SCIENCE + BIBLE - EXPLICATIONS PROFONDES - SANS MEGA</p>
+<h2 style="margin:0">MAKOLA UNIVERSITÉ COMPLÈTE</h2>
+<input class="search" id="search" placeholder="Cherche un cours... ex: cuivre, quantique" onkeyup="filtrer()">
+<div id="stat" style="font-size:12px;margin-top:8px">● Sans méga prêt</div>
 </div>
 
-<!-- SCIENCE -->
-<div class="cours science"><h3>1. 🧬 LA CELLULE</h3><div class="txt"><b>Science:</b> Unité de base. Noyau = ADN, mitochondrie = énergie.<br><b>Bible:</b> Psaume 139:14 "Je te loue de ce que je suis une créature si merveilleuse." Dieu a créé la cellule complexe.</div></div>
+<div class="grid">
+<div class="cat" style="background:#0a4a8a" onclick="show('elec')">ÉLECTRONIQUE</div>
+<div class="cat" style="background:#d35400" onclick="show('elect')">ÉLECTRICITÉ</div>
+<div class="cat" style="background:#27ae60" onclick="show('maths')">MATHS</div>
+<div class="cat" style="background:#8e44ad" onclick="show('phys')">PHYSIQUE</div>
+<div class="cat" style="background:#c0392b" onclick="show('chim')">CHIMIE PURE</div>
+<div class="cat" style="background:#5d4037" onclick="show('mine')">MINE SOUT/CIELO</div>
+<div class="cat" style="background:#00796b" onclick="show('meta')">MÉTALLURGIE Cu/Co</div>
+<div class="cat" style="background:#f39c12" onclick="show('usine')">USINE CUIVRE</div>
+<div class="cat" style="background:#2c3e50" onclick="show('mecag')">MÉCA GÉNÉRALE</div>
+<div class="cat" style="background:#34495e" onclick="show('mecaa')">MÉCA AUTO</div>
+<div class="cat" style="background:#2980b9" onclick="show('fluide')">MÉCA FLUIDE</div>
+<div class="cat" style="background:#16a085" onclick="show('instru')">INSTRUMENTATION</div>
+<div class="cat" style="background:#e74c3c" onclick="show('quant')">MÉCA QUANTIQUE</div>
+<div class="cat" style="background:#d35400" onclick="show('med')">MÉDECINE</div>
+<div class="cat" style="background:#8B4513" onclick="show('bible')">BIBLE PROFONDE</div>
+<div class="cat" style="background:#6c3483" onclick="show('philo')">LATIN PHILO</div>
+<div class="cat" style="background:#2e4053" onclick="show('pedag')">PÉDAGOGIE</div>
+<div class="cat" style="background:#a93226" onclick="show('ai')">AI - INTELLIGENCE</div>
+<div class="cat" style="background:#1a5276" onclick="show('eco')">ÉCONOMIE/COMPTA</div>
+<div class="cat" style="background:#7d3c98" onclick="show('let')">LETTRE/ESTHÉTIQUE</div>
+</div>
 
-<div class="cours science"><h3>2. 🌿 PHOTOSYNTHÈSE</h3><div class="txt"><b>Science:</b> CO2 + H2O + soleil = sucre + O2. Dans chloroplaste.<br><b>Bible:</b> Genèse 1:30 Dieu donne les plantes vertes pour nourriture. La photosynthèse est le système de Dieu pour nous nourrir.</div></div>
-
-<div class="cours science"><h3>3. ⚛️ ATOME & MATIÈRE</h3><div class="txt"><b>Science:</b> Proton+, neutron, électron-. Tout est atome. Cuivre Kolwezi = 29 protons.<br><b>Bible:</b> Hébreux 11:3 "Ce qu'on voit a été fait de choses qu'on ne voit pas." = Les atomes invisibles.</div></div>
-
-<div class="cours science"><h3>4. 🩸 SANG & VIE</h3><div class="txt"><b>Science:</b> Globules rouges transportent O2, blancs défendent. Coeur pompe 7000L/jour.<br><b>Bible:</b> Lévitique 17:11 "La vie de la chair est dans le sang." La science confirme, le sang = vie.</div></div>
-
-<div class="cours science"><h3>5. 🌍 TERRE & UNIVERS</h3><div class="txt"><b>Science:</b> Terre tourne 24h + 365j autour du soleil. Penchée 23° = saisons.<br><b>Bible:</b> Genèse 1:1 "Au commencement Dieu créa les cieux et la terre." Job 26:7 "Il suspend la terre sur le néant" - avant la science!</div></div>
-
-<div class="cours science"><h3>6. ⚡ ÉLECTRICITÉ</h3><div class="txt"><b>Science:</b> Électrons qui bougent. Circuit fermé obligatoire. Volt = force, Ampère = débit.<br><b>Bible:</b> 1 Jean 1:5 "Dieu est lumière." L'électricité nous rappelle que Dieu est source de lumière et énergie.</div></div>
-
-<div class="cours science"><h3>7. 🦠 MICROBES & SANTÉ</h3><div class="txt"><b>Science:</b> Bactéries, virus, champignons. Hygiène = lavage mains, eau bouillie, moustiquaire.<br><b>Bible:</b> Lévitique 11-15 Dieu donne déjà des lois d'hygiène, lavage des mains, isolement des malades.</div></div>
-
-<div class="cours science"><h3>8. 💧 EAU & CYCLE</h3><div class="txt"><b>Science:</b> H2O, 70% du corps. Cycle: évaporation -> nuage -> pluie.<br><b>Bible:</b> Ecclésiaste 1:7 "Tous les fleuves vont à la mer, et la mer n'est point remplie." = cycle de l'eau décrit.</div></div>
-
-<!-- BIBLE -->
-<div class="cours bible"><h3>9. 📖 GENÈSE - CRÉATION</h3><div class="txt"><b>Texte:</b> Genèse 1-2<br><b>Explication profonde:</b> Dieu crée en 6 jours avec ordre logique: lumière -> ciel/eau -> terre/plantes -> soleil/lune -> animaux -> homme. L'homme créé à l'image de Dieu (Gen 1:27) = capable de penser, créer, aimer. Pas comme un animal. Dieu se repose le 7e jour = modèle du repos.</div></div>
-
-<div class="cours bible"><h3>10. 📖 EXODE - LIBÉRATION</h3><div class="txt"><b>Texte:</b> Exode 14<br><b>Profonde:</b> Israël esclave en Égypte 400 ans. Dieu envoie Moïse. 10 plaies montrent puissance sur dieux égyptiens. Mer Rouge s'ouvre: Dieu ouvre un chemin où il n'y en a pas. Leçon: Dieu libère de l'esclavage du péché aujourd'hui comme il a libéré Israël.</div></div>
-
-<div class="cours bible"><h3>11. 📖 PSAUMES - COEUR DE DIEU</h3><div class="txt"><b>Texte:</b> Psaume 23, 139<br><b>Profonde:</b> Psaume 23: "L'Éternel est mon berger" - David berger explique relation: berger protège brebis contre lions. Psaume 139: Dieu nous connait avant naissance, même nos pensées. Il est partout.</div></div>
-
-<div class="cours bible"><h3>12. 📖 PROVERBES - SAGESSE</h3><div class="txt"><b>Texte:</b> Proverbes 3:5-6<br><b>Profonde:</b> "Confie-toi en l'Éternel de tout ton coeur." Sagesse = pas seulement intelligence (école) mais savoir appliquer. Exemple: science dit comment faire l'argent, sagesse dit comment bien l'utiliser sans détruire famille.</div></div>
-
-<div class="cours bible"><h3>13. 📖 ÉVANGILES - JÉSUS</h3><div class="txt"><b>Texte:</b> Jean 3:16, Marc 10:45<br><b>Profonde:</b> Jésus 100% Dieu et 100% homme. Il fait miracles qui confirment science: guérit aveugle (cellules yeux recréées), calme tempête (contrôle météo). Pourquoi il meurt? Pour payer prix du péché. Comme en science, rien ne se perd, péché doit être payé. Il paye à notre place.</div></div>
-
-<div class="cours bible"><h3>14. 📖 ACTES & ÉPÎTRES - VIE NOUVELLE</h3><div class="txt"><b>Texte:</b> Romains 8:28, Actes 2<br><b>Profonde:</b> Après résurrection, Saint-Esprit vient. Transformation profonde: Pierre peureux devient courageux. Romains 8:28 "Toutes choses concourent au bien" - même souffrance à Kolwezi, Dieu peut l'utiliser pour former caractère, comme feu qui purifie cuivre.</div></div>
-
-<script>
-if(localStorage.getItem('makola_paye')=='oui'){document.getElementById('pay').style.display='none'}
-function payer(){localStorage.setItem('makola_paye','oui');document.getElementById('pay').style.display='none';alert('Merci! Science + Bible débloqué SANS MEGA');}
-</script>
-</body>
-</html>
+<!-- COURS -->
+<div id="elec" class="cours active"><h3 style="background:#0a4a8a">ÉLECTRONIQUE TOUT</h3><div class="txt"><b>1. Diode, Transistor, MOSFET:</b> NPN = courant base commande collecteur. MOSFET pour KCC. <br><b>2. AOP, Oscillateur, Filtre RC:</b> F=1/2πRC<br><b>3. Arduino
