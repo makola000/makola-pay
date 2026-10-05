@@ -1,37 +1,58 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>makola intelligence - Science</title>
+<title>MAKOLA AI - TOUTES LES SCIENCES</title>
 <style>
-body{font-family:Arial;text-align:center;padding:20px}
-.logo{font-size:55px;font-weight:900;margin-top:40px}
-.small{letter-spacing:7px;color:#666}
-.box{border:1px solid #aaa;border-radius:30px;max-width:600px;margin:20px auto;padding:12px 20px;display:flex}
-.box input{border:none;outline:none;width:100%;font-size:16px;margin-left:10px}
-#rep{max-width:700px;margin:20px auto;text-align:left;background:#f5f7ff;padding:20px;border-radius:12px;display:none;line-height:1.6}
+body{font-family:Arial;text-align:center;padding:10px;background:#000;color:#fff}
+.logo{font-size:50px;font-weight:900;color:#ffd700}.small{letter-spacing:6px;color:#aaa}
+.box{border:2px solid #ffd700;border-radius:30px;max-width:800px;margin:20px auto;padding:14px 20px;display:flex;background:#111}
+.box input{border:none;outline:none;width:100%;font-size:17px;margin-left:10px;background:#111;color:white}
+#rep{max-width:850px;margin:auto;text-align:left;background:#111;border:1px solid #333;padding:22px;border-radius:14px;display:none;line-height:1.7;white-space:pre-wrap}
+.tag{background:#ffd700;color:#000;padding:4px 10px;border-radius:10px;font-size:11px;font-weight:bold}
 </style>
 </head>
 <body>
-<div class="logo">makola</div>
-<div class="small">SCIENCE INTELLIGENCE</div>
-<div class="box">🔬 <input id="q" placeholder="Pose n'importe quelle question scientifique..." onkeypress="if(event.key==='Enter')go()"></div>
-<button onclick="go()" style="padding:10px 25px;background:#4285F4;color:white;border:none;border-radius:20px">Chercher</button>
+<div class="logo">makola AI</div>
+<div class="small">TOUTES LES SCIENCES + IA INTÉGRÉE</div>
+<div class="box">🤖 <input id="q" placeholder="Demande à l'IA: n'importe quelle science..." onkeypress="if(event.key==='Enter')go()"></div>
+<button onclick="go()" style="padding:12px 35px;background:#ffd700;color:#000;border:none;border-radius:20px;font-weight:bold">DEMANDER À L'IA MAKOLA</button>
 <div id="rep"></div>
 <script>
-const localDB={"cuivre":"Cuivre Kolwezi: 9500$/t, 70% production RDC.","cobalt":"Cobalt: capitale mondiale Kolwezi, batterie.","electricite":"Électricité: barrage Busanga 240MW pour Kolwezi.","atome":"Atome: plus petite partie de la matière, noyau + électrons.","photosynthese":"Photosynthèse: plante transforme soleil + CO2 en sucre + oxygène.","gravite":"Gravité: force qui attire les objets vers la terre, 9.8 m/s²."};
+const LOCAL={
+"cuivre":"CUIVRE Kolwezi: 9500$/t, 70% prod RDC.",
+"cobalt":"COBALT: 33000$/t, capitale Kolwezi.",
+"plc":"PLC: Siemens S7-1200, Ladder, SCADA.",
+"spectre":"SPECTRE EM: Radio < Micro-onde < IR < Visible(400-700nm) < UV < X < Gamma. c=λf, c=3e8 m/s.",
+"beton":"BÉTON: 350kg/m3, fondation 1.5m Kolwezi.",
+"adn":"ADN: double hélice A-T-C-G, 46 chromosomes."
+};
+
 async function go(){
-let v=document.getElementById('q').value.trim(); if(!v)return alert('Écris une question');
-let r=document.getElementById('rep'); r.style.display='block'; r.innerHTML='Recherche en cours... 🔍';
+let v=document.getElementById('q').value.trim(); if(!v)return alert('Pose ta question');
+let r=document.getElementById('rep'); r.style.display='block'; r.innerHTML='🤖 Makola AI réfléchit...';
 let vl=v.toLowerCase();
-for(let k in localDB){ if(vl.includes(k)){ r.innerHTML='<b>Makola répond (Local):</b><br><br>'+localDB[k]; return; } }
+
+// 1. LOCAL RAPIDE
+for(let k in LOCAL){ if(vl.includes(k)){ r.innerHTML='<span class="tag">MAKOLA LOCAL</span><br><br>'+LOCAL[k]; return; } }
+
+// 2. VRAIE IA INTÉGRÉE - Pollinations AI gratuite (comme ChatGPT)
 try{
-let res=await fetch('https://fr.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(v));
-let data=await res.json();
-if(data.extract){ r.innerHTML='<b>Réponse Scientifique (Wikipédia):</b><br><br><b>'+data.title+'</b><br>'+data.extract+'<br><br><a href="'+data.content_urls.desktop.page+'" target="_blank">Lire plus sur Wikipédia</a>'; return; }
-} catch(e){}
-r.innerHTML='Je n\'ai pas trouvé sur Wikipédia. Je transfère à l\'expert.<br><br><a href="https://wa.me/243983356734?text='+encodeURIComponent(v)+'"><button style="padding:10px 20px;background:green;color:white;border:none;border-radius:10px">Demander sur WhatsApp</button></a>';
+ let aiRes = await fetch('https://text.pollinations.ai/'+encodeURIComponent('Tu es Makola Intelligence, expert toutes sciences, mines Kolwezi, construction, électronique, biologie, chimie, spectre EM. Réponds en français simple et court à: '+v));
+ let aiText = await aiRes.text();
+ if(aiText && aiText.length>10){
+   r.innerHTML='<span class="tag">MAKOLA AI - INTELLIGENCE ARTIFICIELLE</span><br><br>'+aiText+'<br><br><hr><small>🧠 Réponse générée par IA intégrée</small>';
+   return;
+ }
+}catch(e){}
+
+// 3. FALLBACK WIKIPEDIA SI IA COUPÉE
+try{
+ let w=await fetch('https://fr.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(v));
+ let d=await w.json(); if(d.extract){ r.innerHTML='<span class="tag">WIKIPÉDIA</span><br><br><b>'+d.title+'</b><br><br>'+d.extract; return; }
+}catch(e){}
+
+r.innerHTML='IA occupée. WhatsApp: <a href="https://wa.me/243983356734?text='+encodeURIComponent(v)+'" style="color:#ffd700">Clique ici</a>';
 }
 </script>
 </body>
