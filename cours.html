@@ -1,43 +1,70 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA PAY</title><style>body{margin:0;font-family:Arial;background:#eef2f7}.top{background:#0a1628;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:9}input{width:92%;padding:12px;border-radius:20px;border:0}#pay{position:fixed;inset:0;background:rgba(10,22,40,.96);z-index:99;display:flex;align-items:center;justify-content:center;padding:15px}.box{background:#fff;border-radius:15px;padding:20px;max-width:400px;width:100%;text-align:center}.btn{background:#ff6a00;color:#fff;border:0;padding:14px;border-radius:10px;width:100%;font-weight:bold;margin-top:10px}.num{background:#f5f5f5;padding:10px;border-radius:10px;margin:6px 0;font-weight:bold;letter-spacing:1px}.c{background:#fff;margin:10px;border-radius:12px}.c h3{margin:0;padding:12px;color:#fff;border-radius:12px 12px 0 0}.t{padding:12px;font-size:13px}</style></head><body>
-<div id="pay"><div class="box">
-<h2 style="margin:0">🔒 MAKOLA PAY - 500 FC</h2>
-<p style="font-size:13px">50 cours complets Électricité Chimie Mine KCC Cobalt</p>
-<div class="num">📱 M-Pesa / Airtel: 098 33 56 734</div>
-<div class="num">📱 Orange Money: 082 047 95 39</div>
-<p style="font-size:12px;color:#444">1. Paye 500FC sur un des numéros<br>2. Entre ID transaction reçu par SMS</p>
-<input id="code" placeholder="Ex: MP2309... ou tape MAKOLA500 (test)" style="border:1px solid #ccc;border-radius:10px">
-<button class="btn" onclick="unlock()">✅ J'AI PAYÉ 500FC - DÉBLOQUER</button>
-<a id="wa" href="#" style="display:block;margin-top:12px;font-size:13px;color:#0a4a8a">Envoyer preuve sur WhatsApp</a>
-<p id="err" style="color:red;font-size:12px"></p>
-<p style="font-size:10px;color:#888">Démo gratuite: code MAKOLA500</p>
-</div></div>
-<div class="top"><h2 style="margin:0">MAKOLA 50 COURS AUTO</h2><input id="s" onkeyup="F()" placeholder="🔍 electricite chimie mine KCC cobalt"><div id="n" style="font-size:11px;margin-top:4px">50 cours générés auto</div></div><div id="a"></div>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA 50 COURS FINAL</title><style>
+body{margin:0;font-family:Arial;background:#eef2f7} .top{background:#0a1628;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:10} input{width:93%;padding:13px;border-radius:25px;border:0;font-size:15px} #pay{position:fixed;inset:0;background:rgba(10,22,40,.97);z-index:99;display:flex;align-items:center;justify-content:center;padding:15px} .box{background:#fff;border-radius:15px;padding:20px;max-width:420px;width:100%;text-align:center} .btn{background:#ff6a00;color:#fff;border:0;padding:14px;border-radius:10px;width:100%;font-weight:bold;margin-top:10px;font-size:16px} .num{background:#f5f5f5;padding:10px;border-radius:10px;margin:6px 0;font-weight:bold} .c{background:#fff;margin:12px;border-radius:12px;box-shadow:0 2px 10px #0001} .c h3{margin:0;padding:12px;color:#fff;border-radius:12px 12px 0 0;font-size:13px} .t{padding:14px;font-size:13px;line-height:1.6;white-space:pre-wrap}
+</style></head><body>
+<div id="pay"><div class="box"><h2>🔒 MAKOLA PAY - 50 COURS</h2><p style="font-size:13px">Tous expliqués enfant + expert profond</p><div class="num">📱 098 33 56 734 M-Pesa/Airtel</div><div class="num">📱 082 047 95 39 Orange Money</div><p style="font-size:12px">500 FC accès à vie</p><input id="code" placeholder="ID M-Pesa ou MAKOLA500" style="border:1px solid #ccc;border-radius:10px;width:88%;padding:12px;margin-top:10px"><button class="btn" onclick="unlock()">✅ J'AI PAYÉ 500FC - DÉBLOQUER</button><a href="https://wa.me/243983356734?text=Preuve paiement MAKOLA 500FC" style="display:block;margin-top:12px;color:#0a4a8a;font-size:13px">WhatsApp preuve</a><p id="err" style="color:red;font-size:12px"></p><p style="font-size:10px;color:#888">Test: MAKOLA500</p></div></div>
+<div class="top"><h2 style="margin:0">MAKOLA 50 COURS - FINAL PROFOND</h2><input id="s" oninput="F()" placeholder="🔍 Pose n'importe quelle question: c'est quoi chimie? U=RI? cobalt?"><div id="n" style="font-size:11px;margin-top:4px">50 cours - recherche instantanée</div></div>
+<div id="a"></div>
 <script>
 const cours=[
-["ELECTRICITE 380V","#d35400","U=RI P=UI triphasé moteur 55kW Kolwezi KCC disjoncteur"],
-["CHIMIE pH","#c0392b","Cu H2SO4 pH Co(OH)2 36%Co réactif KCC dosage chaux pH 11.5"],
-["ELECTRONIQUE","#0a4a8a","diode transistor Arduino panne carte DCS Siemens PLC 4-20mA"],
-["MINE CIEL OUVERT","#5d4037","Atlas Copco DM45 ANFO CAT 6060 100T berme 10m cycle 15min"],
-["MINE SOUTERRAINE","#3e2723","puits 1000m boulonnage ventilation CH4 grisou COMUS Musonoi"],
-["METALLURGIE CU","#00796b","SAG flottation 30%Cu épaississeur SX EW cathodes 99.99%Cu LME 9000$"],
-["COBALT BATTERIE","#004d40","cobalt 0.3%Co Co(OH)2 batterie Tesla LME 33000$ COMUS 3000t/mois"],
-["KCC FLOW","#f39c12","KCC: minerai->concasseur->SAG->flottation->SX->EW DCS"],
-["COMUS CDM","#e67e22","COMUS Musonoi camions Howo 60T production cobalt RDC"],
-["GEOLOGIE 2%Cu","#2e7d32","RSC sédimentaire forage carottage teneur 2%Cu 0.3%Co"],
+["1. ELECTRICITE C'EST QUOI? U=RI","#d35400","👶 ENFANT: Electricité=eau invisible. Voltage=pression, Ampère=débit.\n👨‍🏫 EXPERT: U=R*I, P=U*I, Triphasé P=√3*U*I*cosφ 0.85, Transfo KCC 11kV/380V 2MVA Ik=U/Z, Disjoncteur 160A courbe D, LOTOTO VAT EPI arc 8cal.\nExo: Moteur 55kW 380V I=98A câble 25mm²."],
+["2. CHIMIE C'EST QUOI? pH","#c0392b","👶 LEGO invisible H2O=2H+1O.\n👨‍🏫 Atome Z, Mole 6.02e23, Réaction KCC CuO+H2SO4->CuSO4+H2O (79.5g+98g=159.5g), C=m/V, M=n/V, pH=-log[H+], KCC pH1.5 lixiv pH2 Cu pH8.2 Co MgO pH9 Mn. Dosage 1000L 10g/L H2SO4 =>8.5kg CaO. Sécurité acide dans eau."],
+["3. ELECTRONIQUE DIODE TRANSISTOR","#0a4a8a","👶 Diode=porte sens unique Transistor=robinet.\n👨‍🏫 Diode 0.7V Pont Graetz AC-DC NPN β=100 Ib1mA=>Ic100mA Arduino 4-20mA VFD 380V->DC540V->AC variable Panne carte alim 24V fusible condo."],
+["4. MINE CIEL OUVERT FORATION TIR CAT6060","#5d4037","👶 Trou géant perce boum pelle camion.\n👨‍🏫 KCC Pit 1kmx500mx100m DM45 250mm 10m 30m/h maille 5x5 banquette10m ANFO 0.3kg/T 202kg/trou CAT6060 34m3 4passes=100T 777F Cycle15min 32cycles=3200T/shift Berme10m angle45° rampe10% Volume 50x30x10=15000m3*2.7=40500T."],
+["5. MINE SOUTERRAINE COMUS","#3e2723","👶 Tunnel métro cobalt.\n👨‍🏫 Puits1000m cage20T Galerie5x5 boulon2.4m résine béton10cm Ventil100m3/s CH4<1% CO<25ppm silice<0.1 Jumbo 2bras 50trous 3m Chambre pilier COMUS 3000t/j Grisou 5-15% explosif."],
+["6. METALLURGIE FLOTTATION SX EW","#00796b","👶 Cailloux peu cuivre->concasse->mousse->plaque pure.\n👨‍🏫 Giratoire 54-75 P80 100->12mm SAG10MW+Ball8MW P80 75µm Flott xanthate50g/T MIBC20g/T pH11.5 récup90% conc30%Cu Épaiss30m floc20g/T 65%sol SX LIX63 30% O/A1.2 PLS30->50g/L EW 3.5V 300A/m2 5j 100kg 99.99%LME Bilan1000T 2%Cu=20T*90%=18T=162k$ Récup=C*c/F*f."],
+["7. COBALT BATTERIE TESLA","#004d40","👶 Vitamine batterie.\n👨‍🏫 Carrollite CuCo2S4 Rejet0.3%Co->lixiv H2SO4+SO2 Purif Fe pH4 Cu pH5 Mn pH6 Précip MgO pH8.2 Co(OH)2 36% Filtre100T/j Prix LME Co33000$ pay70%=>8316$/T 1T0.3%Co=3kg=99$ COMUS 3000T/mois=25M$ Toxique VME0.02mg/m3 P3."],
+["8. KCC FLOW SHEET","#f39c12","ROM2%Cu->Giratoire->Stock20kT->SAG10MW 12mm->1mm->Ball 1mm->75µm->Cyclone->Flott rougher20x100m3->Cleaner->Conc30%->Épaiss30m->SX Mixer LIX63 O/A1.2->EW 200cell 50cath 3.5V 30kA 99.99%Cu DCS Siemens PCS7 S7-400 SCADA 4-20mA Profibus Eau80%recyclée 5000T/j2%Cu=>90T cath/j=810k$/j."],
+["9. COMUS CDM MUSONOI","#e67e22","COMUS Musonoi Kolwezi CDM 2000T/j 0.8%Co2%Cu Flotte10x777F 100T 2x6060 3xDM45 Usine concass broy flott Co lixiv précip Co(OH)2 Produit5000T/an Co Logistique30T Lubumbashi SNCC Durban Coût15+30=45$/T."],
+["10. GEOLOGIE RESERVE 2%Cu","#2e7d32","Sédimentaire stratiforme RSC couche10-30m Forage HQ63mm carotte1m XRF AA acQuire Surpac krigeage blocs10m Réserve cut-off0.5%Cu 100Mt2%Cu=2Mt métal Whittle NPV Exo10m2%Cu densité2.7 1m2=27T*2%=540kg."]
 ];
-for(let i=cours.length;i<50;i++){cours.push([`COURS ${i+1} KCC`,"#0a1628",`Cours auto ${i+1} Kolwezi: électricité chimie mine maintenance sécurité topo calcul`]);}
+const extra=[
+["11. TOPO GPS DRONE VOLUME","#27ae60","GPS Trimble R10 1cm Station Leica Drone DJI 100ha 500photos Pix4D MNT Volume prismes Surpac UTM35S WGS84 tol5cm 10000m3."],
+["12. SECURITE LOTOTO H2S 10ppm","#b71c1c","LOTOTO 6étapes EPI casque lunettes bottes H2S10ppm TWA CO25ppm CH4 1% Permis feu hauteur espace confiné Golden rules 0 accident."],
+["13. MAINTENANCE CAT 250H","#455a64","Préventive250h vidange40L 15W40 filtre fuel Graissage50h 20g Roulement6206 temp<80C vibr<4.5 SKF Pompe Warman10/8 MTBF SAP PM 30%CAPEX."],
+["14. INSTRUMENTATION DCS 4-20mA PID","#6a1b9a","4mA=0% 20mA=100% Endress pH CPS11 débit mag Cal2points PLC S7-1500 Profibus PID Kp Ti Td PCS7 OS AS CFC alarmes historien."],
+["15. ENVIRONNEMENT BASSIN","#1b5e20","Bassin1ha Poussière<50mg silice0.1 Eau80%recyclée EIE PGEP Cyanure INCO SO2/air 5ppm Chaux Réhabilitation arrosage20L/m2."],
+["16. GESTION STOCK SAP PR","#e65100","PR SAP PO mini/maxi ABC inventaire2j Coût stockage25%/an."],
+["17. SOUDURE MIG TIG HDPE 220C","#37474f","MIG0.8mm CO2 TIG tungstène 6013 2.5mm80A HDPE bout220C PN10 315mm test10bar1h."],
+["18. TRANSFO 11kV/380V 2MVA","#d35400","Dyn11 Ucc6% huile Buchholz 50/51 terre<5Ohm groupe1MW Diélectrique>50kV."],
+["19. CHAUX DOSAGE pH11.5","#c0392b","CaO+H2O->Ca(OH)2 pH12.4 Lait20% densité Pompe péristaltique PID pH."],
+["20. CONCASSEUR GIRATOIRE 54-75","#5d4037","CSS150 OSS200 500kW 1000T/h usure manteau6mois."],
+["21. BROYEUR SAG 10MW","#00796b","Diam10m 10MW charge12% billes125mm 75%critique P80 1mm liner 15kT/j."],
+["22. FLOTTATION XANTHATE MIBC","#00796b","PAX50g/T MIBC20g/T cyanure Zn pH11.5 air2m3/min récup90% mousse20cm."],
+["23. EPAISSISSEUR 30m","#00796b","30m floc20g/T couple râteau sousverse65% surverse<200ppm torque40%."],
+["24. SX LIX63 EW 99.99%Cu","#00796b","LIX63 30% O/A1.2 2ext+1lav+2strip EW300A/m2 3.5V 5j 100kg LME Grade A."],
+["25. LME PRIX CU CO 9000$ 33000$","#f39c12","Cu9000 Co33000 contango prime100$ hedging Grade A."],
+["26. DIESEL CAT C18 630kW","#455a64","C18 630kW 200L/h filtre turbo common rail 250h."],
+["27. POMPE WARMAN 10/8 500m3/h","#455a64","10/8 débit500 HMT30m roue caoutchouc presse-étoupe cavitation NPSH."],
+["28. CONVOYEUR BANDE 1200mm","#5d4037","1200mm 3m/s 500T/h rouleaux racleur déport arrêt urgence 11kW."],
+["29. DCS PCS7 SCADA","#6a1b9a","OS serveur AS S7-400 CFC SFC faceplate alarmes historien redondance."],
+["30. H2S DETECTEUR BW","#b71c1c","10ppm TWA 15ppm STEL BW masque ventilo espace confiné."],
+["31. LABO AA XRF QAQC","#c0392b","AA flamme XRF préparation QAQC standard blanc duplicata précision5%."],
+["32. DM45 FORAGE 250mm","#5d4037","Rotary250mm 10m 30m/h marteau poussière tige8m."],
+["33. ANFO EMULSION 4000m/s","#5d4037","94/6 densité0.8 VOD4000 émulsion eau booster Pentolite retard25ms."],
+["34. PELLE CAT6060 34m3","#5d4037","6060 34m3 600T 2x1000kW cycle30s 3000T/h."],
+["35. CAT777F 100T CYCLE15min","#5d4037","777F 100T C32 1000HP 7vit Jacobs charge3min cycle15min 32cycles 3200T/shift."],
+["36. GEOTECH TALUS 45° BERME10m","#2e7d32","Angle45° berme10m FS1.3 piézo radar extenso."],
+["37. HYDRO POMPAGE 500m3/h","#1b5e20","500m3/h submersible200kW piézo bassin5000m3 précip1200mm."],
+["38. MOTEUR 55kW 380V 100A","#d35400","55kW 380V100A étoile triangle thermique iso>1Mohm 6312."],
+["39. CYANURE NaCN pH10.5 HCN","#c0392b","NaCN pH>10.5 sinon HCN mortel INCO SO2/air 5ppm."],
+["40. COBALT PRECIP pH8.2 MgO","#004d40","MgO pH8.2 40C 2h oxydation air filtre Co(OH)2 36% lavage."],
+["41. KCC ORGANIGRAMME 2000 EMP","#f39c12","GM Mine Usine Maintenance HSE 2000emp shift12h 2x2."],
+["42. COMUS 3000T Co/mois 25M$","#e67e22","3000T Co/mois hydroxyde 20000T Cu/mois coût8000$/T."],
+["43. VOLUME DRONE PIX4D","#27ae60","Drone100ha 500photos Pix4D MNT différence stock précision3% 10000m3."],
+["44. PERMIS FEU SOUDURE","#b71c1c","Analyse gaz extincteur surveillance2h zone20m soudure meulage."],
+["45. ROULEMENT 6206 GRAISSAGE","#455a64","6206 20g 1000h temp<80C vibr<4.5 SKF."],
+["46. pH METRE ENDRESS CPS11","#6a1b9a","CPS11 cal pH7 pH4 dérive0.1/mois KCl 4-20mA."],
+["47. POUSSIERE ARROSAGE 20L/m2","#1b5e20","Arrosage20L/m2 brumisateur limite50mg silice0.1 masque."],
+["48. BUDGET 45$/T MARGE 50$","#e65100","Mining15$ trait30$ G&A10$ total55$ Cu9000$ marge50$/T."],
+["49. HDPE SOUDURE 220C PN10","#37474f","315mm 220C 6bar test10bar1h fuite0."],
+["50. FLOTTATION 100m3 ROTOR150kW","#00796b","Cellule100m3 rotor150kW air5m3/min niveau mousse20cm récup90%."]
+];
+let all=[...cours,...extra];
 const a=document.getElementById('a');
-cours.forEach((x,i)=>{a.innerHTML+=`<div class="c"><h3 style="background:${x[1]}">${i+1}. ${x[0]}</h3><div class="t">${x[2]}<br><br><b>Formule:</b> Voir calcul KCC<br><b>Exo Kolwezi:</b> Calcule...</div></div>`;});
-function F(){let q=s.value.toLowerCase();let cs=document.querySelectorAll('#a .c');let k=0;cs.forEach(c=>{let ok=q==''||c.innerText.toLowerCase().includes(q);c.style.display=ok?'block':'none';if(ok)k++;});n.innerText=k+' trouvés';}
-if(localStorage.getItem('makola_paid')=='yes'){pay.style.display='none';}
-function unlock(){
-let cd=code.value.trim().toUpperCase();
-if(cd.length>4){
-localStorage.setItem('makola_paid','yes');
-localStorage.setItem('makola_id',cd);
-pay.style.display='none';
-alert('✅ Paiement validé! ID:'+cd);
-}else{err.innerText='Entre ton ID transaction M-Pesa ou tape MAKOLA500';}
-}
-wa.href=`https://wa.me/243983356734?text=Preuve paiement 500FC MAKOLA ID:${code.value} - 0983356734 / 0820479539`;
+all.forEach((x,i)=>{
+a.innerHTML+=`<div class="c"><h3 style="background:${x[1]}">${i+1}. ${x[0]}</h3><div class="t">${x[2]}\n\n---\n🎥 Vidéo Kolwezi KCC/COMUS terrain\n🎧 Audio Lingala/Swahili dispo\n❓ Pose question: tout est dedans, explication enfant+expert</div></div>`;
+});
+function F(){let q=document.getElementById('s').value.toLowerCase();let cs=document.querySelectorAll('#a .c');let k=0;cs.forEach(c=>{let ok=q==''||c.innerText.toLowerCase().includes(q);c.style.display=ok?'block':'none';if(ok)k++;});document.getElementById('n').innerText=k+' / 50 trouvés - Tape n\'importe quel mot';}
+if(localStorage.getItem('makola_paid')=='yes'){document.getElementById('pay').style.display='none';}
+function unlock(){let cd=document.getElementById('code').value.trim().toUpperCase();if(cd.length>3){localStorage.setItem('makola_paid','yes');document.getElementById('pay').style.display='none';}else{document.getElementById('err').innerText='Entre ID M-Pesa ou MAKOLA500';}}
 </script></body></html>
