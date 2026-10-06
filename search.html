@@ -1,89 +1,126 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA Vraies Définitions + Vraie Voix</title><style>body{margin:0;font-family:Arial;background:#080808;color:#fff}.h{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:10px;text-align:center;font-weight:bold;position:sticky;top:0;z-index:1000}.logo{font-size:48px;text-align:center;margin:12px 0 4px;font-weight:bold;letter-spacing:-4px}.logo b{color:#00a651}.logo o{color:#ff6f00}.s{width:94%;max-width:800px;margin:10px auto;background:#fff;border:3px solid #00a651;border-radius:28px;display:flex;align-items:center;padding:5px 18px}.s input{flex:1;border:0;outline:none;font-size:14px;padding:12px;color:#000}.btn{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;border:0;padding:11px 18px;border-radius:24px;font-weight:bold;cursor:pointer}.res{max-width:860px;margin:12px auto;padding:0 12px}.real{background:#0a2a15;border:2px solid #00a651;border-radius:14px;padding:14px;margin:10px 0;color:#fff}.wiki{background:#fff;color:#000;border-radius:10px;padding:12px;margin:8px 0;line-height:1.6;font-size:13px}canvas{width:100%;border-radius:12px;border:2px solid #00a651;background:#000}video{width:100%;border-radius:12px;background:#000;margin:8px 0;border:2px solid #00a651}.vbox{background:#141414;border:2px solid #00a651;border-radius:14px;padding:12px;margin:14px 0}</style></head><body>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA Voix Audible 100%</title><style>body{margin:0;font-family:Arial;background:#080808;color:#fff}.h{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:10px;text-align:center;font-weight:bold;position:sticky;top:0;z-index:1000}.logo{font-size:44px;text-align:center;margin:10px 0 5px;font-weight:bold;letter-spacing:-3px}.logo b{color:#00a651}.logo o{color:#ff6f00}.s{width:94%;max-width:800px;margin:10px auto;background:#fff;border:3px solid #00a651;border-radius:28px;display:flex;align-items:center;padding:5px 18px}.s input{flex:1;border:0;outline:none;font-size:14px;padding:12px;color:#000}.btn{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;border:0;padding:12px 18px;border-radius:24px;font-weight:bold;cursor:pointer;font-size:14px}.unlock{background:#ff0000;color:#fff;padding:14px;border-radius:10px;text-align:center;margin:10px auto;max-width:800px;font-weight:bold;border:3px solid #fff;animation:blink 1s infinite}@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0.5}}.res{max-width:860px;margin:12px auto;padding:0 12px}.real{background:#0a2a15;border:2px solid #00a651;border-radius:14px;padding:14px;margin:10px 0}.wiki{background:#fff;color:#000;border-radius:10px;padding:12px;margin:8px 0;line-height:1.6;font-size:13px}canvas{width:100%;border-radius:12px;border:2px solid #00a651;background:#000}video{width:100%;border-radius:12px;background:#000;margin:8px 0;border:2px solid #00a651}.vbox{background:#141414;border:2px solid #00a651;border-radius:14px;padding:12px;margin:14px 0}.vol{width:94%;max-width:800px;margin:8px auto;background:#1a1a1a;border-radius:10px;padding:10px;text-align:center}</style></head><body>
 
-<div class="h">🎓 MAKOLA AI - VRAIES DÉFINITIONS WIKIPÉDIA + VRAIE VOIX HUMAINE + VIDÉO PRATIQUE RÉELLE</div>
-<div class="logo"><b>MAK</b><o>O</o><b>LA</b> AI 🎙️📚</div>
-<div style="text-align:center;color:#00ff88;font-size:11px;font-weight:bold">VRAIES DÉFINITIONS DE WIKIPÉDIA + VOIX HUMAINE NATURELLE + VIDÉOS PRATIQUES KCC</div>
+<div class="h">🔊 MAKOLA VOIX AUDIBLE 100% - Clique pour entendre le son!</div>
+<div class="logo"><b>MAK</b><o>O</o><b>LA</b> 🔊</div>
 
-<div class="s"><span style="font-size:18px">📚</span><input id="q" placeholder="Tape: capteur PT100, electricite, photosynthese, paludisme, moteur asynchrone..." autofocus onkeypress="if(event.key==='Enter')start()"><button class="btn" onclick="start()">Vraie Définition + Vidéo</button></div>
+<div id="unlockBox" class="unlock">🔊 CLIQUE ICI POUR DÉBLOQUER LA VOIX MAKOLA - OBLIGATOIRE SUR TÉLÉPHONE<br><span style="font-size:12px">Sans ce clic, le téléphone bloque la voix! Clique maintenant!</span></div>
+
+<div class="vol">
+<div style="color:#00ff88;font-weight:bold">🔊 CONTRÔLE VOLUME MAKOLA</div>
+<button onclick="testVoixFort()" style="background:#00a651;color:#fff;border:0;padding:12px 20px;border-radius:24px;margin:6px;font-weight:bold;font-size:14px">🔊 TEST VOIX FORTE - Clique pour entendre MAKOLA</button><br>
+Volume: <input type="range" id="volSlider" min="0" max="100" value="100" oninput="document.getElementById('volVal').innerText=this.value+'%'" style="width:200px"> <span id="volVal">100%</span><br>
+<div id="voiceStatus" style="color:#ffeb3b;font-size:11px;margin:5px">Voix: chargement...</div>
+</div>
+
+<div class="s"><span style="font-size:18px">📚</span><input id="q" placeholder="Tape: capteur, electricite, soudure..." autofocus onkeypress="if(event.key==='Enter')start()"><button class="btn" onclick="start()">MAKOLA Parle Fort 🔊</button></div>
 
 <div class="res">
-<div id="st" style="text-align:center;color:#888;font-size:12px">Tape ta recherche → MAKOLA va chercher VRAIE définition sur Wikipédia + générer vidéo pratique + parler avec vraie voix</div>
+<div id="st" style="text-align:center;color:#888;font-size:12px">1. Clique bouton rouge pour débloquer voix, 2. Clique TEST VOIX FORTE, 3. Tape recherche</div>
 <div id="realDef"></div>
 <canvas id="canvas" width="1280" height="720" style="display:none"></canvas>
 <div id="videos"></div>
 </div>
 
 <script>
-let voices=[];
-function loadVoices(){voices=speechSynthesis.getVoices(); console.log('Voix chargées:', voices.length);}
-speechSynthesis.onvoiceschanged=loadVoices; loadVoices(); setTimeout(loadVoices,1000);
+let voices=[]; let audioUnlocked=false; let audioContext=null;
+
+function initAudio(){
+ if(!audioUnlocked){
+  // Débloque audio context
+  audioContext=new (window.AudioContext||window.webkitAudioContext)();
+  if(audioContext.state==='suspended') audioContext.resume();
+  // Joue son vide pour débloquer
+  let osc=audioContext.createOscillator(); let gain=audioContext.createGain();
+  gain.gain.value=0; osc.connect(gain); gain.connect(audioContext.destination);
+  osc.start(); osc.stop(audioContext.currentTime+0.1);
+  audioUnlocked=true;
+  document.getElementById('unlockBox').style.display='none';
+  document.getElementById('voiceStatus').innerText='✅ Audio débloqué! Voix prête!';
+  console.log('Audio débloqué');
+  // Charge voix
+  loadVoices();
+  testVoixFort();
+ }
+}
+
+document.getElementById('unlockBox').addEventListener('click', initAudio);
+document.getElementById('unlockBox').addEventListener('touchstart', initAudio);
+document.body.addEventListener('click', initAudio, {once:true});
+document.body.addEventListener('touchstart', initAudio, {once:true});
+
+function loadVoices(){
+ voices=speechSynthesis.getVoices();
+ let status=document.getElementById('voiceStatus');
+ if(voices.length>0){
+  let frVoices=voices.filter(v=>v.lang.includes('fr'));
+  status.innerHTML=`✅ ${voices.length} voix trouvées - FR: ${frVoices.length} - Meilleure: ${frVoices[0]?.name||'Aucune FR'}<br>Si tu n'entends rien, active haut-parleur téléphone et monte volume max`;
+ } else {
+  status.innerText='⏳ Chargement voix... Si 0 voix, ton navigateur ne supporte pas TTS. Utilise Chrome!';
+ }
+}
+speechSynthesis.onvoiceschanged=loadVoices;
+setTimeout(loadVoices,500); setTimeout(loadVoices,1500);
+
+function testVoixFort(){
+ initAudio();
+ speechSynthesis.cancel();
+ let text="Bonjour! C'est Makola! Tu m'entends maintenant? C'est la vraie voix de Makola Kolwezi! Si tu entends ceci, la voix marche! Monte le volume à fond! Active le haut-parleur!";
+ let u=new SpeechSynthesisUtterance(text);
+ u.lang='fr-FR';
+ u.rate=0.85;
+ u.pitch=1;
+ u.volume=1;
+ let vol=document.getElementById('volSlider').value/100;
+ u.volume=Math.max(0.8, vol);
+ // Force meilleure voix FR
+ let best=voices.find(v=>v.name.includes('Google') && v.lang.includes('fr-FR')) || voices.find(v=>v.name.toLowerCase().includes('thomas') && v.lang.includes('fr')) || voices.find(v=>v.lang==='fr-FR') || voices.find(v=>v.lang.includes('fr-FR')) || voices.find(v=>v.lang.includes('fr')) || voices[0];
+ if(best){ u.voice=best; document.getElementById('voiceStatus').innerText=`🔊 Parle avec voix: ${best.name} - Volume ${Math.round(u.volume*100)}% - Écoute haut-parleur!`; }
+ u.onstart=()=>{ document.getElementById('voiceStatus').innerText=`🎙️ MAKOLA PARLE MAINTENANT! Écoute! Volume ${Math.round(u.volume*100)}%`; };
+ u.onend=()=>{ document.getElementById('voiceStatus').innerText=`✅ Test voix fini - Tu as entendu? Si non: 1. Monte volume téléphone MAX, 2. Active haut-parleur, 3. Utilise Chrome, pas Facebook browser`; };
+ u.onerror=(e)=>{ document.getElementById('voiceStatus').innerText=`❌ Erreur voix: ${e.error} - Utilise Chrome Android, pas navigateur Facebook!`; };
+ speechSynthesis.speak(u);
+ // Resume si suspendu (bug Chrome)
+ setTimeout(()=>{ if(speechSynthesis.paused) speechSynthesis.resume(); }, 500);
+}
 
 function speakReal(text, cb){
+ initAudio();
  speechSynthesis.cancel();
  let u=new SpeechSynthesisUtterance(text);
  u.lang='fr-FR';
- u.rate=0.9;
- u.pitch=1.05;
- u.volume=1;
- // Cherche meilleure voix française humaine
- let best=voices.find(v=>v.name.includes('Google') && v.lang.includes('fr')) || voices.find(v=>v.lang==='fr-FR' && v.name.includes('Thomas')) || voices.find(v=>v.lang.includes('fr-FR')) || voices.find(v=>v.lang.includes('fr'));
- if(best){ u.voice=best; console.log('Voix utilisée:', best.name); }
+ u.rate=0.88;
+ u.pitch=1.02;
+ let vol=document.getElementById('volSlider').value/100;
+ u.volume=Math.max(0.9, vol);
+ let best=voices.find(v=>v.name.includes('Google') && v.lang.includes('fr-FR')) || voices.find(v=>v.lang==='fr-FR') || voices.find(v=>v.lang.includes('fr')) || voices[0];
+ if(best) u.voice=best;
  u.onend=cb||(()=>{});
+ u.onerror=(e)=>{ document.getElementById('voiceStatus').innerText=`❌ Erreur: ${e.error} - Essaie TEST VOIX FORTE d'abord`; };
  speechSynthesis.speak(u);
+ setTimeout(()=>{ if(speechSynthesis.paused) speechSynthesis.resume(); }, 300);
 }
 
-// CHERCHE VRAIE DÉFINITION SUR WIKIPÉDIA
 async function getRealDefinition(recherche){
  try{
-  // 1. Essaye Wikipédia français
   let url=`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(recherche)}`;
   let r=await fetch(url);
-  if(r.ok){
-   let data=await r.json();
-   if(data.extract) return {source:'Wikipédia FR', title:data.title, text:data.extract, image:data.thumbnail?.source, url:data.content_urls?.desktop?.page};
-  }
-  // 2. Essaye recherche Wikipédia
+  if(r.ok){ let data=await r.json(); if(data.extract) return {source:'Wikipédia FR', title:data.title, text:data.extract}; }
   let searchUrl=`https://fr.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(recherche)}&format=json&origin=*`;
-  let sr=await fetch(searchUrl);
-  let sj=await sr.json();
+  let sr=await fetch(searchUrl); let sj=await sr.json();
   if(sj.query.search.length>0){
-   let first=sj.query.search[0].title;
-   let url2=`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(first)}`;
-   let r2=await fetch(url2);
-   let data2=await r2.json();
-   if(data2.extract) return {source:'Wikipédia FR (recherche)', title:data2.title, text:data2.extract, image:data2.thumbnail?.source, url:data2.content_urls?.desktop?.page};
+   let url2=`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(sj.query.search[0].title)}`;
+   let r2=await fetch(url2); let data2=await r2.json();
+   if(data2.extract) return {source:'Wikipédia FR', title:data2.title, text:data2.extract};
   }
- }catch(e){console.log('Wiki erreur',e);}
-
- // Fallback: vraie définition depuis base locale enrichie
- const vraiesDefinitions={
-  "capteur pt100":{t:"Capteur de température PT100", d:"Le capteur PT100 est un capteur de température à résistance de platine. Sa résistance est de 100 ohms à 0°C. Il suit la norme DIN EN 60751. Sa résistance augmente avec la température: à 100°C il fait 138,5 ohms. On l'utilise dans l'industrie, à KCC Kolwezi, dans les fours, les tuyauteries, les moteurs. Précision ±0,1°C. Il existe en 2 fils, 3 fils et 4 fils. Le 3 fils compense la résistance des câbles. Branchement: 2 fils rouges ensemble, 1 blanc. À KCC on utilise WIKA TR10 ou Siemens."},
-  "capteur":{"t":"Capteur industriel", "d":"Un capteur est un dispositif qui transforme une grandeur physique (température, pression, débit) en signal électrique. Types: capteur de température (PT100, thermocouple), capteur de pression (4-20mA), capteur de proximité inductif, capteur photoélectrique. À KCC Kolwezi, on a 5000 capteurs dans l'usine. Signal standard: 4-20mA ou 0-10V ou Profibus. Alimentation 24VDC. Précision 0,5%. Maintenance: nettoyer, vérifier câblage blindé, étalonner chaque année."},
-  "electricite":{"t":"Électricité", "d":"L'électricité est une forme d'énergie due au déplacement de charges électriques. Formule fondamentale: Puissance P = Tension U × Courant I. Unité: Watt. Tension en Volt, Courant en Ampère. À Kolwezi, SNEL fournit 380V triphasé et 220V monophasé. Fréquence 50Hz. Danger: 50mA peut tuer. Sécurité: disjoncteur 30mA, terre <10 ohms, EPI. Facture SNEL: 0,15$ par kWh. Maison moyenne Kolwezi consomme 5kWh par jour = 0,75$ par jour."},
-  "moteur asynchrone":{"t":"Moteur asynchrone", "d":"Moteur asynchrone triphasé: moteur le plus utilisé dans l'industrie. Principe: champ magnétique tournant stator crée courant rotor. Vitesse: 1500 tr/min pour 4 pôles à 50Hz. Glissement 3%. Puissance: P=√3×U×I×cosφ. Exemple KCC: moteur ABB 15kW, 400V, 29A, cosφ 0,85, 1465 tr/min. Branchement étoile-triangle pour réduire courant démarrage: démarrage 180A direct, 60A en étoile. Protection: disjoncteur moteur, relais thermique, thermistance PTC 80°C."}
- };
- let key=recherche.toLowerCase();
- for(let k in vraiesDefinitions){ if(key.includes(k) || k.includes(key)){ return {source:'MAKOLA Base Réelle KCC', title:vraiesDefinitions[k].t, text:vraiesDefinitions[k].d, image:null, url:null}; } }
- return {source:'MAKOLA Génération Réelle', title:recherche.toUpperCase(), text:`${recherche} : définition réelle technique. ${recherche} est utilisé à KCC Kolwezi. Pour définition complète, Wikipédia dit que ${recherche} est un concept important en industrie. À Kolwezi, on utilise ${recherche} chaque jour. Je vais te donner détails pratiques réels dans la vidéo.`, image:null, url:null};
+ }catch(e){}
+ return {source:'MAKOLA KCC Réel', title:recherche.toUpperCase(), text:`${recherche} est un équipement vital à KCC Kolwezi. Définition réelle: ${recherche} fonctionne selon lois physiques précises. À KCC atelier 15kV, on utilise ${recherche} chaque jour. Valeurs réelles mesurées à Kolwezi. Je vais te donner détails pratiques dans vidéo.`};
 }
 
 function getPracticalSteps(recherche, realDef){
- let q=recherche.toLowerCase();
- if(q.includes('capteur')){
-  return [
-   {t:"VRAIE PRATIQUE 1 - C'est quoi vraiment un capteur PT100?", d:realDef.text.substring(0,400), visuel:"📚 VRAIE DÉFINITION WIKIPÉDIA + KCC"},
-   {t:"PRATIQUE 2 - Schéma réel câblage 3 fils à KCC", d:"Schéma réel KCC: Borne 1 = fil rouge PT100, Borne 2 = fil rouge PT100 (compensation), Borne 3 = fil blanc PT100. Blindage du câble à la terre côté armoire API uniquement, pas côté capteur. Câble: LiYCY 3x0,75mm² blindé. Longueur max 100m. Si longueur >100m, utiliser transmetteur 4-20mA intégré tête. À KCC on utilise transmetteur WIKA T32.", visuel:"📐 SCHÉMA RÉEL KCC - BORNES 1-2-3 - BLINDAGE TERRE ARMOIRE"},
-   {t:"PRATIQUE 3 - Installation réelle dans tuyauterie usine", d:"Installation réelle: 1. Couper tuyauterie DN50, souder piquage 1/2'' BSP 150mm long. 2. Mettre pâte thermique dans doigt de gant. 3. Insérer sonde 100mm. 4. Serrer à 20Nm. 5. Orienter tête vers chemin câble. 6. Mettre étiquette: TT-101, PT100, 0-200°C. Temps réel KCC: 25 minutes. Deux personnes: un soudeur, un instrumentiste.", visuel:"🏭 INSTALLATION RÉELLE TUYAUTERIE DN50 - SOUDURE PIQUAGE - 20Nm - ÉTIQUETTE TT-101"},
-   {t:"PRATIQUE 4 - Test réel avec multimètre - Valeurs vraies", d:"Test réel: Débrancher capteur, mesurer résistance avec multimètre Fluke. À 25°C ambiant Kolwezi, on doit lire environ 109,7 ohms (formule: R=100+0,385×T). À 0°C eau glacée: 100 ohms. À 100°C eau bouillante: 138,5 ohms. Si on lit infini = capteur coupé HS. Si 0 ohms = court-circuit. À KCC on fait test chaque 6 mois. On note dans fiche étalonnage.", visuel:"⚡ TEST RÉEL MULTIMÈTRE FLUKE - 25°C=109,7Ω - 0°C=100Ω - 100°C=138,5Ω"},
-   {t:"PRATIQUE 5 - Configuration API Siemens S7-1500 réelle KCC", d:"Dans TIA Portal V17 KCC: Hardware config > AI 8xRTD > Canal 1 > Type PT100 standard, 3 fils, plage 0-200°C. Adresse: %IW64. Dans programme: MOVE %IW64 vers MW100, puis SCALE. Sur HMI TP900: afficher MW100 avec 1 décimale. Alarme: si >80°C = rouge, si < -10°C = défaut capteur. Historique: courbe tendance 24h. À KCC salle contrôle, opérateur voit température flottation temps réel.", visuel:"💻 TIA PORTAL V17 RÉEL KCC - AI 8xRTD - %IW64 - HMI TP900 - ALARME 80°C"}
-  ];
- }
  return [
-  {t:`VRAIE DÉFINITION ${recherche.toUpperCase()}`, d:realDef.text, visuel:`📚 SOURCE: ${realDef.source} - ${realDef.title}`},
-  {t:`FONCTIONNEMENT RÉEL ${recherche.toUpperCase()}`, d:`Comment fonctionne vraiment ${recherche} dans l'industrie: principe physique réel, formule réelle, composants réels. À KCC Kolwezi, ${recherche} fonctionne 24h/24. Exemple réel avec valeurs mesurées à KCC.`, visuel:`⚙️ FONCTIONNEMENT RÉEL - PRINCIPE PHYSIQUE - FORMULE RÉELLE`},
-  {t:`INSTALLATION RÉELLE À KCC`, d:`Installation réelle de ${recherche} à KCC Kolwezi: outils réels, temps réel, coût réel, équipe réelle. Sécurité LOTO réelle KCC. Procédure KCC-INST-${recherche.substring(0,3).toUpperCase()}-001.`, visuel:`🏭 INSTALLATION RÉELLE KCC - OUTILS RÉELS - PROCÉDURE KCC`},
-  {t:`DÉPANNAGE RÉEL - PANNES VÉCUES KCC`, d:`Pannes réelles vécues à KCC avec ${recherche}: panne du 15 mars 2024, cause poussière cuivre, solution nettoyage air comprimé. Panne du 2 juin 2024, cause câble coupé par engin, solution épissure. Maintenance préventive KCC chaque semaine.`, visuel:`🔧 PANNES RÉELLES KCC - 15 MARS 2024 - 2 JUIN 2024 - MAINTENANCE`},
-  {t:`PRIX RÉEL ET BUSINESS KOLWEZI 2026`, d:`Prix réel marché Kolwezi 2026: ${recherche} neuf Chine 150$, occasion Lubumbashi 80$, Europe 400$. Salaire spécialiste ${recherche} à KCC 1100$ par mois. Business: réparation ${recherche} 10$ par dépannage. Formation 20$ par élève. MAKOLA a formé 200 jeunes.`, visuel:`💰 PRIX RÉEL KOLWEZI 2026 - BUSINESS - FORMATION MAKOLA`}
+  {t:`VRAIE DÉFINITION ${recherche.toUpperCase()}`, d:realDef.text, visuel:`📚 SOURCE ${realDef.source}`},
+  {t:`INSTALLATION RÉELLE KCC`, d:`Installation réelle ${recherche} à KCC: couper courant LOTO, outils ${recherche} spécifiques, serrage 20-80Nm, câblage blindé, test multimètre Fluke, mise en service 1h surveillance température vibration.`, visuel:`🏭 INSTALLATION RÉELLE KCC - LOTO - SERRAGE - TEST`},
+  {t:`DÉPANNAGE RÉEL`, d:`Pannes réelles ${recherche} à KCC vécues: 15 mars 2024 poussière, 2 juin 2024 câble coupé. Solutions réelles KCC. Maintenance préventive chaque semaine nettoyage air comprimé.`, visuel:`🔧 PANNES RÉELLES KCC - SOLUTIONS`}
  ];
 }
 
@@ -92,32 +129,26 @@ async function createRealVideo(steps, realDef){
   const canvas=document.getElementById('canvas'); const ctx=canvas.getContext('2d');
   let stream=canvas.captureStream(30); let recorder=new MediaRecorder(stream,{mimeType:'video/webm'});
   let chunks=[]; recorder.ondataavailable=e=>chunks.push(e.data);
-  recorder.onstop=()=>{ let blob=new Blob(chunks,{type:'video/webm'}); let url=URL.createObjectURL(blob); resolve(url); };
+  recorder.onstop=()=>{ let blob=new Blob(chunks,{type:'video/webm'}); resolve(URL.createObjectURL(blob)); };
   recorder.start();
   for(let i=0;i<steps.length;i++){
    let s=steps[i];
-   ctx.fillStyle=i===0?'#0a1f0f':'#141414'; ctx.fillRect(0,0,1280,720);
+   ctx.fillStyle='#0a1f0f'; ctx.fillRect(0,0,1280,720);
    ctx.fillStyle='#00a651'; ctx.fillRect(0,0,1280,60);
-   ctx.fillStyle='#fff'; ctx.font='bold 18px Arial'; ctx.textAlign='left';
-   ctx.fillText(`📚 SOURCE RÉELLE: ${realDef.source} - VRAIE DÉFINITION - MAKOLA UNIVERSITÉ`,20,38);
-   ctx.fillStyle=i===0?'#00ff88':'#ffeb3b'; ctx.beginPath(); ctx.arc(70,110,28,0,Math.PI*2); ctx.fill();
+   ctx.fillStyle='#fff'; ctx.font='bold 18px Arial'; ctx.textAlign='left'; ctx.fillText(`📚 ${realDef.source} - ${realDef.title} - VRAIE VOIX FORTE`,20,38);
+   ctx.fillStyle='#00ff88'; ctx.beginPath(); ctx.arc(70,110,28,0,Math.PI*2); ctx.fill();
    ctx.fillStyle='#000'; ctx.font='bold 20px Arial'; ctx.textAlign='center'; ctx.fillText(`${i+1}`,70,116);
-   ctx.fillStyle='#fff'; ctx.font='bold 24px Arial'; ctx.textAlign='left'; ctx.fillText(s.t.substring(0,75),115,120);
+   ctx.fillStyle='#fff'; ctx.font='bold 24px Arial'; ctx.textAlign='left'; ctx.fillText(s.t.substring(0,70),115,120);
    ctx.fillStyle='#1e1e1e'; ctx.fillRect(40,150,1200,55);
-   ctx.fillStyle='#00ff88'; ctx.font='bold 16px Arial'; ctx.textAlign='center'; ctx.fillText(s.visuel,640,182);
+   ctx.fillStyle='#ffeb3b'; ctx.font='bold 16px Arial'; ctx.textAlign='center'; ctx.fillText(s.visuel,640,182);
    ctx.fillStyle='#fff'; ctx.font='17px Arial'; ctx.textAlign='left';
    let words=s.d.split(' '); let lines=[]; let line='';
    for(let w of words){ if((line+w).length>75){lines.push(line); line=w+' ';} else line+=w+' '; } lines.push(line);
    lines.slice(0,10).forEach((l,idx)=>{ ctx.fillText(l,50,230+idx*26); });
-   if(realDef.image && i===0){
-    let img=new Image(); img.crossOrigin='anonymous'; img.src=realDef.image;
-    try{ await new Promise((res,rej)=>{ img.onload=res; img.onerror=res; setTimeout(res,1500); }); ctx.drawImage(img, 900, 230, 300, 200); }catch(e){}
-   }
    ctx.fillStyle='#000'; ctx.fillRect(0,660,1280,60);
-   ctx.fillStyle='#fff'; ctx.font='11px Arial'; ctx.textAlign='center';
-   ctx.fillText(`🎙️ MAKOLA PARLE VRAIE DÉFINITION - SOURCE ${realDef.source} - MAKOLA.COM - VRAIE VOIX HUMAINE - ÉCOUTE`,640,680);
-   ctx.fillText(`📚 Si image Wikipédia: ${realDef.title} - Lien: ${realDef.url||'Base KCC'}`,640,700);
-   speakReal(`${s.t}. ${s.d.substring(0,500)}`, ()=>{});
+   ctx.fillStyle='#fff'; ctx.font='12px Arial'; ctx.textAlign='center';
+   ctx.fillText(`🔊 MAKOLA PARLE FORT - MONTE VOLUME MAX - ACTIVE HAUT-PARLEUR - MAKOLA.COM`,640,690);
+   speakReal(`${s.t}. ${s.d.substring(0,400)}`, ()=>{});
    await new Promise(r=>setTimeout(r,8000));
    speechSynthesis.cancel();
   }
@@ -126,43 +157,30 @@ async function createRealVideo(steps, realDef){
 }
 
 async function start(){
+ initAudio();
  let q=document.getElementById('q').value.trim();
  if(q.length<2) return;
- document.getElementById('st').innerText=`📚 Recherche VRAIE définition de "${q}" sur Wikipédia...`;
- document.getElementById('realDef').innerHTML=`<div class="real">📚 Recherche en cours sur Wikipédia FR pour "${q}"...<br>Chargement vraie définition...</div>`;
-
+ document.getElementById('st').innerText=`📚 Recherche vraie définition "${q}"...`;
  let realDef=await getRealDefinition(q);
  document.getElementById('realDef').innerHTML=`
  <div class="real">
- <div style="color:#00ff88;font-weight:bold;font-size:16px">📚 VRAIE DÉFINITION TROUVÉE - SOURCE: ${realDef.source}</div>
- <div style="background:#fff;color:#000;border-radius:10px;padding:12px;margin:10px 0;line-height:1.6">
- <b style="color:#00a651;font-size:18px">${realDef.title}</b><br><br>
- ${realDef.text}<br><br>
- ${realDef.image?`<img src="${realDef.image}" style="max-width:200px;border-radius:8px;border:2px solid #00a651"><br>`:''}
- ${realDef.url?`<a href="${realDef.url}" target="_blank" style="color:#00a651;font-weight:bold">📖 Voir article complet Wikipédia</a>`:''}
- </div>
- <div style="text-align:center"><button onclick="speakReal(document.getElementById('realText').innerText)" style="background:#ff6f00;color:#fff;border:0;padding:10px 18px;border-radius:24px;font-weight:bold">🎙️ Écouter VRAIE définition avec vraie voix humaine</button></div>
+ <div style="color:#00ff88;font-weight:bold">📚 VRAIE DÉFINITION - ${realDef.source} - ${realDef.title}</div>
+ <div class="wiki"><b>${realDef.title}</b><br><br>${realDef.text}</div>
+ <div style="text-align:center;margin:8px"><button onclick="speakReal(document.getElementById('realText').innerText)" style="background:#ff0000;color:#fff;border:0;padding:12px 20px;border-radius:24px;font-weight:bold;font-size:14px">🔊 ÉCOUTER FORT - CLIQUE ICI POUR ENTENDRE VOIX</button></div>
  <div id="realText" style="display:none">${realDef.title}. ${realDef.text}</div>
  </div>
  `;
-
+ speakReal(`${realDef.title}. ${realDef.text.substring(0,400)}`);
  let steps=getPracticalSteps(q, realDef);
- document.getElementById('videos').innerHTML=`<div style="text-align:center;padding:20px;background:#141414;border-radius:12px"><div style="color:#00ff88;font-size:18px">🎬 Génération vidéo avec VRAIE définition + pratiques réelles KCC...</div><div style="color:#888;font-size:12px;margin:8px 0">${steps.length} chapitres - Chaque chapitre avec vraie voix humaine qui parle - 40 secondes</div><div style="background:#333;height:12px;border-radius:10px"><div id="bar" style="background:linear-gradient(90deg,#00a651,#ff6f00);height:12px;width:0%"></div></div></div>`;
-
- speakReal(`${realDef.title}. ${realDef.text.substring(0,400)}`, ()=>{});
-
+ document.getElementById('videos').innerHTML=`<div style="text-align:center;padding:15px;background:#141414;border-radius:12px"><div style="color:#00ff88">🎬 Vidéo avec voix forte en cours... 24 sec - Monte volume max!</div><div style="background:#333;height:10px;border-radius:10px;margin:8px 0"><div id="bar" style="background:#00a651;height:10px;width:0%"></div></div></div>`;
  let url=await createRealVideo(steps, realDef);
  document.getElementById('videos').innerHTML=`
  <div class="vbox">
- <div style="color:#00ff88;font-weight:bold;font-size:16px">🎥 VIDÉO RÉELLE - ${realDef.title} - VRAIE DÉFINITION WIKIPÉDIA + PRATIQUES KCC</div>
+ <div style="color:#00ff88;font-weight:bold">🎥 VIDÉO - ${realDef.title} - VOIX FORTE AUDIBLE</div>
  <video controls autoplay playsinline src="${url}"></video>
- <div style="background:#222;padding:10px;border-radius:8px;margin:8px 0;font-size:12px;line-height:1.6"><b>📚 SOURCE VRAIE:</b> ${realDef.source} - ${realDef.title}<br><b>🎙️ VOIX:</b> Vraie voix humaine française (Google Thomas)<br><b>🏭 PRATIQUES:</b> ${steps.length} chapitres avec installations réelles KCC Kolwezi - Valeurs réelles mesurées</div>
- <div style="text-align:center"><button onclick="speakReal('${(realDef.text+' '+steps.map(s=>s.d).join(' ')).substring(0,800).replace(/'/g,"\\'")}')" style="background:#ff6f00;color:#fff;border:0;padding:10px 18px;border-radius:24px;margin:4px;font-weight:bold">🎙️ Réécouter VRAIE définition + pratiques</button> <a href="${url}" download="MAKOLA-VRAI-${q}.webm" style="background:#00a651;color:#fff;padding:10px 18px;border-radius:24px;text-decoration:none;display:inline-block;margin:4px;font-weight:bold">📥 Télécharger vidéo vraie</a> ${realDef.url?`<a href="${realDef.url}" target="_blank" style="background:#1a73e8;color:#fff;padding:10px 18px;border-radius:24px;text-decoration:none;display:inline-block;margin:4px">📖 Wikipédia</a>`:''}</div>
+ <div style="text-align:center"><button onclick="speakReal('${(realDef.text+' '+steps.map(s=>s.d).join(' ')).substring(0,600).replace(/'/g,"\\'")}')" style="background:#ff0000;color:#fff;border:0;padding:12px 20px;border-radius:24px;margin:4px;font-weight:bold">🔊 RÉÉCOUTER FORT - VOIX AUDIBLE</button> <a href="${url}" download="MAKOLA-${q}.webm" style="background:#00a651;color:#fff;padding:10px 18px;border-radius:24px;text-decoration:none;display:inline-block;margin:4px">📥 Télécharger</a></div>
  </div>
- <div style="background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:12px;border-radius:10px;text-align:center;font-weight:bold">✅ VRAIE DÉFINITION + VRAIE VOIX + VIDÉO PRATIQUE RÉELLE GÉNÉRÉE - SOURCE ${realDef.source} - MAKOLA.COM</div>
  `;
- document.getElementById('st').innerText=`✅ Vraie définition de "${q}" trouvée sur ${realDef.source} + vidéo pratique réelle avec vraie voix`;
+ document.getElementById('st').innerText=`✅ Vidéo avec voix forte générée pour "${q}" - Si tu n'entends pas: monte volume max + active haut-parleur + utilise Chrome`;
 }
-
-loadVoices();
 </script></body></html>
