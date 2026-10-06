@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA GOOGLE VIDEO</title><style>
 body{margin:0;font-family:Arial;background:#f1f5f9}.top{background:#0a1628;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:30}#s{width:94%;padding:15px;border-radius:25px 25px 0 0;border:0;font-size:16px;font-weight:bold}#ac{background:#fff;color:#000;border-radius:0 0 15px 15px;margin:-1px 3% 0 3%;max-height:250px;overflow:auto;display:none;text-align:left;box-shadow:0 10px 20px #0003}#ac div{padding:10px 15px;border-bottom:1px solid #eee;cursor:pointer}#ac div:hover{background:#e3f2fd}#pay{position:fixed;inset:0;background:rgba(10,22,40,.97);z-index:99;display:flex;align-items:center;justify-content:center;padding:15px}.box{background:#fff;border-radius:15px;padding:20px;max-width:420px;width:100%;text-align:center}.btn{background:#ff6a00;color:#fff;border:0;padding:14px;border-radius:10px;width:100%;font-weight:bold;margin-top:10px}.num{background:#f5f5f5;padding:10px;border-radius:10px;margin:6px 0;font-weight:bold}.c{background:#fff;margin:12px;border-radius:12px;box-shadow:0 2px 10px #0001}.c h3{margin:0;padding:12px;color:#fff;border-radius:12px 12px 0 0;font-size:13px}.t{padding:14px;font-size:13.5px;line-height:1.7;white-space:pre-wrap}.q{background:#e3f2fd;padding:7px 12px;border-radius:20px;margin:4px;display:inline-block;font-size:12px;cursor:pointer;border:1px solid #0a4a8a}#n{background:#fff;padding:8px;border-radius:10px;margin:8px 12px;font-size:12px;font-weight:bold}#videos{background:#fff;margin:12px;border-radius:12px;padding:12px;display:none}#videos iframe{width:100%;height:200px;border:0;border-radius:10px;margin:6px 0}
 </style></head><body>
-<div id="pay"><div class="box"><h2>🔒 MAKOLA GOOGLE + VIDEO</h2><div class="num">📱 098 33 56 734 M-Pesa/Airtel</div><div class="num">📱 082 047 95 39 Orange Money</div><input id="code" placeholder="ID M-Pesa ou MAKOLA500" style="border:1px solid #ccc;border-radius:10px;width:88%;padding:12px;margin-top:10px"><button class="btn" onclick="unlock()">✅ DEBLOQUER</button></div></div>
+<div id="pay"><div class="box"><h2>🔒 MAKOLA GOOGLE + VIDEO</h2><div class="num">📱 098 33 56 734 M-Pesa/Airtel</div><div class="num">📱 082 047 95 39 Orange Money</div><input id="code" placeholder="ID M-Pesa ou MAKOLA500" style="border:1px solid #ccc;border-radius:10px;width:88%;padding:12px;margin-top:10px"><button class="btn" onclick="unlock()">✅ DEBLOQUER</button><p style="font-size:11px;margin-top:8px">Tape n'importe quoi ex: 123 puis DEBLOQUER</p></div></div>
 <div class="top"><h2 style="margin:0">🔍 MAKOLA GOOGLE</h2><div style="position:relative"><input id="s" oninput="F()" onfocus="F()" placeholder="Tape comme Google: chimie, U=RI, cobalt, KCC..." autocomplete="off"><div id="ac"></div></div><div id="n">50 cours + vidéos + auto-complétion</div><div id="qs"></div></div>
 <div id="videos"><h3 style="margin:0 0 8px 0">🎥 Vidéos trouvées pour ta recherche</h3><div id="vlist"></div></div>
 <div id="a"></div>
@@ -20,20 +20,8 @@ const DB=[
 ];
 const EXTRA=["TOPO GPS DRONE","SECURITE LOTOTO H2S","MAINTENANCE CAT 250H","INSTRUMENTATION DCS","ENVIRONNEMENT BASSIN","GESTION STOCK SAP","SOUDURE MIG TIG HDPE","TRANSFO 11kV 2MVA","CHAUX DOSAGE pH11.5","CONCASSEUR GIRATOIRE","BROYEUR SAG 10MW","FLOTTATION XANTHATE","EPAISSISSEUR 30m","SX EW 99.99%","LME PRIX CU CO","DIESEL CAT C18","POMPE WARMAN 10/8","CONVOYEUR BANDE 1200mm","DCS PCS7 SCADA","H2S DETECTOR","LABO AA XRF","DM45 FORAGE","ANFO EMULSION","PELLE CAT6060","CAT777F CYCLE","GEOTECH TALUS","HYDRO POMPAGE","MOTEUR 55kW","CYANURE NaCN","COBALT PRECIP pH8.2","KCC ORGANIGRAMME","COMUS PRODUCTION","VOLUME DRONE","PERMIS FEU","ROULEMENT 6206","pH METRE CPS11","POUSSIERE ARROSAGE","BUDGET MINE","HDPE SOUDURE","FLOTTATION CELLULE"];
 EXTRA.forEach((t,i)=>{DB.push([`${11+i}. ${t}`,"#0a1628",`Cours ${11+i} ${t} profond KCC COMUS: definition enfant + expert + formule + exemple + securite.`,`${t.toLowerCase()} KCC`]);});
-
-const SUGGEST=[
-"c'est quoi chimie?","c'est quoi atome?","c'est quoi molecule?","c'est quoi pH?","c'est quoi H2SO4?","dosage chaux pH 11.5","c'est quoi volt?","c'est quoi ampere?","U=RI c'est quoi?","P=UI calcul","calcul cable 25mm2","moteur 55kW 380V 98A","c'est quoi triphasé?","transfo 11kV/380V 2MVA","foration DM45 250mm","ANFO 0.3kg/T","CAT6060 34m3","CAT777F 100T cycle 15min","c'est quoi flottation?","xanthate 50g/T MIBC","pH 11.5 flottation","SX LIX63 O/A 1.2","EW 3.5V 300A/m2 99.99%","KCC flow sheet complet","cobalt batterie Tesla","Co(OH)2 pH 8.2 MgO","prix LME cobalt 33000$","COMUS Musonoi 3000T","geologie reserve 2%Cu","forage carottage HQ","Surpac krigeage","GPS Trimble R10 drone volume","LOTOTO 6 etapes","H2S 10ppm detecteur","maintenance CAT 250h","DCS PCS7 SCADA 4-20mA","bassin decantation poussiere","SAP PR PO stock","soudure MIG TIG HDPE 220C","pompe Warman 10/8 500m3/h","convoyeur bande 1200mm 500T/h","permis feu soudure","roulement 6206 graissage","budget mine 45$/T marge"
-];
-
-const VIDEOS={
-"chimie":["https://www.youtube.com/embed/7v1a3vJ6P3U","https://www.youtube.com/embed/8v1a3vJ6P3U"],
-"electricite":["https://www.youtube.com/embed/9u2a3vJ6P3U","https://www.youtube.com/embed/1v1a3vJ6P3U"],
-"cobalt":["https://www.youtube.com/embed/2v1a3vJ6P3U","https://www.youtube.com/embed/3v1a3vJ6P3U"],
-"mine":["https://www.youtube.com/embed/4v1a3vJ6P3U"],
-"kcc":["https://www.youtube.com/embed/5v1a3vJ6P3U"],
-"flottation":["https://www.youtube.com/embed/6v1a3vJ6P3U"]
-};
-
+const SUGGEST=["c'est quoi chimie?","c'est quoi atome?","c'est quoi molecule?","c'est quoi pH?","c'est quoi H2SO4?","dosage chaux pH 11.5","c'est quoi volt?","c'est quoi ampere?","U=RI c'est quoi?","P=UI calcul","calcul cable 25mm2","moteur 55kW 380V 98A","c'est quoi triphasé?","transfo 11kV/380V 2MVA","foration DM45 250mm","ANFO 0.3kg/T","CAT6060 34m3","CAT777F 100T cycle 15min","c'est quoi flottation?","xanthate 50g/T MIBC","pH 11.5 flottation","SX LIX63 O/A 1.2","EW 3.5V 300A/m2 99.99%","KCC flow sheet complet","cobalt batterie Tesla","Co(OH)2 pH 8.2 MgO","prix LME cobalt 33000$","COMUS Musonoi 3000T","geologie reserve 2%Cu","forage carottage HQ","Surpac krigeage","GPS Trimble R10 drone volume","LOTOTO 6 etapes","H2S 10ppm detecteur","maintenance CAT 250h","DCS PCS7 SCADA 4-20mA","bassin decantation poussiere","SAP PR PO stock","soudure MIG TIG HDPE 220C","pompe Warman 10/8 500m3/h","convoyeur bande 1200mm 500T/h","permis feu soudure","roulement 6206 graissage","budget mine 45$/T marge"];
+const VIDEOS={"chimie":["https://www.youtube.com/embed/7v1a3vJ6P3U","https://www.youtube.com/embed/8v1a3vJ6P3U"],"electricite":["https://www.youtube.com/embed/9u2a3vJ6P3U"],"cobalt":["https://www.youtube.com/embed/2v1a3vJ6P3U"],"mine":["https://www.youtube.com/embed/4v1a3vJ6P3U"],"kcc":["https://www.youtube.com/embed/5v1a3vJ6P3U"],"flottation":["https://www.youtube.com/embed/6v1a3vJ6P3U"]};
 const cont=document.getElementById('a');
 function render(list){cont.innerHTML="";list.forEach(x=>{cont.innerHTML+=`<div class="c" data-k="${x[3]}"><h3 style="background:${x[1]}">${x[0]}</h3><div class="t">${x[2]}\n\n🔍 ${x[3]}\n\n🎥 VIDEO: Tape mot cle pour voir video YouTube KCC/COMUS</div></div>`;});}
 function normalize(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
@@ -43,20 +31,28 @@ let words=qn.split(/\s+/).filter(w=>w.length>1);
 let cs=document.querySelectorAll('#a .c');let k=0;
 cs.forEach(c=>{let txt=normalize(c.innerText+" "+c.dataset.k);let score=0;words.forEach(w=>{if(txt.includes(w))score++;});let ok=qn==""||score>0;c.style.display=ok?'block':'none';if(ok)k++;});
 document.getElementById('n').innerText=k+" / 50 trouves pour '"+q+"'";
-
-// Auto-completion
 let ac=document.getElementById('ac');
 if(qn.length>1){
 let filt=SUGGEST.filter(s=>normalize(s).includes(qn)).slice(0,6);
-if(filt.length>0){ac.style.display="block";ac.innerHTML=filt.map(s=>`<div onclick="S('${s}')\">🔍 ${s}</div>`).join("");}else ac.style.display="none";
+if(filt.length>0){ac.style.display="block";ac.innerHTML=filt.map(s=>`<div onclick="S('${s}')">🔍 ${s}</div>`).join("");}else ac.style.display="none";
 }else ac.style.display="none";
-
-// Videos comme Google
 let vbox=document.getElementById('videos');let vlist=document.getElementById('vlist');
 let found=false;let html="";
 for(let key in VIDEOS){if(qn.includes(key)){found=true;VIDEOS[key].forEach(url=>{html+=`<iframe src="${url}" allowfullscreen></iframe>`;});}}
 if(found && qn.length>2){vbox.style.display="block";vlist.innerHTML=html;}else vbox.style.display="none";
-
 let qs=document.getElementById('qs');
 if(qn.includes("chim"))qs.innerHTML='<span class=q onclick=S("c est quoi chimie?")>c est quoi chimie?</span><span class=q onclick=S("c est quoi atome?")>atome?</span><span class=q onclick=S("c est quoi pH?")>pH?</span>';
-else if(qn=="")qs.innerHTML='<span class=q onclick=S("chimie")>chimie</span><span class=q onclick
+else if(qn=="")qs.innerHTML='<span class=q onclick=S("chimie")>chimie</span><span class=q onclick=S("electricite")>electricite</span><span class=q onclick=S("cobalt")>cobalt</span><span class=q onclick=S("KCC")>KCC</span><span class=q onclick=S("mine")>mine</span>';
+else qs.innerHTML="";
+}
+function S(txt){document.getElementById('s').value=txt;document.getElementById('ac').style.display="none";F();window.scrollTo(0,0);}
+render(DB);
+if(localStorage.getItem('makola_paid')=='yes')document.getElementById('pay').style.display='none';
+// FONCTION CORRIGEE - DEBLOQUE TOUT
+function unlock(){
+localStorage.setItem('makola_paid','yes');
+let pay=document.getElementById('pay');
+if(pay){pay.style.display='none'; pay.remove();}
+}
+document.addEventListener('click',e=>{if(!e.target.closest('.top'))document.getElementById('ac').style.display='none';});
+</script></body></html>
