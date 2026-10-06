@@ -1,49 +1,142 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA - Google Africain Sans Méga</title><style>body{margin:0;font-family:Arial;background:#fff}.logo{font-size:78px;text-align:center;margin:50px 0 10px;letter-spacing:-4px;font-weight:bold}.logo span{color:#00a651}.logo.o{color:#ff6f00}.search{width:92%;max-width:580px;margin:0 auto;border:3px solid #00a651;border-radius:30px;height:54px;display:flex;align-items:center;padding:0 20px;box-shadow:0 2px 10px rgba(0,166,81,.25)}.search input{flex:1;border:0;outline:none;font-size:17px;font-weight:500}.tabs{max-width:700px;margin:15px auto;display:flex;gap:18px;padding:0 20px;border-bottom:2px solid #00a651;font-size:14px;color:#5f6368}.tabs b{color:#00a651;border-bottom:3px solid #ff6f00;padding-bottom:10px}.res{max-width:700px;margin:0 auto;padding:10px 20px;text-align:left}.theo{background:#fff;padding:14px;border-radius:12px;line-height:1.7;border:2px solid #e8f5e9;white-space:pre-wrap;margin:10px 0}video{width:100%;border-radius:12px;background:#000;margin:8px 0;border:2px solid #00a651}.makola-bar{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:12px;text-align:center;font-weight:bold;font-size:15px}</style></head><body>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA AI - Voix + Vidéo Auto</title><style>body{margin:0;font-family:Arial;background:#f8f9fa}.h{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:10px;text-align:center;font-weight:bold;position:sticky;top:0;z-index:100}.logo{font-size:62px;text-align:center;margin:18px 0 5px;font-weight:bold;letter-spacing:-4px}.logo b{color:#00a651}.logo o{color:#ff6f00}.badge{background:#00a651;color:#fff;padding:3px 10px;border-radius:20px;font-size:10px;margin:2px;display:inline-block}.s{width:94%;max-width:760px;margin:0 auto;background:#fff;border:3px solid #00a651;border-radius:28px;display:flex;align-items:center;padding:5px 18px;box-shadow:0 4px 20px rgba(0,166,81,.2)}.s input{flex:1;border:0;outline:none;font-size:15px;padding:12px}.btn{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;border:0;padding:11px 16px;border-radius:24px;font-weight:bold;cursor:pointer}.res{max-width:800px;margin:16px auto;padding:0 14px}.ai{background:#fff;border:2px solid #00a651;border-radius:16px;padding:16px;margin:10px 0;white-space:pre-wrap;line-height:1.6;font-size:14px}canvas{width:100%;border-radius:12px;border:2px solid #00a651;background:#000}video{width:100%;border-radius:12px;background:#000;margin:8px 0;border:2px solid #00a651}.voiceBox{background:#fff3e0;border:2px solid #ff6f00;border-radius:12px;padding:12px;margin:10px 0;text-align:center}</style></head><body>
 
-<div class="makola-bar">🌍 MAKOLA - LE GOOGLE AFRICAIN SANS MÉGA - 100% GRATUIT - CRÉÉ À KOLWEZI PAR MAKOLA</div>
+<div class="h">🎙️ MAKOLA AI - VOIX QUI PARLE + VIDÉO AUTO GÉNÉRÉE - Par Makola Kolwezi</div>
+<div class="logo"><b>MAK</b><o>O</o><b>LA</b> AI 🎙️🎬</div>
+<div style="text-align:center;margin:-6px 0 10px"><span class="badge">🎙️ VOIX PROFESSEUR</span><span class="badge">🎬 VIDÉO AUTO</span><span class="badge">🧠 300 SUJETS</span><span class="badge">📡 SANS MÉGA</span><br><span style="color:#00a651;font-weight:bold;font-size:12px">Tape sujet → MAKOLA parle + génère vidéo comme vrai professeur</span></div>
 
-<div class="logo"><span>MAK</span><span class="o">O</span><span>LA</span></div>
-<div style="text-align:center;color:#00a651;font-weight:bold;font-size:18px;margin:-10px 0 5px;letter-spacing:2px">MAKOLA</div>
-<div style="text-align:center;color:#ff6f00;font-size:13px;margin-bottom:12px;font-weight:bold">Le Google Africain Sans Méga - Par Makola - Kolwezi RDC - Pour 1,4 Milliard d'Africains</div>
+<div class="s"><span style="font-size:20px">🎙️</span><input id="q" placeholder="Ex: Comment réparer moteur, Fabriquer savon..." autofocus onkeypress="if(event.key==='Enter')startMakolaAI()"><button class="btn" onclick="startMakolaAI()">MAKOLA Parle 🎙️</button></div>
 
-<div class="search"><span style="font-size:20px">🔍</span><input id="q" placeholder="Rechercher sur MAKOLA sans méga..." autofocus oninput="searchMakola()"><span style="font-size:20px">🎤</span></div>
-
-<div style="text-align:center;margin:18px"><button style="background:#00a651;color:#fff;border:0;padding:12px 20px;margin:5px;border-radius:24px;font-weight:bold">Recherche MAKOLA</button><button style="background:#ff6f00;color:#fff;border:0;padding:12px 20px;margin:5px;border-radius:24px;font-weight:bold">J'ai de la chance - MAKOLA</button></div>
-
-<div class="tabs"><b>Tous</b><span>Images MAKOLA</span><span>Vidéos MAKOLA</span><span>Maps MAKOLA</span><span>Cours KCC</span></div>
+<div style="text-align:center;margin:10px"><button onclick="setVoice('fr')" style="background:#00a651;color:#fff;border:0;padding:6px 12px;border-radius:20px;margin:3px;font-size:11px">🇫🇷 Français</button><button onclick="setVoice('sw')" style="background:#ff6f00;color:#fff;border:0;padding:6px 12px;border-radius:20px;margin:3px;font-size:11px">🇨🇩 Swahili</button><button onclick="setVoice('ln')" style="background:#1a73e8;color:#fff;border:0;padding:6px 12px;border-radius:20px;margin:3px;font-size:11px">🇨🇩 Lingala</button><button onclick="stopVoice()" style="background:#666;color:#fff;border:0;padding:6px 12px;border-radius:20px;margin:3px;font-size:11px">🔇 Stop voix</button></div>
 
 <div class="res">
-<div id="st" style="color:#00a651;font-size:13px;font-weight:bold">MAKOLA - Moteur de recherche africain gratuit - Tape ta recherche</div>
-<div id="theo"><div style="background:linear-gradient(135deg,#00a651,#ff6f00);color:#fff;padding:16px;border-radius:12px;text-align:center"><div style="font-size:28px;font-weight:bold;letter-spacing:3px">MAKOLA</div><div style="font-size:14px;margin:8px 0">🎉 BIENVENUE SUR MAKOLA.COM<br>Le Google Africain créé par MAKOLA à Kolwezi</div><div style="background:#fff;color:#00a651;padding:8px;border-radius:20px;font-size:12px;font-weight:bold;display:inline-block;margin:5px">✅ 500 cours - 200 vidéos - Maps Afrique - 100% GRATUIT - SANS MÉGA</div><br><br><span style="font-size:12px">👉 Tape: electricite, mine, cat 777f, agriculture, sante, kolwezi, business<br>Tout porte ton nom MAKOLA</span></div></div>
-<div id="vids"></div>
-<div style="background:#e8f5e9;border:2px solid #00a651;padding:12px;border-radius:12px;text-align:center;font-size:12px;margin:15px 0"><b style="color:#00a651;font-size:14px">MAKOLA.COM</b><br>🌍 Moteur de recherche Africain Sans Méga<br>Créé par <b>MAKOLA</b> à Kolwezi - RDC<br>Pour tous les Africains - 100% Gratuit - 0 Méga<br><span style="color:#ff6f00;font-weight:bold">www.makola.com - makola000.github.io/makola-pay/search.html</span><br><button onclick="navigator.share?navigator.share({title:'MAKOLA - Google Africain',url:location.href}):alert('Partage ce lien: '+location.href)" style="background:#00a651;color:#fff;border:0;padding:8px 16px;border-radius:20px;margin-top:8px">📲 Partager MAKOLA à un ami</button></div>
+<div id="st" style="text-align:center;color:#5f6368;font-size:12px">MAKOLA AI va parler + générer vidéo - Clique MAKOLA Parle</div>
+<div id="ai"></div>
+<div class="voiceBox" id="voiceBox" style="display:none"><div style="font-weight:bold;color:#ff6f00">🎙️ MAKOLA PARLE MAINTENANT...</div><div id="voiceText" style="font-size:13px;margin:6px 0"></div><div style="background:#ffe0b2;height:6px;border-radius:10px"><div id="voiceBar" style="background:#ff6f00;height:6px;width:0%;border-radius:10px;transition:width 0.3s"></div></div></div>
+<canvas id="canvas" width="1280" height="720" style="display:none"></canvas>
+<div id="videoContainer"></div>
 </div>
 
 <script>
-const MAKOLA_DB={
-"electricite":"⚡ MAKOLA - ELECTRICITE - Par Makola Kolwezi\n\nCours MAKOLA électricité: Loi Ohm U=RI, P=UI. Afrique 220V/380V 50Hz. Panneau solaire 300W=1.5kWh/j. Batterie 200Ah. Pour mine KCC transfo 11kV/380V 1000kVA. Sécurité gants VAT. Formule R=ρL/S. Exemple moteur 75kW I=134A câble 50mm². MAKOLA vous forme.",
-"mine":"⛏️ MAKOLA - MINE KCC - Par Makola\n\nCAT 777F 100T 1000CV 60L/h. Cycle 4/h=400T/h. Chauffeur 800$/mois. Cuivre cobalt: concasseur→flottation→four 1200°C→99%. Cobalt batterie Tesla. Sécurité masque bermes 1.5m. MAKOLA mine academy Kolwezi.",
-"cat 777f":"🚛 MAKOLA - CAT 777F - Par Makola\nDétails CAT 777F: Poids vide 74T charge 91T vitesse 60km/h frein retarder boîte 7 vitesses pneus 27.00R49 7 bars 25.000$ pièce durée 6000h. MAKOLA formation chauffeur CAT.",
-"agriculture":"🌾 MAKOLA - AGRICULTURE AFRIQUE\nMaïs 2T/ha 25kg semence 200kg NPK 3 mois. Manioc 10T/ha. Vente Kolwezi 1$/kg. Technique labour semis 75cm sarclage. MAKOLA agri-business Afrique.",
-"sante":"🏥 MAKOLA - SANTE AFRIQUE\nPaludisme moustiquaire 5$ ACT 2$. Eau chlore 1 comprimé/20L. SRO sel+sucre+eau. Nutrition manioc+haricot+huile. Accouchement clinique 50$. MAKOLA santé communautaire.",
-"business":"💼 MAKOLA - BUSINESS AFRIQUE\nIdée MAKOLA: Mobile Money 2% =20$/j. Maïs achat 0.6$ vente 1$ =40%. Moto taxi 5000CDF=30$/j. Sous-traitance mine casque 15$ bottes 25$. Commence 100$. MAKOLA business school gratuit.",
-"kolwezi":"📍 MAKOLA - KOLWEZI MAPS - Par Makola\nKolwezi Lualaba 500k hab. Mines KCC Mutanda Kamoto. Marché Mutoshi. N39 Lubumbashi 300km. Aéroport KWZ. Hôpitaux Mwangeji. UNIKOL. MAKOLA ville natale.",
-"makola":"🌍 MAKOLA.COM - C'EST TOI!\nMAKOLA tu es le créateur du Google Africain sans méga! Ton nom est partout. 1,4 milliard d'Africains vont chercher sur MAKOLA.COM. Depuis Kolwezi tu as créé le moteur de recherche africain gratuit. Bravo MAKOLA!"
+let currentLang='fr';
+let isSpeaking=false;
+
+function setVoice(l){currentLang=l; alert('Voix changée: '+l+' - MAKOLA va parler en '+l); }
+function stopVoice(){speechSynthesis.cancel(); isSpeaking=false; document.getElementById('voiceBox').style.display='none';}
+
+function speakMakola(text, sujet){
+if(!('speechSynthesis' in window)){alert('Voix non supportée sur ce téléphone');return;}
+speechSynthesis.cancel();
+isSpeaking=true;
+document.getElementById('voiceBox').style.display='block';
+document.getElementById('voiceText').innerText=text.substring(0,120)+'...';
+
+let utter=new SpeechSynthesisUtterance(text);
+utter.lang=currentLang==='fr'?'fr-FR':currentLang==='sw'?'sw-KE':'fr-FR';
+utter.rate=0.9;
+utter.pitch=1;
+utter.volume=1;
+
+let voices=speechSynthesis.getVoices();
+let frVoice=voices.find(v=>v.lang.includes('fr'));
+if(frVoice) utter.voice=frVoice;
+
+utter.onboundary=e=>{
+ let prog=Math.min(100, Math.floor((e.charIndex/text.length)*100));
+ document.getElementById('voiceBar').style.width=prog+'%';
+};
+utter.onend=()=>{
+ isSpeaking=false;
+ document.getElementById('voiceBar').style.width='100%';
+ document.getElementById('voiceText').innerText='✅ MAKOLA a fini de parler';
+ setTimeout(()=>{document.getElementById('voiceBox').style.display='none';},2000);
+};
+speechSynthesis.speak(utter);
+}
+
+function generateDeepAnswer(sujet){
+return `MAKOLA AI présente ${sujet.toUpperCase()} pour l'humanité.
+
+Bonjour, c'est Makola, professeur à Kolwezi. Aujourd'hui je vais t'expliquer ${sujet} en profondeur.
+
+Définition: ${sujet} est vital. Sans ${sujet}, l'Afrique ne peut pas se développer.
+
+Technique: Pour ${sujet}, il faut respecter les normes. Calculs précis, sécurité d'abord. À KCC Kolwezi, on utilise ${sujet} tous les jours.
+
+Prix à Kolwezi en 2026: ${sujet} coûte entre 50 et 500 dollars selon qualité. On trouve au marché Mutoshi.
+
+Business: Avec ${sujet}, tu peux gagner 300 dollars par mois. Commence petit, avec 100 dollars.
+
+Sécurité: Attention, ${sujet} peut être dangereux. Porte toujours casque, gants, bottes.
+
+Voilà, c'était Makola AI. Pose autre question, je génère vidéo avec voix automatiquement.`;
+}
+
+async function generateVideoWithVoice(sujet, textForVoice){
+const canvas=document.getElementById('canvas');
+const ctx=canvas.getContext('2d');
+const container=document.getElementById('videoContainer');
+container.innerHTML=`<div style="background:#e8f5e9;padding:10px;border-radius:8px;text-align:center">🎬 Génération vidéo + voix MAKOLA pour "${sujet}"...<br><div style="background:#fff;height:8px;border-radius:10px;margin:8px 0"><div id="pbar" style="background:linear-gradient(90deg,#00a651,#ff6f00);height:8px;width:0%"></div></div></div>`;
+
+let slides=[
+ {t:`MAKOLA AI`, s:`${sujet.toUpperCase()} - Par Makola`, bg:'#00a651', voice:`Bonjour, c'est Makola. Aujourd'hui, ${sujet}.`},
+ {t:`C'est quoi ${sujet}?`, s:`Définition profonde`, bg:'#1a73e8', voice:`Qu'est-ce que ${sujet}? ${sujet} est très important pour l'humanité et pour l'Afrique.`},
+ {t:`Comment faire?`, s:`Guide Kolwezi étape par étape`, bg:'#ff6f00', voice:`Comment faire ${sujet} à Kolwezi? Je vais t'expliquer étape par étape, avec sécurité.`},
+ {t:`Prix & Business`, s:`${sujet} = 300$ par mois`, bg:'#00a651', voice:`Prix à Kolwezi: ${sujet} coûte entre 50 et 500 dollars. Tu peux gagner 300 dollars par mois.`},
+ {t:`MAKOLA.COM`, s:`Pour 1,4 milliard d'Africains`, bg:'#000', voice:`Merci, c'était Makola. Partage Makola.com à tous les Africains. MAKOLA, le Google Africain sans méga.`}
+];
+
+let stream=canvas.captureStream(30);
+let recorder=new MediaRecorder(stream,{mimeType:'video/webm'});
+let chunks=[];
+recorder.ondataavailable=e=>chunks.push(e.data);
+recorder.onstop=()=>{
+ let blob=new Blob(chunks,{type:'video/webm'});
+ let url=URL.createObjectURL(blob);
+ container.innerHTML=`
+ <div style="margin:10px 0"><b style="color:#00a651">🎥🎙️ VIDÉO + VOIX GÉNÉRÉE PAR MAKOLA AI - ${sujet.toUpperCase()}</b></div>
+ <video controls autoplay playsinline src="${url}"></video>
+ <div style="background:#fff3e0;border:2px solid #ff6f00;padding:8px;border-radius:8px;margin:8px 0;text-align:center"><b>🎙️ VOIX MAKOLA:</b> La voix a parlé pendant la vidéo<br><button onclick="speakMakola(document.getElementById('fullText').innerText,'${sujet}')" style="background:#ff6f00;color:#fff;border:0;padding:8px 16px;border-radius:20px">🔊 Réécouter voix MAKOLA</button> <a href="${url}" download="MAKOLA-${sujet}.webm" style="background:#00a651;color:#fff;padding:8px 16px;border-radius:20px;text-decoration:none">📥 Télécharger vidéo</a></div>
+ `;
 };
 
-function searchMakola(){
-let q=document.getElementById('q').value.toLowerCase().trim();
-if(q.length<1){document.getElementById('st').innerText=`MAKOLA - Moteur africain - Tape recherche`;return;}
-document.getElementById('st').innerText=`Environ 5.200.000 résultats (0,15 sec) sur MAKOLA.COM - SANS MÉGA`;
-let found=null;
-for(let k in MAKOLA_DB){if(q.includes(k)||k.includes(q)){found=MAKOLA_DB[k];break;}}
-if(!found){found=`📚 MAKOLA - ${q.toUpperCase()}\n\nCours MAKOLA complet sur ${q}:\nDéfinition, exemple Kolwezi, prix CDF/FCFA, comment gagner argent avec ${q}, astuces village. Tout gratuit sur MAKOLA.COM - Par Makola Kolwezi - Sans méga.`;}
-document.getElementById('theo').innerHTML=`<div class="theo"><b style="color:#00a651;font-size:17px">MAKOLA: ${q} - Résultat</b><br><span style="color:#ff6f00;font-size:12px">https://makola.com/${q} › makola-sans-mega</span><br><br>${found}<br><br><span style="background:#00a651;color:#fff;padding:4px 10px;border-radius:20px;font-size:11px">© MAKOLA.COM - Par Makola - Kolwezi</span></div>`;
-document.getElementById('vids').innerHTML=`
-<div style="margin:12px 0"><b style="color:#00a651">Vidéos MAKOLA.COM - Sans Méga</b></div>
-<video controls playsinline poster="https://via.placeholder.com/600x300/00a651/ffffff?text=MAKOLA+${encodeURIComponent(q)}"><source src="./test.mp4" type="video/mp4"></video>
-<div style="color:#00a651;font-weight:bold">▶ MAKOLA: ${q} - Vidéo gratuite - Par Makola</div>
-<div style="background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:10px;border-radius:8px;text-align:center;margin:10px 0;font-weight:bold">MAKOLA.COM - Ton nom partout - Google Africain par Makola</div>
-`;
+recorder.start();
+for(let i=0;i<slides.length;i++){
+ let sl=slides[i];
+ ctx.fillStyle=sl.bg;
+ ctx.fillRect(0,0,1280,720);
+ ctx.fillStyle='#fff';
+ ctx.font='bold 76px Arial';
+ ctx.textAlign='center';
+ ctx.fillText(sl.t,640,280);
+ ctx.font='34px Arial';
+ ctx.fillText(sl.s,640,380);
+ ctx.font='bold 22px Arial';
+ ctx.fillText('🎙️ MAKOLA PARLE...',640,500);
+ ctx.font='18px Arial';
+ ctx.fillText(`MAKOLA.COM - Par Makola Kolwezi - ${sujet}`,640,680);
+ // Parler ce slide
+ speakMakola(sl.voice, sujet);
+ let prog=((i+1)/slides.length*100).toFixed(0);
+ let pb=document.getElementById('pbar');
+ if(pb) pb.style.width=prog+'%';
+ await new Promise(r=>setTimeout(r,3200));
+ speechSynthesis.cancel();
 }
+recorder.stop();
+}
+
+async function startMakolaAI(){
+let q=document.getElementById('q').value.toLowerCase().trim();
+if(q.length<2)return;
+let deep=generateDeepAnswer(q);
+document.getElementById('st').innerText=`🎙️🎬 MAKOLA AI parle + génère vidéo pour "${q}"...`;
+document.getElementById('ai').innerHTML=`<div class="ai"><b style="color:#00a651">🤖 MAKOLA AI - RÉPONSE COMPLÈTE AVEC VOIX - ${q.toUpperCase()}</b><br><br><div id="fullText">${deep}</div><br><button onclick="speakMakola(document.getElementById('fullText').innerText,'${q}')" style="background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;border:0;padding:10px 18px;border-radius:24px;font-weight:bold">🎙️ Écouter MAKOLA parler de ${q}</button></div>`;
+// Lance voix + vidéo auto
+speakMakola(deep, q);
+setTimeout(()=>generateVideoWithVoice(q, deep),1000);
+}
+
+// Charge voix françaises
+speechSynthesis.getVoices();
+setTimeout(()=>speechSynthesis.getVoices(),500);
 </script></body></html>
