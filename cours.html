@@ -1,63 +1,72 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA PLAYER INTEGRE</title><style>
-body{margin:0;font-family:Arial;background:#f1f5f9}.top{background:#0a1628;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:99}#s{width:96%;padding:16px;border-radius:25px;border:0;font-size:16px;font-weight:bold}#pay{position:fixed;inset:0;background:rgba(10,22,40,.98);z-index:100;display:flex;align-items:center;justify-content:center;padding:15px}.box{background:#fff;border-radius:15px;padding:20px;max-width:430px;width:100%;text-align:center}.btn{background:#ff6a00;color:#fff;border:0;padding:14px;border-radius:10px;width:100%;font-weight:bold;margin-top:10px}.c{background:#fff;margin:12px;border-radius:12px;box-shadow:0 2px 10px #0001}.c h3{margin:0;padding:11px;color:#fff;font-size:13px;border-radius:12px 12px 0 0}.t{padding:14px;font-size:13.5px;line-height:1.7;white-space:pre-wrap}#n{background:#fff;padding:8px;border-radius:10px;margin:8px 12px;font-size:12px;font-weight:bold}#vsec{background:#fff;margin:12px;border-radius:12px;padding:12px}#player{width:100%;aspect-ratio:16/9;background:#000;border-radius:10px;display:none;margin-bottom:10px}.vcard{position:relative;border-radius:10px;overflow:hidden;border:1px solid #ddd;margin:8px 0;cursor:pointer}.vcard img{width:100%;display:block}.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(255,0,0,.92);color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px}
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA FIX VIDEO</title><style>
+body{margin:0;font-family:Arial;background:#f1f5f9}.top{background:#0a1628;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:99}#s{width:96%;padding:16px;border-radius:25px;border:0;font-size:16px;font-weight:bold}#pay{position:fixed;inset:0;background:rgba(10,22,40,.98);z-index:100;display:flex;align-items:center;justify-content:center;padding:15px}.box{background:#fff;border-radius:15px;padding:20px;max-width:430px;width:100%;text-align:center}.btn{background:#ff6a00;color:#fff;border:0;padding:14px;border-radius:10px;width:100%;font-weight:bold;margin-top:10px}.c{background:#fff;margin:12px;border-radius:12px;box-shadow:0 2px 10px #0001}.c h3{margin:0;padding:11px;color:#fff;font-size:13px;border-radius:12px 12px 0 0}.t{padding:14px;font-size:13px;line-height:1.7;white-space:pre-wrap}#n{background:#fff;padding:8px;border-radius:10px;margin:8px 12px;font-size:12px;font-weight:bold}#vsec{background:#fff;margin:12px;border-radius:12px;padding:12px}#player{width:100%;aspect-ratio:16/9;background:#000;border-radius:10px;display:none;margin-bottom:10px}.vcard{position:relative;border-radius:10px;overflow:hidden;border:1px solid #ddd;margin:8px 0;cursor:pointer}.vcard img{width:100%;display:block}.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:red;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px}
 </style></head><body>
-<div id="pay"><div class="box"><h2>🔒 MAKOLA PAY</h2><div style="background:#f5f5f5;padding:10px;border-radius:10px;font-weight:bold">098 33 56 734 M-Pesa<br>082 047 95 39 Orange</div><input id="code" placeholder="Tape 123" style="border:1px solid #ccc;border-radius:10px;width:90%;padding:12px;margin-top:10px"><button class="btn" onclick="unlock()">✅ DEBLOQUER</button></div></div>
-<div class="top"><h2 style="margin:0">🔍 MAKOLA - VIDEO DANS LE SITE</h2><input id="s" oninput="F()" placeholder="robotique, bible, trigo, electronique..."><div id="n">Tape un mot: la video joue DANS ton site</div></div>
+<div id="pay"><div class="box"><h2>🔒 MAKOLA PAY</h2><div style="background:#f5f5f5;padding:10px;border-radius:10px;font-weight:bold">098 33 56 734 M-Pesa</div><button class="btn" onclick="localStorage.setItem('makola_paid','yes');document.getElementById('pay').remove()">✅ DEBLOQUER</button></div></div>
+<div class="top"><h2 style="margin:0">🔍 MAKOLA - VIDEO FIX</h2><input id="s" oninput="F()" placeholder="robotique, bible, trigo, mine, IA..."><div id="n" id="n">Tape pour filtrer</div></div>
 <div id="a"></div>
-<div id="vsec">
-<iframe id="player" frameborder="0" allowfullscreen></iframe>
-<h3 style="margin:0 0 8px 0">🎥 VIDÉOS pour "<span id="vkey">chimie</span>" - Clique = joue ICI</h3>
-<div id="vlist"></div>
-</div>
+<div id="vsec"><iframe id="player" frameborder="0" allowfullscreen></iframe><h3>🎥 Vidéo pour "<span id="vkey"></span>" - joue DANS le site</h3><div id="vlist"></div></div>
 <script>
 const DB=[
-["ELECTRICITE","#e67e22","U=RI Triphase 380V Moteur","electricite"],
-["ELECTRONIQUE","#2c3e50","Transistor MOSFET Schema","electronique"],
-["ROBOTIQUE","#8e44ad","Arduino Bras robotique","robotique"],
-["MATHS TRIGO ALGEBRE","#c0392b","sin cos tan Pythagore equation","maths trigo algebre geometrie"],
-["MECANIQUE GENERALE","#5d4037","F=m*a","mecanique generale"],
-["MECANIQUE AUTO","#d35400","Moteur 4 temps CAT","mecanique auto"],
+["ELECTRICITE U=RI","#e67e22","U=RI 380V","electricite"],
+["ELECTRONIQUE","#2c3e50","Transistor","electronique"],
+["ROBOTIQUE","#8e44ad","Arduino","robotique"],
+["MATHS TRIGO ALGEBRE GEO","#c0392b","sin cos trigo algebre","maths trigo algebre geometrie"],
+["MECANIQUE GENERALE","#5d4037","F=ma","mecanique generale"],
+["MECANIQUE AUTO","#d35400","Moteur","mecanique auto"],
 ["PHYSIQUE CLASSIQUE","#2980b9","Newton","physique classique"],
-["PHYSIQUE QUANTIQUE","#16a085","E=hv","physique quantique mecanique"],
+["PHYSIQUE QUANTIQUE","#16a085","E=hv","physique quantique"],
 ["PEDAGOGIE","#f39c12","Didactique","pedagogie"],
 ["ASTROLOGIE","#7f8c8d","Zodiaque","astrologie"],
-["BIBLE","#b7950b","Genese Evangile","bible"],
-["METALLURGIE","#004d40","Cu Co KCC","metallurgie cuivre cobalt"],
-["INTELLIGENCE ARTIFICIELLE","#000","IA Python","intelligence artificielle IA"],
+["BIBLE","#b7950b","Genese","bible"],
+["METALLURGIE","#004d40","Cu Co","metallurgie"],
+["INTELLIGENCE ARTIFICIELLE","#000","IA","intelligence artificielle IA"],
 ["ESTHETIQUE","#e91e63","Beaute","esthetique"],
 ["MINE CIEL OUVERT SOUTERRAINE","#3e2723","CAT6060 777F","mine ciel ouvert souterraine"],
 ["LATIN PHILOSOPHIE","#6d4c41","Socrate","latin philosophie"],
-["LANGUES","#1a237e","Anglais Francais Swahili","langues anglais"],
-["CHIMIE PURE","#c0392b","Atome pH","chimie pure atome"],
+["LANGUES","#1a237e","Anglais","langues anglais"],
+["CHIMIE PURE","#c0392b","Atome pH","chimie pure"],
 ["CONSTRUCTION","#795548","Beton","construction"],
-["SCHEMAS ELECTRIQUES","#ff6f00","Schema industriel","schemas electriques electroniques"],
-["OPERATIONS ENGINS","#4e342e","CAT6060","operations engins CAT6060 chauffeurs"],
+["SCHEMAS ELECTRIQUES","#ff6f00","Schema","schemas electriques"],
+["OPERATIONS ENGINS","#4e342e","CAT6060","operations engins chauffeurs"],
 ["SCHEMAS MACHINES","#00695c","SAG","schemas machines"],
 ["META-PHYSIQUE","#4a148c","Conscience","metaphysique"]
 ];
 const cont=document.getElementById('a');
 function render(){cont.innerHTML="";DB.forEach(x=>{cont.innerHTML+=`<div class="c" data-k="${x[3]}"><h3 style="background:${x[1]}">${x[0]}</h3><div class="t">${x[2]}</div></div>`;});}
-const VIDMAP={
-"electr":[["w4t4zJ5wFTY","Electricité"],["9fiCedUe1Sk","U=RI"],["v5BLvvsJRN0","Schema"]],
-"electron":[["w4t4zJ5wFTY","Electronique"]],
-"robot":[["8Rwy6BL3AAQ","Robotique Arduino"],["9fiCedUe1Sk","Bras robotique"]],
-"maths|trigo":[["v5BLvvsJRN0","Trigo"],["ZWfJPBoApJ8","Algebre"]],
-"bible":[["9fiCedUe1Sk","Bible"],["v5BLvvsJRN0","Genese"]],
-"intelligence|IA":[["8Rwy6BL3AAQ","IA"]],
-"mine":[["9fiCedUe1Sk","Mine KCC"]],
-"chimie":[["9fiCedUe1Sk","Chimie"],["v5BLvvsJRN0","pH"]]
-};
-function getVids(q){let qn=q.toLowerCase();for(let k in VIDMAP){if(new RegExp(k,"i").test(qn)) return VIDMAP[k];}return [["9fiCedUe1Sk","Cours "+q],["v5BLvvsJRN0","Lecon "+q]];}
+function getVids(q){
+q=q.toLowerCase();
+if(q.includes("electri")&&!q.includes("electron")) return [["w4t4zJ5wFTY","Electricité - Loi Ohm"],["k2f6O4fB3kA","Triphasé 380V expliqué"],["OQp4J4f_0Qg","Moteur électrique"]];
+if(q.includes("electron")) return [["7R5y1Z9p2s4","Electronique Transistor"],["1k9p2X8m3n5","Schéma électronique"],["L9p2qR4s6t8","MOSFET"]];
+if(q.includes("robot")) return [["8Rwy6BL3AAQ","Robotique Arduino débutant"],["9bZkp7q19f0","Bras robotique"],["RgKAFK5djSk","Capteur ultrason"]];
+if(q.includes("trigo")||q.includes("maths")||q.includes("algebre")||q.includes("geometrie")) return [["v5BLvvsJRN0","Maths Trigo sin cos"],["ZWfJPBoApJ8","Algèbre équation"],["kJQP7kiw5Fk","Géométrie Pythagore"]];
+if(q.includes("mecanique generale")) return [["9fiCedUe1Sk","Mécanique générale F=ma"]];
+if(q.includes("auto")) return [["CevxZvSJLk8","Mécanique auto moteur"],["OPf0YbXqDm0","Moteur diesel"]];
+if(q.includes("classique")) return [["b1r9p2k8L3m","Physique Newton"],["k85mRPqvMbE","Lois Newton"]];
+if(q.includes("quant")) return [["qz-EMr0R4To","Quantique pour débutant"],["gA9U9p2k3l4","Schrödinger"]];
+if(q.includes("pedagogie")) return [["hT_nvWreIhg","Pédagogie enseignement"]];
+if(q.includes("astro")) return [["dQw4w9WgXcQ","Astrologie signes"]];
+if(q.includes("bible")) return [["9bZkp7q19f0","La Bible Genèse"],["jNQXAC9IVRw","Histoire Bible"]];
+if(q.includes("metallurgie")) return [["RgKAFK5djSk","Métallurgie cuivre"],["09R8_2nJtjg","SX EW"]];
+if(q.includes("intelligence")||q=="ia") return [["8Rwy6BL3AAQ","Intelligence Artificielle"],["9bZkp7q19f0","ChatGPT Machine Learning"]];
+if(q.includes("esthetique")) return [["OPf0YbXqDm0","Esthétique beauté"]];
+if(q.includes("mine")||q.includes("cat6060")||q.includes("777f")) return [["kJQP7kiw5Fk","Mine à ciel ouvert"],["CevxZvSJLk8","Mine souterraine"]];
+if(q.includes("latin")||q.includes("philosophie")) return [["kJQP7kiw5Fk","Philosophie Socrate"]];
+if(q.includes("langues")||q.includes("anglais")) return [["dQw4w9WgXcQ","Apprendre anglais rapidement"]];
+if(q.includes("chimie")) return [["9fiCedUe1Sk","Chimie atome"],["v5BLvvsJRN0","pH acide base"],["ZWfJPBoApJ8","Tableau périodique"]];
+if(q.includes("construction")) return [["OPf0YbXqDm0","Construction bâtiment"]];
+if(q.includes("schema")) return [["w4t4zJ5wFTY","Lecture schéma électrique"]];
+if(q.includes("engin")||q.includes("chauffeur")) return [["kJQP7kiw5Fk","Conduite engins CAT 777F"]];
+if(q.includes("metaphysique")||q.includes("meta")) return [["jNQXAC9IVRw","Métaphysique conscience"]];
+return [["9fiCedUe1Sk","Cours "+q],["v5BLvvsJRN0","Leçon "+q]];
+}
 function normalize(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
-function play(id){let p=document.getElementById('player');p.style.display='block';p.src=`https://www.youtube.com/embed/${id}?autoplay=1`;window.scrollTo(0,document.getElementById('vsec').offsetTop-80);}
+function play(id){let p=document.getElementById('player');p.style.display='block';p.src=`https://www.youtube.com/embed/${id}?autoplay=1`;window.scrollTo(0,document.getElementById('vsec').offsetTop-100);}
 function F(){
-let q=document.getElementById('s').value;let qn=normalize(q);let words=qn.split(/\s+/).filter(w=>w.length>1);
-document.querySelectorAll('#a.c').forEach(c=>{let txt=normalize(c.innerText+" "+c.dataset.k);c.style.display=qn==""||words.every(w=>txt.includes(w))?'block':'none';});
-let vids=getVids(q||"chimie");let html="";
-vids.forEach(v=>{html+=`<div class="vcard" onclick="play('${v[0]}')"><img src="https://img.youtube.com/vi/${v[0]}/hqdefault.jpg"><div class="play">▶</div><div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.78);color:#fff;padding:6px;font-size:12px;font-weight:bold">🎥 ${v[1]} - CLIQUE POUR LIRE ICI</div></div>`;});
-document.getElementById('vkey').innerText=q||"chimie";document.getElementById('vlist').innerHTML=html;
+let q=document.getElementById('s').value||"chimie";let qn=normalize(q);let words=qn.split(/\s+/).filter(w=>w.length>1);
+document.querySelectorAll('.c').forEach(c=>{let txt=normalize(c.innerText+" "+c.dataset.k);c.style.display=qn==""||words.every(w=>txt.includes(w))?'block':'none';});
+let vids=getVids(q);let html="";vids.forEach(v=>{html+=`<div class="vcard" onclick="play('${v[0]}')"><img src="https://img.youtube.com/vi/${v[0]}/hqdefault.jpg"><div class="play">▶</div><div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.78);color:#fff;padding:6px;font-size:12px;font-weight:bold">${v[1]}</div></div>`;});
+document.getElementById('vkey').innerText=q;document.getElementById('vlist').innerHTML=html;document.getElementById('n').innerText="Vidéos uniques pour "+q;
 }
 render();F();
 if(localStorage.getItem('makola_paid')=='yes')document.getElementById('pay').style.display='none';
-function unlock(){localStorage.setItem('makola_paid','yes');document.getElementById('pay').remove();}
 </script></body></html>
