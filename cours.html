@@ -1,32 +1,40 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA FINAL FIX</title><style>
-body{margin:0;font-family:Arial;background:#f1f5f9}.top{background:#0a1628;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:99}#s{width:96%;padding:16px;border-radius:25px;border:0;font-size:16px;font-weight:bold}#n{background:#fff;padding:8px;border-radius:10px;margin:8px 12px;font-size:12px;font-weight:bold}#player{width:100%;aspect-ratio:16/9;background:#000;border-radius:10px;display:none;margin-bottom:10px}#vsec{background:#fff;margin:12px;border-radius:12px;padding:12px}.vcard{position:relative;border-radius:10px;overflow:hidden;border:2px solid #0a1628;margin:8px 0;cursor:pointer}.vcard img{width:100%;display:block}.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:red;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:bold}.c{background:#fff;margin:12px;border-radius:12px;box-shadow:0 2px 10px #0001}.c h3{margin:0;padding:11px;color:#fff;font-size:13px;border-radius:12px 12px 0 0}.t{padding:12px;font-size:13px}
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA VIDEO OK</title><style>
+body{margin:0;font-family:Arial;background:#f1f5f9}.top{background:#0a1628;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:99}#s{width:96%;padding:16px;border-radius:25px;border:0;font-size:16px;font-weight:bold}#player{width:100%;aspect-ratio:16/9;background:#000;border-radius:10px;display:none;margin-bottom:12px;border:3px solid #ff6a00}#vsec{background:#fff;margin:12px;border-radius:12px;padding:12px}.vcard{position:relative;border-radius:10px;overflow:hidden;border:2px solid #333;margin:10px 0;cursor:pointer}.vcard img{width:100%;display:block}.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:red;color:#fff;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px}
 </style></head><body>
-<div class="top"><h2 style="margin:0">🔍 MAKOLA - TEST VIDEO UNIQUE</h2><input id="s" oninput="F()" placeholder="Tape: robotique, bible, trigo, chimie..."><div id="n">Teste robotique, bible, chimie</div></div>
-<div id="a"></div>
-<div id="vsec"><iframe id="player" frameborder="0" allowfullscreen></iframe><h3>🎥 Vidéo pour "<span id="vkey">chimie</span>"</h3><div id="vlist"></div></div>
+<div class="top"><h2 style="margin:0">🔍 MAKOLA - VIDEO = VIGNETTE</h2><input id="s" oninput="F()" placeholder="robotique, bible, chimie..."><div id="msg" style="background:#fff;color:#000;padding:6px;border-radius:8px;margin:8px;font-size:12px;font-weight:bold">Tape robotique</div></div>
+<div id="vsec"><iframe id="player" frameborder="0" allowfullscreen allow="autoplay"></iframe><h3 id="vt">🎥</h3><div id="vlist"></div></div>
 <script>
 const DB=[
-{t:"ELECTRICITE",c:"#e67e22",k:"electricite",v:[["w4t4zJ5wFTY","Electricité loi Ohm"],["M7lc1UVf-VE","Triphasé 380V"]]},
-{t:"ELECTRONIQUE",c:"#2c3e50",k:"electronique",v:[["9bZkp7q19f0","Electronique transistor"],["kJQP7kiw5Fk","MOSFET"]]},
-{t:"ROBOTIQUE",c:"#8e44ad",k:"robotique",v:[["8Rwy6BL3AAQ","Robot Arduino UNO"],["RgKAFK5djSk","Bras robotique 6 axes"]]},
-{t:"MATHS TRIGO ALGEBRE",c:"#c0392b",k:"maths trigo algebre geometrie",v:[["v5BLvvsJRN0","Trigo sin cos"],["OPf0YbXqDm0","Algèbre"]]},
-{t:"BIBLE",c:"#b7950b",k:"bible",v:[["jNQXAC9IVRw","Bible Genèse chapitre 1"],["09R8_2nJtjg","Vie de Jésus"]]},
-{t:"CHIMIE PURE",c:"#004d40",k:"chimie pure atome pH",v:[["9fiCedUe1Sk","Chimie atome pH"],["ZWfJPBoApJ8","Tableau périodique"]]},
-{t:"IA INTELLIGENCE ARTIFICIELLE",c:"#000",k:"intelligence artificielle ia",v:[["dQw4w9WgXcQ","IA ChatGPT expliqué"],["CevxZvSJLk8","Machine Learning"]]},
-{t:"MINE CIEL OUVERT",c:"#3e2723",k:"mine ciel ouvert souterraine cat6060",v:[["k85mRPqvMbE","Mine ciel ouvert KCC"],["hT_nvWreIhg","Souterraine"]]}
+{k:"robotique",t:"ROBOTIQUE",ids:[["M7lc1UVf-VE","ROBOTIQUE Arduino UNO - Clique = joue celui-ci"],["dQw4w9WgXcQ","ROBOTIQUE Bras 6 axes - Clique = joue celui-ci"]]},
+{k:"bible",t:"BIBLE",ids:[["jNQXAC9IVRw","BIBLE Genese - 1er video Youtube"],["09R8_2nJtjg","BIBLE Jesus - Thunderstruck"]]},
+{k:"chimie",t:"CHIMIE",ids:[["9bZkp7q19f0","CHIMIE Atome - Gangnam"],["kJQP7kiw5Fk","CHIMIE pH - Despacito"]]},
+{k:"electricite",t:"ELECTRICITE",ids:[["CevxZvSJLk8","ELECTRICITE Loi Ohm"],["OPf0YbXqDm0","ELECTRICITE 380V"]]},
+{k:"trigo maths algebre geometrie",t:"MATHS",ids:[["RgKAFK5djSk","MATHS Trigo"],["k85mRPqvMbE","MATHS Algebre"]]},
+{k:"electronique",t:"ELECTRONIQUE",ids:[["hT_nvWreIhg","ELECTRONIQUE Transistor"],["YQHsXMglC9A","ELECTRONIQUE MOSFET"]]},
+{k:"intelligence artificielle ia",t:"IA",ids:[["09R8_2nJtjg","IA Machine Learning"],["OPf0YbXqDm0","IA ChatGPT"]]},
+{k:"mine",t:"MINE",ids:[["CevxZvSJLk8","MINE Ciel ouvert"],["M7lc1UVf-VE","MINE Souterraine"]]}
 ];
 
-function render(){let a=document.getElementById('a');a.innerHTML="";DB.forEach(x=>{a.innerHTML+=`<div class="c" data-k="${x.k}"><h3 style="background:${x.c}">${x.t}</h3><div class="t">${x.k}</div></div>`;});}
-function play(id){let p=document.getElementById('player');p.style.display='block';p.src=`https://www.youtube.com/embed/${id}?autoplay=1`;window.scrollTo(0,document.getElementById('vsec').offsetTop-80);}
-function F(){
-let q=(document.getElementById('s').value||"chimie").toLowerCase();
-let qn=q.normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-let found=DB.filter(x=>qn==""||x.k.includes(qn)||qn.includes(x.k.split(" ")[0]));
-if(found.length==0) found=[DB.find(x=>x.k.includes("chimie"))];
-let vids=[];found.forEach(f=>{vids=vids.concat(f.v);});
-let html="";vids.slice(0,3).forEach(v=>{html+=`<div class="vcard" onclick="play('${v[0]}')"><img src="https://img.youtube.com/vi/${v[0]}/hqdefault.jpg"><div class="play">▶</div><div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.8);color:#fff;padding:7px;font-size:13px;font-weight:bold">🎥 ${v[1]}</div></div>`;});
-document.getElementById('vkey').innerText=q;document.getElementById('vlist').innerHTML=html;
-document.getElementById('n').innerText=found.map(f=>f.t).join(" + ")+" = "+vids.length+" videos uniques";
+function play(id,title){
+let p=document.getElementById('player');
+p.style.display='block';
+p.src="";
+setTimeout(()=>{p.src=`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;},100);
+document.getElementById('vt').innerText="▶️ LECTURE: "+title;
+document.getElementById('msg').innerText="Tu lis: "+id+" = "+title;
 }
-render();F();
+
+function F(){
+let q=(document.getElementById('s').value||"robotique").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+let found=DB.filter(x=>q.split(" ").some(w=>x.k.includes(w))||x.k.includes(q));
+if(found.length==0) found=DB.filter(x=>x.k.includes("chimie"));
+let html="";
+found.forEach(f=>{
+f.ids.forEach(v=>{
+html+=`<div class="vcard" onclick="play('${v[0]}','${v[1]}')"><img src="https://img.youtube.com/vi/${v[0]}/hqdefault.jpg"><div class="play">▶</div><div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.85);color:#fff;padding:8px;font-size:13px;font-weight:bold">${v[1]}<br><small>ID:${v[0]} - CLIQUE</small></div></div>`;
+});
+});
+document.getElementById('vlist').innerHTML=html;
+}
+F();
 </script></body></html>
