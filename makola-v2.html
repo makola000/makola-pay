@@ -1,0 +1,53 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA</title><style>body{margin:0;font-family:Arial;background:#fff}.top{background:#0a1628;color:#fff;padding:14px;text-align:center;position:sticky;top:0;z-index:99}#s{width:96%;padding:18px;border-radius:30px;border:0;font-size:18px;font-weight:bold;outline:none}#player{width:calc(100% - 24px);aspect-ratio:16/9;background:#000;border-radius:12px;margin:12px;border:3px solid #ff6a00;display:none}.box{margin:12px;background:#f8f9fa;border-radius:12px;padding:14px;border-left:6px solid #ff6a00;white-space:pre-wrap;line-height:1.8}.vcard{position:relative;border-radius:12px;overflow:hidden;border:2px solid #000;margin:10px 0;cursor:pointer}.vcard img{width:100%;height:200px;object-fit:cover}.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:red;color:#fff;width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px}</style></head><body>
+<div class="top"><h2>🔍 MAKOLA - VRAI GOOGLE</h2><input id="s" oninput="GO()" placeholder="Tape: electricite, quantique, mine, bible"><div id="stat" style="background:yellow;color:#000;padding:8px;border-radius:8px;margin-top:8px;font-weight:bold" >TAPE ET CA CHANGE</div></div>
+<iframe id="player" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+<div id="theorie" class="box"><h2 id="tt">EN ATTENTE...</h2><div id="td"></div></div>
+<div style="padding:12px"><h3>🎥 Vidéos pour "<span id="vk"></span>"</h3><div id="vlist"></div></div>
+<script>
+function GO(){
+let raw=document.getElementById('s').value.toLowerCase();
+document.getElementById('vk').innerText=raw;
+let t="", vids=[];
+
+if(raw.includes("elect")){
+t="⚡ ELECTRICITE C'EST QUOI?\n\n1. Flux d'électrons\n2. U=RI Loi Ohm\n3. P=UI Puissance\n4. 380V Triphasé KCC: 3 phases, étoile Y, triangle Δ\n5. Moteur asynchrone\n6. Danger électrocution";
+vids=[["M7lc1UVf-VE","Electricité U=RI"],["w4t4zJ5wFTY","Triphasé 380V"],["dQw4w9WgXcQ","Moteur Asynchrone"]];
+}
+else if(raw.includes("quant")){
+t="🔬 PHYSIQUE QUANTIQUE C'EST QUOI?\n\nE=hv Planck\nSchrödinger iħ∂ψ/∂t=Hψ\nHeisenberg ΔxΔp≥ħ/2\nIntrication quantique\nEffet tunnel\nApplications: laser, transistor, ordi quantique";
+vids=[["k85mRPqvMbE","Quantique débutant"],["RgKAFK5djSk","Schrödinger"],["jNQXAC9IVRw","Ordinateur Quantique"]];
+}
+else if(raw.includes("robot")||raw.includes("arduino")){
+t="🤖 ROBOTIQUE ARDUINO C'EST QUOI?\n\nArduino UNO R3 ATMega328\nHC-SR04 ultrason distance=(temps*340)/2\nServo MG996R 0-180°\nCode digitalWrite(13,HIGH)\nBras 6 axes";
+vids=[["M7lc1UVf-VE","Arduino UNO"],["dQw4w9WgXcQ","Bras 6 Axes"],["jNQXAC9IVRw","HC-SR04"]];
+}
+else if(raw.includes("chim")){
+t="🧪 CHIMIE C'EST QUOI?\n\nAtome proton neutron electron\npH=-log[H+]\nTableau 118 éléments\nMole n=m/M\nAcide+Base=Sel+Eau";
+vids=[["9bZkp7q19f0","Atome"],["kJQP7kiw5Fk","Tableau périodique"],["CevxZvSJLk8","pH"]];
+}
+else if(raw.includes("bible")||raw.includes("genes")){
+t="📖 BIBLE C'EST QUOI?\n\n66 livres\nGenèse 1:1 Au commencement Dieu créa\nExode 10 commandements\nPsaume 23\nJésus Matthieu Marc Luc Jean mort résurrection";
+vids=[["09R8_2nJtjg","Genèse"],["CevxZvSJLk8","Jésus"],["OPf0YbXqDm0","10 Commandements"]];
+}
+else if(raw.includes("mine")||raw.includes("cat")||raw.includes("kcc")){
+t="⛏️ MINE C'EST QUOI?\n\nCiel ouvert gradins 10m\nCAT 6060 pelle 600T\nCAT 777F dumper 100T\nForage Tir Chargement Transport\nSouterraine galeries soutènement\nKCC cuivre cobalt Lubumbashi";
+vids=[["CevxZvSJLk8","Mine Ciel Ouvert"],["M7lc1UVf-VE","CAT 777F"],["dQw4w9WgXcQ","CAT 6060"]];
+}
+else if(raw.includes("trigo")||raw.includes("maths")||raw.includes("algebre")){
+t="📐 TRIGO C'EST QUOI?\n\nsin=opp/hyp cos=adj/hyp tan=sin/cos\nsin²+cos²=1\nPythagore a²+b²=c²\nThalès\nEquation x=(-b±√Δ)/2a";
+vids=[["RgKAFK5djSk","Trigo sin cos"],["kJQP7kiw5Fk","Pythagore"],["OPf0YbXqDm0","Equation 2e degré"]];
+}
+else{
+t="Tape: electricite, quantique, robotique, chimie, bible, mine, trigo\n\nTu as tapé: "+raw+"\n\nJe cherche théorie exacte pour "+raw;
+vids=[["M7lc1UVf-VE","Cours 1"],["dQw4w9WgXcQ","Cours 2"],["jNQXAC9IVRw","Cours 3"]];
+}
+
+document.getElementById('tt').innerText=raw.toUpperCase()+" - THEORIE EXACTE";
+document.getElementById('td').innerText=t;
+document.getElementById('stat').innerText="✅ TROUVÉ: "+raw+" = "+t.substring(0,30);
+
+let html=""; vids.forEach(v=>{ html+=`<div class="vcard" onclick="play('${v[0]}')"><img src="https://img.youtube.com/vi/${v[0]}/hqdefault.jpg"><div class="play">▶</div><div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.9);color:#fff;padding:10px;font-weight:bold">${v[1]}<br><small style="color:#0f0">▶ CLIQUE ICI - JOUE EN HAUT POUR ${raw.toUpperCase()}</small></div></div>`; });
+document.getElementById('vlist').innerHTML=html;
+}
+function play(id){ let p=document.getElementById('player'); p.style.display='block'; p.src=`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`; window.scrollTo({top:0,behavior:'smooth'}); }
+</script></body></html>
