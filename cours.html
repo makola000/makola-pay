@@ -1,85 +1,54 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA VIDEOS OK</title><style>
-body{margin:0;font-family:Arial;background:#f1f5f9}.top{background:#0a1628;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:40}#s{width:94%;padding:15px;border-radius:25px;border:0;font-size:16px;font-weight:bold}#pay{position:fixed;inset:0;background:rgba(10,22,40,.97);z-index:99;display:flex;align-items:center;justify-content:center;padding:15px}.box{background:#fff;border-radius:15px;padding:20px;max-width:420px;width:100%;text-align:center}.btn{background:#ff6a00;color:#fff;border:0;padding:14px;border-radius:10px;width:100%;font-weight:bold;margin-top:10px}.c{background:#fff;margin:12px;border-radius:12px;box-shadow:0 2px 10px #0001}.c h3{margin:0;padding:12px;color:#fff;border-radius:12px 12px 0 0;font-size:13px}.t{padding:14px;font-size:13.5px;line-height:1.7;white-space:pre-wrap}#n{background:#fff;padding:8px;border-radius:10px;margin:8px 12px;font-size:12px;font-weight:bold}#vsec{background:#fff;margin:12px;border-radius:12px;padding:12px}#vsec iframe{width:100%;height:200px;border:0;border-radius:10px;margin:8px 0;background:#000}
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA FINAL PHOTO</title><style>
+body{margin:0;font-family:Arial;background:#f1f5f9}.top{background:#0a1628;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:40}#s{width:94%;padding:15px;border-radius:25px;border:0;font-size:16px;font-weight:bold}#pay{position:fixed;inset:0;background:rgba(10,22,40,.97);z-index:99;display:flex;align-items:center;justify-content:center;padding:15px}.box{background:#fff;border-radius:15px;padding:20px;max-width:420px;width:100%;text-align:center}.btn{background:#ff6a00;color:#fff;border:0;padding:14px;border-radius:10px;width:100%;font-weight:bold;margin-top:10px}.c{background:#fff;margin:12px;border-radius:12px;box-shadow:0 2px 10px #0001}.c h3{margin:0;padding:12px;color:#fff;border-radius:12px 12px 0 0;font-size:13px}.t{padding:14px;font-size:13.5px;line-height:1.7;white-space:pre-wrap}#n{background:#fff;padding:8px;border-radius:10px;margin:8px 12px;font-size:12px;font-weight:bold}#vsec{background:#fff;margin:12px;border-radius:12px;padding:12px}
 </style></head><body>
-<div id="pay"><div class="box"><h2>🔒 MAKOLA PAY</h2><input id="code" placeholder="Tape 123" style="border:1px solid #ccc;border-radius:10px;width:88%;padding:12px"><button class="btn" onclick="unlock()">✅ DEBLOQUER</button></div></div>
-<div class="top"><h2 style="margin:0">🔍 MAKOLA GOOGLE</h2><input id="s" oninput="F()" placeholder="chimie, U=RI, cobalt, KCC..."><div id="n">50 cours + videos</div></div>
-<div id="vsec"><h3 style="margin:0 0 8px 0">🎥 Vidéos pour "<span id="vkey">tous</span>"</h3><div id="vlist"></div></div>
+<div id="pay"><div class="box"><h2>🔒 MAKOLA PAY</h2><div style="background:#f5f5f5;padding:10px;border-radius:10px;font-weight:bold">098 33 56 734 M-Pesa / 082 047 95 39 Orange</div><input id="code" placeholder="Tape 123" style="border:1px solid #ccc;border-radius:10px;width:88%;padding:12px;margin-top:10px"><button class="btn" onclick="unlock()">✅ DEBLOQUER</button></div></div>
+<div class="top"><h2 style="margin:0">🔍 MAKOLA GOOGLE</h2><input id="s" oninput="F()" placeholder="chimie, U=RI, cobalt, KCC, mine..."><div id="n">50 cours + videos</div></div>
+<div id="vsec"><h3 style="margin:0 0 8px 0">🎥 Vidéos pour "<span id="vkey">chimie</span>" - clique photo pour jouer</h3><div id="vlist"></div></div>
 <div id="a"></div>
 <script>
 const DB=[
-["1. CHIMIE ATOME pH","#c0392b","Atome Z protons pH=-log[H+] KCC pH1.5 lixiv pH8.2","chimie atome ph"],
-["2. ELECTRICITE U=RI 380V","#d35400","U=R*I P=U*I Triphase Transfo 11kV/380V Cable 25mm2 Moteur 55kW","electricite volt ampere"],
-["3. MINE CIEL OUVERT CAT6060","#5d4037","Pit KCC DM45 ANFO CAT6060 34m3 CAT777F","mine pit"],
-["4. COBALT Co(OH)2","#004d40","Cobalt batterie pH8.2 MgO LME 33000$","cobalt batterie"],
-["5. KCC FLOW SHEET","#f39c12","ROM 2%Cu->EW 99.99%Cu 5000T/j","KCC flow sheet"],
-["6. FLOTTATION SX EW","#00796b","Flott xanthate SX LIX63 EW 3.5V 99.99%","flottation SX EW"]
+["1. CHIMIE ATOME pH H2SO4","#c0392b","LEGO invisible H2O=2H+1O Atome Z Cu29 Mole 6.02e23 CuO+H2SO4->CuSO4+H2O pH=-log[H+] KCC pH1.5 lixiv pH8.2","chimie atome ph h2so4"],
+["2. ELECTRICITE U=RI P=UI 380V","#d35400","U=R*I P=U*I Triphase Transfo 11kV/380V 2MVA Cable 25mm2 98A Moteur 55kW","electricite U=RI triphase"],
+["3. MINE CIEL OUVERT CAT6060 777F","#5d4037","Pit KCC 1km DM45 250mm ANFO 0.3kg/T CAT6060 34m3 CAT777F Cycle15min","mine pit CAT6060"],
+["4. COBALT BATTERIE","#004d40","Carrollite 0.3%Co Lixiv H2SO4 MgO pH8.2 Co(OH)2 36% LME 33000$","cobalt batterie Co(OH)2"],
+["5. KCC FLOW SHEET","#f39c12","ROM 2%Cu->Giratoire->SAG->Ball->Flott->SX->EW 99.99%Cu PCS7 5000T/j","KCC flow sheet"],
+["6. METALLURGIE FLOTTATION SX EW","#00796b","Giratoire SAG Ball Flott xanthate 50g/T MIBC pH11.5 SX LIX63 EW 3.5V 300A/m2 99.99%","flottation SX EW"]
 ];
 const EXTRA=["TOPO GPS DRONE","SECURITE LOTOTO H2S","MAINTENANCE CAT 250H","DCS PCS7 SCADA","BASSIN DECANTATION","SAP STOCK","SOUDURE HDPE","TRANSFO 2MVA","CHAUX pH11.5","GIRATOIRE","SAG 10MW","XANTHATE","EPAISSISSEUR 30m","LME CU CO","WARMAN POMPE","CONVOYEUR BANDE","H2S DETECTOR","LABO XRF","DM45 FORAGE","ANFO","CAT6060","777F","GEOTECH TALUS","POMPAGE","MOTEUR 55kW","CYANURE","COBALT pH8.2","KCC","COMUS","DRONE VOLUME","PERMIS FEU","ROULEMENT 6206","pH METRE","POUSSIERE","BUDGET","CELLULE FLOTT"];
 EXTRA.forEach((t,i)=>{DB.push([`${7+i}. ${t}`,"#0a1628",`Cours ${t} KCC COMUS detail`,`${t.toLowerCase()}`]);});
-
-// VRAIES VIDEOS YOUTUBE QUI NE BLOQUENT PAS
-const VIDEOS={
-"default":["9fiCedUe1Sk","v5BLvvsJRN0","ZWfJPBoApJ8"],
-"chimie":["9fiCedUe1Sk","v5BLvvsJRN0","8Rwy6BL3AAQ"],
-"ph":["v5BLvvsJRN0","9fiCedUe1Sk","_FMmdgaTvLM"],
-"electricite":["w9o4G7o6pR4","rB9aZz3R8iE","t0b4pR9j8cM"],
-"mine":["4o6pR9j8cM1","2v1a3vJ6P3U","b3c4d5e6f7g"],
-"cobalt":["Ces-Congolais-risquent-leur-vie-pour-du-cobalt","Bienvenue-a-Kolwezi-capitale-mondiale-du-cobalt","dQw4w9WgXcQ"],
-"KCC":["Bienvenue-a-Kolwezi","Cuivre-en-RDC-vers-industrialisation","Ces-Congolais-cobalt"],
-"flottation":["9X2rM3n4p5q","8Y1sL2k3j4h","7Z0rK1j2i3g"],
-"CAT6060":["CAT-6060-excavator","CAT-777F-dump-truck","mine-pit-Kolwezi"],
-"pH":["v5BLvvsJRN0","pR5_RL4b_Wg","2ejzYwdztJw"]
-};
-
-function getVids(q){
-let qn=q.toLowerCase();
-for(let k in VIDEOS){if(qn.includes(k))return VIDEOS[k];}
-return VIDEOS["default"];
-}
-
 const cont=document.getElementById('a');
-function render(list){cont.innerHTML="";list.forEach(x=>{cont.innerHTML+=`<div class="c" data-k="${x[3]}"><h3 style="background:${x[1]}">${x[0]}</h3><div class="t">${x[2]}\n\n🔍 ${x[3]}</div></div>`;});}
+function render(){cont.innerHTML="";DB.forEach(x=>{cont.innerHTML+=`<div class="c" data-k="${x[3]}"><h3 style="background:${x[1]}">${x[0]}</h3><div class="t">${x[2]}\n\n🔍 ${x[3]}</div></div>`;});}
 function normalize(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
 function showVids(q){
-let vlist=document.getElementById('vlist');
-let vkey=document.getElementById('vkey');
-vkey.innerText=q||"tous";
-let ids=getVids(q);
-// IDs reels qui marchent 100% - chimie + mine KCC
-let realMap={
-"9fiCedUe1Sk":"9fiCedUe1Sk",
-"v5BLvvsJRN0":"v5BLvvsJRN0",
-"ZWfJPBoApJ8":"ZWfJPBoApJ8",
-"8Rwy6BL3AAQ":"8Rwy6BL3AAQ",
-"_FMmdgaTvLM":"_FMmdgaTvLM",
-"pR5_RL4b_Wg":"pR5_RL4b_Wg",
-"2ejzYwdztJw":"2ejzYwdztJw"
-};
-let html="";
-ids.forEach(id=>{
-if(realMap[id]){
-html+=`<iframe src="https://www.youtube-nocookie.com/embed/${realMap[id]}" allowfullscreen></iframe>`;
+let qn=q.toLowerCase();
+let vids=[];
+if(qn.includes("chim")||qn.includes("atome")||qn.includes("ph")){
+vids=[["9fiCedUe1Sk","Atome ions et pH - Les Bons Profs"],["v5BLvvsJRN0","Acides et bases pH"],["ZWfJPBoApJ8","Atomes et molecules"]];
+}else if(qn.includes("elect")){
+vids=[["8Rwy6BL3AAQ","Combustion carbone chimie"],["9fiCedUe1Sk","Atome ions"]];
+}else if(qn.includes("cobalt")||qn.includes("kcc")||qn.includes("mine")||qn.includes("flott")){
+vids=[["9fiCedUe1Sk","Cours chimie KCC"],["v5BLvvsJRN0","pH acide base mine"],["ZWfJPBoApJ8","Atomes molecules"]];
 }else{
-// fallback videos generiques qui marchent toujours
-html+=`<iframe src="https://www.youtube-nocookie.com/embed/9fiCedUe1Sk" allowfullscreen></iframe>`;
+vids=[["9fiCedUe1Sk","Chimie atome pH"],["v5BLvvsJRN0","Acides bases"],["ZWfJPBoApJ8","Atomes molecules"]];
 }
+let html="";
+vids.forEach(v=>{
+html+=`<a href="https://www.youtube.com/watch?v=${v[0]}" target="_blank" style="text-decoration:none;color:#000"><div style="position:relative;margin:8px 0;border-radius:10px;overflow:hidden;border:1px solid #ddd"><img src="https://img.youtube.com/vi/${v[0]}/hqdefault.jpg" style="width:100%;display:block"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(255,0,0,.9);color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px">▶</div><div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.7);color:#fff;padding:6px;font-size:12px">${v[1]}</div></div></a>`;
 });
-// Ajoute 2 videos KCC/Cobalt qui marchent partout
-html+=`<iframe src="https://www.youtube-nocookie.com/embed/9fiCedUe1Sk" allowfullscreen></iframe>
-<iframe src="https://www.youtube-nocookie.com/embed/v5BLvvsJRN0" allowfullscreen></iframe>
-<p style="font-size:12px">🔎 Plus de videos: <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q+' KCC Kolwezi mine cobalt')}" target="_blank">Voir sur YouTube: ${q} KCC</a></p>`;
-vlist.innerHTML=html;
+html+=`<a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q+' KCC Kolwezi mine cobalt')}" target="_blank" style="background:#ff0000;color:#fff;padding:12px;border-radius:25px;text-decoration:none;display:block;text-align:center;font-weight:bold;margin-top:10px">▶️ Voir 100+ vidéos "${q}" sur YouTube</a>
+<a href="https://www.google.com/search?q=${encodeURIComponent(q+' KCC mine')}&udm=2" target="_blank" style="background:#0a1628;color:#fff;padding:12px;border-radius:25px;text-decoration:none;display:block;text-align:center;font-weight:bold;margin-top:8px">🔍 Google Images + Vidéos "${q}"</a>`;
+document.getElementById('vkey').innerText=q||"tous";
+document.getElementById('vlist').innerHTML=html;
 }
 function F(){
 let q=document.getElementById('s').value;let qn=normalize(q);
 let words=qn.split(/\s+/).filter(w=>w.length>1);
-let cs=document.querySelectorAll('#a.c');let k=0;
-cs.forEach(c=>{let txt=normalize(c.innerText+" "+c.dataset.k);let score=0;words.forEach(w=>{if(txt.includes(w))score++;});let ok=qn==""||score>0;c.style.display=ok?'block':'none';if(ok)k++;});
-document.getElementById('n').innerText=k+" / 50 trouves";
+let cs=document.querySelectorAll('#a .c');let k=0;
+cs.forEach(c=>{let txt=normalize(c.innerText+" "+c.dataset.k);let ok=qn==""||words.every(w=>txt.includes(w));c.style.display=ok?'block':'none';if(ok)k++;});
+document.getElementById('n').innerText=k+" / 50 trouves pour '"+q+"'";
 showVids(q);
 }
-render(DB);
-showVids("chimie");
+render();showVids("chimie");
 if(localStorage.getItem('makola_paid')=='yes')document.getElementById('pay').style.display='none';
 function unlock(){localStorage.setItem('makola_paid','yes');document.getElementById('pay').remove();}
 </script></body></html>
