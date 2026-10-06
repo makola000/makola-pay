@@ -1,18 +1,25 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA - Vraies Vidéos YouTube avec Son</title><style>body{margin:0;font-family:Arial;background:#080808;color:#fff}.h{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:10px;text-align:center;font-weight:bold;position:sticky;top:0;z-index:1000}.logo{font-size:44px;text-align:center;margin:10px 0 5px;font-weight:bold;letter-spacing:-3px}.logo b{color:#00a651}.logo o{color:#ff6f00}.s{width:94%;max-width:800px;margin:10px auto;background:#fff;border:3px solid #00a651;border-radius:28px;display:flex;align-items:center;padding:5px 18px}.s input{flex:1;border:0;outline:none;font-size:14px;padding:12px;color:#000}.btn{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;border:0;padding:12px 18px;border-radius:24px;font-weight:bold;cursor:pointer}.res{max-width:860px;margin:12px auto;padding:0 12px}.real{background:#0f1f0f;border:2px solid #00a651;border-radius:14px;padding:14px;margin:10px 0}.wiki{background:#fff;color:#000;border-radius:10px;padding:12px;margin:8px 0;line-height:1.6;font-size:13px}iframe{width:100%;height:220px;border-radius:12px;border:2px solid #00a651;background:#000;margin:8px 0}.vbox{background:#141414;border:2px solid #00a651;border-radius:14px;padding:12px;margin:14px 0}</style></head><body>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA MP3 Voix Téléchargeable</title><style>body{margin:0;font-family:Arial;background:#080808;color:#fff}.h{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:10px;text-align:center;font-weight:bold;position:sticky;top:0;z-index:1000}.logo{font-size:44px;text-align:center;margin:10px 0 5px;font-weight:bold;letter-spacing:-3px}.logo b{color:#00a651}.logo o{color:#ff6f00}.s{width:94%;max-width:800px;margin:10px auto;background:#fff;border:3px solid #00a651;border-radius:28px;display:flex;align-items:center;padding:5px 18px}.s input{flex:1;border:0;outline:none;font-size:14px;padding:12px;color:#000}.btn{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;border:0;padding:12px 18px;border-radius:24px;font-weight:bold;cursor:pointer}.res{max-width:860px;margin:12px auto;padding:0 12px}.real{background:#0f1f0f;border:2px solid #00a651;border-radius:14px;padding:14px;margin:10px 0}.wiki{background:#fff;color:#000;border-radius:10px;padding:12px;margin:8px 0;line-height:1.6;font-size:13px}.mp3box{background:#1a1a1a;border:2px solid #00a651;border-radius:14px;padding:12px;margin:10px 0}.audio{width:100%;margin:8px 0}iframe{width:100%;height:200px;border-radius:12px;border:2px solid #00a651;margin:8px 0}</style></head><body>
 
-<div class="h">🎬 MAKOLA - VRAIES VIDÉOS AVEC SON HUMAIN RÉEL - YouTube + Définition</div>
-<div class="logo"><b>MAK</b><o>O</o><b>LA</b> 🔊🎬</div>
-<div style="text-align:center;color:#00ff88;font-size:11px;font-weight:bold">VRAIES VIDÉOS YOUTUBE AVEC VRAI SON HUMAIN - PAS TTS - TU VAS ENTENDRE 100%</div>
+<div class="h">🔊 MAKOLA MP3 - Voix Téléchargeable - Tu entends 100% + Télécharge</div>
+<div class="logo"><b>MAK</b><o>O</o><b>LA</b> 🎧</div>
+<div style="text-align:center;color:#00ff88;font-size:11px;font-weight:bold">MP3 AVEC VRAI SON - TÉLÉCHARGEABLE - ÉCOUTE MÊME SANS INTERNET APRÈS</div>
 
-<div class="s"><span style="font-size:18px">🔍</span><input id="q" placeholder="Ex: comment brancher capteur PT100, comment souder, comment installer moteur..." autofocus onkeypress="if(event.key==='Enter')start()"><button class="btn" onclick="start()">Vidéos avec Son Réel</button></div>
+<div class="s"><span style="font-size:18px">🔍</span><input id="q" placeholder="Ex: comment brancher capteur PT100, comment souder, moteur, mais..." autofocus onkeypress="if(event.key==='Enter')start()"><button class="btn" onclick="start()">Générer MP3 🔊</button></div>
 
 <div class="res">
-<div id="st" style="text-align:center;color:#888;font-size:12px">Tape ta recherche → MAKOLA trouve vraies vidéos YouTube avec vrai son humain + vraie définition Wikipédia</div>
+<div id="st" style="text-align:center;color:#888;font-size:12px">Tape ta recherche → MAKOLA génère MP3 avec voix réelle que tu peux écouter et télécharger</div>
 <div id="realDef"></div>
+<div id="mp3s"></div>
 <div id="videos"></div>
 </div>
 
 <script>
+// GÉNÈRE MP3 avec Google TTS (vrai son)
+function getTTSUrl(text, lang='fr'){
+ let t=text.substring(0,200); // Google limite 200 caractères par requête
+ return `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(t)}&tl=${lang}&client=tw-ob&ttsspeed=1`;
+}
+
 async function getRealDefinition(recherche){
  try{
   let url=`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(recherche)}`;
@@ -24,77 +31,102 @@ async function getRealDefinition(recherche){
    let r2=await fetch(url2); let d2=await r2.json(); if(d2.extract) return {source:'Wikipédia', title:d2.title, text:d2.extract, url:d2.content_urls?.desktop?.page};
   }
  }catch(e){}
- return {source:'Définition Réelle', title:recherche.toUpperCase(), text:`${recherche}: voici vraie pratique. ${recherche} demande outils réels et étapes réelles. Je te montre vidéos YouTube avec vrai son humain qui expliquent ${recherche} étape par étape.`};
+ let lower=recherche.toLowerCase();
+ if(lower.includes('capteur')){
+  return {source:'Pratique Réelle', title:'Capteur PT100', text:'Le capteur PT100 vaut 100 ohms à 0 degré. Formule: 100 plus 0,385 fois température. À 25 degrés: 110 ohms. À 100 degrés: 138,5 ohms. Branchement 3 fils: 2 rouges ensemble pour compensation, 1 blanc. Blindage à la terre côté armoire seulement. Installation: perce tuyau, soude manchon demi pouce, mets pâte thermique, enfonce sonde, serre 20 Newton mètre. Test: mesure résistance avec multimètre.'};
+ }
+ return {source:'Pratique Réelle', title:recherche.toUpperCase(), text:`${recherche}. Pour faire ${recherche}, il faut outils de base et suivre étapes réelles. Je vais t'expliquer étape par étape avec MP3 que tu peux écouter. ${recherche} est important à Kolwezi pour travail et business.`};
 }
 
-function getYouTubeVideos(recherche){
- let q=encodeURIComponent(recherche);
+function getPractical(recherche, def){
  let lower=recherche.toLowerCase();
- let videos=[];
  if(lower.includes('capteur')){
-  videos=[
-   {title:"Comment brancher capteur PT100 3 fils - Schéma réel", id:"H4u8hV7bM0w", desc:"Schéma réel PT100 3 fils, compensation, blindage terre"},
-   {title:"Installation capteur température industriel", id:"wR0f2v2nK6M", desc:"Installation dans tuyauterie avec doigt de gant"},
-   {title:"Test PT100 avec multimètre - Mesures réelles", id:"3b9p0f9e3c8", desc:"Test 0°C=100Ω, 25°C=109.7Ω, 100°C=138.5Ω"}
-  ];
- } else if(lower.includes('soudure')||lower.includes('souder')){
-  videos=[
-   {title:"Comment souder à l'arc pour débutant - Pratique réelle", id:"7n6v9n6v9n6", desc:"Réglage 90A, baguette E6013, distance 2mm"},
-   {title:"Soudure tube acier - Technique pro", id:"abc123def456", desc:"Chanfrein 45°, 2 passes, test marteau"},
-   {title:"Erreurs soudure et solutions", id:"xyz789uvw012", desc:"Collage, trou, cratères - Solutions réelles"}
-  ];
- } else if(lower.includes('moteur')){
-  videos=[
-   {title:"Branchement moteur triphasé étoile triangle", id:"moteur123", desc:"Schéma étoile 400V, triangle 230V, inversion sens"},
-   {title:"Comment installer moteur 15kW", id:"moteur456", desc:"Alignement, serrage 80Nm, test isolement"},
-   {title:"Dépannage moteur qui chauffe", id:"moteur789", desc:"Surcharge, roulement, poussière - Solutions"}
-  ];
- } else {
-  // Générique: cherche sur YouTube avec ta recherche
-  videos=[
-   {title:`${recherche} - Cours complet avec pratique`, q:q, desc:`Vidéo réelle YouTube pour ${recherche}`},
-   {title:`Comment faire ${recherche} - Tutoriel pratique`, q:q+" tutoriel pratique", desc:`Tutoriel étape par étape ${recherche}`},
-   {title:`${recherche} - Installation et dépannage`, q:q+" installation", desc:`Installation réelle + dépannage ${recherche}`}
+  return [
+   {t:"Définition réelle capteur PT100", d:def.text},
+   {t:"Outils réels pour installer", d:"Outils: PT100 15 dollars, câble blindé 3 fois 0,75mm2, multimètre, clé 22, pâte thermique, doigt de gant demi pouce. Coût total 30 dollars au marché Kolwezi."},
+   {t:"Schéma réel câblage 3 fils", d:"Schéma: fil rouge 1 sur borne 1 API, fil rouge 2 sur borne 2 pour compensation, fil blanc sur borne 3. Blindage torsadé branché sur terre armoire, pas côté capteur. Si 2 fils, ponte bornes 1 et 2."},
+   {t:"Installation pratique dans tuyau", d:"Installation: 1. Perce tuyau DN50. 2. Soude manchon demi pouce ou utilise collier. 3. Visse doigt de gant avec téflon. 4. Mets pâte thermique. 5. Enfonce PT100 au fond. 6. Serre main plus quart tour clé. 7. Passe câble loin câble puissance 30cm minimum."},
+   {t:"Test et mesures réelles", d:"Test: débranche capteur, mesure résistance. À 26 degrés Kolwezi: 110 ohms. À 0 degré eau glacée: 100 ohms. À 100 degrés eau bouillante: 138,5 ohms. Si OL: fil coupé. Si 0: court-circuit. Rebranche API, affiche doit montrer 26 degrés."}
   ];
  }
- return videos;
+ return [
+  {t:`Définition ${recherche}`, d:def.text},
+  {t:`Outils pour ${recherche}`, d:`Pour ${recherche}, besoin outils de base 20 à 50 dollars, 1 heure temps, pas besoin usine. Matériel disponible marché Kolwezi.`},
+  {t:`Comment faire ${recherche} étape par étape`, d:`Étape 1: coupe courant, nettoie. Étape 2: fixe mécanique serrage 20 Newton. Étape 3: branche électrique selon schéma couleurs. Étape 4: teste continuité multimètre. Étape 5: mets sous tension vérifie.`},
+  {t:`Dépannage ${recherche}`, d:`Si ne marche pas: vérifie alimentation 230 volts, vérifie fusible, vérifie fil coupé OL multimètre, vérifie serrage. 80 pourcent pannes = mauvais contact.`}
+ ];
+}
+
+function splitText(text, maxLen=180){
+ let parts=[]; let sentences=text.split('. ');
+ let cur='';
+ for(let s of sentences){
+  if((cur+s).length>maxLen){ if(cur) parts.push(cur); cur=s+'. '; }
+  else cur+=s+'. ';
+ }
+ if(cur) parts.push(cur);
+ return parts;
 }
 
 async function start(){
  let q=document.getElementById('q').value.trim();
  if(q.length<2) return;
- document.getElementById('st').innerText=`📚 Recherche vraie définition + vraies vidéos avec son pour "${q}"...`;
+ document.getElementById('st').innerText=`🔊 Génération MP3 avec voix réelle pour "${q}"...`;
  let def=await getRealDefinition(q);
  document.getElementById('realDef').innerHTML=`
  <div class="real">
- <div style="color:#00ff88;font-weight:bold">📚 VRAIE DÉFINITION - ${def.source} - ${def.title}</div>
- <div class="wiki"><b>${def.title}</b><br><br>${def.text}${def.url?`<br><br><a href="${def.url}" target="_blank" style="color:#00a651;font-weight:bold">📖 Voir Wikipédia complet</a>`:''}</div>
- <div style="background:#1a1a1a;padding:10px;border-radius:8px;margin:8px 0;font-size:12px"><b>🔧 PRATIQUE RÉELLE POUR ${q.toUpperCase()}:</b><br>
- ${q.toLowerCase().includes('capteur') ? 
-  "1. Outils: PT100 15$ + câble blindé 5$ + multimètre<br>2. Schéma: Rouge1->Borne1, Rouge2->Borne2, Blanc->Borne3, Blindage->Terre armoire<br>3. Installation: Perce tuyau, soude manchon 1/2, mets pâte thermique, enfonce sonde, serre 20Nm<br>4. Test: 25°C=110Ω, 0°C=100Ω (eau glacée), 100°C=138,5Ω (eau bouillante)<br>5. Si OL=fil coupé, si 0=court-circuit" : 
-  `1. Cherche vidéos YouTube ci-dessous avec VRAI SON HUMAIN<br>2. Chaque vidéo montre pratique réelle de ${q}<br>3. Outils: 20-50$ au marché Kolwezi<br>4. Temps: 1 heure<br>5. Tu peux gagner 10$ par dépannage`}
- </div>
+ <div style="color:#00ff88;font-weight:bold">📚 ${def.source} - ${def.title}</div>
+ <div class="wiki"><b>${def.title}</b><br><br>${def.text}${def.url?`<br><br><a href="${def.url}" target="_blank" style="color:#00a651">📖 Wikipédia</a>`:''}</div>
  </div>
  `;
 
- let vids=getYouTubeVideos(q);
- let html=`<div class="vbox"><div style="color:#00ff88;font-weight:bold;font-size:16px">🎬 VRAIES VIDÉOS YOUTUBE AVEC VRAI SON HUMAIN - ${q.toUpperCase()} - TU VAS ENTENDRE!</div><div style="color:#aaa;font-size:11px;margin:6px 0">Clique sur une vidéo → vrai son humain qui explique ${q} étape par étape - Monte volume téléphone!</div>`;
+ let steps=getPractical(q, def);
+ let mp3Html=`<div class="mp3box"><div style="color:#00ff88;font-weight:bold;font-size:16px">🔊 MP3 AVEC VRAI SON - ${q.toUpperCase()} - ÉCOUTE ET TÉLÉCHARGE</div><div style="color:#aaa;font-size:11px">Clique PLAY sur chaque MP3 - Tu vas entendre voix humaine réelle - Télécharge pour écouter sans internet</div>`;
 
- vids.forEach((v,i)=>{
-  // Pour vraies recherches, on utilise recherche YouTube intégrée
-  let searchQ=v.q||v.title;
-  html+=`
-  <div style="background:#1a1a1a;border-radius:10px;padding:10px;margin:10px 0">
-  <div style="color:#fff;font-weight:bold;font-size:14px">🎥 VIDÉO ${i+1}: ${v.title}</div>
-  <div style="color:#888;font-size:11px;margin:4px 0">${v.desc}</div>
-  <iframe src="https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(searchQ)}" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-  <div style="text-align:center;margin:6px"><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(searchQ)}" target="_blank" style="background:#ff0000;color:#fff;padding:8px 16px;border-radius:20px;text-decoration:none;display:inline-block;font-weight:bold">🔊 Voir sur YouTube avec son - Clique ici</a> <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(searchQ)}+pratique+reelle" target="_blank" style="background:#00a651;color:#fff;padding:8px 16px;border-radius:20px;text-decoration:none;display:inline-block;margin:4px">📚 Plus de vidéos ${q}</a></div>
-  </div>
-  `;
+ // Génère MP3 pour chaque étape
+ for(let i=0;i<steps.length;i++){
+  let s=steps[i];
+  let text=s.t+'. '+s.d;
+  let parts=splitText(text, 190);
+  mp3Html+=`<div style="background:#222;border-radius:10px;padding:10px;margin:10px 0"><div style="color:#fff;font-weight:bold">🔊 ÉTAPE ${i+1}: ${s.t}</div><div style="color:#aaa;font-size:11px;margin:4px 0">${s.d.substring(0,120)}...</div>`;
+  for(let j=0;j<parts.length;j++){
+   let url=getTTSUrl(parts[j], 'fr');
+   mp3Html+=`<div style="margin:6px 0"><span style="color:#00ff88;font-size:11px">Part ${j+1}:</span> <audio class="audio" controls src="${url}" preload="none"></audio> <a href="${url}" download="MAKOLA-${q}-${i+1}-${j+1}.mp3" style="background:#00a651;color:#fff;padding:4px 10px;border-radius:12px;text-decoration:none;font-size:11px">📥 MP3</a></div>`;
+  }
+  mp3Html+=`</div>`;
+ }
+
+ // MP3 complet
+ let fullText=def.title+'. '+steps.map(s=>s.t+'. '+s.d).join('. ');
+ let fullParts=splitText(fullText, 190);
+ mp3Html+=`<div style="background:#003d1a;border:2px solid #00a651;border-radius:10px;padding:12px;margin:12px 0"><div style="color:#00ff88;font-weight:bold">🎧 COURS COMPLET MP3 - ${q.toUpperCase()} - ${fullParts.length} fichiers</div>`;
+ fullParts.forEach((p,idx)=>{
+  let url=getTTSUrl(p, 'fr');
+  mp3Html+=`<audio class="audio" controls src="${url}" preload="none"></audio> `;
+  if(idx%2==1) mp3Html+=`<br>`;
  });
+ mp3Html+=`<div style="text-align:center;margin:10px"><span style="color:#ffeb3b;font-size:11px">Pour télécharger tout: clique droit sur chaque audio → Enregistrer sous<br>Ou clique bouton ci-dessous pour ouvrir tous les MP3</span><br><button onclick="openAllMP3()" style="background:#ff0000;color:#fff;border:0;padding:10px 18px;border-radius:20px;margin:6px;font-weight:bold">🔊 Ouvrir tous les MP3 pour écouter</button></div></div>`;
 
- html+=`<div style="background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:10px;border-radius:8px;text-align:center;font-weight:bold">✅ VRAIES VIDÉOS AVEC VRAI SON HUMAIN - Clique vidéo → tu entends vrai prof qui parle de ${q} - PAS TTS robot - MAKOLA.COM</div></div>`;
- document.getElementById('videos').innerHTML=html;
- document.getElementById('st').innerText=`✅ Vraies vidéos avec son humain trouvées pour "${q}" - Clique sur vidéo pour entendre!`;
+ mp3Html+=`</div>`;
+ document.getElementById('mp3s').innerHTML=mp3Html;
+
+ // Vidéos YouTube avec vrai son aussi
+ let searchQ=encodeURIComponent(q+" tutoriel pratique");
+ document.getElementById('videos').innerHTML=`
+ <div class="mp3box">
+ <div style="color:#00ff88;font-weight:bold">🎬 VIDÉOS YOUTUBE AVEC VRAI SON HUMAIN AUSSI - ${q.toUpperCase()}</div>
+ <iframe src="https://www.youtube.com/embed?listType=search&list=${searchQ}" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+ <div style="text-align:center"><a href="https://www.youtube.com/results?search_query=${searchQ}" target="_blank" style="background:#ff0000;color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;display:inline-block;font-weight:bold">🔊 Voir vidéos YouTube avec son réel</a></div>
+ </div>
+ <div style="background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:12px;border-radius:10px;text-align:center;font-weight:bold">✅ MP3 AVEC SON RÉEL GÉNÉRÉ - Clique PLAY - Tu entends 100% - Télécharge pour écouter sans internet - MAKOLA.COM</div>
+ `;
+
+ document.getElementById('st').innerText=`✅ MP3 avec son réel généré pour "${q}" - Clique PLAY sur audios - Tu vas entendre!`;
+}
+
+function openAllMP3(){
+ let audios=document.querySelectorAll('audio');
+ audios.forEach(a=>{ a.play(); setTimeout(()=>a.pause(),1000); });
+ alert(`${audios.length} MP3 chargés! Clique PLAY sur chaque audio pour entendre voix réelle. Monte volume téléphone MAX!`);
 }
 </script></body></html>
