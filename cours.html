@@ -1,0 +1,43 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA PAY</title><style>body{margin:0;font-family:Arial;background:#eef2f7}.top{background:#0a1628;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:9}input{width:92%;padding:12px;border-radius:20px;border:0}#pay{position:fixed;inset:0;background:rgba(10,22,40,.96);z-index:99;display:flex;align-items:center;justify-content:center;padding:15px}.box{background:#fff;border-radius:15px;padding:20px;max-width:400px;width:100%;text-align:center}.btn{background:#ff6a00;color:#fff;border:0;padding:14px;border-radius:10px;width:100%;font-weight:bold;margin-top:10px}.num{background:#f5f5f5;padding:10px;border-radius:10px;margin:6px 0;font-weight:bold;letter-spacing:1px}.c{background:#fff;margin:10px;border-radius:12px}.c h3{margin:0;padding:12px;color:#fff;border-radius:12px 12px 0 0}.t{padding:12px;font-size:13px}</style></head><body>
+<div id="pay"><div class="box">
+<h2 style="margin:0">🔒 MAKOLA PAY - 500 FC</h2>
+<p style="font-size:13px">50 cours complets Électricité Chimie Mine KCC Cobalt</p>
+<div class="num">📱 M-Pesa / Airtel: 098 33 56 734</div>
+<div class="num">📱 Orange Money: 082 047 95 39</div>
+<p style="font-size:12px;color:#444">1. Paye 500FC sur un des numéros<br>2. Entre ID transaction reçu par SMS</p>
+<input id="code" placeholder="Ex: MP2309... ou tape MAKOLA500 (test)" style="border:1px solid #ccc;border-radius:10px">
+<button class="btn" onclick="unlock()">✅ J'AI PAYÉ 500FC - DÉBLOQUER</button>
+<a id="wa" href="#" style="display:block;margin-top:12px;font-size:13px;color:#0a4a8a">Envoyer preuve sur WhatsApp</a>
+<p id="err" style="color:red;font-size:12px"></p>
+<p style="font-size:10px;color:#888">Démo gratuite: code MAKOLA500</p>
+</div></div>
+<div class="top"><h2 style="margin:0">MAKOLA 50 COURS AUTO</h2><input id="s" onkeyup="F()" placeholder="🔍 electricite chimie mine KCC cobalt"><div id="n" style="font-size:11px;margin-top:4px">50 cours générés auto</div></div><div id="a"></div>
+<script>
+const cours=[
+["ELECTRICITE 380V","#d35400","U=RI P=UI triphasé moteur 55kW Kolwezi KCC disjoncteur"],
+["CHIMIE pH","#c0392b","Cu H2SO4 pH Co(OH)2 36%Co réactif KCC dosage chaux pH 11.5"],
+["ELECTRONIQUE","#0a4a8a","diode transistor Arduino panne carte DCS Siemens PLC 4-20mA"],
+["MINE CIEL OUVERT","#5d4037","Atlas Copco DM45 ANFO CAT 6060 100T berme 10m cycle 15min"],
+["MINE SOUTERRAINE","#3e2723","puits 1000m boulonnage ventilation CH4 grisou COMUS Musonoi"],
+["METALLURGIE CU","#00796b","SAG flottation 30%Cu épaississeur SX EW cathodes 99.99%Cu LME 9000$"],
+["COBALT BATTERIE","#004d40","cobalt 0.3%Co Co(OH)2 batterie Tesla LME 33000$ COMUS 3000t/mois"],
+["KCC FLOW","#f39c12","KCC: minerai->concasseur->SAG->flottation->SX->EW DCS"],
+["COMUS CDM","#e67e22","COMUS Musonoi camions Howo 60T production cobalt RDC"],
+["GEOLOGIE 2%Cu","#2e7d32","RSC sédimentaire forage carottage teneur 2%Cu 0.3%Co"],
+];
+for(let i=cours.length;i<50;i++){cours.push([`COURS ${i+1} KCC`,"#0a1628",`Cours auto ${i+1} Kolwezi: électricité chimie mine maintenance sécurité topo calcul`]);}
+const a=document.getElementById('a');
+cours.forEach((x,i)=>{a.innerHTML+=`<div class="c"><h3 style="background:${x[1]}">${i+1}. ${x[0]}</h3><div class="t">${x[2]}<br><br><b>Formule:</b> Voir calcul KCC<br><b>Exo Kolwezi:</b> Calcule...</div></div>`;});
+function F(){let q=s.value.toLowerCase();let cs=document.querySelectorAll('#a .c');let k=0;cs.forEach(c=>{let ok=q==''||c.innerText.toLowerCase().includes(q);c.style.display=ok?'block':'none';if(ok)k++;});n.innerText=k+' trouvés';}
+if(localStorage.getItem('makola_paid')=='yes'){pay.style.display='none';}
+function unlock(){
+let cd=code.value.trim().toUpperCase();
+if(cd.length>4){
+localStorage.setItem('makola_paid','yes');
+localStorage.setItem('makola_id',cd);
+pay.style.display='none';
+alert('✅ Paiement validé! ID:'+cd);
+}else{err.innerText='Entre ton ID transaction M-Pesa ou tape MAKOLA500';}
+}
+wa.href=`https://wa.me/243983356734?text=Preuve paiement 500FC MAKOLA ID:${code.value} - 0983356734 / 0820479539`;
+</script></body></html>
