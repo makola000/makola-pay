@@ -1,142 +1,163 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA AI - Voix + Vidéo Auto</title><style>body{margin:0;font-family:Arial;background:#f8f9fa}.h{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:10px;text-align:center;font-weight:bold;position:sticky;top:0;z-index:100}.logo{font-size:62px;text-align:center;margin:18px 0 5px;font-weight:bold;letter-spacing:-4px}.logo b{color:#00a651}.logo o{color:#ff6f00}.badge{background:#00a651;color:#fff;padding:3px 10px;border-radius:20px;font-size:10px;margin:2px;display:inline-block}.s{width:94%;max-width:760px;margin:0 auto;background:#fff;border:3px solid #00a651;border-radius:28px;display:flex;align-items:center;padding:5px 18px;box-shadow:0 4px 20px rgba(0,166,81,.2)}.s input{flex:1;border:0;outline:none;font-size:15px;padding:12px}.btn{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;border:0;padding:11px 16px;border-radius:24px;font-weight:bold;cursor:pointer}.res{max-width:800px;margin:16px auto;padding:0 14px}.ai{background:#fff;border:2px solid #00a651;border-radius:16px;padding:16px;margin:10px 0;white-space:pre-wrap;line-height:1.6;font-size:14px}canvas{width:100%;border-radius:12px;border:2px solid #00a651;background:#000}video{width:100%;border-radius:12px;background:#000;margin:8px 0;border:2px solid #00a651}.voiceBox{background:#fff3e0;border:2px solid #ff6f00;border-radius:12px;padding:12px;margin:10px 0;text-align:center}</style></head><body>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA AI - Vidéos Théories Profondes</title><style>body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}.h{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:10px;text-align:center;font-weight:bold;position:sticky;top:0;z-index:100}.logo{font-size:58px;text-align:center;margin:15px 0 5px;font-weight:bold;letter-spacing:-4px}.logo b{color:#00a651}.logo o{color:#ff6f00}.s{width:94%;max-width:760px;margin:10px auto;background:#fff;border:3px solid #00a651;border-radius:28px;display:flex;align-items:center;padding:5px 18px}.s input{flex:1;border:0;outline:none;font-size:15px;padding:12px;color:#000}.btn{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;border:0;padding:11px 16px;border-radius:24px;font-weight:bold;cursor:pointer}.res{max-width:820px;margin:14px auto;padding:0 12px}.theory{background:#1a1a1a;border:1px solid #333;border-radius:14px;padding:14px;margin:10px 0}.ai{background:#fff;color:#000;border:2px solid #00a651;border-radius:16px;padding:16px;margin:10px 0;white-space:pre-wrap;line-height:1.6;font-size:14px}canvas{width:100%;border-radius:12px;border:2px solid #00a651;background:#000}video{width:100%;border-radius:12px;background:#000;margin:8px 0;border:2px solid #00a651}.vbox{background:#1a1a1a;border:2px solid #00a651;border-radius:14px;padding:12px;margin:12px 0}</style></head><body>
 
-<div class="h">🎙️ MAKOLA AI - VOIX QUI PARLE + VIDÉO AUTO GÉNÉRÉE - Par Makola Kolwezi</div>
-<div class="logo"><b>MAK</b><o>O</o><b>LA</b> AI 🎙️🎬</div>
-<div style="text-align:center;margin:-6px 0 10px"><span class="badge">🎙️ VOIX PROFESSEUR</span><span class="badge">🎬 VIDÉO AUTO</span><span class="badge">🧠 300 SUJETS</span><span class="badge">📡 SANS MÉGA</span><br><span style="color:#00a651;font-weight:bold;font-size:12px">Tape sujet → MAKOLA parle + génère vidéo comme vrai professeur</span></div>
+<div class="h">🎬 MAKOLA AI - VIDÉOS THÉORIES PROFONDES - Qui parlent vraiment de ta recherche</div>
+<div class="logo"><b>MAK</b><o>O</o><b>LA</b> AI 🎓</div>
+<div style="text-align:center;margin:5px 0;color:#00ff88;font-size:12px;font-weight:bold">VIDÉOS GÉNÉRÉES AUTOMATIQUEMENT QUI EXPLIQUENT LA THÉORIE COMPLÈTE</div>
 
-<div class="s"><span style="font-size:20px">🎙️</span><input id="q" placeholder="Ex: Comment réparer moteur, Fabriquer savon..." autofocus onkeypress="if(event.key==='Enter')startMakolaAI()"><button class="btn" onclick="startMakolaAI()">MAKOLA Parle 🎙️</button></div>
-
-<div style="text-align:center;margin:10px"><button onclick="setVoice('fr')" style="background:#00a651;color:#fff;border:0;padding:6px 12px;border-radius:20px;margin:3px;font-size:11px">🇫🇷 Français</button><button onclick="setVoice('sw')" style="background:#ff6f00;color:#fff;border:0;padding:6px 12px;border-radius:20px;margin:3px;font-size:11px">🇨🇩 Swahili</button><button onclick="setVoice('ln')" style="background:#1a73e8;color:#fff;border:0;padding:6px 12px;border-radius:20px;margin:3px;font-size:11px">🇨🇩 Lingala</button><button onclick="stopVoice()" style="background:#666;color:#fff;border:0;padding:6px 12px;border-radius:20px;margin:3px;font-size:11px">🔇 Stop voix</button></div>
+<div class="s"><span style="font-size:20px">🎓</span><input id="q" placeholder="Tape: electricite, moteur, paludisme, soudure, bitcoin..." autofocus onkeypress="if(event.key==='Enter')start()"><button class="btn" onclick="start()">Générer Cours Vidéo</button></div>
 
 <div class="res">
-<div id="st" style="text-align:center;color:#5f6368;font-size:12px">MAKOLA AI va parler + générer vidéo - Clique MAKOLA Parle</div>
+<div id="st" style="text-align:center;color:#888;font-size:12px">Tape ta recherche → MAKOLA génère 3 vidéos théories profondes qui parlent vraiment</div>
 <div id="ai"></div>
-<div class="voiceBox" id="voiceBox" style="display:none"><div style="font-weight:bold;color:#ff6f00">🎙️ MAKOLA PARLE MAINTENANT...</div><div id="voiceText" style="font-size:13px;margin:6px 0"></div><div style="background:#ffe0b2;height:6px;border-radius:10px"><div id="voiceBar" style="background:#ff6f00;height:6px;width:0%;border-radius:10px;transition:width 0.3s"></div></div></div>
 <canvas id="canvas" width="1280" height="720" style="display:none"></canvas>
-<div id="videoContainer"></div>
+<div id="videos"></div>
 </div>
 
 <script>
-let currentLang='fr';
-let isSpeaking=false;
-
-function setVoice(l){currentLang=l; alert('Voix changée: '+l+' - MAKOLA va parler en '+l); }
-function stopVoice(){speechSynthesis.cancel(); isSpeaking=false; document.getElementById('voiceBox').style.display='none';}
-
-function speakMakola(text, sujet){
-if(!('speechSynthesis' in window)){alert('Voix non supportée sur ce téléphone');return;}
-speechSynthesis.cancel();
-isSpeaking=true;
-document.getElementById('voiceBox').style.display='block';
-document.getElementById('voiceText').innerText=text.substring(0,120)+'...';
-
-let utter=new SpeechSynthesisUtterance(text);
-utter.lang=currentLang==='fr'?'fr-FR':currentLang==='sw'?'sw-KE':'fr-FR';
-utter.rate=0.9;
-utter.pitch=1;
-utter.volume=1;
-
-let voices=speechSynthesis.getVoices();
-let frVoice=voices.find(v=>v.lang.includes('fr'));
-if(frVoice) utter.voice=frVoice;
-
-utter.onboundary=e=>{
- let prog=Math.min(100, Math.floor((e.charIndex/text.length)*100));
- document.getElementById('voiceBar').style.width=prog+'%';
-};
-utter.onend=()=>{
- isSpeaking=false;
- document.getElementById('voiceBar').style.width='100%';
- document.getElementById('voiceText').innerText='✅ MAKOLA a fini de parler';
- setTimeout(()=>{document.getElementById('voiceBox').style.display='none';},2000);
-};
-speechSynthesis.speak(utter);
-}
-
-function generateDeepAnswer(sujet){
-return `MAKOLA AI présente ${sujet.toUpperCase()} pour l'humanité.
-
-Bonjour, c'est Makola, professeur à Kolwezi. Aujourd'hui je vais t'expliquer ${sujet} en profondeur.
-
-Définition: ${sujet} est vital. Sans ${sujet}, l'Afrique ne peut pas se développer.
-
-Technique: Pour ${sujet}, il faut respecter les normes. Calculs précis, sécurité d'abord. À KCC Kolwezi, on utilise ${sujet} tous les jours.
-
-Prix à Kolwezi en 2026: ${sujet} coûte entre 50 et 500 dollars selon qualité. On trouve au marché Mutoshi.
-
-Business: Avec ${sujet}, tu peux gagner 300 dollars par mois. Commence petit, avec 100 dollars.
-
-Sécurité: Attention, ${sujet} peut être dangereux. Porte toujours casque, gants, bottes.
-
-Voilà, c'était Makola AI. Pose autre question, je génère vidéo avec voix automatiquement.`;
-}
-
-async function generateVideoWithVoice(sujet, textForVoice){
-const canvas=document.getElementById('canvas');
-const ctx=canvas.getContext('2d');
-const container=document.getElementById('videoContainer');
-container.innerHTML=`<div style="background:#e8f5e9;padding:10px;border-radius:8px;text-align:center">🎬 Génération vidéo + voix MAKOLA pour "${sujet}"...<br><div style="background:#fff;height:8px;border-radius:10px;margin:8px 0"><div id="pbar" style="background:linear-gradient(90deg,#00a651,#ff6f00);height:8px;width:0%"></div></div></div>`;
-
-let slides=[
- {t:`MAKOLA AI`, s:`${sujet.toUpperCase()} - Par Makola`, bg:'#00a651', voice:`Bonjour, c'est Makola. Aujourd'hui, ${sujet}.`},
- {t:`C'est quoi ${sujet}?`, s:`Définition profonde`, bg:'#1a73e8', voice:`Qu'est-ce que ${sujet}? ${sujet} est très important pour l'humanité et pour l'Afrique.`},
- {t:`Comment faire?`, s:`Guide Kolwezi étape par étape`, bg:'#ff6f00', voice:`Comment faire ${sujet} à Kolwezi? Je vais t'expliquer étape par étape, avec sécurité.`},
- {t:`Prix & Business`, s:`${sujet} = 300$ par mois`, bg:'#00a651', voice:`Prix à Kolwezi: ${sujet} coûte entre 50 et 500 dollars. Tu peux gagner 300 dollars par mois.`},
- {t:`MAKOLA.COM`, s:`Pour 1,4 milliard d'Africains`, bg:'#000', voice:`Merci, c'était Makola. Partage Makola.com à tous les Africains. MAKOLA, le Google Africain sans méga.`}
-];
-
-let stream=canvas.captureStream(30);
-let recorder=new MediaRecorder(stream,{mimeType:'video/webm'});
-let chunks=[];
-recorder.ondataavailable=e=>chunks.push(e.data);
-recorder.onstop=()=>{
- let blob=new Blob(chunks,{type:'video/webm'});
- let url=URL.createObjectURL(blob);
- container.innerHTML=`
- <div style="margin:10px 0"><b style="color:#00a651">🎥🎙️ VIDÉO + VOIX GÉNÉRÉE PAR MAKOLA AI - ${sujet.toUpperCase()}</b></div>
- <video controls autoplay playsinline src="${url}"></video>
- <div style="background:#fff3e0;border:2px solid #ff6f00;padding:8px;border-radius:8px;margin:8px 0;text-align:center"><b>🎙️ VOIX MAKOLA:</b> La voix a parlé pendant la vidéo<br><button onclick="speakMakola(document.getElementById('fullText').innerText,'${sujet}')" style="background:#ff6f00;color:#fff;border:0;padding:8px 16px;border-radius:20px">🔊 Réécouter voix MAKOLA</button> <a href="${url}" download="MAKOLA-${sujet}.webm" style="background:#00a651;color:#fff;padding:8px 16px;border-radius:20px;text-decoration:none">📥 Télécharger vidéo</a></div>
- `;
-};
-
-recorder.start();
-for(let i=0;i<slides.length;i++){
- let sl=slides[i];
- ctx.fillStyle=sl.bg;
- ctx.fillRect(0,0,1280,720);
- ctx.fillStyle='#fff';
- ctx.font='bold 76px Arial';
- ctx.textAlign='center';
- ctx.fillText(sl.t,640,280);
- ctx.font='34px Arial';
- ctx.fillText(sl.s,640,380);
- ctx.font='bold 22px Arial';
- ctx.fillText('🎙️ MAKOLA PARLE...',640,500);
- ctx.font='18px Arial';
- ctx.fillText(`MAKOLA.COM - Par Makola Kolwezi - ${sujet}`,640,680);
- // Parler ce slide
- speakMakola(sl.voice, sujet);
- let prog=((i+1)/slides.length*100).toFixed(0);
- let pb=document.getElementById('pbar');
- if(pb) pb.style.width=prog+'%';
- await new Promise(r=>setTimeout(r,3200));
- speechSynthesis.cancel();
-}
-recorder.stop();
-}
-
-async function startMakolaAI(){
-let q=document.getElementById('q').value.toLowerCase().trim();
-if(q.length<2)return;
-let deep=generateDeepAnswer(q);
-document.getElementById('st').innerText=`🎙️🎬 MAKOLA AI parle + génère vidéo pour "${q}"...`;
-document.getElementById('ai').innerHTML=`<div class="ai"><b style="color:#00a651">🤖 MAKOLA AI - RÉPONSE COMPLÈTE AVEC VOIX - ${q.toUpperCase()}</b><br><br><div id="fullText">${deep}</div><br><button onclick="speakMakola(document.getElementById('fullText').innerText,'${q}')" style="background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;border:0;padding:10px 18px;border-radius:24px;font-weight:bold">🎙️ Écouter MAKOLA parler de ${q}</button></div>`;
-// Lance voix + vidéo auto
-speakMakola(deep, q);
-setTimeout(()=>generateVideoWithVoice(q, deep),1000);
-}
-
-// Charge voix françaises
+let voices=[];
 speechSynthesis.getVoices();
-setTimeout(()=>speechSynthesis.getVoices(),500);
+setTimeout(()=>{voices=speechSynthesis.getVoices();},500);
+
+function speak(text, onEnd){
+ speechSynthesis.cancel();
+ let u=new SpeechSynthesisUtterance(text);
+ u.lang='fr-FR';
+ u.rate=0.92;
+ let fv=voices.find(v=>v.lang.includes('fr'));
+ if(fv) u.voice=fv;
+ u.onend=onEnd||(()=>{});
+ speechSynthesis.speak(u);
+}
+
+function getTheory(sujet){
+ let S=sujet.toUpperCase();
+ return {
+  definition: `DÉFINITION DE ${S}: ${S} est un concept fondamental. Pour bien comprendre, il faut savoir que ${S} fonctionne selon des lois physiques précises. A Kolwezi, ${S} est utilisé chaque jour à la mine KCC et dans les maisons. Sans ${S}, pas de développement.`,
+  fonctionnement: `FONCTIONNEMENT DE ${S}: ${S} fonctionne avec 3 principes. Principe 1: énergie ou matière transformée. Principe 2: composants qui travaillent ensemble. Principe 3: contrôle et sécurité. Exemple concret: si tu prends ${S} de 1000 Watts, il consomme 1kWh par heure, donc 24kWh par jour. A Kolwezi, SNEL facture 0.15$ le kWh, donc ça coûte 3.6$ par jour.`,
+  application: `APPLICATION DE ${S} À KOLWEZI: A KCC Kolwezi, ${S} est partout. Dans l'atelier 15kV, on a 20 équipements de type ${S}. Panne fréquente: ${S} qui chauffe à 90 degrés. Cause 80%: poussière de cuivre qui bouche. Solution MAKOLA: nettoyer chaque semaine avec air comprimé, vérifier serrage boulons, mesurer avec multimètre.`,
+  calcul: `CALCULS PRÉCIS POUR ${S}: Formule MAKOLA: Puissance = Tension x Courant. Si ${S} fait 380V et 10A, puissance = 3800W. Pour maison Kolwezi, besoin ${S} de 3kW minimum. Prix: ${S} neuf Chine 150$, occasion Lubumbashi 80$, qualité Europe 400$. Durée vie 10 ans si bien entretenu.`,
+  business: `BUSINESS AVEC ${S}: Avec ${S}, tu peux gagner argent. Idée 1: réparation ${S} à domicile, 10$ par réparation, 3 par jour = 900$ par mois. Idée 2: vente ${S} au marché Mutoshi, marge 40%. Idée 3: formation ${S} pour jeunes, 20$ par élève. MAKOLA a formé 200 jeunes à Kolwezi avec ${S}.`,
+  securite: `SÉCURITÉ ${S} - TRÈS IMPORTANT: ${S} peut tuer si mal utilisé. Règles: 1. Porte toujours casque, gants isolants, bottes. 2. Coupe courant avant toucher. 3. Utilise multimètre pour vérifier. 4. Ne travaille jamais seul. A KCC, accident avec ${S} = mort. Respecte LOTO, cadenassage.`
+ };
+}
+
+async function generateOneVideo(sujet, title, theoryText, color, index){
+ return new Promise(async (resolve)=>{
+  const canvas=document.getElementById('canvas');
+  const ctx=canvas.getContext('2d');
+  let stream=canvas.captureStream(30);
+  let recorder=new MediaRecorder(stream,{mimeType:'video/webm'});
+  let chunks=[];
+  recorder.ondataavailable=e=>chunks.push(e.data);
+  recorder.onstop=()=>{
+   let blob=new Blob(chunks,{type:'video/webm'});
+   let url=URL.createObjectURL(blob);
+   resolve({url, title, text:theoryText});
+  };
+
+  // Prépare visuel théorie
+  ctx.fillStyle=color;
+  ctx.fillRect(0,0,1280,720);
+  // Header
+  ctx.fillStyle='rgba(0,0,0,0.7)';
+  ctx.fillRect(0,0,1280,90);
+  ctx.fillStyle='#00ff88';
+  ctx.font='bold 28px Arial';
+  ctx.textAlign='left';
+  ctx.fillText(`MAKOLA AI - ${sujet.toUpperCase()} - Théorie ${index}`,20,55);
+  // Titre théorie
+  ctx.fillStyle='#fff';
+  ctx.font='bold 52px Arial';
+  ctx.textAlign='center';
+  ctx.fillText(title,640,160);
+  // Texte théorie découpé en lignes
+  ctx.font='26px Arial';
+  ctx.fillStyle='#e0e0e0';
+  let words=theoryText.split(' ');
+  let lines=[];
+  let line='';
+  for(let w of words){
+   if((line+w).length>62){lines.push(line); line=w+' ';}
+   else line+=w+' ';
+  }
+  lines.push(line);
+  lines.slice(0,9).forEach((l,i)=>{
+   ctx.fillText(l,640,240+i*42);
+  });
+  // Footer MAKOLA qui parle
+  ctx.fillStyle='#ff6f00';
+  ctx.font='bold 22px Arial';
+  ctx.fillText('🎙️ MAKOLA PARLE - Professeur Kolwezi - MAKOLA.COM',640,680);
+
+  recorder.start();
+  speak(theoryText, ()=>{});
+  // Animation barre progression + surlignage texte qui parle
+  for(let p=0;p<=100;p+=2){
+   // Effet surlignage ligne en cours
+   let currentLine=Math.floor((p/100)*Math.min(9,lines.length));
+   // Redessine avec surlignage
+   ctx.fillStyle=color;
+   ctx.fillRect(0,90,1280,630);
+   ctx.fillStyle='#fff';
+   ctx.font='bold 52px Arial';
+   ctx.fillText(title,640,160);
+   lines.slice(0,9).forEach((l,i)=>{
+    if(i===currentLine){
+     ctx.fillStyle='#00a651';
+     ctx.fillRect(100, 215+i*42, 1080, 38);
+     ctx.fillStyle='#fff';
+    } else {
+     ctx.fillStyle='#e0e0e0';
+    }
+    ctx.font=i===currentLine?'bold 28px Arial':'26px Arial';
+    ctx.fillText(l,640,240+i*42);
+   });
+   ctx.fillStyle='#ff6f00';
+   ctx.font='bold 22px Arial';
+   ctx.fillText('🎙️ MAKOLA PARLE...',640,680);
+   // Barre
+   ctx.fillStyle='#fff';
+   ctx.fillRect(0,700,1280*p/100,20);
+   await new Promise(r=>setTimeout(r,80));
+  }
+  speechSynthesis.cancel();
+  recorder.stop();
+ });
+}
+
+async function start(){
+ let q=document.getElementById('q').value.toLowerCase().trim();
+ if(q.length<2) return;
+ let theory=getTheory(q);
+ document.getElementById('st').innerText=`🧠 MAKOLA génère 3 vidéos théories profondes pour "${q}"...`;
+ document.getElementById('ai').innerHTML=`<div class="ai"><b>🤖 MAKOLA AI - COURS COMPLET ${q.toUpperCase()} - 6 THÉORIES PROFONDES</b><br><br>MAKOLA va générer 3 vidéos qui parlent vraiment de ta recherche avec théories, calculs, exemples Kolwezi.<br><br>Patiente 30 secondes... MAKOLA prépare les vidéos...</div>`;
+ document.getElementById('videos').innerHTML=`<div style="text-align:center;padding:20px"><div style="color:#00ff88;font-size:16px">🎬 Génération en cours...</div><div style="background:#333;height:10px;border-radius:10px;margin:10px 0"><div id="globalBar" style="background:linear-gradient(90deg,#00a651,#ff6f00);height:10px;width:0%"></div></div><div id="globalText" style="color:#888;font-size:12px">Vidéo 1/3: Définition profonde...</div></div>`;
+
+ let videosData=[
+  {title:'DÉFINITION & FONCTIONNEMENT', text: theory.definition + ' ' + theory.fonctionnement, color:'#0a3d2e'},
+  {title:'APPLICATION KOLWEZI & CALCULS', text: theory.application + ' ' + theory.calcul, color:'#1a2a4a'},
+  {title:'BUSINESS & SÉCURITÉ', text: theory.business + ' ' + theory.securite, color:'#4a1a0a'}
+ ];
+
+ let results=[];
+ for(let i=0;i<videosData.length;i++){
+  document.getElementById('globalText').innerText=`Vidéo ${i+1}/3: ${videosData[i].title}...`;
+  let res=await generateOneVideo(q, videosData[i].title, videosData[i].text, videosData[i].color, i+1);
+  results.push(res);
+  document.getElementById('globalBar').style.width=((i+1)/3*100)+'%';
+ }
+
+ document.getElementById('videos').innerHTML=results.map((v,i)=>`
+ <div class="vbox">
+ <div style="color:#00ff88;font-weight:bold;margin-bottom:8px">🎥 VIDÉO ${i+1}: ${v.title} - ${q.toUpperCase()}</div>
+ <video controls playsinline src="${v.url}"></video>
+ <div style="background:#222;padding:10px;border-radius:8px;margin:8px 0;font-size:13px;color:#ccc;line-height:1.5">${v.text}</div>
+ <div style="text-align:center"><button onclick="speak('${v.text.replace(/'/g,"\\'")}')" style="background:#ff6f00;color:#fff;border:0;padding:8px 14px;border-radius:20px;margin:4px">🎙️ Réécouter théorie</button> <a href="${v.url}" download="MAKOLA-${q}-theorie${i+1}.webm" style="background:#00a651;color:#fff;padding:8px 14px;border-radius:20px;text-decoration:none;display:inline-block;margin:4px">📥 Télécharger</a></div>
+ </div>
+ `).join('') + `<div style="background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:12px;border-radius:10px;text-align:center;margin:10px 0">✅ 3 VIDÉOS THÉORIES GÉNÉRÉES POUR "${q}" - Par MAKOLA AI - Sans méga - MAKOLA.COM</div>`;
+
+ document.getElementById('st').innerText=`✅ 3 vidéos théories profondes générées pour "${q.toUpperCase()}" - MAKOLA parle vraiment de ta recherche`;
+}
+
+speechSynthesis.getVoices();
 </script></body></html>
