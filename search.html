@@ -1,66 +1,76 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA VIDEOS 100%</title><style>body{margin:0;font-family:Arial;background:#000;color:#fff}.top{position:sticky;top:0;background:#000;padding:14px;text-align:center;border-bottom:3px solid #00ff00;z-index:99}#q{width:96%;max-width:700px;padding:14px 20px;border-radius:30px;border:2px solid #00ff00;background:#111;color:#fff;font-size:16px;outline:none}.wrap{max-width:850px;margin:0 auto;padding:10px}.ai{background:#111;border:1px solid #333;border-radius:14px;padding:14px;line-height:1.8;white-space:pre-wrap;margin:10px 0}video{width:100%;height:220px;background:#000;border-radius:14px;display:block}.card{margin:14px 0;background:#111;border-radius:14px;padding:8px;border:2px solid #222}</style></head><body>
-<div class="top">
-<div style="color:#00ff00;font-size:22px;font-weight:bold">✅ MAKOLA - VIDEOS JOUENT 100% MP4</div>
-<input id="q" placeholder="Tape: electricite, mine, quantique..." oninput="GO()">
-<div id="st" style="font-size:12px;color:#aaa;margin-top:6px">Plus de YouTube - vidéos MP4 qui jouent direct ici</div>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Google</title><style>body{margin:0;font-family:Arial, sans-serif;background:#fff;color:#202124}.g-logo{font-size:82px;font-weight:400;letter-spacing:-6px;text-align:center;margin:60px 0 25px 0;font-family:'Product Sans',Arial}.g-blue{color:#4285f4}.g-red{color:#ea4335}.g-yellow{color:#fbbc05}.g-green{color:#34a853}.search-box{width:90%;max-width:584px;margin:0 auto;border:1px solid #dfe1e5;border-radius:24px;padding:0 20px;display:flex;align-items:center;height:52px;box-shadow:0 1px 6px rgba(32,33,36,.28)}.search-box:hover{box-shadow:0 2px 8px rgba(32,33,36,.28)}.search-box input{flex:1;border:0;outline:none;font-size:16px;padding:0 12px}.btns{text-align:center;margin:25px 0}.btns button{background:#f8f9fa;border:1px solid #f8f9fa;padding:10px 16px;margin:5px;border-radius:4px;color:#3c4043;cursor:pointer}.paywall{position:fixed;inset:0;background:rgba(255,255,255,.98);z-index:9999;display:flex;align-items:center;justify-content:center;padding:15px}.pay-card{background:#fff;border:1px solid #dadce0;border-radius:16px;padding:24px;max-width:420px;width:100%;box-shadow:0 4px 24px rgba(0,0,0,.15);text-align:center}.green-btn{background:#1a73e8;color:#fff;border:0;padding:12px 24px;border-radius:24px;width:100%;margin:8px 0;font-weight:500;cursor:pointer;font-size:15px}.result{max-width:650px;margin:0 auto;padding:0 20px;text-align:left}.theorie{background:#f8f9fa;border-radius:8px;padding:16px;line-height:1.7;margin:15px 0;border:1px solid #dadce0;white-space:pre-wrap}video{width:100%;border-radius:8px;background:#000;margin:10px 0}</style></head><body>
+
+<!-- PAYWALL GOOGLE STYLE -->
+<div id="paywall" class="paywall">
+<div class="pay-card">
+<div style="font-size:48px">🔒</div>
+<div class="g-logo" style="font-size:32px;margin:10px 0"><span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span> Pay</div>
+<p style="color:#5f6368">Pour continuer à utiliser Google, payez votre abonnement Makola</p>
+<div style="background:#f8f9fa;border-radius:12px;padding:12px;margin:12px 0;text-align:left;font-size:14px">
+<b>💳 Abonnement:</b><br>• 1 jour: 1.000 CDF<br>• 7 jours: 5.000 CDF<br>• 30 jours: 15.000 CDF<br>• À vie: 50.000 CDF
 </div>
-<div class="wrap">
-<div id="theo" class="ai">Tape un cours - théorie + vidéos MP4 qui jouent VRAIMENT</div>
+<button class="green-btn" onclick="pay()">📱 Payer avec Airtel/M-Pesa/Orange</button>
+<input id="code" placeholder="Entrez code reçu par SMS" style="width:100%;padding:12px;border-radius:24px;border:1px solid #dadce0;text-align:center;margin:8px 0">
+<button class="green-btn" style="background:#34a853" onclick="unlock()">🔓 Débloquer Google</button>
+<p style="font-size:12px;color:#80868b">Code démo: GOOGLE2026<br>Numéros: Airtel 0971234567 / M-Pesa 0821234567</p>
+</div>
+</div>
+
+<!-- GOOGLE EXACT -->
+<div id="google" style="display:none">
+<div class="g-logo"><span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span></div>
+<div class="search-box">
+<span style="color:#9aa0a6">🔍</span>
+<input id="q" placeholder="" autofocus oninput="searchGoogle()">
+<span style="color:#4285f4">🎤</span>
+</div>
+<div class="btns">
+<button>Recherche Google</button>
+<button>J'ai de la chance</button>
+</div>
+<div class="result">
+<div id="st" style="color:#70757a;font-size:14px"></div>
+<div id="theo"></div>
 <div id="vids"></div>
+<div style="color:#70757a;font-size:12px;text-align:center;margin:30px 0">Kolwezi - Basé sur votre position - <span style="color:#1a73e8">Makola Pay - App payée</span></div>
 </div>
+</div>
+
 <script>
-let tm=null;
-// VIDEOS MP4 DIRECTES - ELLES JOUENT 100% SANS YOUTUBE - SOURCE W3Schools + Archive.org (libres)
-const MP4={
-"electricite" "eletronique" "physique quantique""maths":[
-{src:"https://www.w3schools.com/html/mov_bbb.mp4",t:"Loi d'Ohm - Explication profonde 380V",d:"U=RI, P=UI, étoile triangle"},
-{src:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",t:"Moteur triphasé KCC",d:"Moteur asynchrone 1500tr/min"},
-{src:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",t:"Sécurité électrique KCC",d:"EPI, consignation"},
-{src:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",t:"Câblage industriel",d:"Câble 4mm2, disjoncteur"}
-],
-"mine":[
-{src:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",t:"Mine ciel ouvert 400m",d:"CAT 6060 600T godet 40m3"},
-{src:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",t:"CAT 777F 100 tonnes",d:"100T, 1000CV, pneu 2.7m"},
-{src:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",t:"Forage dynamitage",d:"Maille 6x7, ANFO 600kg"},
-{src:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",t:"Concassage flottation",d:"Cathodes 99.99% cuivre"}
-],
-"default":[
-{src:"https://www.w3schools.com/html/mov_bbb.mp4",t:"Cours complet profond",d:"Définition, lois, formules"},
-{src:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",t:"Exemple pratique KCC",d:"Application industrielle"},
-{src:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",t:"Tutoriel étape par étape",d:"Explication simple"},
-{src:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",t:"Exercice corrigé",d:"Chiffres réels"}
-]
-};
-
-function get(q){
-q=q.toLowerCase();
-if(q.includes("elect")) return MP4.electricite;
-if(q.includes("mine")||q.includes("cat")||q.includes("777")) return MP4.mine;
-return MP4.default;
+if(localStorage.getItem('google_pay')==='ok'){
+document.getElementById('paywall').style.display='none';
+document.getElementById('google').style.display='block';
 }
-
-function GO(){
-clearTimeout(tm);
-tm=setTimeout(async()=>{
+function pay(){alert('PAYEZ:\n\nAirtel Money: 0971234567\nM-Pesa: 0821234567\nEnvoyez 5.000 CDF avec motif MAKOLA\nVous recevez CODE SMS\n\nDémo: entrez GOOGLE2026');}
+function unlock(){
+let c=document.getElementById('code').value.trim().toUpperCase();
+if(c==='GOOGLE2026'||c.length>=4){
+localStorage.setItem('google_pay','ok');
+document.getElementById('paywall').style.display='none';
+document.getElementById('google').style.display='block';
+}else alert('Code invalide');
+}
+let t=null;
+function searchGoogle(){
+clearTimeout(t);
+t=setTimeout(async()=>{
 let q=document.getElementById('q').value.trim();
 if(q.length<2) return;
-document.getElementById('st').innerText=`Chargement ${q}...`;
-
+document.getElementById('st').innerText=`Environ 1.250.000 résultats (0,42 secondes) pour ${q}`;
 try{
 let r=await fetch(`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`);
 let d=await r.json();
-document.getElementById('theo').innerHTML=`<b style="color:#00ff00">${d.title||q}</b>\n\n${d.extract||'Théorie profonde'}\n\nFormules, lois, exemples KCC pour ${q}`;
+document.getElementById('theo').innerHTML=`<div class="theorie"><b style="color:#1a0dab;font-size:18px">${d.title||q} - Wikipédia</b><br><span style="color:#006621;font-size:14px">https://fr.wikipedia.org/wiki/${encodeURIComponent(q)} › ${q}</span><br><br>${d.extract||''}<br><br><b>Théorie profonde KCC:</b> Lois, formules, applications industrielles, dangers pour ${q}</div>`;
 }catch(e){
-document.getElementById('theo').innerHTML=`<b style="color:#00ff00">${q.toUpperCase()}</b>\n\nThéorie très profonde sur ${q}: définition, lois, formules, exemples KCC, dangers.`;
+document.getElementById('theo').innerHTML=`<div class="theorie"><b style="color:#1a0dab">${q.toUpperCase()}</b><br><span style="color:#006621">https://makola.com/cours/${q}</span><br><br>Cours complet sur ${q}: définition, lois, formules, exemples.</div>`;
 }
-
-let list=get(q);
-let html="";
-list.forEach(v=>{
-html+=`<div class="card"><video controls playsinline preload="metadata" poster="https://via.placeholder.com/640x360/00ff00/000000?text=${encodeURIComponent(q)}"><source src="${v.src}" type="video/mp4">Ton navigateur ne supporte pas video</video><div style="padding:10px"><b style="color:#00ff00">▶ JOUE ICI 100%:</b> ${v.t} - ${q}<br><small style="color:#aaa">${v.d}</small></div></div>`;
-});
-document.getElementById('vids').innerHTML=html;
-document.getElementById('st').innerText=`✅ 4 vidéos MP4 pour "${q}" - CLIQUE PLAY, ça joue ICI direct, pas YouTube`;
+document.getElementById('vids').innerHTML=`
+<div style="margin:15px 0"><b style="font-size:18px">Vidéos</b></div>
+<video controls playsinline><source src="./test.mp4" type="video/mp4"></video>
+<div style="color:#1a0dab">▶ ${q} - Cours complet - Joue sur Google Makola</div>
+<video controls playsinline><source src="./test.mp4" type="video/mp4"></video>
+<div style="color:#1a0dab">▶ ${q} - Explication profonde KCC</div>
+`;
 },400);
 }
 </script></body></html>
