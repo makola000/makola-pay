@@ -1,2 +1,4 @@
+
 User-agent: *
 Allow: /
+Sitemap: https://makola000.github.io/makola-pay/sitemap.xml
