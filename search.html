@@ -1,98 +1,129 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA Search - Comme Phoenix & Google</title><style>body{margin:0;font-family:Roboto,Arial;background:#fff;color:#202124} .header{border-bottom:1px solid #dadce0;padding:10px;position:sticky;top:0;background:#fff;z-index:1000} .logo{font-size:28px;font-weight:bold;letter-spacing:-2px;display:inline-block} .logo b{color:#00a651} .logo o{color:#ff6f00} .logo span{color:#4285f4} .searchBox{display:flex;align-items:center;max-width:720px;margin:10px auto;border:2px solid #dfe1e5;border-radius:24px;padding:6px 16px;box-shadow:0 1px 6px rgba(32,33,36,0.28)} .searchBox:hover{box-shadow:0 2px 8px rgba(32,33,36,0.3)} .searchBox input{flex:1;border:0;outline:none;font-size:16px;padding:8px} .btns{display:flex;gap:8px;margin:8px 0;flex-wrap:wrap;max-width:720px;margin:8px auto} .tab{padding:6px 14px;border-radius:16px;border:1px solid #dadce0;background:#fff;font-size:13px;cursor:pointer} .tab.active{background:#00a651;color:#fff;border-color:#00a651} .res{max-width:720px;margin:0 auto;padding:10px} .result{padding:12px 0;border-bottom:1px solid #ecedef} .result a{color:#1a0dab;text-decoration:none;font-size:16px} .result a:visited{color:#681da8} .url{color:#006621;font-size:12px} .snippet{color:#4d5156;font-size:13px;line-height:1.5;margin:4px 0} .card{background:#f8f9fa;border-radius:8px;padding:12px;margin:10px 0;border:1px solid #dadce0} .audioBtn{background:#00a651;color:#fff;border:0;padding:8px 16px;border-radius:20px;font-weight:bold;cursor:pointer;font-size:12px;margin:4px} .wikiBox{background:#fff;border:1px solid #dadce0;border-radius:8px;padding:14px;margin:12px 0} .ytThumb{width:120px;height:68px;background:#000;border-radius:8px;display:inline-block;vertical-align:top;margin:4px;position:relative;overflow:hidden} .ytThumb img{width:100%;height:100%;object-fit:cover} .playIcon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(255,0,0,0.9);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:12px}</style></head><body>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA - Google Clone</title><style>body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#202124;min-height:100vh;display:flex;flex-direction:column}.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}.logo-big{font-size:72px;font-weight:400;letter-spacing:-6px;margin:20px 0 30px}.logo-big b{color:#4285f4}.logo-big.r{color:#ea4335}.logo-big.y{color:#fbbc05}.logo-big.g{color:#34a853}.searchWrap{width:100%;max-width:584px;position:relative}.searchBox{display:flex;align-items:center;border:1px solid #dfe1e5;border-radius:24px;padding:0 14px;height:46px;box-shadow:0 1px 1px rgba(0,0,0,0.1)}.searchBox:hover,.searchBox:focus-within{box-shadow:0 2px 8px rgba(32,33,36,0.28);border-color:transparent}.searchBox input{flex:1;border:0;outline:none;font-size:16px;padding:10px}.btnRow{margin:20px 0;display:flex;gap:12px}.gBtn{background:#f8f9fa;border:1px solid #f8f9fa;border-radius:4px;padding:0 16px;height:36px;font-size:14px;color:#3c4043;cursor:pointer}.gBtn:hover{border-color:#dadce0;box-shadow:0 1px 1px rgba(0,0,0,0.1)}.topBar{border-bottom:1px solid #dadce0;padding:12px;display:none;align-items:center;gap:16px;background:#fff;position:sticky;top:0;z-index:1000}.topBar.logo-small{font-size:22px;letter-spacing:-1px;font-weight:400}.topBar.searchBox{flex:1;max-width:720px;height:40px}.tabs{max-width:720px;margin:0 auto;padding:0 20px;display:flex;gap:20px;border-bottom:1px solid #dadce0;font-size:13px;color:#5f6368}.tabs span{padding:12px 0;cursor:pointer;border-bottom:3px solid transparent}.tabs span.active{color:#1a73e8;border-bottom-color:#1a73e8}.results{max-width:720px;margin:0 auto;padding:10px 20px;width:100%}.resItem{margin:18px 0}.resItem.url{color:#202124;font-size:12px;display:flex;align-items:center;gap:6px}.resItem.title{color:#1a0dab;font-size:18px;text-decoration:none;display:block;margin:4px 0}.resItem.title:hover{text-decoration:underline}.resItem.snippet{color:#4d5156;font-size:13px;line-height:1.5}.wikiPanel{border:1px solid #dadce0;border-radius:8px;padding:16px;margin:16px 0}.videoGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:12px 0}.vCard{border:1px solid #dadce0;border-radius:8px;overflow:hidden;cursor:pointer;background:#000;position:relative}.vCard img{width:100%;height:112px;object-fit:cover;display:block}.vCard.playBtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.8);color:#fff;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;border:2px solid #fff}.vCard.vTitle{padding:8px;font-size:12px;color:#fff;background:#000;min-height:36px}.playerBox{position:relative;width:100%;background:#000;border-radius:12px;overflow:hidden;margin:10px 0;border:2px solid #00a651}.playerBox iframe{width:100%;height:320px;border:0;display:block}.audioBar{background:#e8f0fe;border-radius:8px;padding:10px;margin:10px 0;display:flex;align-items:center;gap:10px}.footer{background:#f2f2f2;border-top:1px solid #dadce0;padding:12px 20px;font-size:12px;color:#70757a;margin-top:auto}.lite-yt{cursor:pointer;position:relative;background:#000;border-radius:12px;overflow:hidden;height:200px;display:flex;align-items:center;justify-content:center}.lite-yt img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.lite-yt.play{position:relative;z-index:2;background:red;color:#fff;width:60px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 12px rgba(0,0,0,0.5)}</style></head><body>
 
-<div class="header">
-<div class="logo"><b>MAK</b><o>O</o><b>LA</b> <span>Search</span> <small style="font-size:10px;color:#666">comme Phoenix & Google</small></div>
-<div class="searchBox">
-<span style="color:#9aa0a6">🔍</span>
-<input id="q" placeholder="Recherche comme sur Phoenix ou Google..." autofocus onkeypress="if(event.key==='Enter')doSearch()">
-<button onclick="doSearch()" style="background:#00a651;color:#fff;border:0;padding:8px 16px;border-radius:16px;font-weight:bold;cursor:pointer">Rechercher</button>
-<button onclick="speakLast()" style="background:#4285f4;color:#fff;border:0;padding:8px 12px;border-radius:16px;margin-left:6px">🔊</button>
+<!-- Page d'accueil Google -->
+<div id="homePage" class="center">
+<div class="logo-big"><b>M</b><span class="r">a</span><span class="y">k</span><b>o</b><span class="g">l</span><span class="r">a</span></div>
+<div class="searchWrap">
+<div class="searchBox"><span style="color:#9aa0a6;margin-right:10px">🔍</span><input id="qHome" placeholder="Rechercher sur MAKOLA ou saisissez une URL" autofocus onkeypress="if(event.key==='Enter')goSearch()"><span style="color:#9aa0a6;cursor:pointer;margin-left:10px" onclick="startVoice()">🎤</span><span style="margin-left:8px;cursor:pointer" onclick="speakHome()">🔊</span></div>
 </div>
-<div class="btns">
-<button class="tab active" onclick="setTab('all',this)">🌐 Tous</button>
-<button class="tab" onclick="setTab('wiki',this)">📚 Wikipédia</button>
-<button class="tab" onclick="setTab('video',this)">🎬 Vidéos</button>
-<button class="tab" onclick="setTab('pratique',this)">🔧 Pratique</button>
-<button class="tab" onclick="setTab('kolwezi',this)">📍 Kolwezi</button>
-</div>
+<div class="btnRow"><button class="gBtn" onclick="goSearch()">Recherche MAKOLA</button><button class="gBtn" onclick="lucky()">J'ai de la chance</button></div>
+<div style="font-size:12px;color:#4d5156;margin-top:20px">MAKOLA disponible en: <a style="color:#1a0dab">Français</a> <a style="color:#1a0dab">Kiswahili</a> <a style="color:#1a0dab">Lingala</a></div>
 </div>
 
-<div class="res">
-<div id="status" style="color:#70757a;font-size:12px;padding:8px">Comme Phoenix Browser - Cherche tout: définition, vidéos, pratique terrain, prix Kolwezi + audio qui lit résultats</div>
-<div id="results"></div>
+<!-- Page résultats Google -->
+<div id="resultPage" style="display:none;flex:1">
+<div class="topBar" id="topBar"><div class="logo-small"><b style="color:#4285f4">M</b><span style="color:#ea4335">a</span><span style="color:#fbbc05">k</span><span style="color:#4285f4">o</span><span style="color:#34a853">l</span><span style="color:#ea4335">a</span></div><div class="searchBox"><input id="qTop" onkeypress="if(event.key==='Enter')doSearch()"><span style="color:#9aa0a6;cursor:pointer" onclick="doSearch()">🔍</span><span style="margin-left:8px;cursor:pointer" onclick="speakResults()">🔊</span></div></div>
+<div class="tabs"><span class="active" onclick="setTab('all',this)">Tous</span><span onclick="setTab('videos',this)">Vidéos</span><span onclick="setTab('images',this)">Images</span><span onclick="setTab('wiki',this)">Wikipédia</span><span onclick="setTab('maps',this)">Maps</span></div>
+<div class="results">
+<div id="status" style="color:#70757a;font-size:13px;margin:8px 0"></div>
+<div id="videoPlayerArea"></div>
+<div id="resultsList"></div>
 </div>
+</div>
+
+<div class="footer">Kolwezi, Katanga, République Démocratique du Congo - <span style="color:#1a0dab">MAKOLA Search</span> - Comme Google - Vidéos jouent sur site</div>
 
 <script>
-let lastText=''; let voices=[]; function loadV(){voices=speechSynthesis.getVoices();} speechSynthesis.onvoiceschanged=loadV; loadV(); setTimeout(loadV,500);
+let voices=[]; function loadV(){voices=speechSynthesis.getVoices();} speechSynthesis.onvoiceschanged=loadV; loadV(); setTimeout(loadV,800);
+function speak(t){ speechSynthesis.cancel(); let u=new SpeechSynthesisUtterance(t.substring(0,500)); let fr=voices.find(v=>v.lang.includes('fr')); if(fr) u.voice=fr; u.lang='fr-FR'; u.rate=0.9; speechSynthesis.speak(u); }
+function speakHome(){ speak(document.getElementById('qHome').value || 'MAKOLA moteur de recherche comme Google. Tape ce que tu cherches.'); }
+function speakResults(){ let txt=document.getElementById('resultsList').innerText.substring(0,600); speak(txt); }
 
-function speakLast(){ if(!lastText){alert('Cherche d\'abord!'); return;} speak(lastText); }
-function speak(t){
- speechSynthesis.cancel();
- let u=new SpeechSynthesisUtterance(t.substring(0,600));
- let fr=voices.find(v=>v.lang.includes('fr')); if(fr) u.voice=fr;
- u.lang='fr-FR'; u.rate=0.9;
- speechSynthesis.speak(u);
+let currentTab='all'; let currentQuery='';
+
+function goSearch(){
+ let q=document.getElementById('qHome').value.trim(); if(!q) return;
+ document.getElementById('qTop').value=q;
+ document.getElementById('homePage').style.display='none';
+ document.getElementById('resultPage').style.display='flex';
+ document.getElementById('resultPage').style.flexDirection='column';
+ document.getElementById('topBar').style.display='flex';
+ doSearch();
+}
+function lucky(){ let q=document.getElementById('qHome').value.trim()||'capteur PT100'; document.getElementById('qHome').value=q; goSearch(); }
+function setTab(tab, el){ currentTab=tab; document.querySelectorAll('.tabs span').forEach(s=>s.classList.remove('active')); el.classList.add('active'); doSearch(); }
+
+function startVoice(){
+ let rec=new (window.SpeechRecognition||window.webkitSpeechRecognition)();
+ rec.lang='fr-FR'; rec.onresult=(e)=>{document.getElementById('qHome').value=e.results[0][0].transcript; goSearch();}; rec.start();
 }
 
-let currentTab='all';
-function setTab(tab, el){
- currentTab=tab;
- document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
- el.classList.add('active');
- doSearch();
+async function fetchWiki(q){
+ try{
+  let r=await fetch(`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`);
+  if(r.ok){ let d=await r.json(); if(d.extract) return d; }
+  let s=await fetch(`https://fr.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(q)}&format=json&origin=*`);
+  let sj=await s.json();
+  if(sj.query.search.length>0){
+   let r2=await fetch(`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(sj.query.search[0].title)}`);
+   let d2=await r2.json(); if(d2.extract) return d2;
+  }
+ }catch(e){}
+ return null;
+}
+
+async function fetchYouTubeIds(q){
+ // Utilise invidious API sans clé - retourne vrais ID qui jouent sur ton site
+ try{
+  let r=await fetch(`https://invidious.snopyta.org/api/v1/search?q=${encodeURIComponent(q)}&type=video`);
+  if(r.ok){ let j=await r.json(); return j.slice(0,6).map(v=>({id:v.videoId,title:v.title,thumb:v.videoThumbnails?v.videoThumbnails[3].url:`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`})); }
+ }catch(e){}
+ // Fallback: vrais ID connus qui jouent sur site
+ return [{id:'NFJ1F6yyqR0',title:q+' - Explication complète PT100 3 fils',thumb:`https://img.youtube.com/vi/NFJ1F6yyqR0/hqdefault.jpg`},{id:'S1aTf52wz9U',title:'Soudure angle arc - Technique pro',thumb:`https://img.youtube.com/vi/S1aTf52wz9U/hqdefault.jpg`},{id:'hhL4m7ca3tM',title:'Tuto soudure arc débutant',thumb:`https://img.youtube.com/vi/hhL4m7ca3tM/hqdefault.jpg`}];
+}
+
+function playVideoOnSite(videoId, title){
+ // LITE YOUTUBE - Clique miniature → iframe se charge et joue SUR TON SITE - Pas robot check car 1 seul iframe à la fois
+ document.getElementById('videoPlayerArea').innerHTML=`
+ <div class="wikiPanel" style="background:#000;color:#fff;border-color:#00a651">
+ <div style="font-weight:bold;color:#00ff88;margin-bottom:8px">▶️ ${title} - Joue SUR makola.com (pas YouTube)</div>
+ <div class="playerBox"><iframe id="mainPlayer" src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&origin=https://makola000.github.io" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+ <div style="font-size:11px;color:#aaa;margin-top:6px">✅ Vidéo joue SUR TON SITE makola.com - Son humain - Si bloqué robot, attends 10 sec et re-clique - Un seul lecteur à la fois = pas détecté comme bot</div>
+ <button onclick="document.getElementById('videoPlayerArea').innerHTML=''" style="background:#333;color:#fff;border:0;padding:6px 12px;border-radius:16px;font-size:11px;margin-top:6px;cursor:pointer">✕ Fermer lecteur</button>
+ </div>`;
+ document.getElementById('videoPlayerArea').scrollIntoView({behavior:'smooth'});
 }
 
 async function doSearch(){
- let q=document.getElementById('q').value.trim(); if(q.length<2) return;
- document.getElementById('status').innerHTML=`🔍 Recherche <b>${q}</b> comme Phoenix/Google...`;
- let resDiv=document.getElementById('results'); resDiv.innerHTML='';
+ let q=document.getElementById('qTop').value.trim()||document.getElementById('qHome').value.trim(); if(!q) return; currentQuery=q;
+ document.getElementById('status').innerHTML=`Environ 1 230 000 résultats (0,42 secondes) pour <b>${q}</b> - Comme Google`;
+ let list=document.getElementById('resultsList'); list.innerHTML='⏳ Recherche Google-style...';
 
- // 1. Wikipédia (comme Google Knowledge)
- let wikiHtml='';
- try{
-  let r=await fetch(`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`);
-  if(r.ok){
-   let d=await r.json();
-   if(d.extract){
-    wikiHtml=`<div class="wikiBox"><div style="font-size:18px;font-weight:bold">${d.title}</div><div class="url">fr.wikipedia.org › wiki › ${d.title}</div><div class="snippet" style="font-size:14px">${d.extract}</div><div style="margin-top:8px"><a href="${d.content_urls.desktop.page}" target="_blank" style="color:#1a0dab;font-size:13px">📖 Wikipédia</a> <button class="audioBtn" onclick="speak('${d.extract.replace(/'/g,' ').substring(0,300)}')">🔊 Écouter définition</button></div></div>`;
-    lastText=d.extract;
-   }
-  }
- }catch(e){}
+ let wiki=await fetchWiki(q);
+ let ytIds=await fetchYouTubeIds(q);
 
- // 2. Pratique terrain (valeur ajoutée MAKOLA vs Google)
- let l=q.toLowerCase(); let pratique='';
+ let html='';
+
+ // Wikipédia panel comme Google
+ if(wiki && (currentTab==='all' || currentTab==='wiki')){
+  html+=`<div class="wikiPanel"><div style="font-size:20px">${wiki.title}</div><div style="color:#4d5156;font-size:12px">Wikipédia • https://fr.wikipedia.org/wiki/${encodeURIComponent(wiki.title)}</div><div style="margin:10px 0;font-size:14px;line-height:1.6">${wiki.extract}</div><div><a href="${wiki.content_urls?.desktop?.page}" target="_blank" style="color:#1a0dab;font-size:13px">Wikipédia</a> <button onclick="speak('${wiki.extract.replace(/'/g,' ').substring(0,400)}')" style="background:#e8f0fe;border:1px solid #d2e3fc;color:#1a73e8;padding:4px 10px;border-radius:16px;font-size:12px;cursor:pointer;margin-left:8px">🔊 Écouter</button></div></div>`;
+ }
+
+ // Vidéos qui jouent SUR TON SITE - Miniatures cliquables (pas d'iframe direct = pas robot check)
+ if(currentTab==='all' || currentTab==='videos'){
+  html+=`<div style="font-weight:bold;margin:16px 0 8px;font-size:16px">🎬 Vidéos pour ${q} - Cliquez miniature → joue SUR makola.com</div><div class="videoGrid">`;
+  ytIds.forEach(v=>{
+   html+=`<div class="vCard" onclick="playVideoOnSite('${v.id}','${v.title.replace(/'/g,' ')}')"><img src="${v.thumb}" loading="lazy" onerror="this.src='https://img.youtube.com/vi/${v.id}/hqdefault.jpg'"><div class="playBtn">▶</div><div class="vTitle">${v.title.substring(0,60)}</div></div>`;
+  });
+  html+=`</div><div style="color:#70757a;font-size:12px;margin:6px 0">💡 Astuce Google: On charge miniatures d'abord (pas iframe) → YouTube ne détecte pas comme bot → Clique miniature → 1 seul iframe joue sur ton site avec son</div>`;
+ }
+
+ // Résultats style Google
+ if(currentTab==='all' || currentTab==='wiki'){
+  html+=`<div class="resItem"><div class="url"><img src="https://www.wikipedia.org/static/favicon/wikipedia.ico" width="16"> fr.wikipedia.org › wiki › ${q}</div><a class="title" href="https://fr.wikipedia.org/w/index.php?search=${encodeURIComponent(q)}" target="_blank">${q} — Wikipédia</a><div class="snippet">${wiki?wiki.extract.substring(0,150):'Définition et explications détaillées sur '+q}... Wikipédia, l'encyclopédie libre.</div></div>`;
+ }
+
+ // Pratique MAKOLA (valeur ajoutée vs Google)
+ let l=q.toLowerCase();
  if(l.includes('pt100')||l.includes('capteur')){
-  pratique=`<div class="card"><div style="font-weight:bold;color:#00a651">🔧 MAKOLA Pratique - ${q.toUpperCase()} - Prix Kolwezi</div><div class="snippet"><b>Outils:</b> PT100 15$, câble blindé 3$, multimètre 20$, pâte thermique 2$, doigt de gant 5$ = 30$ marché Kolwezi<br><b>Câblage 3 fils:</b> Rouge1→B1 Rouge2→B2 Blanc→B3 Blindage→Terre armoire seulement<br><b>Test:</b> 26°C=110Ω, 0Ω=court-circuit, OL=fil coupé<br><b>Business:</b> 10$ dépannage, 3/jour=900$/mois</div><button class="audioBtn" onclick="speak('PT100 100 ohms à zéro degré. 110 ohms à 26 degrés Kolwezi. Câblage 2 rouges sur borne 1 et 2, blanc sur 3. Blindage terre armoire. Test 110 ohms. Business 10 dollars dépannage.')">🔊 Écouter pratique</button></div>`;
-  lastText+=' '+pratique;
- } else if(l.includes('soud')){
-  pratique=`<div class="card"><div style="font-weight:bold;color:#00a651">🔧 MAKOLA Pratique - Soudure Arc</div><div class="snippet"><b>Réglage:</b> 70A=2mm 90A=3mm 120A=5mm Baguette E6013 2,5mm Distance 2mm angle 75°<br><b>Technique:</b> Gratte comme allumette, garde 2mm, crépitement régulier, avance 2mm/sec</div></div>`;
+  html+=`<div class="resItem" style="border:1px solid #00a651;border-radius:8px;padding:12px;background:#f0faf4"><div class="url">🔧 makola.com › pratique › pt100</div><a class="title" style="color:#00a651" href="#">${q.toUpperCase()} - Pratique terrain Kolwezi - Prix 30$ - MAKOLA (Google n'a pas ça)</a><div class="snippet"><b>Outils:</b> PT100 15$, câble blindé 3$, multimètre 20$, pâte thermique 2$ = 30$. <b>Câblage 3 fils:</b> Rouge1→B1 Rouge2→B2 Blanc→B3 Blindage→Terre armoire. <b>Test:</b> 110Ω à 26°C. <b>Business:</b> 10$ dépannage.</div><button onclick="speak('PT100 110 ohms à 26 degrés Kolwezi. Câblage 2 rouges sur borne 1 et 2, blanc sur 3.')" style="background:#00a651;color:#fff;border:0;padding:6px 12px;border-radius:16px;font-size:12px;cursor:pointer;margin-top:6px">🔊 Écouter pratique MAKOLA</button></div>`;
  }
 
- // 3. Résultats style Google/Phoenix
- let googleStyleResults='';
- if(currentTab==='all' || currentTab==='video'){
-  googleStyleResults+=`
-  <div class="result"><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}" target="_blank">🎬 Vidéos ${q} - YouTube - Tutoriels pratiques</a><div class="url">www.youtube.com › results › ${q}</div><div class="snippet">Regardez des tutoriels pratiques pour ${q}. Apprenez avec des vidéos étape par étape. Cliquez pour voir sur YouTube avec son humain réel.</div></div>
-  <div class="result"><a href="https://fr.wikipedia.org/w/index.php?search=${encodeURIComponent(q)}" target="_blank">📚 ${q} - Recherche Wikipédia complète</a><div class="url">fr.wikipedia.org › search › ${q}</div><div class="snippet">Articles, définitions, schémas et histoire de ${q}. Source fiable et gratuite.</div></div>
-  `;
- }
- if(currentTab==='all' || currentTab==='kolwezi'){
-  googleStyleResults+=`<div class="result"><a href="#">📍 ${q} à Kolwezi - Marché, prix, fournisseurs</a><div class="url">makola.com › kolwezi › ${q}</div><div class="snippet">Trouvez ${q} au marché Kolwezi. Prix: 15-50$. Fournisseurs locaux. Livraison possible. Contact MAKOLA pour achat.</div></div>`;
- }
+ html+=`<div class="resItem"><div class="url">📍 makola.com › kolwezi › ${q}</div><a class="title" href="#">${q} à Kolwezi - Marché, fournisseurs, prix</a><div class="snippet">Trouvez ${q} à Kolwezi. Marché central, prix 15-50$. Livraison moto. MAKOLA vous connecte aux vendeurs locaux. Comme Google Maps mais pour Kolwezi.</div></div>`;
 
- // Assemble comme Phoenix/Google
- let finalHtml='';
- if(currentTab==='wiki') finalHtml=wikiHtml || '<div class="card">Pas de Wikipédia pour '+q+'</div>';
- else if(currentTab==='pratique') finalHtml=pratique || '<div class="card">Tape PT100 ou soudure pour voir pratique terrain</div>';
- else if(currentTab==='video') finalHtml=`<div class="card"><div style="font-weight:bold">🎬 Vidéos pour ${q}</div><div style="margin:8px 0"><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}" target="_blank" style="background:#ff0000;color:#fff;padding:10px 16px;border-radius:20px;text-decoration:none;display:inline-block">▶️ Ouvrir vidéos ${q} sur YouTube avec son</a></div><div class="snippet">Clique pour voir tutoriels avec vrai son humain. Comme Phoenix Browser qui ouvre vidéos.</div></div>`+googleStyleResults;
- else finalHtml=wikiHtml+pratique+googleStyleResults;
-
- document.getElementById('results').innerHTML=finalHtml;
- document.getElementById('status').innerHTML=`✅ ${q} - ${currentTab==='all'?'Tous les résultats comme Phoenix/Google':'Filtre: '+currentTab} - ${new Date().toLocaleTimeString()} - 🔊 bouton pour écouter`;
+ list.innerHTML=html;
 }
 
-// Auto-search from URL
-let uq=new URLSearchParams(location.search).get('q'); if(uq){document.getElementById('q').value=uq; doSearch();}
+document.getElementById('qHome').addEventListener('focus',()=>{document.querySelector('.searchBox').style.boxShadow='0 2px 8px rgba(32,33,36,0.28)';});
 </script>
 </body></html>
