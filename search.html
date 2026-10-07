@@ -1,146 +1,48 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA - Sans YouTube - 100% sur ton site</title><style>body{margin:0;font-family:Arial;background:#0f172a;color:#e2e8f0}.h{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:14px;text-align:center;font-weight:bold;position:sticky;top:0;z-index:1000}.logo{font-size:44px;text-align:center;margin:10px 0 5px;font-weight:bold;letter-spacing:-3px;color:#fff}.logo b{color:#00a651}.logo o{color:#ff6f00}.s{width:94%;max-width:800px;margin:12px auto;background:#fff;border:3px solid #00a651;border-radius:28px;display:flex;align-items:center;padding:5px 18px}.s input{flex:1;border:0;outline:none;font-size:15px;padding:12px;color:#000}.btn{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;border:0;padding:12px 20px;border-radius:24px;font-weight:bold;cursor:pointer}.res{max-width:860px;margin:12px auto;padding:0 12px}.card{background:#1e293b;border-radius:14px;padding:16px;margin:12px 0;border:2px solid #00a651;box-shadow:0 4px 12px rgba(0,0,0,0.3)}.wiki{background:#0f172a;color:#cbd5e1;border-radius:10px;padding:12px;margin:8px 0;line-height:1.7;font-size:13px;border:1px solid #334155}.step{background:#0f172a;border-left:4px solid #00a651;padding:12px;margin:10px 0;border-radius:8px}.tag{background:#00a651;color:#fff;padding:4px 10px;border-radius:12px;font-size:10px;font-weight:bold;margin:2px;display:inline-block}.audioBox{background:linear-gradient(135deg,#00a651,#059669);border-radius:12px;padding:14px;margin:10px 0;color:#fff}.playBtn{background:#fff;color:#00a651;border:0;padding:12px 24px;border-radius:28px;font-weight:bold;font-size:14px;cursor:pointer;margin:6px;box-shadow:0 4px 8px rgba(0,0,0,0.2)}.canvasBox{background:#000;border-radius:12px;padding:10px;margin:10px 0;border:2px solid #00a651;text-align:center}</style></head><body>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA TEST SON</title><style>body{background:#000;color:#fff;font-family:Arial;text-align:center;padding:20px}button{padding:20px 40px;font-size:20px;border-radius:30px;border:0;background:#00a651;color:#fff;font-weight:bold;margin:20px;cursor:pointer} .card{background:#222;padding:20px;border-radius:15px;margin:20px;border:2px solid #00a651}</style></head><body>
+<h1 style="color:#00a651">MAKOLA TEST SON SUR SITE</h1>
 
-<div class="h">🔊 MAKOLA - 100% sur ton site - Pas YouTube - Pas robot check - Son réel</div>
-<div class="logo"><b>MAK</b><o>O</o><b>LA</b></div>
-<div style="text-align:center;color:#22c55e;font-weight:bold;font-size:11px">✅ Sans YouTube - Audio + Animation intégrée - Joue sur makola.com - Pas de blocage robot</div>
+<div class="card">
+<h2>🔊 TEST 1 - Son sur ton site (pas YouTube)</h2>
+<p>Ce bouton utilise la voix de ton téléphone. Il joue SUR makola.com</p>
+<button id="btn1" onclick="test1()">▶️ PLAY TEST SON - Clique ici</button>
+<p id="status1" style="color:#aaa">Clique bouton pour entendre</p>
+</div>
 
-<div class="s"><span style="font-size:18px">🔍</span><input id="q" placeholder="Tape: capteur PT100, souder, moteur, maïs..." autofocus onkeypress="if(event.key==='Enter')start()"><button class="btn" onclick="start()">Chercher</button></div>
+<div class="card">
+<h2>🔊 TEST 2 - PT100 explication</h2>
+<button id="btn2" onclick="test2()">▶️ PLAY PT100 - Son sur site</button>
+<p id="status2" style="color:#aaa">Explication PT100 sur ton site</p>
+</div>
 
-<div class="res">
-<div id="st" style="text-align:center;color:#94a3b8;font-size:12px;background:#1e293b;padding:12px;border-radius:10px;border:1px solid #334155">✅ Nouveau système sans YouTube - Plus de "confirmez pas robot" - Tout joue sur ton site</div>
-<div id="content"></div>
+<div class="card" style="border-color:#ff0000">
+<h2>🎬 Vidéo YouTube (si tu veux)</h2>
+<p style="color:#aaa;font-size:12px">Celle-ci va sur YouTube - c'est normal si ça ouvre YouTube</p>
+<iframe width="100%" height="250" src="https://www.youtube.com/embed/NFJ1F6yyqR0" allowfullscreen style="border:2px solid #ff0000;border-radius:12px"></iframe>
 </div>
 
 <script>
 let voices=[];
-function loadVoices(){voices=speechSynthesis.getVoices();}
-speechSynthesis.onvoiceschanged=loadVoices;loadVoices();
+function loadV(){voices=speechSynthesis.getVoices();}
+speechSynthesis.onvoiceschanged=loadV;loadV();
+setTimeout(loadV,500);
 
-function speak(text, btn){
+function speak(txt, statusId, btnId){
  speechSynthesis.cancel();
- let u=new SpeechSynthesisUtterance(text);
- let frVoices=voices.filter(v=>v.lang.includes('fr'));
- if(frVoices.length>0) u.voice=frVoices[0];
- u.lang='fr-FR'; u.rate=0.9; u.pitch=1;
- u.onstart=()=>{btn.innerHTML='⏸️ En cours...'; btn.style.background='#ff6f00'; btn.style.color='#fff';};
- u.onend=()=>{btn.innerHTML='▶️ Re-écouter explication'; btn.style.background='#fff'; btn.style.color='#00a651';};
- u.onerror=()=>{btn.innerHTML='🔊 Réessayer - Monte volume!';};
- speechSynthesis.speak(u);
+ let msg=new SpeechSynthesisUtterance(txt);
+ let fr=voices.find(v=>v.lang.includes('fr'));
+ if(fr) msg.voice=fr;
+ msg.lang='fr-FR'; msg.rate=0.9;
+ msg.onstart=()=>{document.getElementById(statusId).innerHTML='🔊 Ça joue SUR ton site makola.com - Tu entends? Monte volume!'; document.getElementById(btnId).innerHTML='⏸️ Ça joue...';};
+ msg.onend=()=>{document.getElementById(statusId).innerHTML='✅ Fini - Ça a joué SUR ton site, pas YouTube!'; document.getElementById(btnId).innerHTML='▶️ Re-écouter';};
+ msg.onerror=(e)=>{document.getElementById(statusId).innerHTML='❌ Erreur: '+e.error+' - Essaie Chrome, monte volume';};
+ speechSynthesis.speak(msg);
 }
 
-async function getWiki(q){
- try{
-  let r=await fetch(`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`);
-  if(r.ok){let d=await r.json();if(d.extract)return{title:d.title,text:d.extract,url:d.content_urls?.desktop?.page};}
-  let s=`https://fr.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(q)}&format=json&origin=*`;
-  let sr=await fetch(s);let sj=await sr.json();
-  if(sj.query.search.length>0){
-   let r2=await fetch(`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(sj.query.search[0].title)}`);
-   let d2=await r2.json();if(d2.extract)return{title:d2.title,text:d2.extract,url:d2.content_urls?.desktop?.page};
-  }
- }catch(e){}
- return null;
+function test1(){
+ speak('Bonjour! Ceci est un test. Le son joue sur ton site makola point com. Pas sur YouTube. Si tu entends ma voix, ça marche! Monte le volume de ton téléphone.', 'status1', 'btn1');
 }
-
-function getData(q){
- let l=q.toLowerCase();
- if(l.includes('capteur')||l.includes('pt100')){
-  return{
-   title:'CAPTEUR PT100 - Pratique Réelle Complète',
-   def:'PT100 = capteur température platine. 100Ω à 0°C. Formule: R = 100 + 0,385×T. Donc 25°C = 109,7Ω, 100°C = 138,5Ω. 3 fils: 2 rouges compensation câble, 1 blanc mesure. Blindage à la terre côté armoire seulement.',
-   audioText:`Capteur PT100. Principe: 100 ohms à zéro degré. Formule: 100 plus 0,385 fois température. A 25 degrés à Kolwezi, tu dois mesurer 109,7 ohms. Câblage 3 fils: fil rouge un sur borne 1, fil rouge deux sur borne 2, fil blanc sur borne 3. Blindage à la terre côté armoire seulement. Test: multimètre en ohms, mesure 110 ohms à 26 degrés. Si zéro: court-circuit. Si OL: fil coupé. Installation: perce tuyau, soude manchon, mets pâte thermique, enfonce sonde, serre 20 Newton-mètre.`,
-   steps:[
-    {t:'Outils réels Kolwezi 30$',d:'PT100 WIKA 15$ marché, câble blindé 3x0,75mm² 5m 3$, multimètre numérique 20$, clé plate 22, pâte thermique processeur 2$, doigt de gant inox 1/2 pouce 5$. Total 30-40$.'},
-    {t:'Schéma câblage réel 3 fils - TRÈS IMPORTANT',d:'API automate: Fil rouge 1 → borne 1, Fil rouge 2 → borne 2 (pont compensation longueur câble), Fil blanc → borne 3. Blindage: dénude 3cm, torsade, cosse œillet, visse sur barre terre armoire. ATTENTION: blindage UNIQUEMENT côté armoire! Si 2 côtés = boucle terre = erreur 5 à 10 degrés.'},
-    {t:'Installation dans tuyau - Pratique terrain',d:'1. Coupe eau et électricité. 2. Perce trou 20mm dans tuyau DN50 avec foret étagé. 3. Soude manchon 1/2 pouce (ou collier perçage si pas poste). 4. Téflon sur filet doigt de gant, visse. 5. Injecte pâte thermique dedans avec seringue. 6. Enfonce PT100 jusqu\'au fond. 7. Serre main + 1/4 tour clé = 20Nm. 8. Passe câble en goulotte à 30cm des câbles 400V.'},
-    {t:'Test réel avec multimètre - Vérification',d:'Débranche API. Multimètre en Ω. Mesure bout câble: à 26°C Kolwezi = 110,01Ω (100+0,385×26). Si 0Ω = court-circuit. Si OL = fil coupé. Si 100Ω pile = dans glace fondante. Rebranche API, menu température: doit afficher 26°C. Si -242°C = fil coupé. Si 850°C = court-circuit.'},
-    {t:'Dépannage + Business',d:'Erreur valeur qui saute = blindage mal branché. -50°C = fil coupé. 150°C fixe = court-circuit. Business: 10$ dépannage capteur. 3 par jour = 900$ mois. Formation 1 jour suffit. Pièce change 15$ + main d\'oeuvre 10$ = 25$ client.'}
-   ]
-  };
- }
- if(l.includes('soud')){
-  return{
-   title:'SOUDURE ARC - Pratique Réelle',
-   def:'Soudure arc: 70A tôle 2mm, 90A tôle 3mm, 120A tôle 5mm. Baguette E6013 Ø2,5mm débutant. Distance 2-3mm, angle 75°, vitesse 2mm/sec. Protection masque DIN11.',
-   audioText:`Soudure à l'arc. Réglage: 70 ampères pour tôle 2mm, 90 ampères pour 3mm, 120 ampères pour 5mm. Baguette E6013 diamètre 2,5mm pour débutant. Distance 2mm, angle 75 degrés, vitesse 2mm par seconde. Technique: gratte comme allumette pour amorcer, garde distance 2mm, entends crépitement régulier, avance lentement, vois bain brillant 5mm. Si colle: monte 10 ampères. Si trou: baisse 10 ampères.`,
-   steps:[
-    {t:'Outils débutant 150$',d:'Poste 200A 80$, baguettes E6013 2,5mm 10$ paquet, masque auto 25$, meuleuse 115mm 40$, brosse métallique.'},
-    {t:'Préparation',d:'Meule à blanc (rouille = soudure ratée). Chanfrein 45° si >3mm. Pointe 2 points extrémités. Écart 2mm.'},
-    {t:'Soudure étape',d:'Règle 90A, gratte baguette comme allumette, garde 2mm crépitement régulier, avance 2mm/sec bain 5mm large, laisse refroidir, pique laitier, brosse.'}
-   ]
-  };
- }
- return{
-  title:q.toUpperCase(),def:`${q}: technique pratique outils 20-50$ 1-2h`,
-  audioText:`${q}. Technique pratique. Outils 20 à 50 dollars marché Kolwezi. Temps 1 à 2 heures. Étapes: sécurité coupe courant, fixation mécanique 20 Newton-mètre, branchement électrique respecte couleurs, terre jaune-vert, test hors tension continuité, test sous tension. Dépannage 80 pourcent mauvais contact. Vérifie alimentation, fusible, fil coupé. Business 10 à 20 dollars dépannage.`,
-  steps:[{t:`Outils ${q}`,d:'20-50$ Kolwezi 1-2h'},{t:'Étapes',d:'Sécurité fixe branche test'},{t:'Dépannage',d:'80% mauvais contact'}]
- };
+function test2(){
+ speak('Capteur PT100. 100 ohms à zéro degré. Formule: 100 plus 0,385 fois température. A 26 degrés à Kolwezi, tu mesures 110 ohms. Câblage: 2 fils rouges sur borne 1 et 2, fil blanc sur borne 3, blindage à la terre côté armoire seulement. Test avec multimètre: 110 ohms à 26 degrés. Si zéro: court-circuit. Si OL: fil coupé. Installation: pâte thermique, doigt de gant, serre 20 Newton mètre. Business: 10 dollars dépannage.', 'status2', 'btn2');
 }
-
-async function start(){
- let q=document.getElementById('q').value.trim();if(q.length<2)return;
- document.getElementById('st').innerHTML=`⏳ Recherche <b>${q}</b> - Génération audio + animation qui joue sur ton site...`;
- let wiki=await getWiki(q);let data=getData(q);
- let wikiH=wiki?`<div class="card"><div style="color:#22c55e;font-weight:bold">📚 Wikipédia - ${wiki.title}</div><div class="wiki"><b>${wiki.title}</b><br><br>${wiki.text}<br><br>${wiki.url?`<a href="${wiki.url}" target="_blank" style="color:#00a651;font-weight:bold">📖 Lire Wikipédia →</a>`:''}</div></div>`:`<div class="card"><div style="color:#22c55e;font-weight:bold">📚 ${data.title}</div><div class="wiki">${data.def}</div></div>`;
-
- let audioH=`
- <div class="card" style="border-color:#22c55e;background:linear-gradient(135deg,#1e293b,#0f172a)">
- <div style="color:#22c55e;font-weight:bold;font-size:16px">🔊 AUDIO QUI JOUE SUR TON SITE - Pas YouTube - Pas robot check - Clique PLAY</div>
- <div class="audioBox">
- <div style="font-weight:bold;margin-bottom:8px">🎧 Explication vocale de ${q} - Voix française - Joue sur makola.com</div>
- <div style="font-size:12px;margin-bottom:10px;line-height:1.5">${data.audioText.substring(0,200)}...</div>
- <button class="playBtn" onclick="speak(\`${data.audioText.replace(/`/g,'\'')}\`, this)">▶️ PLAY - Écoute explication ${q} - Son sur ton site</button>
- <button class="playBtn" style="background:#ff6f00;color:#fff" onclick="speechSynthesis.cancel(); this.previousElementSibling.innerHTML='▶️ PLAY - Écoute'; this.previousElementSibling.style.background='#fff'; this.previousElementSibling.style.color='#00a651';">⏹️ STOP</button>
- <div style="font-size:10px;margin-top:8px;opacity:0.9">✅ Ce son joue SUR ton site makola.com - Utilise haut-parleur téléphone - Pas de blocage robot - Si tu n'entends pas, monte volume et attends 2 sec</div>
- </div>
- </div>`;
-
- let stepsH=`<div class="card"><div style="color:#22c55e;font-weight:bold;font-size:16px">🔧 VRAIE PRATIQUE - ${q.toUpperCase()} - Sans KCC - Étapes réelles terrain</div><div style="margin:8px 0"><span class="tag">Outils 20-50$</span><span class="tag">1-2h</span><span class="tag">Pratique réelle</span><span class="tag">Business 10$/dépannage</span></div>`;
- data.steps.forEach((e,i)=>{stepsH+=`<div class="step"><b style="color:#22c55e">ÉTAPE ${i+1}: ${e.t}</b><br><span style="color:#cbd5e1">${e.d}</span></div>`;});
- stepsH+=`</div>`;
-
- let animH=`
- <div class="card">
- <div style="color:#22c55e;font-weight:bold">🎬 ANIMATION SCHÉMA - ${q} - Joue sur ton site</div>
- <div class="canvasBox">
- <canvas id="schema" width="600" height="280" style="width:100%;max-width:600px;height:280px;background:#000;border-radius:8px"></canvas>
- <div style="color:#22c55e;font-size:11px;margin-top:6px">Schéma animé ${q} - Généré sur ton site - Pas YouTube</div>
- <button class="playBtn" onclick="drawSchema('${q}')">▶️ Voir animation schéma ${q}</button>
- </div>
- </div>`;
-
- let ytFallback=`
- <div class="card" style="border-color:#334155">
- <div style="color:#94a3b8;font-weight:bold;font-size:12px">📚 Si tu veux aussi vidéos YouTube (optionnel - ouvre YouTube, pas bloqué robot si tu cliques lien)</div>
- <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0">
- <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}" target="_blank" style="background:#ff0000;color:#fff;padding:8px 14px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold">🔗 Voir vidéos ${q} sur YouTube (nouvel onglet)</a>
- <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q+' tutoriel')}" target="_blank" style="background:#333;color:#fff;padding:8px 14px;border-radius:20px;text-decoration:none;font-size:11px">📖 Tutoriel ${q}</a>
- </div>
- </div>`;
-
- document.getElementById('content').innerHTML=wikiH+audioH+stepsH+animH+ytFallback;
- document.getElementById('st').innerHTML=`✅ ${q} - Audio + Animation qui jouent SUR TON SITE - Plus de blocage robot YouTube! Clique PLAY audio!`;
- document.getElementById('content').scrollIntoView({behavior:'smooth'});
- setTimeout(()=>drawSchema(q),500);
-}
-
-function drawSchema(q){
- let c=document.getElementById('schema');if(!c)return;let ctx=c.getContext('2d');ctx.clearRect(0,0,600,280);
- ctx.fillStyle='#000';ctx.fillRect(0,0,600,280);
- ctx.strokeStyle='#00a651';ctx.lineWidth=2;ctx.font='12px Arial';ctx.fillStyle='#22c55e';
- let l=q.toLowerCase();
- if(l.includes('pt100')||l.includes('capteur')){
-  ctx.fillText('PT100 3 FILS - SCHÉMA RÉEL - Joue sur makola.com',10,20);
-  ctx.strokeStyle='#ff0000';ctx.beginPath();ctx.moveTo(80,80);ctx.lineTo(200,80);ctx.stroke();ctx.fillText('Rouge1 → B1',210,84);
-  ctx.strokeStyle='#ff0000';ctx.beginPath();ctx.moveTo(80,120);ctx.lineTo(200,120);ctx.stroke();ctx.fillText('Rouge2 → B2 (compensation)',210,124);
-  ctx.strokeStyle='#ffffff';ctx.beginPath();ctx.moveTo(80,160);ctx.lineTo(200,160);ctx.stroke();ctx.fillText('Blanc → B3 (mesure)',210,164);
-  ctx.strokeStyle='#ffff00';ctx.beginPath();ctx.moveTo(80,200);ctx.lineTo(200,200);ctx.stroke();ctx.fillText('Blindage → Terre armoire SEULEMENT',210,204);
-  ctx.fillStyle='#00a651';ctx.fillRect(300,60,120,160);ctx.fillStyle='#fff';ctx.fillText('API / Régulateur',310,70);ctx.fillText('B1 B2 B3',330,100);ctx.fillText('110Ω à 26°C',320,140);
-  ctx.fillStyle='#ff6f00';ctx.beginPath();ctx.arc(100,240,12,0,6.28);ctx.fill();ctx.fillStyle='#fff';ctx.fillText('PT100 sonde dans doigt de gant',130,244);
- } else {
-  ctx.fillText(q.toUpperCase()+' - SCHÉMA PRATIQUE',10,20);
-  ctx.strokeRect(50,60,500,180);ctx.fillText('1. Outils 20-50$ 2. Fixation 20Nm 3. Branchement 4. Test',60,100);
-  ctx.fillText('Sécurité: coupe courant - Gants - Test multimètre',60,140);ctx.fillText('Business: 10$ dépannage Kolwezi',60,180);
- }
-}
-</script></body></html>
+</script>
+</body></html>
