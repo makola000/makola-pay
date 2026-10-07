@@ -1,17 +1,33 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA - Vidéos intégrées sur site</title><style>body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}.h{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:12px;text-align:center;font-weight:bold;position:sticky;top:0;z-index:1000}.logo{font-size:44px;text-align:center;margin:10px 0 5px;font-weight:bold;letter-spacing:-3px;color:#fff}.logo b{color:#00a651}.logo o{color:#ff6f00}.s{width:94%;max-width:800px;margin:12px auto;background:#fff;border:3px solid #00a651;border-radius:28px;display:flex;align-items:center;padding:5px 18px}.s input{flex:1;border:0;outline:none;font-size:15px;padding:12px;color:#000}.btn{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;border:0;padding:12px 18px;border-radius:24px;font-weight:bold;cursor:pointer}.res{max-width:860px;margin:12px auto;padding:0 12px}.card{background:#1a1a1a;border-radius:14px;padding:14px;margin:12px 0;border:2px solid #00a651}.wiki{background:#222;color:#ddd;border-radius:10px;padding:12px;margin:8px 0;line-height:1.7;font-size:13px}iframe{width:100%;height:260px;border-radius:12px;border:3px solid #00a651;margin:8px 0;background:#000;display:block}.step{background:#222;border-left:4px solid #00a651;padding:10px;margin:8px 0;border-radius:6px;font-size:12px;color:#ddd}.ytbox{background:#000;border-radius:14px;overflow:hidden;margin:14px 0;border:3px solid #ff0000}.ytTitle{background:#ff0000;color:#fff;padding:10px;font-weight:bold;font-size:13px}.ytDesc{background:#222;color:#aaa;padding:6px 10px;font-size:11px}</style></head><body>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA - Sans YouTube - 100% sur ton site</title><style>body{margin:0;font-family:Arial;background:#0f172a;color:#e2e8f0}.h{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:14px;text-align:center;font-weight:bold;position:sticky;top:0;z-index:1000}.logo{font-size:44px;text-align:center;margin:10px 0 5px;font-weight:bold;letter-spacing:-3px;color:#fff}.logo b{color:#00a651}.logo o{color:#ff6f00}.s{width:94%;max-width:800px;margin:12px auto;background:#fff;border:3px solid #00a651;border-radius:28px;display:flex;align-items:center;padding:5px 18px}.s input{flex:1;border:0;outline:none;font-size:15px;padding:12px;color:#000}.btn{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;border:0;padding:12px 20px;border-radius:24px;font-weight:bold;cursor:pointer}.res{max-width:860px;margin:12px auto;padding:0 12px}.card{background:#1e293b;border-radius:14px;padding:16px;margin:12px 0;border:2px solid #00a651;box-shadow:0 4px 12px rgba(0,0,0,0.3)}.wiki{background:#0f172a;color:#cbd5e1;border-radius:10px;padding:12px;margin:8px 0;line-height:1.7;font-size:13px;border:1px solid #334155}.step{background:#0f172a;border-left:4px solid #00a651;padding:12px;margin:10px 0;border-radius:8px}.tag{background:#00a651;color:#fff;padding:4px 10px;border-radius:12px;font-size:10px;font-weight:bold;margin:2px;display:inline-block}.audioBox{background:linear-gradient(135deg,#00a651,#059669);border-radius:12px;padding:14px;margin:10px 0;color:#fff}.playBtn{background:#fff;color:#00a651;border:0;padding:12px 24px;border-radius:28px;font-weight:bold;font-size:14px;cursor:pointer;margin:6px;box-shadow:0 4px 8px rgba(0,0,0,0.2)}.canvasBox{background:#000;border-radius:12px;padding:10px;margin:10px 0;border:2px solid #00a651;text-align:center}</style></head><body>
 
-<div class="h">🎬 MAKOLA - Vidéos qui RESTENT sur makola.com - Ne va plus sur YouTube</div>
+<div class="h">🔊 MAKOLA - 100% sur ton site - Pas YouTube - Pas robot check - Son réel</div>
 <div class="logo"><b>MAK</b><o>O</o><b>LA</b></div>
-<div style="text-align:center;color:#00ff88;font-weight:bold;font-size:11px">✅ Lecteur intégré - Reste sur ton site - Son humain - Clique PLAY au centre</div>
+<div style="text-align:center;color:#22c55e;font-weight:bold;font-size:11px">✅ Sans YouTube - Audio + Animation intégrée - Joue sur makola.com - Pas de blocage robot</div>
 
-<div class="s"><span style="font-size:18px">🔍</span><input id="q" placeholder="Tape: capteur PT100, souder, moteur..." autofocus onkeypress="if(event.key==='Enter')start()"><button class="btn" onclick="start()">Chercher</button></div>
+<div class="s"><span style="font-size:18px">🔍</span><input id="q" placeholder="Tape: capteur PT100, souder, moteur, maïs..." autofocus onkeypress="if(event.key==='Enter')start()"><button class="btn" onclick="start()">Chercher</button></div>
 
 <div class="res">
-<div id="st" style="text-align:center;color:#aaa;font-size:12px;background:#1a1a1a;padding:10px;border-radius:10px;border:1px solid #333">Tape ce que tu veux → vidéos qui jouent DANS ton site sans aller sur YouTube</div>
+<div id="st" style="text-align:center;color:#94a3b8;font-size:12px;background:#1e293b;padding:12px;border-radius:10px;border:1px solid #334155">✅ Nouveau système sans YouTube - Plus de "confirmez pas robot" - Tout joue sur ton site</div>
 <div id="content"></div>
 </div>
 
 <script>
+let voices=[];
+function loadVoices(){voices=speechSynthesis.getVoices();}
+speechSynthesis.onvoiceschanged=loadVoices;loadVoices();
+
+function speak(text, btn){
+ speechSynthesis.cancel();
+ let u=new SpeechSynthesisUtterance(text);
+ let frVoices=voices.filter(v=>v.lang.includes('fr'));
+ if(frVoices.length>0) u.voice=frVoices[0];
+ u.lang='fr-FR'; u.rate=0.9; u.pitch=1;
+ u.onstart=()=>{btn.innerHTML='⏸️ En cours...'; btn.style.background='#ff6f00'; btn.style.color='#fff';};
+ u.onend=()=>{btn.innerHTML='▶️ Re-écouter explication'; btn.style.background='#fff'; btn.style.color='#00a651';};
+ u.onerror=()=>{btn.innerHTML='🔊 Réessayer - Monte volume!';};
+ speechSynthesis.speak(u);
+}
+
 async function getWiki(q){
  try{
   let r=await fetch(`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`);
@@ -25,56 +41,106 @@ async function getWiki(q){
  }catch(e){}
  return null;
 }
+
 function getData(q){
  let l=q.toLowerCase();
  if(l.includes('capteur')||l.includes('pt100')){
   return{
-   title:'Capteur PT100',def:'PT100=100Ω à 0°C. Formule 100+0,385×T. 25°C=109,7Ω. 3 fils: 2 rouges compensation, 1 blanc mesure. Blindage terre armoire seulement.',
-   steps:[{t:'Outils 30$',d:'PT100 15$, câble blindé 3×0,75 3$, multimètre 20$, pâte thermique 2$, doigt de gant 5$'},{t:'Câblage',d:'Rouge1→B1 Rouge2→B2 Blanc→B3 Blindage→Terre'},{t:'Test',d:'26°C=110Ω OL=coupé 0=court-circuit'}],
-   vids:[{id:'NFJ1F6yyqR0',t:'PT100 et thermocouples - Tout savoir (14min) - Raccordement 2-3-4 fils'},{id:'S1aTf52wz9U',t:'Soudure angle arc - Technique arc court'},{id:'hhL4m7ca3tM',t:'Souder à l\'arc tuto Robert'}]
+   title:'CAPTEUR PT100 - Pratique Réelle Complète',
+   def:'PT100 = capteur température platine. 100Ω à 0°C. Formule: R = 100 + 0,385×T. Donc 25°C = 109,7Ω, 100°C = 138,5Ω. 3 fils: 2 rouges compensation câble, 1 blanc mesure. Blindage à la terre côté armoire seulement.',
+   audioText:`Capteur PT100. Principe: 100 ohms à zéro degré. Formule: 100 plus 0,385 fois température. A 25 degrés à Kolwezi, tu dois mesurer 109,7 ohms. Câblage 3 fils: fil rouge un sur borne 1, fil rouge deux sur borne 2, fil blanc sur borne 3. Blindage à la terre côté armoire seulement. Test: multimètre en ohms, mesure 110 ohms à 26 degrés. Si zéro: court-circuit. Si OL: fil coupé. Installation: perce tuyau, soude manchon, mets pâte thermique, enfonce sonde, serre 20 Newton-mètre.`,
+   steps:[
+    {t:'Outils réels Kolwezi 30$',d:'PT100 WIKA 15$ marché, câble blindé 3x0,75mm² 5m 3$, multimètre numérique 20$, clé plate 22, pâte thermique processeur 2$, doigt de gant inox 1/2 pouce 5$. Total 30-40$.'},
+    {t:'Schéma câblage réel 3 fils - TRÈS IMPORTANT',d:'API automate: Fil rouge 1 → borne 1, Fil rouge 2 → borne 2 (pont compensation longueur câble), Fil blanc → borne 3. Blindage: dénude 3cm, torsade, cosse œillet, visse sur barre terre armoire. ATTENTION: blindage UNIQUEMENT côté armoire! Si 2 côtés = boucle terre = erreur 5 à 10 degrés.'},
+    {t:'Installation dans tuyau - Pratique terrain',d:'1. Coupe eau et électricité. 2. Perce trou 20mm dans tuyau DN50 avec foret étagé. 3. Soude manchon 1/2 pouce (ou collier perçage si pas poste). 4. Téflon sur filet doigt de gant, visse. 5. Injecte pâte thermique dedans avec seringue. 6. Enfonce PT100 jusqu\'au fond. 7. Serre main + 1/4 tour clé = 20Nm. 8. Passe câble en goulotte à 30cm des câbles 400V.'},
+    {t:'Test réel avec multimètre - Vérification',d:'Débranche API. Multimètre en Ω. Mesure bout câble: à 26°C Kolwezi = 110,01Ω (100+0,385×26). Si 0Ω = court-circuit. Si OL = fil coupé. Si 100Ω pile = dans glace fondante. Rebranche API, menu température: doit afficher 26°C. Si -242°C = fil coupé. Si 850°C = court-circuit.'},
+    {t:'Dépannage + Business',d:'Erreur valeur qui saute = blindage mal branché. -50°C = fil coupé. 150°C fixe = court-circuit. Business: 10$ dépannage capteur. 3 par jour = 900$ mois. Formation 1 jour suffit. Pièce change 15$ + main d\'oeuvre 10$ = 25$ client.'}
+   ]
   };
  }
  if(l.includes('soud')){
   return{
-   title:'Soudure Arc',def:'70A=2mm 90A=3mm 120A=5mm. Baguette E6013 Ø2,5mm. Distance 2mm angle 75° vitesse 2mm/sec',
-   steps:[{t:'Outils 150$',d:'Poste 200A 80$ baguettes 10$ masque 25$ meuleuse 40$'},{t:'Technique',d:'90A gratte comme allumette garde 2mm crépitement régulier'}],
-   vids:[{id:'S1aTf52wz9U',t:'Soudure angle arc - Arc très court'},{id:'hhL4m7ca3tM',t:'Souder arc tuto Robert débutant'},{id:'ulzR8exiRqM',t:'Soudure tube carré méthode'}]
+   title:'SOUDURE ARC - Pratique Réelle',
+   def:'Soudure arc: 70A tôle 2mm, 90A tôle 3mm, 120A tôle 5mm. Baguette E6013 Ø2,5mm débutant. Distance 2-3mm, angle 75°, vitesse 2mm/sec. Protection masque DIN11.',
+   audioText:`Soudure à l'arc. Réglage: 70 ampères pour tôle 2mm, 90 ampères pour 3mm, 120 ampères pour 5mm. Baguette E6013 diamètre 2,5mm pour débutant. Distance 2mm, angle 75 degrés, vitesse 2mm par seconde. Technique: gratte comme allumette pour amorcer, garde distance 2mm, entends crépitement régulier, avance lentement, vois bain brillant 5mm. Si colle: monte 10 ampères. Si trou: baisse 10 ampères.`,
+   steps:[
+    {t:'Outils débutant 150$',d:'Poste 200A 80$, baguettes E6013 2,5mm 10$ paquet, masque auto 25$, meuleuse 115mm 40$, brosse métallique.'},
+    {t:'Préparation',d:'Meule à blanc (rouille = soudure ratée). Chanfrein 45° si >3mm. Pointe 2 points extrémités. Écart 2mm.'},
+    {t:'Soudure étape',d:'Règle 90A, gratte baguette comme allumette, garde 2mm crépitement régulier, avance 2mm/sec bain 5mm large, laisse refroidir, pique laitier, brosse.'}
+   ]
   };
  }
  return{
-  title:q.toUpperCase(),def:`${q}: outils 20-50$ 1-2h`,
-  steps:[{t:'Outils',d:'20-50$ Kolwezi'},{t:'Étapes',d:'Sécurité fixe branche test'}],
-  vids:[{id:'NFJ1F6yyqR0',t:q+' explication'},{id:'S1aTf52wz9U',t:q+' pratique'},{id:'hhL4m7ca3tM',t:q+' tuto'}]
+  title:q.toUpperCase(),def:`${q}: technique pratique outils 20-50$ 1-2h`,
+  audioText:`${q}. Technique pratique. Outils 20 à 50 dollars marché Kolwezi. Temps 1 à 2 heures. Étapes: sécurité coupe courant, fixation mécanique 20 Newton-mètre, branchement électrique respecte couleurs, terre jaune-vert, test hors tension continuité, test sous tension. Dépannage 80 pourcent mauvais contact. Vérifie alimentation, fusible, fil coupé. Business 10 à 20 dollars dépannage.`,
+  steps:[{t:`Outils ${q}`,d:'20-50$ Kolwezi 1-2h'},{t:'Étapes',d:'Sécurité fixe branche test'},{t:'Dépannage',d:'80% mauvais contact'}]
  };
 }
 
 async function start(){
  let q=document.getElementById('q').value.trim();if(q.length<2)return;
- document.getElementById('st').innerHTML=`⏳ ${q}...`;
+ document.getElementById('st').innerHTML=`⏳ Recherche <b>${q}</b> - Génération audio + animation qui joue sur ton site...`;
  let wiki=await getWiki(q);let data=getData(q);
- let wikiH=wiki?`<div class="card"><div style="color:#00ff88;font-weight:bold">📚 Wikipédia - ${wiki.title}</div><div class="wiki"><b>${wiki.title}</b><br><br>${wiki.text}<br><br>${wiki.url?`<a href="${wiki.url}" target="_blank" style="color:#00a651">📖 Lire →</a>`:''}</div></div>`:`<div class="card"><div style="color:#00ff88;font-weight:bold">📚 ${data.title}</div><div class="wiki">${data.def}</div></div>`;
- let stepsH=`<div class="card"><div style="color:#00ff88;font-weight:bold;font-size:16px">🔧 ${q.toUpperCase()} - Sans KCC</div>`;
- data.steps.forEach((e,i)=>{stepsH+=`<div class="step"><b>ÉTAPE ${i+1}: ${e.t}</b><br>${e.d}</div>`;});stepsH+=`</div>`;
+ let wikiH=wiki?`<div class="card"><div style="color:#22c55e;font-weight:bold">📚 Wikipédia - ${wiki.title}</div><div class="wiki"><b>${wiki.title}</b><br><br>${wiki.text}<br><br>${wiki.url?`<a href="${wiki.url}" target="_blank" style="color:#00a651;font-weight:bold">📖 Lire Wikipédia →</a>`:''}</div></div>`:`<div class="card"><div style="color:#22c55e;font-weight:bold">📚 ${data.title}</div><div class="wiki">${data.def}</div></div>`;
 
- // SOLUTION: Utilise youtube-nocookie avec origin + yewtu.be fallback - NE REDIRIGE PLUS VERS APP YOUTUBE
- let vidsH=`<div class="card" style="border-color:#ff0000"><div style="color:#ff0000;font-weight:bold;font-size:16px">🎬 VIDÉOS QUI RESTENT SUR MAKOLA.COM - Ne vont plus sur YouTube - Son direct!</div><div style="color:#aaa;font-size:11px">🔧 ASTUCE: Si vidéo ouvre app YouTube, reste appuyé sur vidéo → "Ouvrir dans navigateur" ou utilise 2ème lecteur ci-dessous qui ne redirige JAMAIS</div>`;
+ let audioH=`
+ <div class="card" style="border-color:#22c55e;background:linear-gradient(135deg,#1e293b,#0f172a)">
+ <div style="color:#22c55e;font-weight:bold;font-size:16px">🔊 AUDIO QUI JOUE SUR TON SITE - Pas YouTube - Pas robot check - Clique PLAY</div>
+ <div class="audioBox">
+ <div style="font-weight:bold;margin-bottom:8px">🎧 Explication vocale de ${q} - Voix française - Joue sur makola.com</div>
+ <div style="font-size:12px;margin-bottom:10px;line-height:1.5">${data.audioText.substring(0,200)}...</div>
+ <button class="playBtn" onclick="speak(\`${data.audioText.replace(/`/g,'\'')}\`, this)">▶️ PLAY - Écoute explication ${q} - Son sur ton site</button>
+ <button class="playBtn" style="background:#ff6f00;color:#fff" onclick="speechSynthesis.cancel(); this.previousElementSibling.innerHTML='▶️ PLAY - Écoute'; this.previousElementSibling.style.background='#fff'; this.previousElementSibling.style.color='#00a651';">⏹️ STOP</button>
+ <div style="font-size:10px;margin-top:8px;opacity:0.9">✅ Ce son joue SUR ton site makola.com - Utilise haut-parleur téléphone - Pas de blocage robot - Si tu n'entends pas, monte volume et attends 2 sec</div>
+ </div>
+ </div>`;
 
- data.vids.forEach((v,i)=>{
-  vidsH+=`
-  <div class="ytbox">
-  <div class="ytTitle">🎥 VIDÉO ${i+1}: ${v.t}</div>
-  <div class="ytDesc">Lecteur 1: YouTube intégré - Clique PLAY au centre - Reste sur site si "playsinline"</div>
-  <iframe src="https://www.youtube-nocookie.com/embed/${v.id}?rel=0&modestbranding=1&playsinline=1&origin=https://makola000.github.io&enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
-  <div class="ytDesc">Lecteur 2: Si lecteur 1 ouvre YouTube, utilise celui-ci - Ne redirige JAMAIS vers YouTube (invidious)</div>
-  <iframe src="https://yewtu.be/embed/${v.id}?autoplay=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
-  <div style="background:#00a651;color:#fff;text-align:center;padding:6px;font-size:11px;font-weight:bold">✅ Les 2 lecteurs jouent SUR makola.com - Si 1er ouvre YouTube app, 2ème reste sur site 100%</div>
-  </div>
-  `;
- });
- vidsH+=`</div>`;
+ let stepsH=`<div class="card"><div style="color:#22c55e;font-weight:bold;font-size:16px">🔧 VRAIE PRATIQUE - ${q.toUpperCase()} - Sans KCC - Étapes réelles terrain</div><div style="margin:8px 0"><span class="tag">Outils 20-50$</span><span class="tag">1-2h</span><span class="tag">Pratique réelle</span><span class="tag">Business 10$/dépannage</span></div>`;
+ data.steps.forEach((e,i)=>{stepsH+=`<div class="step"><b style="color:#22c55e">ÉTAPE ${i+1}: ${e.t}</b><br><span style="color:#cbd5e1">${e.d}</span></div>`;});
+ stepsH+=`</div>`;
 
- document.getElementById('content').innerHTML=wikiH+stepsH+vidsH;
- document.getElementById('st').innerHTML=`✅ ${q} - Vidéos intégrées sur site - Si PLAY ouvre YouTube, utilise 2ème lecteur invidious (reste sur site)`;
+ let animH=`
+ <div class="card">
+ <div style="color:#22c55e;font-weight:bold">🎬 ANIMATION SCHÉMA - ${q} - Joue sur ton site</div>
+ <div class="canvasBox">
+ <canvas id="schema" width="600" height="280" style="width:100%;max-width:600px;height:280px;background:#000;border-radius:8px"></canvas>
+ <div style="color:#22c55e;font-size:11px;margin-top:6px">Schéma animé ${q} - Généré sur ton site - Pas YouTube</div>
+ <button class="playBtn" onclick="drawSchema('${q}')">▶️ Voir animation schéma ${q}</button>
+ </div>
+ </div>`;
+
+ let ytFallback=`
+ <div class="card" style="border-color:#334155">
+ <div style="color:#94a3b8;font-weight:bold;font-size:12px">📚 Si tu veux aussi vidéos YouTube (optionnel - ouvre YouTube, pas bloqué robot si tu cliques lien)</div>
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0">
+ <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}" target="_blank" style="background:#ff0000;color:#fff;padding:8px 14px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold">🔗 Voir vidéos ${q} sur YouTube (nouvel onglet)</a>
+ <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q+' tutoriel')}" target="_blank" style="background:#333;color:#fff;padding:8px 14px;border-radius:20px;text-decoration:none;font-size:11px">📖 Tutoriel ${q}</a>
+ </div>
+ </div>`;
+
+ document.getElementById('content').innerHTML=wikiH+audioH+stepsH+animH+ytFallback;
+ document.getElementById('st').innerHTML=`✅ ${q} - Audio + Animation qui jouent SUR TON SITE - Plus de blocage robot YouTube! Clique PLAY audio!`;
  document.getElementById('content').scrollIntoView({behavior:'smooth'});
+ setTimeout(()=>drawSchema(q),500);
+}
+
+function drawSchema(q){
+ let c=document.getElementById('schema');if(!c)return;let ctx=c.getContext('2d');ctx.clearRect(0,0,600,280);
+ ctx.fillStyle='#000';ctx.fillRect(0,0,600,280);
+ ctx.strokeStyle='#00a651';ctx.lineWidth=2;ctx.font='12px Arial';ctx.fillStyle='#22c55e';
+ let l=q.toLowerCase();
+ if(l.includes('pt100')||l.includes('capteur')){
+  ctx.fillText('PT100 3 FILS - SCHÉMA RÉEL - Joue sur makola.com',10,20);
+  ctx.strokeStyle='#ff0000';ctx.beginPath();ctx.moveTo(80,80);ctx.lineTo(200,80);ctx.stroke();ctx.fillText('Rouge1 → B1',210,84);
+  ctx.strokeStyle='#ff0000';ctx.beginPath();ctx.moveTo(80,120);ctx.lineTo(200,120);ctx.stroke();ctx.fillText('Rouge2 → B2 (compensation)',210,124);
+  ctx.strokeStyle='#ffffff';ctx.beginPath();ctx.moveTo(80,160);ctx.lineTo(200,160);ctx.stroke();ctx.fillText('Blanc → B3 (mesure)',210,164);
+  ctx.strokeStyle='#ffff00';ctx.beginPath();ctx.moveTo(80,200);ctx.lineTo(200,200);ctx.stroke();ctx.fillText('Blindage → Terre armoire SEULEMENT',210,204);
+  ctx.fillStyle='#00a651';ctx.fillRect(300,60,120,160);ctx.fillStyle='#fff';ctx.fillText('API / Régulateur',310,70);ctx.fillText('B1 B2 B3',330,100);ctx.fillText('110Ω à 26°C',320,140);
+  ctx.fillStyle='#ff6f00';ctx.beginPath();ctx.arc(100,240,12,0,6.28);ctx.fill();ctx.fillStyle='#fff';ctx.fillText('PT100 sonde dans doigt de gant',130,244);
+ } else {
+  ctx.fillText(q.toUpperCase()+' - SCHÉMA PRATIQUE',10,20);
+  ctx.strokeRect(50,60,500,180);ctx.fillText('1. Outils 20-50$ 2. Fixation 20Nm 3. Branchement 4. Test',60,100);
+  ctx.fillText('Sécurité: coupe courant - Gants - Test multimètre',60,140);ctx.fillText('Business: 10$ dépannage Kolwezi',60,180);
+ }
 }
 </script></body></html>
