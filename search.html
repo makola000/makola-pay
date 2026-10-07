@@ -1,48 +1,80 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA TEST SON</title><style>body{background:#000;color:#fff;font-family:Arial;text-align:center;padding:20px}button{padding:20px 40px;font-size:20px;border-radius:30px;border:0;background:#00a651;color:#fff;font-weight:bold;margin:20px;cursor:pointer} .card{background:#222;padding:20px;border-radius:15px;margin:20px;border:2px solid #00a651}</style></head><body>
-<h1 style="color:#00a651">MAKOLA TEST SON SUR SITE</h1>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA SON 100% SITE</title><style>body{margin:0;font-family:Arial;background:#000;color:#fff;padding:10px}.h{background:#00a651;color:#fff;padding:14px;text-align:center;font-weight:bold;font-size:16px}.logo{font-size:40px;text-align:center;font-weight:bold}.logo b{color:#00a651}.logo o{color:#ff6f00}.card{background:#1e293b;border:2px solid #00a651;border-radius:14px;padding:16px;margin:12px auto;max-width:800px}.btn{padding:16px 28px;font-size:16px;border-radius:28px;border:0;font-weight:bold;cursor:pointer;margin:8px}.green{background:#00a651;color:#fff}.orange{background:#ff6f00;color:#fff}.white{background:#fff;color:#00a651}input{width:70%;padding:12px;border-radius:20px;border:2px solid #00a651;font-size:14px;color:#000}.status{background:#000;color:#22c55e;padding:10px;border-radius:8px;margin:8px 0;font-weight:bold;border:1px solid #22c55e}</style></head><body>
+<div class="h">🔊 MAKOLA - SON QUI JOUE SUR TON SITE - 0% YOUTUBE</div>
+<div class="logo"><b>MAK</b><o>O</o><b>LA</b></div>
 
-<div class="card">
-<h2>🔊 TEST 1 - Son sur ton site (pas YouTube)</h2>
-<p>Ce bouton utilise la voix de ton téléphone. Il joue SUR makola.com</p>
-<button id="btn1" onclick="test1()">▶️ PLAY TEST SON - Clique ici</button>
-<p id="status1" style="color:#aaa">Clique bouton pour entendre</p>
+<div class="card" style="text-align:center">
+<input id="q" placeholder="Tape: PT100, souder, moteur..." value="capteur PT100">
+<button class="btn green" onclick="chercher()">🔍 Chercher</button>
 </div>
 
 <div class="card">
-<h2>🔊 TEST 2 - PT100 explication</h2>
-<button id="btn2" onclick="test2()">▶️ PLAY PT100 - Son sur site</button>
-<p id="status2" style="color:#aaa">Explication PT100 sur ton site</p>
+<h3 style="color:#22c55e">🔊 BOUTON 1 - TEST SON (jaune ne marche pas avant = ce bouton vert MARCHE)</h3>
+<div class="status" id="s1">Clique PLAY ci-dessous - Son va jouer SUR makola.com</div>
+<button class="btn green" id="b1" onclick="parle('Bonjour test son. Si tu entends ceci, le son marche sur ton site makola point com. Monte volume telephone. Ceci joue sur ton site, pas YouTube.', 's1', 'b1')">▶️ PLAY TEST - Son sur site - CLIQUE ICI</button>
+<button class="btn orange" onclick="speechSynthesis.cancel(); document.getElementById('s1').innerHTML='⏹️ Stoppé'; document.getElementById('b1').innerHTML='▶️ PLAY TEST';">⏹️ STOP</button>
 </div>
 
-<div class="card" style="border-color:#ff0000">
-<h2>🎬 Vidéo YouTube (si tu veux)</h2>
-<p style="color:#aaa;font-size:12px">Celle-ci va sur YouTube - c'est normal si ça ouvre YouTube</p>
-<iframe width="100%" height="250" src="https://www.youtube.com/embed/NFJ1F6yyqR0" allowfullscreen style="border:2px solid #ff0000;border-radius:12px"></iframe>
+<div class="card">
+<h3 style="color:#22c55e">🔧 PT100 - Explication vocale complète</h3>
+<div class="status" id="s2">Explication PT100 - Clique PLAY pour entendre sur ton site</div>
+<button class="btn white" id="b2" onclick="parle(document.getElementById('txtPT100').innerText, 's2', 'b2')">▶️ PLAY PT100 - Écoute pratique complète</button>
+<div id="txtPT100" style="background:#0f172a;padding:12px;border-radius:8px;margin:8px 0;line-height:1.6;font-size:13px;color:#cbd5e1">
+<b>CAPTEUR PT100 - PRATIQUE RÉELLE KOLWEZI</b><br><br>
+<b>Définition:</b> PT100 = 100 ohms à zéro degré. Formule: R = 100 + 0,385 x T. A 25 degrés = 109,7 ohms. A 26 degrés Kolwezi = 110 ohms. A 100 degrés = 138,5 ohms.<br><br>
+<b>Outils:</b> PT100 15 dollars, câble blindé 3x0,75 3 dollars, multimètre 20 dollars, pâte thermique 2 dollars, doigt de gant 5 dollars. Total 30 dollars.<br><br>
+<b>Câblage 3 fils:</b> Fil rouge 1 sur borne 1, Fil rouge 2 sur borne 2, Fil blanc sur borne 3. Blindage à la terre côté armoire seulement. Si 2 fils: ponter borne 1 et 2.<br><br>
+<b>Installation:</b> Perce trou 20mm tuyau DN50, soude manchon 1/2 pouce, téflon, pâte thermique, enfonce sonde, serre main + quart tour = 20 Newton mètre. Câble à 30cm des 400 volts.<br><br>
+<b>Test:</b> Multimètre en ohms. 110 ohms à 26 degrés = bon. Zéro = court-circuit. OL = fil coupé. Rebranche API: doit afficher 26 degrés. Si moins 242 = coupé. Si 850 = court-circuit.<br><br>
+<b>Business:</b> 10 dollars dépannage, 3 par jour = 900 dollars mois.
 </div>
+</div>
+
+<div class="card">
+<h3 style="color:#22c55e">🔊 BOUTON 2 - Soudure</h3>
+<div class="status" id="s3">Clique pour entendre soudure</div>
+<button class="btn green" id="b3" onclick="parle('Soudure arc. 70 ampères pour 2mm, 90 ampères pour 3mm, 120 ampères pour 5mm. Baguette E6013 diamètre 2,5mm. Distance 2mm, angle 75 degrés, vitesse 2mm par seconde. Gratte comme allumette pour amorcer, garde 2mm, crépitement régulier, avance lentement.', 's3', 'b3')">▶️ PLAY Soudure</button>
+</div>
+
+<div id="wiki" class="card" style="display:none"></div>
 
 <script>
 let voices=[];
-function loadV(){voices=speechSynthesis.getVoices();}
-speechSynthesis.onvoiceschanged=loadV;loadV();
-setTimeout(loadV,500);
+function loadV(){voices=speechSynthesis.getVoices(); console.log('Voices:', voices.length);}
+speechSynthesis.onvoiceschanged=loadV; loadV(); setTimeout(loadV,800); setTimeout(loadV,1500);
 
-function speak(txt, statusId, btnId){
+function parle(txt, statusId, btnId){
  speechSynthesis.cancel();
- let msg=new SpeechSynthesisUtterance(txt);
- let fr=voices.find(v=>v.lang.includes('fr'));
- if(fr) msg.voice=fr;
- msg.lang='fr-FR'; msg.rate=0.9;
- msg.onstart=()=>{document.getElementById(statusId).innerHTML='🔊 Ça joue SUR ton site makola.com - Tu entends? Monte volume!'; document.getElementById(btnId).innerHTML='⏸️ Ça joue...';};
- msg.onend=()=>{document.getElementById(statusId).innerHTML='✅ Fini - Ça a joué SUR ton site, pas YouTube!'; document.getElementById(btnId).innerHTML='▶️ Re-écouter';};
- msg.onerror=(e)=>{document.getElementById(statusId).innerHTML='❌ Erreur: '+e.error+' - Essaie Chrome, monte volume';};
- speechSynthesis.speak(msg);
+ setTimeout(()=>{
+  let u=new SpeechSynthesisUtterance(txt);
+  let fr=voices.filter(v=>v.lang.toLowerCase().includes('fr'));
+  if(fr.length>0){u.voice=fr[0]; console.log('Using voice', fr[0].name);}
+  u.lang='fr-FR'; u.rate=0.85; u.volume=1;
+  u.onstart=()=>{
+   document.getElementById(statusId).innerHTML='🔊🔊🔊 ÇA JOUE SUR TON SITE MAKOLA.COM - MONTE VOLUME! - Tu entends?';
+   document.getElementById(btnId).innerHTML='⏸️ En train de parler...';
+   document.getElementById(btnId).style.background='#ff6f00';
+  };
+  u.onend=()=>{
+   document.getElementById(statusId).innerHTML='✅ Fini - Ça a joué SUR TON SITE, pas YouTube! Re-clique pour ré-écouter';
+   document.getElementById(btnId).innerHTML='▶️ Re-écouter';
+   document.getElementById(btnId).style.background='#00a651';
+  };
+  u.onerror=(e)=>{
+   document.getElementById(statusId).innerHTML='❌ Erreur: '+e.error+' - Essaie: 1) Chrome 2) Monte volume 3) Pas mode silencieux. Code erreur: '+e.error;
+  };
+  speechSynthesis.speak(u);
+ },100);
 }
 
-function test1(){
- speak('Bonjour! Ceci est un test. Le son joue sur ton site makola point com. Pas sur YouTube. Si tu entends ma voix, ça marche! Monte le volume de ton téléphone.', 'status1', 'btn1');
-}
-function test2(){
- speak('Capteur PT100. 100 ohms à zéro degré. Formule: 100 plus 0,385 fois température. A 26 degrés à Kolwezi, tu mesures 110 ohms. Câblage: 2 fils rouges sur borne 1 et 2, fil blanc sur borne 3, blindage à la terre côté armoire seulement. Test avec multimètre: 110 ohms à 26 degrés. Si zéro: court-circuit. Si OL: fil coupé. Installation: pâte thermique, doigt de gant, serre 20 Newton mètre. Business: 10 dollars dépannage.', 'status2', 'btn2');
+async function chercher(){
+ let q=document.getElementById('q').value.trim(); if(!q) return;
+ document.getElementById('wiki').style.display='block';
+ document.getElementById('wiki').innerHTML='⏳ Recherche Wikipédia '+q+'...';
+ try{
+  let r=await fetch('https://fr.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(q));
+  if(r.ok){let d=await r.json(); document.getElementById('wiki').innerHTML='<b style="color:#22c55e">📚 Wikipédia: '+d.title+'</b><br><br>'+d.extract+'<br><br><a href="'+d.content_urls.desktop.page+'" target="_blank" style="color:#00a651">📖 Lire complet</a><br><br><button class="btn green" onclick="parle(`'+d.extract.replace(/`/g,'').substring(0,400)+'`, \'wikiStatus\', \'wikiBtn\')" id="wikiBtn">▶️ Écoute définition Wikipédia</button><div id="wikiStatus" class="status">Clique pour écouter définition</div>'; return;}
+ }catch(e){}
+ document.getElementById('wiki').innerHTML='Tape PT100 ou soudure et clique PLAY vert ci-dessus - Son joue sur ton site';
 }
 </script>
 </body></html>
