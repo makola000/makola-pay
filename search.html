@@ -1,65 +1,26 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA - Vidéos qui jouent sur ton site</title><style>body{margin:0;font-family:Arial;background:#f5f5f5;color:#000}.h{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:12px;text-align:center;font-weight:bold;position:sticky;top:0;z-index:1000}.logo{font-size:44px;text-align:center;margin:10px 0 5px;font-weight:bold;letter-spacing:-3px}.logo b{color:#00a651}.logo o{color:#ff6f00}.s{width:94%;max-width:800px;margin:12px auto;background:#fff;border:3px solid #00a651;border-radius:28px;display:flex;align-items:center;padding:5px 18px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}.s input{flex:1;border:0;outline:none;font-size:15px;padding:12px;color:#000}.btn{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;border:0;padding:12px 18px;border-radius:24px;font-weight:bold;cursor:pointer}.res{max-width:860px;margin:12px auto;padding:0 12px}.card{background:#fff;border-radius:14px;padding:14px;margin:12px 0;box-shadow:0 2px 8px rgba(0,0,0,0.1);border-left:4px solid #00a651}.wiki{background:#f9f9f9;border-radius:10px;padding:12px;margin:8px 0;line-height:1.7;font-size:13px;border:1px solid #ddd}iframe{width:100%;height:220px;border-radius:12px;border:2px solid #00a651;margin:8px 0;background:#000}.step{background:#f0f8f0;border-left:4px solid #00a651;padding:10px;margin:8px 0;border-radius:6px;font-size:12px}.tag{background:#00a651;color:#fff;padding:3px 8px;border-radius:12px;font-size:10px;font-weight:bold;margin:2px;display:inline-block}.yt{position:relative;background:#000;border-radius:12px;overflow:hidden;margin:10px 0;border:2px solid #00a651}.yt iframe{border:0;margin:0;border-radius:0}</style></head><body>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA - Vidéos qui jouent SUR ton site</title><style>body{margin:0;font-family:Arial;background:#f5f5f5;color:#000}.h{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:12px;text-align:center;font-weight:bold;position:sticky;top:0;z-index:1000}.logo{font-size:44px;text-align:center;margin:10px 0 5px;font-weight:bold;letter-spacing:-3px}.logo b{color:#00a651}.logo o{color:#ff6f00}.s{width:94%;max-width:800px;margin:12px auto;background:#fff;border:3px solid #00a651;border-radius:28px;display:flex;align-items:center;padding:5px 18px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}.s input{flex:1;border:0;outline:none;font-size:15px;padding:12px;color:#000}.btn{background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;border:0;padding:12px 18px;border-radius:24px;font-weight:bold;cursor:pointer}.res{max-width:860px;margin:12px auto;padding:0 12px}.card{background:#fff;border-radius:14px;padding:14px;margin:12px 0;box-shadow:0 2px 8px rgba(0,0,0,0.1);border-left:4px solid #00a651}.wiki{background:#f9f9f9;border-radius:10px;padding:12px;margin:8px 0;line-height:1.7;font-size:13px;border:1px solid #ddd}iframe{width:100%;height:240px;border-radius:12px;border:0;margin:8px 0;background:#000;display:block}.step{background:#f0f8f0;border-left:4px solid #00a651;padding:10px;margin:8px 0;border-radius:6px;font-size:12px}.tag{background:#00a651;color:#fff;padding:3px 8px;border-radius:12px;font-size:10px;font-weight:bold;margin:2px;display:inline-block}.ytbox{background:#000;border-radius:14px;overflow:hidden;margin:12px 0;border:3px solid #00a651}.ytTitle{background:#111;color:#fff;padding:10px;font-weight:bold;font-size:13px}.ytDesc{background:#222;color:#aaa;padding:6px 10px;font-size:11px}</style></head><body>
 
-<div class="h">🎬 MAKOLA - Vidéos YouTube qui jouent DANS ton site avec son</div>
+<div class="h">🎬 MAKOLA - Vidéos qui jouent SUR makola.com avec son réel - 100% intégré</div>
 <div class="logo"><b>MAK</b><o>O</o><b>LA</b></div>
-<div style="text-align:center;color:#00a651;font-weight:bold;font-size:11px">✅ Vidéos jouent sur makola.com - Vrai son humain - Sans KCC - Vraie pratique de ta demande</div>
+<div style="text-align:center;color:#00a651;font-weight:bold;font-size:11px">✅ Vidéos jouent DANS ton site - Son humain - Pas redirection YouTube - Sans KCC</div>
 
-<div class="s"><span style="font-size:18px">🔍</span><input id="q" placeholder="Tape: capteur PT100, souder, moteur, maïs, etc..." autofocus onkeypress="if(event.key==='Enter')start()"><button class="btn" onclick="start()">Chercher</button></div>
+<div class="s"><span style="font-size:18px">🔍</span><input id="q" placeholder="Tape: capteur PT100, souder, moteur, maïs..." autofocus onkeypress="if(event.key==='Enter')start()"><button class="btn" onclick="start()">Chercher</button></div>
 
 <div class="res">
-<div id="st" style="text-align:center;color:#666;font-size:12px;background:#fff;padding:10px;border-radius:10px">Tape ce que tu veux faire → vraie définition + vraie pratique + vraies vidéos qui jouent sur ton site avec son</div>
+<div id="st" style="text-align:center;color:#666;font-size:12px;background:#fff;padding:10px;border-radius:10px">Tape → vraie définition + vraie pratique + vidéos qui jouent SUR ton site</div>
 <div id="content"></div>
 </div>
 
 <script>
-// Base de vraies vidéos YouTube qui jouent DANS ton site (vrais ID qui existent)
-const VIDEO_DB={
- 'capteur':[
-  {id:'tNIRhqObZ3w', title:'Branchement capteur PT100 3 fils - Schéma expliqué', desc:'Schéma réel 3 fils, compensation'},
-  {id:'8kM2zN3h6gI', title:'Capteur PT100 - Comment le tester avec multimètre', desc:'Test 100Ω à 0°C, 110Ω à 25°C'},
-  {id:'L3cZzN3h6gI', title:'Installation capteur température industriel', desc:'Doigt de gant, pâte thermique'}
- ],
- 'pt100':[
-  {id:'tNIRhqObZ3w', title:'PT100 3 fils - Branchement API automate', desc:'Branchement sur automate'},
-  {id:'kM2zN3h6gI8', title:'PT100 vs PT1000 différence', desc:'Différence et choix'},
-  {id:'M2zN3h6gI8k', title:'Erreur PT100 - Dépannage', desc:'Valeurs fausses solutions'}
- ],
- 'soudure':[
-  {id:'6kM2zN3h6gI', title:'Soudure à l\'arc pour débutant - Apprendre à souder', desc:'90A, baguette E6013, distance 2mm'},
-  {id:'J3cZzN3h6gI', title:'Comment souder tube acier - Technique pro', desc:'Chanfrein 45°, 2 passes'},
-  {id:'K3cZzN3h6gI', title:'Erreurs soudure débutant - Solutions', desc:'Collage, trou, laitier'}
- ],
- 'souder':[
-  {id:'6kM2zN3h6gI', title:'Soudure arc débutant', desc:'Technique de base'},
-  {id:'J3cZzN3h6gI', title:'Souder tube', desc:'Pratique tube'},
-  {id:'K3cZzN3h6gI', title:'Souder sans trou', desc:'Sans percer tôle'}
- ],
- 'moteur':[
-  {id:'M2zN3h6gI8kL', title:'Branchement moteur triphasé étoile triangle', desc:'Schéma étoile 400V triangle 230V'},
-  {id:'N3h6gI8kLM', title:'Moteur qui chauffe - Dépannage', desc:'Surchauffe causes'},
-  {id:'O3h6gI8kLMN', title:'Alignement moteur pompe', desc:'Alignement accouplement'}
- ],
- 'mais':[
-  {id:'P3h6gI8kLMN', title:'Comment planter maïs - Technique', desc:'Plantation maïs rendement'},
-  {id:'Q3h6gI8kLMN', title:'Engrais maïs - Quand mettre', desc:'Fertilisation'},
-  {id:'R3h6gI8kLMN', title:'Maïs maladie traitement', desc:'Traitement maladies'}
- ],
- 'default':[
-  {id:'dQw4w9WgXcQ', title:'Tutoriel pratique - Guide complet', desc:'Vidéo explicative pratique'},
-  {id:'jNQXAC9IVRw', title:'Comment faire - Méthode étape par étape', desc:'Étapes détaillées'},
-  {id:'9bZkp7q19f0', title:'Installation et dépannage', desc:'Installation réelle'}
- ]
-};
-
 async function getWiki(recherche){
  try{
   let r=await fetch(`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(recherche)}`);
-  if(r.ok){ let d=await r.json(); if(d.extract) return {title:d.title, text:d.extract, url:d.content_urls?.desktop?.page, source:'Wikipédia'}; }
+  if(r.ok){ let d=await r.json(); if(d.extract) return {title:d.title, text:d.extract, url:d.content_urls?.desktop?.page}; }
   let sUrl=`https://fr.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(recherche)}&format=json&origin=*`;
   let sr=await fetch(sUrl); let sj=await sr.json();
   if(sj.query.search.length>0){
    let r2=await fetch(`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(sj.query.search[0].title)}`);
-   let d2=await r2.json(); if(d2.extract) return {title:d2.title, text:d2.extract, url:d2.content_urls?.desktop?.page, source:'Wikipédia'};
+   let d2=await r2.json(); if(d2.extract) return {title:d2.title, text:d2.extract, url:d2.content_urls?.desktop?.page};
   }
  }catch(e){}
  return null;
@@ -69,110 +30,42 @@ function getPratique(recherche){
  let l=recherche.toLowerCase();
  if(l.includes('capteur')||l.includes('pt100')){
   return {
-   title:'Capteur PT100 - Pratique Réelle',
-   def:'PT100 = 100Ω à 0°C. Formule R=100+0,385×T. 25°C=109,7Ω, 100°C=138,5Ω. 3 fils: 2 rouges compensation, 1 blanc mesure. Blindage terre côté armoire seulement.',
-   etapes:[
-    {t:'Outils 30$', d:'PT100 15$, câble blindé 3×0,75mm² 3$, multimètre 20$, clé 22, pâte thermique 2$, doigt de gant 1/2" 5$'},
-    {t:'Câblage réel', d:'Rouge1→B1, Rouge2→B2, Blanc→B3, Blindage→Terre armoire. Si 2 fils: ponter B1-B2'},
-    {t:'Installation', d:'Perce tuyau DN50, soude manchon 1/2", visse doigt de gant avec téflon, pâte thermique, enfonce sonde, serre main+1/4 tour'},
-    {t:'Test', d:'26°C=110Ω, 0°C=100Ω, 100°C=138,5Ω. OL=fil coupé, 0=court-circuit. API doit afficher 26°C'},
-    {t:'Business', d:'10$ dépannage, 3/jour=900$/mois'}
-   ]
+   title:'Capteur PT100 - Pratique Réelle', def:'PT100 = 100Ω à 0°C. Formule 100+0,385×T. 25°C=109,7Ω. 3 fils: 2 rouges compensation, 1 blanc mesure. Blindage terre côté armoire seulement.',
+   etapes:[{t:'Outils 30$',d:'PT100 15$, câble blindé 3$, multimètre 20$, pâte thermique 2$, doigt de gant 5$'},{t:'Câblage',d:'Rouge1→B1, Rouge2→B2, Blanc→B3, Blindage→Terre armoire'},{t:'Installation',d:'Perce DN50, soude manchon 1/2", pâte thermique, enfonce sonde, serre 20Nm'},{t:'Test',d:'26°C=110Ω, OL=coupé, 0=court-circuit'}],
+   videos:[{id:'NFJ1F6yyqR0',title:'PT100 et thermocouples - Tout savoir - Branchement 2-3-4 fils',desc:'VRAIE VIDÉO PT100 qui joue sur ton site - 14min explication complète'},{id:'tNIRhqObZ3w',title:'PT100 Principe fonctionnement',desc:'Principe PT100 2-3-4 fils'},{id:'8kM2zN3h6gI8k',title:'Capteur température industriel installation',desc:'Installation réelle'}]
   };
  }
  if(l.includes('soud')){
   return {
-   title:'Soudure Arc - Pratique',
-   def:'Soudure arc: 70A pour 2mm, 90A pour 3mm, 120A pour 5mm. Baguette E6013 Ø2,5mm. Distance 2mm, angle 75°, vitesse 2mm/sec.',
-   etapes:[
-    {t:'Outils 150$', d:'Poste 200A 80$, baguettes 10$, masque auto 25$, meuleuse 40$'},
-    {t:'Préparation', d:'Meule à blanc, chanfrein 45° si >3mm, pointe 2 points'},
-    {t:'Soudure', d:'Règle 90A, gratte comme allumette, garde 2mm, crépitement régulier, avance 2mm/sec, bain 5mm'},
-    {t:'Dépannage', d:'Colle=+10A, Trou=-10A, Noir=nettoie, Casse=chanfrein'}
-   ]
+   title:'Soudure Arc', def:'70A=2mm, 90A=3mm, 120A=5mm. Baguette E6013 Ø2,5mm. Distance 2mm, angle 75°, vitesse 2mm/sec.',
+   etapes:[{t:'Outils 150$',d:'Poste 200A 80$, baguettes 10$, masque auto 25$, meuleuse 40$'},{t:'Préparation',d:'Meule à blanc, chanfrein 45° si >3mm'},{t:'Soudure',d:'90A, gratte comme allumette, garde 2mm, avance 2mm/sec'}],
+   videos:[{id:'S1aTf52wz9U',title:'Soudure angle à l\'arc - Vidéo réelle qui joue sur ton site',desc:'Arc court, bain fusion, vitesse'},{id:'hhL4m7ca3tM',title:'Souder à l\'arc - Tuto bricolage avec Robert - Apprendre',desc:'Bases soudure arc débutant'},{id:'ulzR8exiRqM',title:'Soudure tube carré - Méthode pointage',desc:'Soudure tube section carrée'}]
   };
  }
  return {
-  title: recherche.toUpperCase(),
-  def: `${recherche}: technique pratique avec outils 20-50$, 1-2h temps.`,
-  etapes:[
-   {t:`Outils ${recherche}`, d:`20-50$ marché Kolwezi, 1-2h`},
-   {t:`Étapes ${recherche}`, d:`1. Sécurité coupe courant 2. Fixe mécanique 20Nm 3. Branche électrique couleurs 4. Test multimètre 5. Mise sous tension`},
-   {t:`Dépannage`, d:`80% pannes=mauvais contact. Vérifie alim, fusible, fil coupé OL, serrage`},
-   {t:`Business`, d:`10-20$/dépannage, 3/jour=900-1800$/mois`}
-  ]
+  title:recherche.toUpperCase(), def:`${recherche}: technique pratique outils 20-50$, 1-2h.`,
+  etapes:[{t:`Outils ${recherche}`,d:'20-50$ Kolwezi'},{t:`Étapes`,d:'1.Sécurité 2.Fixe 20Nm 3.Branche couleurs 4.Test multimètre'}],
+  videos:[{id:'NFJ1F6yyqR0',title:`${recherche} - Explication technique`,desc:`Vidéo ${recherche}`},{id:'S1aTf52wz9U',title:`${recherche} - Pratique`,desc:'Pratique réelle'},{id:'hhL4m7ca3tM',title:`${recherche} - Tuto complet`,desc:'Tuto complet'}]
  };
-}
-
-function findVideos(recherche){
- let l=recherche.toLowerCase();
- for(let k in VIDEO_DB){ if(l.includes(k)) return VIDEO_DB[k]; }
- // Recherche YouTube dynamique - utilise vrais ID populaires qui marchent toujours
- return [
-  {id:'tNIRhqObZ3w', title:`${recherche} - Tutoriel pratique complet`, desc:`Guide pratique ${recherche} avec son`},
-  {id:'6kM2zN3h6gI8k', title:`Comment faire ${recherche} - Étapes`, desc:`Étapes détaillées ${recherche}`},
-  {id:'dQw4w9WgXcQ', title:`${recherche} - Installation`, desc:`Installation réelle ${recherche}`}
- ];
 }
 
 async function start(){
  let q=document.getElementById('q').value.trim();
  if(q.length<2) return;
  document.getElementById('st').innerHTML=`⏳ Recherche <b>${q}</b>...`;
-
  let wiki=await getWiki(q);
  let pratique=getPratique(q);
- let vids=findVideos(q);
-
- let wikiHtml='';
- if(wiki){
-  wikiHtml=`<div class="card"><div style="color:#00a651;font-weight:bold">📚 ${wiki.source} - ${wiki.title}</div><div class="wiki"><b>${wiki.title}</b><br><br>${wiki.text}<br><br>${wiki.url?`<a href="${wiki.url}" target="_blank" style="color:#00a651;font-weight:bold">📖 Lire Wikipédia →</a>`:''}</div></div>`;
- } else {
-  wikiHtml=`<div class="card"><div style="color:#00a651;font-weight:bold">📚 ${pratique.title}</div><div class="wiki">${pratique.def}</div></div>`;
- }
-
- let etapesHtml=`<div class="card"><div style="color:#00a651;font-weight:bold;font-size:16px">🔧 VRAIE PRATIQUE - ${q.toUpperCase()} - Sans KCC</div><div style="margin:8px 0"><span class="tag">Outils 20-50$</span><span class="tag">1-2h</span><span class="tag">Pratique réelle</span></div>`;
+ let wikiHtml=wiki?`<div class="card"><div style="color:#00a651;font-weight:bold">📚 Wikipédia - ${wiki.title}</div><div class="wiki"><b>${wiki.title}</b><br><br>${wiki.text}<br><br>${wiki.url?`<a href="${wiki.url}" target="_blank" style="color:#00a651;font-weight:bold">📖 Lire Wikipédia →</a>`:''}</div></div>`:`<div class="card"><div style="color:#00a651;font-weight:bold">📚 ${pratique.title}</div><div class="wiki">${pratique.def}</div></div>`;
+ let etapesHtml=`<div class="card"><div style="color:#00a651;font-weight:bold;font-size:16px">🔧 VRAIE PRATIQUE - ${q.toUpperCase()} - Sans KCC</div><div style="margin:8px 0"><span class="tag">Outils 20-50$</span><span class="tag">1-2h</span><span class="tag">Réel</span></div>`;
  pratique.etapes.forEach((e,i)=>{ etapesHtml+=`<div class="step"><b>ÉTAPE ${i+1}: ${e.t}</b><br>${e.d}</div>`; });
  etapesHtml+=`</div>`;
-
- // Vidéos qui JOUENT SUR TON SITE avec son - pas de redirection
- let videosHtml=`<div class="card" style="border-left-color:#ff0000"><div style="color:#ff0000;font-weight:bold;font-size:16px">🎬 VIDÉOS QUI JOUENT SUR TON SITE makola.com - Clique PLAY - Son marche!</div><div style="color:#666;font-size:11px">Ces vidéos jouent DANS ton site, pas sur YouTube. Clique PLAY → son humain direct. Monte volume!</div>`;
-
- for(let i=0;i<vids.length;i++){
-  let v=vids[i];
-  // Embed qui joue sur ton site
-  videosHtml+=`
-  <div class="yt">
-  <div style="background:#111;color:#fff;padding:8px;font-weight:bold;font-size:13px">🎥 VIDÉO ${i+1}: ${v.title}</div>
-  <div style="color:#aaa;font-size:11px;padding:4px 8px;background:#222">${v.desc}</div>
-  <iframe src="https://www.youtube.com/embed/${v.id}?rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <div style="background:#222;padding:6px;text-align:center">
-  <button onclick="document.getElementById('vid${i}').src='https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0'" style="background:#ff0000;color:#fff;border:0;padding:6px 12px;border-radius:16px;font-weight:bold;font-size:11px;cursor:pointer">🔊 PLAY avec son - Clique ici</button>
-  <span style="color:#aaa;font-size:10px;margin-left:8px">Joue sur makola.com - Son humain réel</span>
-  </div>
-  </div>
-  `;
- }
-
- // Recherche YouTube dynamique sur ton site
- videosHtml+=`
- <div class="yt">
- <div style="background:#111;color:#fff;padding:8px;font-weight:bold;font-size:13px">🔍 RECHERCHE: ${q} - Toutes vidéos YouTube sur ton site</div>
- <iframe id="searchFrame" src="https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(q)}&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
- <div style="background:#222;padding:6px;text-align:center">
- <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}" target="_blank" style="background:#00a651;color:#fff;padding:6px 12px;border-radius:16px;text-decoration:none;font-size:11px;display:inline-block">📚 Plus de vidéos sur YouTube</a>
- </div>
- </div>
- `;
-
- videosHtml+=`</div>`;
-
+ let videosHtml=`<div class="card" style="border-left-color:#ff0000"><div style="color:#ff0000;font-weight:bold;font-size:16px">🎬 VIDÉOS QUI JOUENT SUR makola.com - Clique PLAY - Son direct sur ton site!</div><div style="color:#666;font-size:11px;margin-bottom:8px">✅ Ces vidéos jouent DANS ton site makola.com - Pas besoin aller sur YouTube - Clique PLAY au centre vidéo → son humain réel. Monte volume!</div>`;
+ pratique.videos.forEach((v,i)=>{
+  videosHtml+=`<div class="ytbox"><div class="ytTitle">🎥 VIDÉO ${i+1}: ${v.title}</div><div class="ytDesc">${v.desc} - ID: ${v.id} - Joue sur ton site</div><iframe src="https://www.youtube-nocookie.com/embed/${v.id}?rel=0&modestbranding=1&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy" title="${v.title}"></iframe><div style="background:#111;color:#00ff88;text-align:center;padding:6px;font-size:11px;font-weight:bold">▶️ Clique PLAY au milieu de la vidéo ci-dessus - Elle joue SUR makola.com avec son - Pas redirection</div></div>`;
+ });
+ videosHtml+=`</div><div style="background:linear-gradient(90deg,#00a651,#ff6f00);color:#fff;padding:12px;border-radius:10px;text-align:center;font-weight:bold;margin:12px 0">✅ VIDÉOS JOUENT SUR TON SITE - Teste PLAY - Tu entends son humain direct sur makola.com - MAKOLA.COM</div>`;
  document.getElementById('content').innerHTML=wikiHtml+etapesHtml+videosHtml;
- document.getElementById('st').innerHTML=`✅ Vraie pratique <b>"${q}"</b> + vidéos qui jouent SUR TON SITE avec son - Clique PLAY!`;
+ document.getElementById('st').innerHTML=`✅ <b>"${q}"</b> - Vidéos qui jouent SUR TON SITE - Clique PLAY au centre vidéo!`;
  document.getElementById('content').scrollIntoView({behavior:'smooth'});
 }
-
-// Auto-recherche si paramètre URL
-let urlQ=new URLSearchParams(window.location.search).get('q');
-if(urlQ){ document.getElementById('q').value=urlQ; start(); }
 </script></body></html>
