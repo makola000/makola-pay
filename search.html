@@ -1,80 +1,98 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA SON 100% SITE</title><style>body{margin:0;font-family:Arial;background:#000;color:#fff;padding:10px}.h{background:#00a651;color:#fff;padding:14px;text-align:center;font-weight:bold;font-size:16px}.logo{font-size:40px;text-align:center;font-weight:bold}.logo b{color:#00a651}.logo o{color:#ff6f00}.card{background:#1e293b;border:2px solid #00a651;border-radius:14px;padding:16px;margin:12px auto;max-width:800px}.btn{padding:16px 28px;font-size:16px;border-radius:28px;border:0;font-weight:bold;cursor:pointer;margin:8px}.green{background:#00a651;color:#fff}.orange{background:#ff6f00;color:#fff}.white{background:#fff;color:#00a651}input{width:70%;padding:12px;border-radius:20px;border:2px solid #00a651;font-size:14px;color:#000}.status{background:#000;color:#22c55e;padding:10px;border-radius:8px;margin:8px 0;font-weight:bold;border:1px solid #22c55e}</style></head><body>
-<div class="h">🔊 MAKOLA - SON QUI JOUE SUR TON SITE - 0% YOUTUBE</div>
-<div class="logo"><b>MAK</b><o>O</o><b>LA</b></div>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA Search - Comme Phoenix & Google</title><style>body{margin:0;font-family:Roboto,Arial;background:#fff;color:#202124} .header{border-bottom:1px solid #dadce0;padding:10px;position:sticky;top:0;background:#fff;z-index:1000} .logo{font-size:28px;font-weight:bold;letter-spacing:-2px;display:inline-block} .logo b{color:#00a651} .logo o{color:#ff6f00} .logo span{color:#4285f4} .searchBox{display:flex;align-items:center;max-width:720px;margin:10px auto;border:2px solid #dfe1e5;border-radius:24px;padding:6px 16px;box-shadow:0 1px 6px rgba(32,33,36,0.28)} .searchBox:hover{box-shadow:0 2px 8px rgba(32,33,36,0.3)} .searchBox input{flex:1;border:0;outline:none;font-size:16px;padding:8px} .btns{display:flex;gap:8px;margin:8px 0;flex-wrap:wrap;max-width:720px;margin:8px auto} .tab{padding:6px 14px;border-radius:16px;border:1px solid #dadce0;background:#fff;font-size:13px;cursor:pointer} .tab.active{background:#00a651;color:#fff;border-color:#00a651} .res{max-width:720px;margin:0 auto;padding:10px} .result{padding:12px 0;border-bottom:1px solid #ecedef} .result a{color:#1a0dab;text-decoration:none;font-size:16px} .result a:visited{color:#681da8} .url{color:#006621;font-size:12px} .snippet{color:#4d5156;font-size:13px;line-height:1.5;margin:4px 0} .card{background:#f8f9fa;border-radius:8px;padding:12px;margin:10px 0;border:1px solid #dadce0} .audioBtn{background:#00a651;color:#fff;border:0;padding:8px 16px;border-radius:20px;font-weight:bold;cursor:pointer;font-size:12px;margin:4px} .wikiBox{background:#fff;border:1px solid #dadce0;border-radius:8px;padding:14px;margin:12px 0} .ytThumb{width:120px;height:68px;background:#000;border-radius:8px;display:inline-block;vertical-align:top;margin:4px;position:relative;overflow:hidden} .ytThumb img{width:100%;height:100%;object-fit:cover} .playIcon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(255,0,0,0.9);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:12px}</style></head><body>
 
-<div class="card" style="text-align:center">
-<input id="q" placeholder="Tape: PT100, souder, moteur..." value="capteur PT100">
-<button class="btn green" onclick="chercher()">🔍 Chercher</button>
+<div class="header">
+<div class="logo"><b>MAK</b><o>O</o><b>LA</b> <span>Search</span> <small style="font-size:10px;color:#666">comme Phoenix & Google</small></div>
+<div class="searchBox">
+<span style="color:#9aa0a6">🔍</span>
+<input id="q" placeholder="Recherche comme sur Phoenix ou Google..." autofocus onkeypress="if(event.key==='Enter')doSearch()">
+<button onclick="doSearch()" style="background:#00a651;color:#fff;border:0;padding:8px 16px;border-radius:16px;font-weight:bold;cursor:pointer">Rechercher</button>
+<button onclick="speakLast()" style="background:#4285f4;color:#fff;border:0;padding:8px 12px;border-radius:16px;margin-left:6px">🔊</button>
 </div>
-
-<div class="card">
-<h3 style="color:#22c55e">🔊 BOUTON 1 - TEST SON (jaune ne marche pas avant = ce bouton vert MARCHE)</h3>
-<div class="status" id="s1">Clique PLAY ci-dessous - Son va jouer SUR makola.com</div>
-<button class="btn green" id="b1" onclick="parle('Bonjour test son. Si tu entends ceci, le son marche sur ton site makola point com. Monte volume telephone. Ceci joue sur ton site, pas YouTube.', 's1', 'b1')">▶️ PLAY TEST - Son sur site - CLIQUE ICI</button>
-<button class="btn orange" onclick="speechSynthesis.cancel(); document.getElementById('s1').innerHTML='⏹️ Stoppé'; document.getElementById('b1').innerHTML='▶️ PLAY TEST';">⏹️ STOP</button>
-</div>
-
-<div class="card">
-<h3 style="color:#22c55e">🔧 PT100 - Explication vocale complète</h3>
-<div class="status" id="s2">Explication PT100 - Clique PLAY pour entendre sur ton site</div>
-<button class="btn white" id="b2" onclick="parle(document.getElementById('txtPT100').innerText, 's2', 'b2')">▶️ PLAY PT100 - Écoute pratique complète</button>
-<div id="txtPT100" style="background:#0f172a;padding:12px;border-radius:8px;margin:8px 0;line-height:1.6;font-size:13px;color:#cbd5e1">
-<b>CAPTEUR PT100 - PRATIQUE RÉELLE KOLWEZI</b><br><br>
-<b>Définition:</b> PT100 = 100 ohms à zéro degré. Formule: R = 100 + 0,385 x T. A 25 degrés = 109,7 ohms. A 26 degrés Kolwezi = 110 ohms. A 100 degrés = 138,5 ohms.<br><br>
-<b>Outils:</b> PT100 15 dollars, câble blindé 3x0,75 3 dollars, multimètre 20 dollars, pâte thermique 2 dollars, doigt de gant 5 dollars. Total 30 dollars.<br><br>
-<b>Câblage 3 fils:</b> Fil rouge 1 sur borne 1, Fil rouge 2 sur borne 2, Fil blanc sur borne 3. Blindage à la terre côté armoire seulement. Si 2 fils: ponter borne 1 et 2.<br><br>
-<b>Installation:</b> Perce trou 20mm tuyau DN50, soude manchon 1/2 pouce, téflon, pâte thermique, enfonce sonde, serre main + quart tour = 20 Newton mètre. Câble à 30cm des 400 volts.<br><br>
-<b>Test:</b> Multimètre en ohms. 110 ohms à 26 degrés = bon. Zéro = court-circuit. OL = fil coupé. Rebranche API: doit afficher 26 degrés. Si moins 242 = coupé. Si 850 = court-circuit.<br><br>
-<b>Business:</b> 10 dollars dépannage, 3 par jour = 900 dollars mois.
+<div class="btns">
+<button class="tab active" onclick="setTab('all',this)">🌐 Tous</button>
+<button class="tab" onclick="setTab('wiki',this)">📚 Wikipédia</button>
+<button class="tab" onclick="setTab('video',this)">🎬 Vidéos</button>
+<button class="tab" onclick="setTab('pratique',this)">🔧 Pratique</button>
+<button class="tab" onclick="setTab('kolwezi',this)">📍 Kolwezi</button>
 </div>
 </div>
 
-<div class="card">
-<h3 style="color:#22c55e">🔊 BOUTON 2 - Soudure</h3>
-<div class="status" id="s3">Clique pour entendre soudure</div>
-<button class="btn green" id="b3" onclick="parle('Soudure arc. 70 ampères pour 2mm, 90 ampères pour 3mm, 120 ampères pour 5mm. Baguette E6013 diamètre 2,5mm. Distance 2mm, angle 75 degrés, vitesse 2mm par seconde. Gratte comme allumette pour amorcer, garde 2mm, crépitement régulier, avance lentement.', 's3', 'b3')">▶️ PLAY Soudure</button>
+<div class="res">
+<div id="status" style="color:#70757a;font-size:12px;padding:8px">Comme Phoenix Browser - Cherche tout: définition, vidéos, pratique terrain, prix Kolwezi + audio qui lit résultats</div>
+<div id="results"></div>
 </div>
-
-<div id="wiki" class="card" style="display:none"></div>
 
 <script>
-let voices=[];
-function loadV(){voices=speechSynthesis.getVoices(); console.log('Voices:', voices.length);}
-speechSynthesis.onvoiceschanged=loadV; loadV(); setTimeout(loadV,800); setTimeout(loadV,1500);
+let lastText=''; let voices=[]; function loadV(){voices=speechSynthesis.getVoices();} speechSynthesis.onvoiceschanged=loadV; loadV(); setTimeout(loadV,500);
 
-function parle(txt, statusId, btnId){
+function speakLast(){ if(!lastText){alert('Cherche d\'abord!'); return;} speak(lastText); }
+function speak(t){
  speechSynthesis.cancel();
- setTimeout(()=>{
-  let u=new SpeechSynthesisUtterance(txt);
-  let fr=voices.filter(v=>v.lang.toLowerCase().includes('fr'));
-  if(fr.length>0){u.voice=fr[0]; console.log('Using voice', fr[0].name);}
-  u.lang='fr-FR'; u.rate=0.85; u.volume=1;
-  u.onstart=()=>{
-   document.getElementById(statusId).innerHTML='🔊🔊🔊 ÇA JOUE SUR TON SITE MAKOLA.COM - MONTE VOLUME! - Tu entends?';
-   document.getElementById(btnId).innerHTML='⏸️ En train de parler...';
-   document.getElementById(btnId).style.background='#ff6f00';
-  };
-  u.onend=()=>{
-   document.getElementById(statusId).innerHTML='✅ Fini - Ça a joué SUR TON SITE, pas YouTube! Re-clique pour ré-écouter';
-   document.getElementById(btnId).innerHTML='▶️ Re-écouter';
-   document.getElementById(btnId).style.background='#00a651';
-  };
-  u.onerror=(e)=>{
-   document.getElementById(statusId).innerHTML='❌ Erreur: '+e.error+' - Essaie: 1) Chrome 2) Monte volume 3) Pas mode silencieux. Code erreur: '+e.error;
-  };
-  speechSynthesis.speak(u);
- },100);
+ let u=new SpeechSynthesisUtterance(t.substring(0,600));
+ let fr=voices.find(v=>v.lang.includes('fr')); if(fr) u.voice=fr;
+ u.lang='fr-FR'; u.rate=0.9;
+ speechSynthesis.speak(u);
 }
 
-async function chercher(){
- let q=document.getElementById('q').value.trim(); if(!q) return;
- document.getElementById('wiki').style.display='block';
- document.getElementById('wiki').innerHTML='⏳ Recherche Wikipédia '+q+'...';
- try{
-  let r=await fetch('https://fr.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(q));
-  if(r.ok){let d=await r.json(); document.getElementById('wiki').innerHTML='<b style="color:#22c55e">📚 Wikipédia: '+d.title+'</b><br><br>'+d.extract+'<br><br><a href="'+d.content_urls.desktop.page+'" target="_blank" style="color:#00a651">📖 Lire complet</a><br><br><button class="btn green" onclick="parle(`'+d.extract.replace(/`/g,'').substring(0,400)+'`, \'wikiStatus\', \'wikiBtn\')" id="wikiBtn">▶️ Écoute définition Wikipédia</button><div id="wikiStatus" class="status">Clique pour écouter définition</div>'; return;}
- }catch(e){}
- document.getElementById('wiki').innerHTML='Tape PT100 ou soudure et clique PLAY vert ci-dessus - Son joue sur ton site';
+let currentTab='all';
+function setTab(tab, el){
+ currentTab=tab;
+ document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+ el.classList.add('active');
+ doSearch();
 }
+
+async function doSearch(){
+ let q=document.getElementById('q').value.trim(); if(q.length<2) return;
+ document.getElementById('status').innerHTML=`🔍 Recherche <b>${q}</b> comme Phoenix/Google...`;
+ let resDiv=document.getElementById('results'); resDiv.innerHTML='';
+
+ // 1. Wikipédia (comme Google Knowledge)
+ let wikiHtml='';
+ try{
+  let r=await fetch(`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`);
+  if(r.ok){
+   let d=await r.json();
+   if(d.extract){
+    wikiHtml=`<div class="wikiBox"><div style="font-size:18px;font-weight:bold">${d.title}</div><div class="url">fr.wikipedia.org › wiki › ${d.title}</div><div class="snippet" style="font-size:14px">${d.extract}</div><div style="margin-top:8px"><a href="${d.content_urls.desktop.page}" target="_blank" style="color:#1a0dab;font-size:13px">📖 Wikipédia</a> <button class="audioBtn" onclick="speak('${d.extract.replace(/'/g,' ').substring(0,300)}')">🔊 Écouter définition</button></div></div>`;
+    lastText=d.extract;
+   }
+  }
+ }catch(e){}
+
+ // 2. Pratique terrain (valeur ajoutée MAKOLA vs Google)
+ let l=q.toLowerCase(); let pratique='';
+ if(l.includes('pt100')||l.includes('capteur')){
+  pratique=`<div class="card"><div style="font-weight:bold;color:#00a651">🔧 MAKOLA Pratique - ${q.toUpperCase()} - Prix Kolwezi</div><div class="snippet"><b>Outils:</b> PT100 15$, câble blindé 3$, multimètre 20$, pâte thermique 2$, doigt de gant 5$ = 30$ marché Kolwezi<br><b>Câblage 3 fils:</b> Rouge1→B1 Rouge2→B2 Blanc→B3 Blindage→Terre armoire seulement<br><b>Test:</b> 26°C=110Ω, 0Ω=court-circuit, OL=fil coupé<br><b>Business:</b> 10$ dépannage, 3/jour=900$/mois</div><button class="audioBtn" onclick="speak('PT100 100 ohms à zéro degré. 110 ohms à 26 degrés Kolwezi. Câblage 2 rouges sur borne 1 et 2, blanc sur 3. Blindage terre armoire. Test 110 ohms. Business 10 dollars dépannage.')">🔊 Écouter pratique</button></div>`;
+  lastText+=' '+pratique;
+ } else if(l.includes('soud')){
+  pratique=`<div class="card"><div style="font-weight:bold;color:#00a651">🔧 MAKOLA Pratique - Soudure Arc</div><div class="snippet"><b>Réglage:</b> 70A=2mm 90A=3mm 120A=5mm Baguette E6013 2,5mm Distance 2mm angle 75°<br><b>Technique:</b> Gratte comme allumette, garde 2mm, crépitement régulier, avance 2mm/sec</div></div>`;
+ }
+
+ // 3. Résultats style Google/Phoenix
+ let googleStyleResults='';
+ if(currentTab==='all' || currentTab==='video'){
+  googleStyleResults+=`
+  <div class="result"><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}" target="_blank">🎬 Vidéos ${q} - YouTube - Tutoriels pratiques</a><div class="url">www.youtube.com › results › ${q}</div><div class="snippet">Regardez des tutoriels pratiques pour ${q}. Apprenez avec des vidéos étape par étape. Cliquez pour voir sur YouTube avec son humain réel.</div></div>
+  <div class="result"><a href="https://fr.wikipedia.org/w/index.php?search=${encodeURIComponent(q)}" target="_blank">📚 ${q} - Recherche Wikipédia complète</a><div class="url">fr.wikipedia.org › search › ${q}</div><div class="snippet">Articles, définitions, schémas et histoire de ${q}. Source fiable et gratuite.</div></div>
+  `;
+ }
+ if(currentTab==='all' || currentTab==='kolwezi'){
+  googleStyleResults+=`<div class="result"><a href="#">📍 ${q} à Kolwezi - Marché, prix, fournisseurs</a><div class="url">makola.com › kolwezi › ${q}</div><div class="snippet">Trouvez ${q} au marché Kolwezi. Prix: 15-50$. Fournisseurs locaux. Livraison possible. Contact MAKOLA pour achat.</div></div>`;
+ }
+
+ // Assemble comme Phoenix/Google
+ let finalHtml='';
+ if(currentTab==='wiki') finalHtml=wikiHtml || '<div class="card">Pas de Wikipédia pour '+q+'</div>';
+ else if(currentTab==='pratique') finalHtml=pratique || '<div class="card">Tape PT100 ou soudure pour voir pratique terrain</div>';
+ else if(currentTab==='video') finalHtml=`<div class="card"><div style="font-weight:bold">🎬 Vidéos pour ${q}</div><div style="margin:8px 0"><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}" target="_blank" style="background:#ff0000;color:#fff;padding:10px 16px;border-radius:20px;text-decoration:none;display:inline-block">▶️ Ouvrir vidéos ${q} sur YouTube avec son</a></div><div class="snippet">Clique pour voir tutoriels avec vrai son humain. Comme Phoenix Browser qui ouvre vidéos.</div></div>`+googleStyleResults;
+ else finalHtml=wikiHtml+pratique+googleStyleResults;
+
+ document.getElementById('results').innerHTML=finalHtml;
+ document.getElementById('status').innerHTML=`✅ ${q} - ${currentTab==='all'?'Tous les résultats comme Phoenix/Google':'Filtre: '+currentTab} - ${new Date().toLocaleTimeString()} - 🔊 bouton pour écouter`;
+}
+
+// Auto-search from URL
+let uq=new URLSearchParams(location.search).get('q'); if(uq){document.getElementById('q').value=uq; doSearch();}
 </script>
 </body></html>
