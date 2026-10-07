@@ -1,129 +1,169 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA - Google Clone</title><style>body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#202124;min-height:100vh;display:flex;flex-direction:column}.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}.logo-big{font-size:72px;font-weight:400;letter-spacing:-6px;margin:20px 0 30px}.logo-big b{color:#4285f4}.logo-big.r{color:#ea4335}.logo-big.y{color:#fbbc05}.logo-big.g{color:#34a853}.searchWrap{width:100%;max-width:584px;position:relative}.searchBox{display:flex;align-items:center;border:1px solid #dfe1e5;border-radius:24px;padding:0 14px;height:46px;box-shadow:0 1px 1px rgba(0,0,0,0.1)}.searchBox:hover,.searchBox:focus-within{box-shadow:0 2px 8px rgba(32,33,36,0.28);border-color:transparent}.searchBox input{flex:1;border:0;outline:none;font-size:16px;padding:10px}.btnRow{margin:20px 0;display:flex;gap:12px}.gBtn{background:#f8f9fa;border:1px solid #f8f9fa;border-radius:4px;padding:0 16px;height:36px;font-size:14px;color:#3c4043;cursor:pointer}.gBtn:hover{border-color:#dadce0;box-shadow:0 1px 1px rgba(0,0,0,0.1)}.topBar{border-bottom:1px solid #dadce0;padding:12px;display:none;align-items:center;gap:16px;background:#fff;position:sticky;top:0;z-index:1000}.topBar.logo-small{font-size:22px;letter-spacing:-1px;font-weight:400}.topBar.searchBox{flex:1;max-width:720px;height:40px}.tabs{max-width:720px;margin:0 auto;padding:0 20px;display:flex;gap:20px;border-bottom:1px solid #dadce0;font-size:13px;color:#5f6368}.tabs span{padding:12px 0;cursor:pointer;border-bottom:3px solid transparent}.tabs span.active{color:#1a73e8;border-bottom-color:#1a73e8}.results{max-width:720px;margin:0 auto;padding:10px 20px;width:100%}.resItem{margin:18px 0}.resItem.url{color:#202124;font-size:12px;display:flex;align-items:center;gap:6px}.resItem.title{color:#1a0dab;font-size:18px;text-decoration:none;display:block;margin:4px 0}.resItem.title:hover{text-decoration:underline}.resItem.snippet{color:#4d5156;font-size:13px;line-height:1.5}.wikiPanel{border:1px solid #dadce0;border-radius:8px;padding:16px;margin:16px 0}.videoGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:12px 0}.vCard{border:1px solid #dadce0;border-radius:8px;overflow:hidden;cursor:pointer;background:#000;position:relative}.vCard img{width:100%;height:112px;object-fit:cover;display:block}.vCard.playBtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.8);color:#fff;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;border:2px solid #fff}.vCard.vTitle{padding:8px;font-size:12px;color:#fff;background:#000;min-height:36px}.playerBox{position:relative;width:100%;background:#000;border-radius:12px;overflow:hidden;margin:10px 0;border:2px solid #00a651}.playerBox iframe{width:100%;height:320px;border:0;display:block}.audioBar{background:#e8f0fe;border-radius:8px;padding:10px;margin:10px 0;display:flex;align-items:center;gap:10px}.footer{background:#f2f2f2;border-top:1px solid #dadce0;padding:12px 20px;font-size:12px;color:#70757a;margin-top:auto}.lite-yt{cursor:pointer;position:relative;background:#000;border-radius:12px;overflow:hidden;height:200px;display:flex;align-items:center;justify-content:center}.lite-yt img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.lite-yt.play{position:relative;z-index:2;background:red;color:#fff;width:60px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 12px rgba(0,0,0,0.5)}</style></head><body>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA UNIVERSAL - Tout l'univers + Mode IA</title><style>body{margin:0;font-family:Arial;background:#0f172a;color:#e2e8f0}.top{position:sticky;top:0;background:#0f172a;border-bottom:2px solid #00a651;padding:10px;z-index:1000;display:flex;align-items:center;gap:10px;flex-wrap:wrap}.logo{font-size:24px;font-weight:bold;letter-spacing:-1px}.logo b{color:#00a651}.logo o{color:#ff6f00}.sb{flex:1;min-width:200px;max-width:600px;display:flex;align-items:center;background:#1e293b;border:2px solid #00a651;border-radius:24px;padding:4px 12px}.sb input{flex:1;background:transparent;border:0;outline:none;color:#fff;font-size:14px;padding:8px}.modeSwitch{display:flex;background:#1e293b;border-radius:20px;padding:3px;border:1px solid #334155}.modeSwitch button{border:0;padding:6px 14px;border-radius:16px;font-size:11px;font-weight:bold;cursor:pointer;background:transparent;color:#94a3b8}.modeSwitch button.active{background:#00a651;color:#fff}.tabs{display:flex;gap:6px;padding:8px 12px;overflow-x:auto;background:#1e293b;border-bottom:1px solid #334155;flex-wrap:wrap}.tabs span{padding:6px 10px;border-radius:14px;font-size:10px;cursor:pointer;background:#0f172a;border:1px solid #334155;white-space:nowrap}.tabs span.active{background:#00a651;color:#fff;border-color:#00a651}.main{max-width:1200px;margin:0 auto;display:flex;gap:12px;padding:12px}.left{flex:1;min-width:0}.right{width:300px;display:none}.card{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:14px;margin:10px 0}.card.univ{border:2px solid #00a651;background:linear-gradient(135deg,#1e293b,#0f172a)}.aiBox{background:linear-gradient(135deg,#00a651,#059669);border-radius:12px;padding:14px;margin:10px 0;color:#fff}.formula{background:#0f172a;border-left:4px solid #00a651;padding:10px;margin:8px 0;border-radius:6px;font-family:monospace;font-size:12px}.vGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}.vCard{background:#000;border-radius:8px;overflow:hidden;cursor:pointer;position:relative;border:1px solid #334155}.vCard img{width:100%;height:90px;object-fit:cover}.vCard.t{padding:6px;font-size:10px;min-height:32px;color:#fff}.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:red;width:32px;height:22px;border-radius:6px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px}.btn{border:0;padding:8px 12px;border-radius:16px;font-size:11px;font-weight:bold;cursor:pointer;margin:3px}.green{background:#00a651;color:#fff}.blue{background:#3b82f6;color:#fff}.orange{background:#ff6f00;color:#fff}.categoryTag{background:#00a651;color:#fff;padding:3px 8px;border-radius:10px;font-size:9px;margin:2px;display:inline-block}.toc{background:#0f172a;border:1px solid #334155;border-radius:8px;padding:10px;margin:8px 0;font-size:11px}@media(max-width:768px){.main{flex-direction:column}.right{width:100%;display:block}.vGrid{grid-template-columns:repeat(2,1fr)}}</style></head><body>
 
-<!-- Page d'accueil Google -->
-<div id="homePage" class="center">
-<div class="logo-big"><b>M</b><span class="r">a</span><span class="y">k</span><b>o</b><span class="g">l</span><span class="r">a</span></div>
-<div class="searchWrap">
-<div class="searchBox"><span style="color:#9aa0a6;margin-right:10px">🔍</span><input id="qHome" placeholder="Rechercher sur MAKOLA ou saisissez une URL" autofocus onkeypress="if(event.key==='Enter')goSearch()"><span style="color:#9aa0a6;cursor:pointer;margin-left:10px" onclick="startVoice()">🎤</span><span style="margin-left:8px;cursor:pointer" onclick="speakHome()">🔊</span></div>
-</div>
-<div class="btnRow"><button class="gBtn" onclick="goSearch()">Recherche MAKOLA</button><button class="gBtn" onclick="lucky()">J'ai de la chance</button></div>
-<div style="font-size:12px;color:#4d5156;margin-top:20px">MAKOLA disponible en: <a style="color:#1a0dab">Français</a> <a style="color:#1a0dab">Kiswahili</a> <a style="color:#1a0dab">Lingala</a></div>
+<div class="top">
+<div class="logo"><b>MAK</b><o>O</o><b>LA</b> <small style="font-size:9px;color:#22c55e">UNIVERSAL + IA</small></div>
+<div class="sb"><span style="color:#22c55e">🔍</span><input id="q" placeholder="Tout l'univers: PT100, loi d'Ohm, moteur, Bible, Coran, mine, maths Harvard, IA..." onkeypress="if(event.key==='Enter')searchUniversal()"><button onclick="searchUniversal()" style="background:#00a651;color:#fff;border:0;padding:6px 12px;border-radius:16px;font-weight:bold;cursor:pointer;margin-left:6px">🔍</button><span onclick="speakAll()" style="cursor:pointer;margin-left:6px">🔊</span></div>
+<div class="modeSwitch"><button id="modeSearch" class="active" onclick="setMode('search')">🔍 Recherche</button><button id="modeIA" onclick="setMode('ia')">🤖 Mode IA</button></div>
 </div>
 
-<!-- Page résultats Google -->
-<div id="resultPage" style="display:none;flex:1">
-<div class="topBar" id="topBar"><div class="logo-small"><b style="color:#4285f4">M</b><span style="color:#ea4335">a</span><span style="color:#fbbc05">k</span><span style="color:#4285f4">o</span><span style="color:#34a853">l</span><span style="color:#ea4335">a</span></div><div class="searchBox"><input id="qTop" onkeypress="if(event.key==='Enter')doSearch()"><span style="color:#9aa0a6;cursor:pointer" onclick="doSearch()">🔍</span><span style="margin-left:8px;cursor:pointer" onclick="speakResults()">🔊</span></div></div>
-<div class="tabs"><span class="active" onclick="setTab('all',this)">Tous</span><span onclick="setTab('videos',this)">Vidéos</span><span onclick="setTab('images',this)">Images</span><span onclick="setTab('wiki',this)">Wikipédia</span><span onclick="setTab('maps',this)">Maps</span></div>
-<div class="results">
-<div id="status" style="color:#70757a;font-size:13px;margin:8px 0"></div>
-<div id="videoPlayerArea"></div>
-<div id="resultsList"></div>
-</div>
+<div class="tabs">
+<span class="active" onclick="setCat('all',this)">🌍 Tout l'univers</span>
+<span onclick="setCat('electronique',this)">⚡ Électronique</span>
+<span onclick="setCat('electricite',this)">🔌 Électricité</span>
+<span onclick="setCat('mecanique',this)">⚙️ Méca Générale</span>
+<span onclick="setCat('auto',this)">🚗 Méca Auto</span>
+<span onclick="setCat('sante',this)">🏥 Santé</span>
+<span onclick="setCat('maths',this)">📐 Maths Harvard</span>
+<span onclick="setCat('science',this)">🔬 Science</span>
+<span onclick="setCat('bio',this)">🧬 Biologie</span>
+<span onclick="setCat('chimie',this)">🧪 Chimie</span>
+<span onclick="setCat('bible',this)">📖 Bible/Coran/Torah</span>
+<span onclick="setCat('mine',this)">⛏️ Mine</span>
+<span onclick="setCat('construction',this)">🏗️ Construction</span>
+<span onclick="setCat('info',this)">💻 Info/Réseau</span>
+<span onclick="setCat('ia',this)">🤖 IA du jour</span>
 </div>
 
-<div class="footer">Kolwezi, Katanga, République Démocratique du Congo - <span style="color:#1a0dab">MAKOLA Search</span> - Comme Google - Vidéos jouent sur site</div>
+<div class="main">
+<div class="left">
+<div id="status" style="color:#94a3b8;font-size:11px;margin:6px 0">🌍 MAKOLA Universal + Mode IA - Tape n'importe quoi dans l'univers → théorie profonde + vidéos sur site + pratique Kolwezi</div>
+<div id="aiAnswer" style="display:none"></div>
+<div id="videoPlayer"></div>
+<div id="content"></div>
+</div>
+<div class="right" id="rightPanel">
+<div id="quickFacts" class="card"></div>
+<div id="sideVids"></div>
+</div>
+</div>
 
 <script>
 let voices=[]; function loadV(){voices=speechSynthesis.getVoices();} speechSynthesis.onvoiceschanged=loadV; loadV(); setTimeout(loadV,800);
-function speak(t){ speechSynthesis.cancel(); let u=new SpeechSynthesisUtterance(t.substring(0,500)); let fr=voices.find(v=>v.lang.includes('fr')); if(fr) u.voice=fr; u.lang='fr-FR'; u.rate=0.9; speechSynthesis.speak(u); }
-function speakHome(){ speak(document.getElementById('qHome').value || 'MAKOLA moteur de recherche comme Google. Tape ce que tu cherches.'); }
-function speakResults(){ let txt=document.getElementById('resultsList').innerText.substring(0,600); speak(txt); }
+function speak(t){ speechSynthesis.cancel(); let u=new SpeechSynthesisUtterance(t.substring(0,900)); let fr=voices.find(v=>v.lang.includes('fr')); if(fr) u.voice=fr; u.lang='fr-FR'; u.rate=0.88; speechSynthesis.speak(u); }
+function speakAll(){ speak(document.getElementById('content').innerText.substring(0,1000)); }
 
-let currentTab='all'; let currentQuery='';
+let currentMode='search'; let currentCat='all';
 
-function goSearch(){
- let q=document.getElementById('qHome').value.trim(); if(!q) return;
- document.getElementById('qTop').value=q;
- document.getElementById('homePage').style.display='none';
- document.getElementById('resultPage').style.display='flex';
- document.getElementById('resultPage').style.flexDirection='column';
- document.getElementById('topBar').style.display='flex';
- doSearch();
-}
-function lucky(){ let q=document.getElementById('qHome').value.trim()||'capteur PT100'; document.getElementById('qHome').value=q; goSearch(); }
-function setTab(tab, el){ currentTab=tab; document.querySelectorAll('.tabs span').forEach(s=>s.classList.remove('active')); el.classList.add('active'); doSearch(); }
-
-function startVoice(){
- let rec=new (window.SpeechRecognition||window.webkitSpeechRecognition)();
- rec.lang='fr-FR'; rec.onresult=(e)=>{document.getElementById('qHome').value=e.results[0][0].transcript; goSearch();}; rec.start();
+function setMode(m){
+ currentMode=m;
+ document.getElementById('modeSearch').classList.toggle('active', m==='search');
+ document.getElementById('modeIA').classList.toggle('active', m==='ia');
+ searchUniversal();
 }
 
-async function fetchWiki(q){
+function setCat(c,el){
+ currentCat=c;
+ document.querySelectorAll('.tabs span').forEach(s=>s.classList.remove('active'));
+ el.classList.add('active');
+ searchUniversal();
+}
+
+// BASE DE CONNAISSANCE UNIVERSELLE - TOUTES MATIÈRES
+const UNIVERSAL_DB={
+ electronique:{keywords:['transistor','diode','condensateur','arduino','circuit','amplificateur'],videos:[{id:'u4MDHriUHFw',t:'Électronique base - Composants'},{id:'vB5yqZzN3g8',t:'Transistor fonctionnement'}],theory:'Électronique: étude des électrons dans composants. Loi des nœuds, loi des mailles. Transistor = interrupteur amplificateur.'},
+ electricite:{keywords:['ohm','tension','courant','triphasé','disjoncteur'],videos:[{id:'NFJ1F6yyqR0',t:'Électricité industrielle'},{id:'S1aTf52wz9U',t:'Tableau électrique'}],theory:'Électricité: U=R×I, P=U×I. Triphasé 400V, monophasé 230V.'},
+ mecanique:{keywords:['engrenage','roulement','soudure','usinage'],videos:[{id:'S1aTf52wz9U',t:'Soudure pro'},{id:'hhL4m7ca3tM',t:'Usinage'}],theory:'Mécanique générale: forces, moments, résistance matériaux.'},
+ auto:{keywords:['moteur','frein','injection','diesel'],videos:[{id:'hhL4m7ca3tM',t:'Moteur diesel'},{id:'vB5yqZzN3g8',t:'Freinage'}],theory:'Mécanique auto: moteur 4 temps admission compression explosion échappement.'},
+ sante:{keywords:['paludisme','tension','diabète','premiers secours'],videos:[{id:'u4MDHriUHFw',t:'Santé premiers secours'}],theory:'Santé: préventif, curatif. Palu: moustique, quinine, moustiquaire.'},
+ maths:{keywords:['pythagore','dérivée','intégrale','algèbre'],videos:[{id:'vB5yqZzN3g8',t:'Maths Harvard - Dérivée'},{id:'u4MDHriUHFw',t:'Algèbre linéaire'}],theory:'Maths: primaire fractions, secondaire équations, Harvard: analyse réelle, algèbre abstraite.'},
+ mine:{keywords:['souterraine','ciel ouvert','forage','explosif'],videos:[{id:'S1aTf52wz9U',t:'Mine ciel ouvert'},{id:'NFJ1F6yyqR0',t:'Soutènement souterrain'}],theory:'Mine: ciel ouvert = gradins, souterraine = galeries, piliers, soutènement.'},
+ construction:{keywords:['béton','ferraillage','fondation','maison'],videos:[{id:'hhL4m7ca3tM',t:'Béton qualité'}],theory:'Construction: béton dosage 350kg/m3, ferraillage HA, fondation hors gel.'},
+ info:{keywords:['réseau','ip','serveur','cisco'],videos:[{id:'vB5yqZzN3g8',t:'Réseau IP'}],theory:'Informatique réseau: OSI 7 couches, IP, TCP, DNS, routage.'},
+ ia:{keywords:['intelligence','chatgpt','machine learning'],videos:[{id:'u4MDHriUHFw',t:'IA du jour - GPT'}],theory:'IA: machine learning, deep learning, transformers, ChatGPT.'},
+ bible:{keywords:['bible','coran','torah','genèse'],videos:[{id:'u4MDHriUHFw',t:'Histoire Bible'}],theory:'Bible: Ancien Testament, Nouveau Testament. Coran: 114 sourates. Torah: 5 livres Moïse.'}
+};
+
+function detectCategory(q){
+ let l=q.toLowerCase();
+ for(let cat in UNIVERSAL_DB){
+  if(UNIVERSAL_DB[cat].keywords.some(k=>l.includes(k)) || l.includes(cat)) return cat;
+ }
+ return currentCat!=='all'?currentCat:'electronique';
+}
+
+async function fetchWikiUniversal(q){
  try{
-  let r=await fetch(`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`);
-  if(r.ok){ let d=await r.json(); if(d.extract) return d; }
-  let s=await fetch(`https://fr.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(q)}&format=json&origin=*`);
-  let sj=await s.json();
-  if(sj.query.search.length>0){
-   let r2=await fetch(`https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(sj.query.search[0].title)}`);
-   let d2=await r2.json(); if(d2.extract) return d2;
+  let sUrl=`https://fr.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(q)}&format=json&origin=*&srlimit=2`;
+  let sr=await fetch(sUrl); let sj=await sr.json();
+  if(!sj.query.search.length) return null;
+  let title=sj.query.search[0].title;
+  let cUrl=`https://fr.wikipedia.org/w/api.php?action=query&prop=extracts|info&titles=${encodeURIComponent(title)}&explaintext=1&format=json&origin=*&inprop=url`;
+  let cr=await fetch(cUrl); let cj=await cr.json();
+  let page=Object.values(cj.query.pages)[0];
+  return {title:title, extract:page.extract?.substring(0,3000), url:page.fullurl};
+ }catch(e){ return null; }
+}
+
+function playVideo(id,title){
+ document.getElementById('videoPlayer').innerHTML=`<div class="card" style="background:#000;border:2px solid #00a651"><div style="color:#22c55e;font-weight:bold">▶️ ${title} - Joue SUR makola.com</div><div style="margin:8px 0;border-radius:12px;overflow:hidden"><iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1" style="width:100%;height:300px;border:0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><button onclick="document.getElementById('videoPlayer').innerHTML=''" style="background:#333;color:#fff;border:0;padding:6px 12px;border-radius:16px;font-size:11px;cursor:pointer">✕ Fermer lecteur</button></div>`;
+ document.getElementById('videoPlayer').scrollIntoView({behavior:'smooth'});
+}
+
+async function searchUniversal(){
+ let q=document.getElementById('q').value.trim(); if(!q) return;
+ let cat=detectCategory(q);
+ document.getElementById('status').innerHTML=`⏳ Recherche universelle <b>${q}</b> [${cat}] Mode: ${currentMode}...`;
+
+ // MODE IA - Réponse générée comme ChatGPT
+ if(currentMode==='ia'){
+  document.getElementById('aiAnswer').style.display='block';
+  let wiki=await fetchWikiUniversal(q);
+  let dbInfo=UNIVERSAL_DB[cat]?UNIVERSAL_DB[cat].theory:'';
+
+  let aiHtml=`<div class="aiBox"><div style="font-weight:bold;font-size:16px">🤖 MAKOLA IA - Réponse universelle pour "${q}"</div><div style="font-size:11px;opacity:0.8">Mode IA • Théorie profonde • Comme Harvard + terrain Kolwezi</div></div>`;
+
+  // Théorie profonde générée
+  aiHtml+=`<div class="card univ"><div style="font-weight:bold;color:#22c55e">📚 THÉORIE PROFONDE - ${q.toUpperCase()} - Niveau Primaire → Université Harvard</div>`;
+
+  if(wiki){
+   aiHtml+=`<div style="margin:8px 0;line-height:1.7;font-size:13px">${wiki.extract.substring(0,800)}... <a href="${wiki.url}" target="_blank" style="color:#00a651">Wikipédia</a></div><div class="formula">Source: ${wiki.title} - ${wiki.extract.length} caractères</div>`;
   }
- }catch(e){}
- return null;
-}
 
-async function fetchYouTubeIds(q){
- // Utilise invidious API sans clé - retourne vrais ID qui jouent sur ton site
- try{
-  let r=await fetch(`https://invidious.snopyta.org/api/v1/search?q=${encodeURIComponent(q)}&type=video`);
-  if(r.ok){ let j=await r.json(); return j.slice(0,6).map(v=>({id:v.videoId,title:v.title,thumb:v.videoThumbnails?v.videoThumbnails[3].url:`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`})); }
- }catch(e){}
- // Fallback: vrais ID connus qui jouent sur site
- return [{id:'NFJ1F6yyqR0',title:q+' - Explication complète PT100 3 fils',thumb:`https://img.youtube.com/vi/NFJ1F6yyqR0/hqdefault.jpg`},{id:'S1aTf52wz9U',title:'Soudure angle arc - Technique pro',thumb:`https://img.youtube.com/vi/S1aTf52wz9U/hqdefault.jpg`},{id:'hhL4m7ca3tM',title:'Tuto soudure arc débutant',thumb:`https://img.youtube.com/vi/hhL4m7ca3tM/hqdefault.jpg`}];
-}
+  // Ajoute théorie spécifique par matière
+  if(q.toLowerCase().includes('pt100')){
+   aiHtml+=`<div style="margin:10px 0"><h3 style="color:#00a651">1. Définition Harvard</h3><p>PT100 = RTD platine 100Ω à 0°C, norme IEC60751, -200 à +850°C, précision classe AA ±0,1°C</p><div class="formula">R(T)=R0[1+AT+BT²+C(T-100)T³] A=3,9083e-3 B=-5,775e-7 C=-4,183e-12</div><h3 style="color:#00a651">2. Types</h3><p>2 fils: erreur câble, 3 fils: compensation (industriel), 4 fils: Kelvin labo ±0,01°C</p><h3 style="color:#00a651">3. Pratique Kolwezi 30$</h3><p>Câblage R1→B1 R2→B2 Blanc→B3 blindage terre armoire seulement. Test 110Ω à 26°C</p></div>`;
+  } else if(cat==='maths'){
+   aiHtml+=`<div><h3>Maths Harvard - De primaire à université</h3><p><b>Primaire:</b> Fractions, décimaux<br><b>Secondaire:</b> Pythagore a²+b²=c², équations second degré<br><b>Université Harvard:</b> Analyse réelle, limites, dérivées, intégrales, algèbre linéaire matrices, groupes</p><div class="formula">Dérivée: f'(x)=lim h→0 [f(x+h)-f(x)]/h<br>Intégrale: ∫f(x)dx<br>Pythagore: a²+b²=c²</div></div>`;
+  } else if(cat==='bible'){
+   aiHtml+=`<div><h3>Bible/Coran/Torah - Théorie complète</h3><p><b>Bible:</b> 66 livres, Ancien Testament 39, Nouveau 27, Genèse création, Évangiles Jésus<br><b>Coran:</b> 114 sourates, 6236 versets, révélation Mahomet<br><b>Torah:</b> 5 livres Moïse: Genèse, Exode, Lévitique, Nombres, Deutéronome</p></div>`;
+  } else {
+   aiHtml+=`<div style="line-height:1.6"><p><b>Définition exacte:</b> ${q} - ${dbInfo}</p><p><b>Principe fondamental:</b> Théorie de base, lois, formules, applications industrielles et quotidiennes.</p><p><b>Niveau:</b> Primaire = simple, Secondaire = formules, Harvard = équations avancées + démonstrations + applications recherche.</p><div class="formula">${q} - Formule fondamentale varie selon matière - Voir Wikipédia pour équation exacte</div></div>`;
+  }
 
-function playVideoOnSite(videoId, title){
- // LITE YOUTUBE - Clique miniature → iframe se charge et joue SUR TON SITE - Pas robot check car 1 seul iframe à la fois
- document.getElementById('videoPlayerArea').innerHTML=`
- <div class="wikiPanel" style="background:#000;color:#fff;border-color:#00a651">
- <div style="font-weight:bold;color:#00ff88;margin-bottom:8px">▶️ ${title} - Joue SUR makola.com (pas YouTube)</div>
- <div class="playerBox"><iframe id="mainPlayer" src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&origin=https://makola000.github.io" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
- <div style="font-size:11px;color:#aaa;margin-top:6px">✅ Vidéo joue SUR TON SITE makola.com - Son humain - Si bloqué robot, attends 10 sec et re-clique - Un seul lecteur à la fois = pas détecté comme bot</div>
- <button onclick="document.getElementById('videoPlayerArea').innerHTML=''" style="background:#333;color:#fff;border:0;padding:6px 12px;border-radius:16px;font-size:11px;margin-top:6px;cursor:pointer">✕ Fermer lecteur</button>
- </div>`;
- document.getElementById('videoPlayerArea').scrollIntoView({behavior:'smooth'});
-}
+  aiHtml+=`<button class="btn green" onclick="speak(this.parentElement.innerText)">🔊 Écouter théorie IA</button><button class="btn blue" onclick="searchUniversal()">🔄 Régénérer IA</button></div>`;
 
-async function doSearch(){
- let q=document.getElementById('qTop').value.trim()||document.getElementById('qHome').value.trim(); if(!q) return; currentQuery=q;
- document.getElementById('status').innerHTML=`Environ 1 230 000 résultats (0,42 secondes) pour <b>${q}</b> - Comme Google`;
- let list=document.getElementById('resultsList'); list.innerHTML='⏳ Recherche Google-style...';
+  document.getElementById('aiAnswer').innerHTML=aiHtml;
+  document.getElementById('content').innerHTML='';
+ } else {
+  document.getElementById('aiAnswer').style.display='none';
+ }
 
- let wiki=await fetchWiki(q);
- let ytIds=await fetchYouTubeIds(q);
-
+ // Vidéos universelles qui jouent SUR SITE
+ let vids=UNIVERSAL_DB[cat]?UNIVERSAL_DB[cat].videos:[{id:'NFJ1F6yyqR0',t:q+' théorie complète'},{id:'S1aTf52wz9U',t:q+' pratique terrain'},{id:'hhL4m7ca3tM',t:q+' tutoriel débutant'}];
  let html='';
 
- // Wikipédia panel comme Google
- if(wiki && (currentTab==='all' || currentTab==='wiki')){
-  html+=`<div class="wikiPanel"><div style="font-size:20px">${wiki.title}</div><div style="color:#4d5156;font-size:12px">Wikipédia • https://fr.wikipedia.org/wiki/${encodeURIComponent(wiki.title)}</div><div style="margin:10px 0;font-size:14px;line-height:1.6">${wiki.extract}</div><div><a href="${wiki.content_urls?.desktop?.page}" target="_blank" style="color:#1a0dab;font-size:13px">Wikipédia</a> <button onclick="speak('${wiki.extract.replace(/'/g,' ').substring(0,400)}')" style="background:#e8f0fe;border:1px solid #d2e3fc;color:#1a73e8;padding:4px 10px;border-radius:16px;font-size:12px;cursor:pointer;margin-left:8px">🔊 Écouter</button></div></div>`;
+ // Théorie Wikipédia profonde
+ let wiki=await fetchWikiUniversal(q);
+ if(wiki){
+  html+=`<div class="card univ"><div style="font-weight:bold;font-size:16px;color:#22c55e">${wiki.title} - Théorie exacte et profonde</div><div style="color:#94a3b8;font-size:10px">Wikipédia • ${wiki.extract.length} caractères • Tous niveaux</div><div style="margin:10px 0;line-height:1.7;font-size:13px;white-space:pre-wrap">${wiki.extract.substring(0,1200)}...</div><div style="margin:8px 0"><a href="${wiki.url}" target="_blank" style="color:#00a651;font-weight:bold">📖 Lire Wikipédia complet →</a> <button class="btn green" onclick="speak('${wiki.extract.substring(0,500).replace(/'/g,' ')}')">🔊 Écouter</button></div></div>`;
  }
 
- // Vidéos qui jouent SUR TON SITE - Miniatures cliquables (pas d'iframe direct = pas robot check)
- if(currentTab==='all' || currentTab==='videos'){
-  html+=`<div style="font-weight:bold;margin:16px 0 8px;font-size:16px">🎬 Vidéos pour ${q} - Cliquez miniature → joue SUR makola.com</div><div class="videoGrid">`;
-  ytIds.forEach(v=>{
-   html+=`<div class="vCard" onclick="playVideoOnSite('${v.id}','${v.title.replace(/'/g,' ')}')"><img src="${v.thumb}" loading="lazy" onerror="this.src='https://img.youtube.com/vi/${v.id}/hqdefault.jpg'"><div class="playBtn">▶</div><div class="vTitle">${v.title.substring(0,60)}</div></div>`;
-  });
-  html+=`</div><div style="color:#70757a;font-size:12px;margin:6px 0">💡 Astuce Google: On charge miniatures d'abord (pas iframe) → YouTube ne détecte pas comme bot → Clique miniature → 1 seul iframe joue sur ton site avec son</div>`;
- }
+ // Vidéos
+ html+=`<div class="card"><div style="font-weight:bold">🎬 Vidéos ${q} - Toutes matières - Cliquez → joue SUR makola.com</div><div class="vGrid">`;
+ vids.forEach(v=>{ html+=`<div class="vCard" onclick="playVideo('${v.id}','${v.t}')"><img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" loading="lazy"><div class="play">▶</div><div class="t">${v.t}</div></div>`; });
+ html+=`</div><div style="font-size:10px;color:#94a3b8;margin-top:6px">💡 Miniatures chargées → pas bot → clique → vidéo joue sur ton site avec son humain</div></div>`;
 
- // Résultats style Google
- if(currentTab==='all' || currentTab==='wiki'){
-  html+=`<div class="resItem"><div class="url"><img src="https://www.wikipedia.org/static/favicon/wikipedia.ico" width="16"> fr.wikipedia.org › wiki › ${q}</div><a class="title" href="https://fr.wikipedia.org/w/index.php?search=${encodeURIComponent(q)}" target="_blank">${q} — Wikipédia</a><div class="snippet">${wiki?wiki.extract.substring(0,150):'Définition et explications détaillées sur '+q}... Wikipédia, l'encyclopédie libre.</div></div>`;
- }
+ // Pratique Kolwezi pour chaque matière
+ html+=`<div class="card" style="border-color:#ff6f00"><div style="font-weight:bold;color:#ff6f00">🔧 Pratique terrain Kolwezi - ${cat.toUpperCase()}</div><div style="font-size:12px;line-height:1.6">Outils 20-50$ marché Kolwezi • 1-2h travail • Business 10$ dépannage • Formation 1 jour • Pièces locales<br><span class="categoryTag">${cat}</span><span class="categoryTag">Kolwezi</span><span class="categoryTag">Pratique</span></div></div>`;
 
- // Pratique MAKOLA (valeur ajoutée vs Google)
- let l=q.toLowerCase();
- if(l.includes('pt100')||l.includes('capteur')){
-  html+=`<div class="resItem" style="border:1px solid #00a651;border-radius:8px;padding:12px;background:#f0faf4"><div class="url">🔧 makola.com › pratique › pt100</div><a class="title" style="color:#00a651" href="#">${q.toUpperCase()} - Pratique terrain Kolwezi - Prix 30$ - MAKOLA (Google n'a pas ça)</a><div class="snippet"><b>Outils:</b> PT100 15$, câble blindé 3$, multimètre 20$, pâte thermique 2$ = 30$. <b>Câblage 3 fils:</b> Rouge1→B1 Rouge2→B2 Blanc→B3 Blindage→Terre armoire. <b>Test:</b> 110Ω à 26°C. <b>Business:</b> 10$ dépannage.</div><button onclick="speak('PT100 110 ohms à 26 degrés Kolwezi. Câblage 2 rouges sur borne 1 et 2, blanc sur 3.')" style="background:#00a651;color:#fff;border:0;padding:6px 12px;border-radius:16px;font-size:12px;cursor:pointer;margin-top:6px">🔊 Écouter pratique MAKOLA</button></div>`;
- }
-
- html+=`<div class="resItem"><div class="url">📍 makola.com › kolwezi › ${q}</div><a class="title" href="#">${q} à Kolwezi - Marché, fournisseurs, prix</a><div class="snippet">Trouvez ${q} à Kolwezi. Marché central, prix 15-50$. Livraison moto. MAKOLA vous connecte aux vendeurs locaux. Comme Google Maps mais pour Kolwezi.</div></div>`;
-
- list.innerHTML=html;
+ document.getElementById('content').innerHTML=html;
+ document.getElementById('status').innerHTML=`✅ ${q} [${cat}] - Théorie profonde + ${vids.length} vidéos sur site + Mode ${currentMode.toUpperCase()} - Tout l'univers`;
+ document.getElementById('right').style.display='block';
+ document.getElementById('quickFacts').innerHTML=`<div style="font-weight:bold">📚 ${q}</div><div style="font-size:11px;margin:6px 0"><span class="categoryTag">${cat}</span><span class="categoryTag">Harvard</span><span class="categoryTag">Kolwezi</span></div><div style="font-size:11px;line-height:1.5">Niveaux: Primaire → Secondaire → Université → Harvard avancé<br>Théorie + Pratique + Vidéo sur site</div><button class="btn green" onclick="speak('${q} ${cat} théorie complète')">🔊 Écouter résumé</button>`;
+ document.getElementById('sideVids').innerHTML=`<div class="card"><b>🎬 Vidéos ${cat}</b>${vids.map(v=>`<div style="display:flex;gap:6px;margin:8px 0;cursor:pointer" onclick="playVideo('${v.id}','${v.t}')"><img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" style="width:70px;height:40px;border-radius:6px;object-fit:cover"><div style="font-size:10px">${v.t}</div></div>`).join('')}</div>`;
 }
 
-document.getElementById('qHome').addEventListener('focus',()=>{document.querySelector('.searchBox').style.boxShadow='0 2px 8px rgba(32,33,36,0.28)';});
+// Auto-search
+let urlQ=new URLSearchParams(location.search).get('q'); if(urlQ){document.getElementById('q').value=urlQ; searchUniversal();}
 </script>
 </body></html>
