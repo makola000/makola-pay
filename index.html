@@ -1,14 +1,8 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA</title><style>body{font-family:Arial;padding:12px;background:#f0f2f5}input{width:100%;padding:15px;font-size:18px;border-radius:8px;border:2px solid blue}.c{background:white;padding:15px;margin:10px 0;border-radius:10px}a{display:block;padding:12px;margin:5px 0;background:red;color:white;text-decoration:none;border-radius:6px;text-align:center}.b{background:blue}.o{background:orange}</style></head><body>
-<h2>MAKOLA SCIENCE</h2><input id="q" type="text" placeholder="Tape Astrologie ici..." oninput="go()">
-<div id="R"><p>Tape un cours ci-dessus ^</p></div>
-<script>
-function go(){
-var m=document.getElementById('q').value;
-if(m.length<2){document.getElementById('R').innerHTML="<p>Tape plus de 2 lettres...</p>";return;}
-var yt="https://www.youtube.com/results?search_query="+m+" cours";
-var gg="https://www.google.com/search?q="+m+" definition";
-var pdf="https://www.google.com/search?q="+m+" cours pdf";
-var html="<div class=c><h3>"+m+"</h3><p>Definition de "+m+"</p><a class=b href='"+gg+"' target=_blank>Voir Definition Google de "+m+"</a><a class=b href='https://fr.wikipedia.org/wiki/"+m+"' target=_blank>Voir Wikipedia "+m+"</a></div><div class=c><h3>Videos de "+m+"</h3><a href='"+yt+"' target=_blank>Voir YouTube "+m+"</a><br><br><iframe width=100% height=200 src='https://www.youtube.com/embed?listType=search&list="+m+" cours' frameborder=0 allowfullscreen></iframe></div><div class=c><h3>PDF de "+m+"</h3><a class=o href='"+pdf+"' target=_blank>Telecharger PDF "+m+"</a></div>";
-document.getElementById('R').innerHTML=html;
-}
-</script></body></html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>TEST MAKOLA</h1>
+<input id="q" placeholder="Tape Astrologie" oninput="document.getElementById('R').innerHTML='Tu as tape: '+this.value">
+<div id="R">Rien tape encore</div>
+</body>
+</html>
