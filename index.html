@@ -1,6 +1,32 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA</title></head><body>
-<h1>NETTOYAGE EN COURS...</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAKOLA PAY</title>
+<style>
+body{font-family:Arial;padding:10px}
+input{width:100%;padding:18px;font-size:20px;border:2px solid blue;border-radius:10px}
+button{width:100%;padding:18px;font-size:20px;background:blue;color:white;border:none;border-radius:10px;margin-top:10px}
+a{display:block;padding:18px;margin-top:12px;text-align:center;color:white;text-decoration:none;border-radius:10px;font-size:18px}
+</style>
+</head>
+<body>
+<h1>MAKOLA PAY OK</h1>
+<input id="q" type="text" placeholder="Tape Astrologie ici">
+<button onclick="chercher()">RECHERCHER</button>
+<div id="R"></div>
+
 <script>
-navigator.serviceWorker.getRegistrations().then(r=>{for(let s of r){s.unregister()}}).then(()=>{caches.keys().then(k=>{k.forEach(c=>caches.delete(c))}).then(()=>{document.body.innerHTML="<h1>MAKOLA PAY OK</h1><input id=q placeholder='Tape Astrologie' style='width:100%;padding:15px;font-size:18px'><button onclick='go()' style='width:100%;padding:15px;background:blue;color:white;margin-top:10px'>CHERCHER</button><div id=R></div><script>function go(){var m=document.getElementById('q').value;document.getElementById('R').innerHTML='<h3>'+m+'</h3><a href=https://www.youtube.com/results?search_query='+m+' target=_blank style=display:block;padding:15px;background:red;color:white;text-align:center>YOUTUBE '+m+'</a><a href=https://www.google.com/search?q='+m+' target=_blank style=display:block;padding:15px;background:blue;color:white;text-align:center;margin-top:10px>GOOGLE '+m+'</a>'}<\/script>";})})
+function chercher(){
+var mot = document.getElementById('q').value;
+if(mot==""){alert("Tape un mot");return;}
+var r = document.getElementById('R');
+r.innerHTML = "<h2>"+mot+"</h2>" +
+"<a href='https://www.youtube.com/results?search_query="+mot+"' target='_blank' style='background:red'>▶ YOUTUBE: "+mot+"</a>" +
+"<a href='https://www.google.com/search?q="+mot+"' target='_blank' style='background:#4285f4'>🔍 GOOGLE: "+mot+"</a>" +
+"<a href='https://fr.wikipedia.org/wiki/"+mot+"' target='_blank' style='background:green'>📖 WIKIPEDIA: "+mot+"</a>";
+}
 </script>
-</body></html>
+</body>
+</html>
