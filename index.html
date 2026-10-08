@@ -1,83 +1,82 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
 <meta name="google-site-verification" content="E9QJqtpR2Hxmd2QGEvR7-fa2tELh1SZRXCXreRIsheM" />
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Makola Pay - 300 Cours 50 Pages</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAKOLA PAY - Science</title>
 <style>
-body{font-family:Arial;margin:0;background:#f2f2f2}
-header{background:#0a3d8f;color:#fff;padding:14px;text-align:center;position:sticky;top:0;z-index:10}
-#search{width:92%;max-width:700px;padding:16px 20px;border-radius:30px;border:none;font-size:16px;margin:10px 0}
-.container{max-width:900px;margin:auto;padding:10px}
-.course{background:#fff;border:1px solid #ddd;padding:14px;margin-bottom:10px;border-radius:12px}
-.btn{padding:9px 14px;border-radius:20px;border:none;margin:4px 4px 0 0;font-size:13px;cursor:pointer;font-weight:bold}
-.btn-dl{background:#0a3d8f;color:#fff}
-.btn-play{background:#ff6a00;color:#fff}
-.btn-mega{background:#00a651;color:#fff;width:100%;padding:14px;font-size:16px;margin:10px 0}
+body { font-family: Arial; background: #f0f2f5; margin:0; padding:20px; text-align:center; }
+#login { background:white; max-width:400px; margin:50px auto; padding:30px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
+#science { display:none; background:white; max-width:900px; margin:20px auto; padding:20px; border-radius:10px; }
+input { padding:12px; width:80%; margin:10px 0; border:1px solid #ccc; border-radius:5px; }
+button { padding:12px 30px; background:#1877f2; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(250px,1fr)); gap:15px; margin-top:20px; text-align:left; }
+.card { border:1px solid #ddd; padding:15px; border-radius:8px; background:#fff; }
+.card h3 { margin-top:0; color:#1877f2; }
+.card a { display:block; margin:5px 0; color:#333; text-decoration:none; padding:8px; background:#f5f5f5; border-radius:5px; }
+.card a:hover { background:#e0e0e0; }
 </style>
 </head>
 <body>
-<header>
-<div style="font-size:24px;font-weight:bold">MAKOLA PAY - 300 MANUELS 50 PAGES</div>
-<input id="search" placeholder="Cherche 300 cours: Pythagore, ADN, atome, Newton, dérivée, cellule..." oninput="doSearch()">
-<div id="stats" style="font-size:13px;color:#a3c2ff"></div>
-<button class="btn btn-mega" onclick="downloadMegaPack()">📚 PACK 100 PAGES - TOUS LES COURS</button>
-</header>
-<div class="container" id="list"></div>
+
+<div id="login">
+<h2>MAKOLA PAY</h2>
+<p>Entre ton code d'accès</p>
+<input type="text" id="codeInput" placeholder="Ex: MAKOLA0510">
+<br>
+<button onclick="verifier()">ENTRER</button>
+<p id="msg" style="color:red;"></p>
+</div>
+
+<div id="science">
+<h1>MAKOLA SCIENCE</h1>
+<p>Bienvenue! Voici tous les contenus</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>📚 300 COURS</h3>
+<a href="pdf/cours1.pdf" target="_blank">Cours 1 - Biologie</a>
+<a href="pdf/cours2.pdf" target="_blank">Cours 2 - Chimie</a>
+<a href="pdf/cours3.pdf" target="_blank">Cours 3 - Physique</a>
+<a href="pdf/liste-300-cours.pdf" target="_blank">VOIR LISTE COMPLETE DES 300 COURS</a>
+</div>
+
+<div class="card">
+<h3>🎥 VIDÉOS</h3>
+<a href="videos/video1.mp4" target="_blank">Vidéo 1</a>
+<a href="videos/video2.mp4" target="_blank">Vidéo 2</a>
+<a href="videos/video3.mp4" target="_blank">Vidéo 3</a>
+<a href="videos/" target="_blank">TOUTES LES VIDÉOS</a>
+</div>
+
+<div class="card">
+<h3>📄 PDF 50 PAGES</h3>
+<a href="pdf/pdf-50-pages.pdf" target="_blank">Ouvrir PDF 50 Pages</a>
+<a href="pdf/resume-50.pdf" target="_blank">Résumé 50 pages</a>
+</div>
+
+<div class="card">
+<h3>📄 PDF 100 PAGES</h3>
+<a href="pdf/pdf-100-pages.pdf" target="_blank">Ouvrir PDF 100 Pages</a>
+<a href="pdf/resume-100.pdf" target="_blank">Résumé 100 pages</a>
+</div>
+
+</div>
+</div>
 
 <script>
-const coursList=[
-"Théorème de Pythagore","Théorème de Thalès","Dérivées","Intégrales","Limites","Probabilités","Statistiques","Logarithmes","Exponentielles","Nombres complexes",
-"Lois de Newton","Gravitation","Energie cinétique","Electricité","Magnétisme","Optique","Thermodynamique","Mécanique quantique","Relativité","Ondes",
-"Structure de l'atome","Tableau périodique","Liaisons chimiques","Acides et Bases","Oxydoréduction","Chimie organique","Moles et concentration","Equilibre chimique","Electrochimie","Cuivre Kolwezi",
-"ADN Génétique","Mitose Méiose","Cellule","Anatomie coeur","Système nerveux","Photosynthèse","Ecologie","Evolution","Immunité","Sang et groupes",
-"Algorithmes tri","Programmation Python","Bases de données","Réseaux","IA","HTML CSS","JavaScript","Cybersécurité","Systèmes exploitation","Robotique",
-"Géologie Kolwezi","Volcans","Tectonique plaques","Astronomie","Système solaire","Trigonométrie","Vecteurs","Matrices","Equations différentielles","Géométrie"
-];
-let all=[];
-for(let i=0;i<300;i++){
- let base=coursList[i % coursList.length];
- let variante=Math.floor(i / coursList.length)+1;
- let mat= i%10<4?"math":i%10<6?"physique":i%10<8?"chimie":i%10<9?"biologie":"informatique";
- let titre=base + (variante>1?" - Partie "+variante:"");
- all.push({id:i,title:titre,mat:mat, base:base});
-}
-function generer50Pages(c,doc){
- doc.setFillColor(10,61,143); doc.rect(0,0,210,297,'F');
- doc.setTextColor(255,255,255); doc.setFontSize(28); doc.setFont(undefined,'bold'); doc.text("MAKOLA PAY",25,60);
- doc.setFontSize(18); doc.text(c.title,15,85, {maxWidth:180}); doc.setFontSize(13); doc.text("MANUEL 50 PAGES - "+c.mat.toUpperCase(),15,110);
- doc.setFontSize(11); doc.text("Kolwezi 2026 | Cours N°"+(c.id+1)+"/300",15,125); doc.text("makola000.github.io/makola-pay",15,135);
- for(let p=2;p<=50;p++){
-   doc.addPage();
-   doc.setFillColor(10,61,143); doc.rect(0,0,210,12,'F'); doc.setTextColor(255,255,255); doc.setFontSize(8); doc.text("MAKOLA PAY - "+c.title+" - p"+p+"/50",10,8);
-   doc.setTextColor(0,0,0); doc.setFontSize(12); doc.setFont(undefined,'bold'); doc.text("Chapitre "+p+": "+c.base+" - Approfondissement",12,22);
-   doc.setFontSize(10); doc.setFont(undefined,'normal');
-   let txt=`Cours ${c.id+1}/300 - ${c.title}\n\nPage ${p} de 50 - Contenu pédagogique complet.\n\nDEFINITION: ${c.base} est une notion essentielle en ${c.mat}. A Kolwezi, on l'utilise dans les mines, les écoles, l'université.\n\nFORMULES:\n- Si math: a²+b²=c², f'=lim, ∫, P=n/N\n- Si physique: F=ma, Ec=1/2mv²\n- Si chimie: n=m/M, Cu=63.5\n- Si biologie: ADN A-T C-G\n- Si info: O(n log n)\n\nEXEMPLE CONCRET PAGE ${p}:\nPrenons un exemple réel de la vie à Kolwezi. On calcule, on démontre, on applique.\n\nExercice ${p}: Appliquez ${c.base} pour résoudre ce problème. Voir correction page 45.\n\nCette page fait partie du manuel officiel Makola Pay de 50 pages. Chaque page contient une leçon différente pour maîtriser totalement ${c.base}.`;
-   doc.text(doc.splitTextToSize(txt,185),12,30);
-   doc.setFontSize(7); doc.text("© Makola Pay 2026 - makola000.github.io/makola-pay",12,292);
+function verifier(){
+ var code = document.getElementById('codeInput').value.trim().toUpperCase();
+ if(code === 'MAKOLA0510'){
+  document.getElementById('login').style.display='none';
+  document.getElementById('science').style.display='block';
+ } else {
+  document.getElementById('msg').innerText='Code incorrect. Essaie MAKOLA0510';
  }
 }
-function createPDF(c){const {jsPDF}=window.jspdf; const doc=new jsPDF(); generer50Pages(c,doc); doc.save("MakolaPay_"+c.title.replace(/[^a-z0-9]/gi,'_')+"_50P.pdf");}
-function downloadMegaPack(){const {jsPDF}=window.jspdf; const doc=new jsPDF(); doc.setFillColor(0,166,81); doc.rect(0,0,210,297,'F'); doc.setTextColor(255,255,255); doc.setFontSize(26); doc.text("PACK 100 PAGES",20,60); doc.text("300 COURS MAKOLA",20,80); for(let i=1;i<100;i++){doc.addPage(); doc.setFillColor(0,166,81); doc.rect(0,0,210,10,'F'); doc.setTextColor(255,255,255); doc.setFontSize(8); doc.text("PACK 100 PAGES - Page "+(i+1),10,7); doc.setTextColor(0,0,0); let cc=all[i%300]; doc.setFontSize(11); doc.text((i+1)+". "+cc.title+" ("+cc.mat+") - Résumé + formule + exercice",12,20);} doc.save("MakolaPay_PACK_100PAGES_300COURS.pdf");}
-
-function render(list){
- document.getElementById('stats').innerText=list.length+" / 300 cours trouvés - Tape pour filtrer";
- document.getElementById('list').innerHTML=list.map(c=>`
-  <div class="course">
-   <b>${c.id+1}. ${c.title}</b> <small style="background:#e3f2fd;padding:2px 8px;border-radius:10px">${c.mat}</small>
-   <div style="font-size:12px;color:#555">Manuel complet 50 pages • Recherche instantanée • PDF avec logo</div>
-   <button class="btn btn-dl" onclick="createPDF(all[${c.id}])">📥 Télécharger 50 pages PDF</button>
-   <button class="btn btn-play" onclick="alert('Vidéo: ${c.base} sur Makola Pay')">▶️ Voir vidéo</button>
-  </div>`).join('');
-}
-function doSearch(){
- let q=document.getElementById('search').value.toLowerCase();
- if(!q){render(all); return;}
- let f=all.filter(c=>c.title.toLowerCase().includes(q) || c.base.toLowerCase().includes(q) || c.mat.includes(q));
- render(f);
-}
-render(all);
 </script>
+
 </body>
 </html>
