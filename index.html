@@ -1,15 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 <meta name="google-site-verification" content="E9QJqtpR2Hxmd2QGEvR7-fa2tELh1SZRXCXreRIsheM" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Makola Pay</title>
+<title>Makola Pay - Tous les cours scientifiques du monde</title>
+<style>
+body{font-family:Arial;margin:0;background:#f5f7fb}
+header{background:#0a3d8f;color:white;padding:15px;text-align:center}
+.search-box{margin:20px auto;max-width:600px;display:flex}
+.search-box input{flex:1;padding:12px;border:2px solid #0a3d8f;border-radius:8px 0 0 8px}
+.search-box button{padding:12px 20px;background:#0a3d8f;color:white;border:none;border-radius:0 8px 8px 0;cursor:pointer}
+.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;padding:20px}
+.card{background:white;padding:20px;border-radius:10px;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,0.1);cursor:pointer}
+.video-section{padding:20px;max-width:800px;margin:auto}
+iframe{width:100%;height:400px;border-radius:10px;border:none}
+</style>
 </head>
 <body>
-<div class="makola-pay">
-<h1>Makola Pay</h1>
-<p>Bienvenue sur Makola Pay</p>
+<header>
+<h1>📚 MAKOLA PAY</h1>
+<p>Tous les cours scientifiques du monde - Vidéos sans quitter le site</p>
+</header>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Rechercher: Math, Physique, Chimie, Biologie...">
+<button onclick="searchCourse()">Rechercher</button>
 </div>
+
+<div class="subjects">
+<div class="card" onclick="loadVideo('Mathématiques')">📐<br>Mathématiques</div>
+<div class="card" onclick="loadVideo('Physique')">⚛️<br>Physique</div>
+<div class="card" onclick="loadVideo('Chimie')">🧪<br>Chimie</div>
+<div class="card" onclick="loadVideo('Biologie')">🧬<br>Biologie</div>
+<div class="card" onclick="loadVideo('Informatique')">💻<br>Informatique</div>
+<div class="card" onclick="loadVideo('Géologie')">🌍<br>Géologie</div>
+</div>
+
+<div class="video-section">
+<h2 id="videoTitle">Choisis une matière ci-dessus</h2>
+<div id="player"></div>
+</div>
+
+<script>
+function loadVideo(matiere){
+document.getElementById('videoTitle').innerText = 'Cours de ' + matiere;
+document.getElementById('player').innerHTML = '<iframe src="https://www.youtube.com/embed/5MgBikgcWnY?rel=0" allowfullscreen></iframe><p style="margin-top:10px">Cours complet de '+matiere+' - Lecture directe sur Makola Pay (pas de redirection YouTube)</p>';
+}
+function searchCourse(){
+let q = document.getElementById('search').value;
+if(q) loadVideo(q);
+}
+</script>
 </body>
 </html>
