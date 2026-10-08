@@ -1,16 +1,29 @@
-<!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA 300 Cours</title>
-<style>body{font-family:Arial;background:#f0f2f5;padding:15px}#login{background:white;max-width:400px;margin:80px auto;padding:30px;border-radius:10px;text-align:center}#app{display:none;max-width:900px;margin:auto}.search{width:100%;padding:15px;font-size:18px;border-radius:8px;border:1px solid #ccc;margin:20px 0}.cours{background:white;padding:20px;border-radius:10px;margin-bottom:15px}.video{padding:8px;background:#e7f3ff;margin:3px 0;display:block;border-radius:5px;text-decoration:none}.pdf{padding:8px;background:#fff8e1;margin:3px 0;display:block;border-radius:5px;text-decoration:none;border:1px solid #ffe69c}</style>
-</head><body>
-<div id="login"><h2>MAKOLA PAY</h2><input id="codeInput" placeholder="MAKOLA0510"><br><br><button onclick="if(document.getElementById('codeInput').value.toUpperCase()=='MAKOLA0510'){localStorage.setItem('ok','1');location.reload()}else{alert('Code faux')}">ENTRER</button></div>
-<div id="app"><h1>MAKOLA - 300 Cours</h1><input id="search" class="search" placeholder="Cherche: Astrologie, Biologie, Chimie..." onkeyup="filtrer()"><div id="liste"></div></div>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA - YouTube + Google</title><style>body{font-family:Arial;background:#f0f2f5;padding:15px;max-width:900px;margin:auto}input{width:100%;padding:16px;font-size:20px;border-radius:10px;border:2px solid #1877f2;box-sizing:border-box}.card{background:white;padding:20px;border-radius:12px;margin-top:20px;box-shadow:0 2px 5px rgba(0,0,0,0.1)}a.btn{display:block;padding:14px;margin:8px 0;border-radius:8px;text-decoration:none;font-weight:bold;text-align:center}.yt{background:#ff0000;color:white}.gg{background:#1877f2;color:white}.pdf{background:#ff9800;color:white}</style></head><body>
+<h1>MAKOLA SCIENCE</h1><p>Tape un cours, je cherche sur YouTube et Google pour toi:</p><input id="q" placeholder="Ex: Astrologie, Biologie, Chimie..." onkeyup="if(event.key==='Enter')chercher()"><br><br><button onclick="chercher()" style="padding:12px 30px;background:#1877f2;color:white;border:none;border-radius:8px;font-size:18px">CHERCHER</button><div id="R"></div>
 <script>
-if(localStorage.getItem('ok')=='1'){document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';}
-let noms=["Astrologie","Astronomie","Biologie Cellulaire","Chimie Générale","Physique Mécanique","Math Algèbre","Anatomie","Génétique","Botanique","Zoologie","Ecologie","Microbiologie","Biochimie","Géologie","Climatologie","Pharmacologie","Physiologie","Histologie"];
-let cours=[];
-for(let i=1;i<=300;i++){let n=i<=noms.length?noms[i-1]:"Cours Science "+i;cours.push({nom:n, def:"Définition complète de "+n+". Théories, formules et explications détaillées pour lire hors ligne. Si tu quittes le site, tu peux lire le PDF.", video:["Vidéo "+n+" - Partie 1","Vidéo "+n+" - Partie 2"], pdf:["PDF "+n+" - 50 pages - Définitions","PDF "+n+" - 100 pages - Formules"]});}
-function htmlCard(c){return `<div class="cours"><h2>${c.nom}</h2><p><b>📖 Explication / Définition:</b><br>${c.def}</p><b>🎥 Vidéos de ${c.nom}:</b>${c.video.map(v=>`<a class="video" href="#">${v} ▶️</a>`).join('')}<b>📄 PDF de ${c.nom} (hors site):</b>${c.pdf.map(p=>`<a class="pdf" href="#">${p} ⬇️</a>`).join('')}</div>`;}
-function afficher(list){document.getElementById('liste').innerHTML=list.map(c=>htmlCard(c)).join('');}
-function filtrer(){let q=document.getElementById('search').value.toLowerCase();let f=q==""?cours:cours.filter(c=>c.nom.toLowerCase().includes(q));afficher(f);}
-afficher(cours);
+function chercher(){
+var mot=document.getElementById('q').value.trim();
+if(mot==""){alert("Tape un cours d'abord");return;}
+var ytb="https://www.youtube.com/results?search_query="+encodeURIComponent(mot+" cours complet");
+var googDef="https://www.google.com/search?q="+encodeURIComponent(mot+" definition cours");
+var googPdf="https://www.google.com/search?q="+encodeURIComponent(mot+" cours pdf");
+var wiki="https://fr.wikipedia.org/wiki/"+encodeURIComponent(mot);
+document.getElementById('R').innerHTML=`
+<div class=card>
+<h2>📖 ${mot} - Définition</h2><p>Définition complète de ${mot} - Théories et formules</p>
+<a class=btn gg href="${googDef}" target="_blank">🔍 Voir définition sur Google</a>
+<a class=btn gg href="${wiki}" target="_blank">📚 Voir sur Wikipedia</a>
+</div>
+<div class=card>
+<h2>🎥 ${mot} - Vidéos YouTube</h2><p>Toutes les vidéos de ${mot}</p>
+<a class=btn yt href="${ytb}" target="_blank">▶️ Voir vidéos YouTube de ${mot}</a>
+<iframe width="100%" height="250" src="https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(mot+' cours')}" frameborder="0" allowfullscreen></iframe>
+</div>
+<div class=card>
+<h2>📄 ${mot} - PDF (hors site)</h2><p>PDF de ${mot} à lire hors ligne</p>
+<a class=btn pdf href="${googPdf}" target="_blank">⬇️ Télécharger PDF de ${mot} sur Google</a>
+</div>
+<div class=card><h3>✅ C'est comme YouTube + Google combinés!</h3><p>Chaque recherche de ${mot} montre définition + vidéos + PDF automatiquement. Ça marche pour les 300 cours.</p></div>
+`;
+}
 </script></body></html>
