@@ -1,82 +1,16 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta name="google-site-verification" content="E9QJqtpR2Hxmd2QGEvR7-fa2tELh1SZRXCXreRIsheM" />
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAKOLA PAY - Science</title>
-<style>
-body { font-family: Arial; background: #f0f2f5; margin:0; padding:20px; text-align:center; }
-#login { background:white; max-width:400px; margin:50px auto; padding:30px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
-#science { display:none; background:white; max-width:900px; margin:20px auto; padding:20px; border-radius:10px; }
-input { padding:12px; width:80%; margin:10px 0; border:1px solid #ccc; border-radius:5px; }
-button { padding:12px 30px; background:#1877f2; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold; }
-.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(250px,1fr)); gap:15px; margin-top:20px; text-align:left; }
-.card { border:1px solid #ddd; padding:15px; border-radius:8px; background:#fff; }
-.card h3 { margin-top:0; color:#1877f2; }
-.card a { display:block; margin:5px 0; color:#333; text-decoration:none; padding:8px; background:#f5f5f5; border-radius:5px; }
-.card a:hover { background:#e0e0e0; }
-</style>
-</head>
-<body>
-
-<div id="login">
-<h2>MAKOLA PAY</h2>
-<p>Entre ton code d'accès</p>
-<input type="text" id="codeInput" placeholder="Ex: MAKOLA0510">
-<br>
-<button onclick="verifier()">ENTRER</button>
-<p id="msg" style="color:red;"></p>
-</div>
-
-<div id="science">
-<h1>MAKOLA SCIENCE</h1>
-<p>Bienvenue! Voici tous les contenus</p>
-
-<div class="grid">
-
-<div class="card">
-<h3>📚 300 COURS</h3>
-<a href="pdf/cours1.pdf" target="_blank">Cours 1 - Biologie</a>
-<a href="pdf/cours2.pdf" target="_blank">Cours 2 - Chimie</a>
-<a href="pdf/cours3.pdf" target="_blank">Cours 3 - Physique</a>
-<a href="pdf/liste-300-cours.pdf" target="_blank">VOIR LISTE COMPLETE DES 300 COURS</a>
-</div>
-
-<div class="card">
-<h3>🎥 VIDÉOS</h3>
-<a href="videos/video1.mp4" target="_blank">Vidéo 1</a>
-<a href="videos/video2.mp4" target="_blank">Vidéo 2</a>
-<a href="videos/video3.mp4" target="_blank">Vidéo 3</a>
-<a href="videos/" target="_blank">TOUTES LES VIDÉOS</a>
-</div>
-
-<div class="card">
-<h3>📄 PDF 50 PAGES</h3>
-<a href="pdf/pdf-50-pages.pdf" target="_blank">Ouvrir PDF 50 Pages</a>
-<a href="pdf/resume-50.pdf" target="_blank">Résumé 50 pages</a>
-</div>
-
-<div class="card">
-<h3>📄 PDF 100 PAGES</h3>
-<a href="pdf/pdf-100-pages.pdf" target="_blank">Ouvrir PDF 100 Pages</a>
-<a href="pdf/resume-100.pdf" target="_blank">Résumé 100 pages</a>
-</div>
-
-</div>
-</div>
-
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA 300 Cours</title>
+<style>body{font-family:Arial;background:#f0f2f5;padding:15px}#login{background:white;max-width:400px;margin:80px auto;padding:30px;border-radius:10px;text-align:center}#app{display:none;max-width:900px;margin:auto}.search{width:100%;padding:15px;font-size:18px;border-radius:8px;border:1px solid #ccc;margin:20px 0}.cours{background:white;padding:20px;border-radius:10px;margin-bottom:15px}.video{padding:8px;background:#e7f3ff;margin:3px 0;display:block;border-radius:5px;text-decoration:none}.pdf{padding:8px;background:#fff8e1;margin:3px 0;display:block;border-radius:5px;text-decoration:none;border:1px solid #ffe69c}</style>
+</head><body>
+<div id="login"><h2>MAKOLA PAY</h2><input id="codeInput" placeholder="MAKOLA0510"><br><br><button onclick="if(document.getElementById('codeInput').value.toUpperCase()=='MAKOLA0510'){localStorage.setItem('ok','1');location.reload()}else{alert('Code faux')}">ENTRER</button></div>
+<div id="app"><h1>MAKOLA - 300 Cours</h1><input id="search" class="search" placeholder="Cherche: Astrologie, Biologie, Chimie..." onkeyup="filtrer()"><div id="liste"></div></div>
 <script>
-function verifier(){
- var code = document.getElementById('codeInput').value.trim().toUpperCase();
- if(code === 'MAKOLA0510'){
-  document.getElementById('login').style.display='none';
-  document.getElementById('science').style.display='block';
- } else {
-  document.getElementById('msg').innerText='Code incorrect. Essaie MAKOLA0510';
- }
-}
-</script>
-
-</body>
-</html>
+if(localStorage.getItem('ok')=='1'){document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';}
+let noms=["Astrologie","Astronomie","Biologie Cellulaire","Chimie Générale","Physique Mécanique","Math Algèbre","Anatomie","Génétique","Botanique","Zoologie","Ecologie","Microbiologie","Biochimie","Géologie","Climatologie","Pharmacologie","Physiologie","Histologie"];
+let cours=[];
+for(let i=1;i<=300;i++){let n=i<=noms.length?noms[i-1]:"Cours Science "+i;cours.push({nom:n, def:"Définition complète de "+n+". Théories, formules et explications détaillées pour lire hors ligne. Si tu quittes le site, tu peux lire le PDF.", video:["Vidéo "+n+" - Partie 1","Vidéo "+n+" - Partie 2"], pdf:["PDF "+n+" - 50 pages - Définitions","PDF "+n+" - 100 pages - Formules"]});}
+function htmlCard(c){return `<div class="cours"><h2>${c.nom}</h2><p><b>📖 Explication / Définition:</b><br>${c.def}</p><b>🎥 Vidéos de ${c.nom}:</b>${c.video.map(v=>`<a class="video" href="#">${v} ▶️</a>`).join('')}<b>📄 PDF de ${c.nom} (hors site):</b>${c.pdf.map(p=>`<a class="pdf" href="#">${p} ⬇️</a>`).join('')}</div>`;}
+function afficher(list){document.getElementById('liste').innerHTML=list.map(c=>htmlCard(c)).join('');}
+function filtrer(){let q=document.getElementById('search').value.toLowerCase();let f=q==""?cours:cours.filter(c=>c.nom.toLowerCase().includes(q));afficher(f);}
+afficher(cours);
+</script></body></html>
