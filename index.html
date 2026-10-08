@@ -1,12 +1,6 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA PAY</title><link rel="manifest" href="manifest.json"><style>body{font-family:Arial;padding:10px;background:#f5f5f5}input{width:100%;padding:16px;font-size:18px;border-radius:10px;border:2px solid #4285f4;box-sizing:border-box}button{width:100%;padding:16px;background:#4285f4;color:white;border:none;border-radius:10px;font-size:18px;margin-top:10px;cursor:pointer}.card{background:white;padding:15px;margin:12px 0;border-radius:12px}a{display:block;padding:14px;margin:8px 0;border-radius:8px;text-align:center;text-decoration:none;color:white;font-weight:bold}.yt{background:#ff0000}.gg{background:#4285f4}#installBtn{display:none;background:#34a853}</style></head><body>
-<h2>MAKOLA PAY</h2>
-<button id="installBtn" onclick="installer()">📲 INSTALLER MAKOLA PAY</button>
-<input id="q" type="text" placeholder="Tape Astrologie, Biologie...">
-<button onclick="chercher()">CHERCHER GOOGLE + YOUTUBE</button>
-<div id="R"></div>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA</title></head><body>
+<h1>NETTOYAGE EN COURS...</h1>
 <script>
-if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
-let deferredPrompt;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;document.getElementById('installBtn').style.display='block';});
-function installer(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then(r=>{if(r.outcome==='accepted'){alert('Makola Pay installe!');}deferredPrompt=null;})}}
-function chercher(){var m=document.getElementById('q').value.trim();if(m.length<2){alert('Tape 2 lettres');return;}var html="<div class=card><h3>"+m+"</h3><a class=yt href='https://www.youtube.com/results?search_query="+encodeURIComponent(m)+"' target=_blank>▶️ VOIR SUR YOUTUBE : "+m+"</a><iframe width='100%' height='220' src='https://www.youtube.com/embed?listType=search&list="+encodeURIComponent(m)+"' frameborder=0 allowfullscreen></iframe><a class=gg href='https://www.google.com/search?q="+encodeURIComponent(m)+"' target=_blank>🔍 VOIR SUR GOOGLE : "+m+"</a></div>";document.getElementById('R').innerHTML=html;}
-</script></body></html>
+navigator.serviceWorker.getRegistrations().then(r=>{for(let s of r){s.unregister()}}).then(()=>{caches.keys().then(k=>{k.forEach(c=>caches.delete(c))}).then(()=>{document.body.innerHTML="<h1>MAKOLA PAY OK</h1><input id=q placeholder='Tape Astrologie' style='width:100%;padding:15px;font-size:18px'><button onclick='go()' style='width:100%;padding:15px;background:blue;color:white;margin-top:10px'>CHERCHER</button><div id=R></div><script>function go(){var m=document.getElementById('q').value;document.getElementById('R').innerHTML='<h3>'+m+'</h3><a href=https://www.youtube.com/results?search_query='+m+' target=_blank style=display:block;padding:15px;background:red;color:white;text-align:center>YOUTUBE '+m+'</a><a href=https://www.google.com/search?q='+m+' target=_blank style=display:block;padding:15px;background:blue;color:white;text-align:center;margin-top:10px>GOOGLE '+m+'</a>'}<\/script>";})})
+</script>
+</body></html>
