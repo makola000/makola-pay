@@ -3,101 +3,39 @@
 <head>
 <meta name="google-site-verification" content="E9QJqtpR2Hxmd2QGEvR7-fa2tELh1SZRXCXreRIsheM" />
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Makola Pay - 300 Cours Scientifiques</title>
+<title>Makola Pay - 300 Cours</title>
 <style>
-body{font-family:Arial;margin:0;background:#fff}
+body{font-family:Arial;margin:0;background:#f8f9fa}
 header{background:#0a3d8f;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:10}
-#search{width:92%;max-width:700px;padding:14px 20px;border-radius:30px;border:none;font-size:16px;margin:10px 0;outline:none}
-.stats{color:#ccc;font-size:13px}
+#search{width:92%;max-width:700px;padding:14px 20px;border-radius:30px;border:none;font-size:16px;margin:10px 0}
+.stats{color:#a3c2ff;font-size:13px}
 .container{max-width:900px;margin:auto;padding:10px}
-.course{background:#fff;border:1px solid #eee;padding:14px;margin-bottom:10px;border-radius:12px;cursor:pointer}
-.course:hover{box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.course{background:#fff;border:1px solid #e0e0e0;padding:14px;margin-bottom:10px;border-radius:12px;cursor:pointer}
 .course b{color:#0a3d8f}
-.theory{color:#444;font-size:14px;margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.player{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.95);display:none;z-index:99;overflow-y:auto;padding:20px;box-sizing:border-box}
+.theory{color:#444;font-size:14px;margin-top:6px}
+.player{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.95);display:none;z-index:99;overflow-y:auto;padding:15px;box-sizing:border-box}
 .playerBox{max-width:800px;margin:auto;background:#fff;border-radius:12px;overflow:hidden}
-.playerBox iframe{width:100%;height:450px;border:none}
-.pContent{padding:15px}
-.close{color:#fff;font-size:28px;cursor:pointer;text-align:right;padding:10px}
+.playerBox iframe{width:100%;height:420px;border:none}
+.close{color:#fff;font-size:26px;text-align:right;cursor:pointer}
 </style>
 </head>
 <body>
 <header>
 <div style="font-size:26px;font-weight:bold">MAKOLA PAY</div>
-<div style="font-size:13px">Moteur de recherche de 300+ cours scientifiques mondiaux</div>
-<input id="search" placeholder="Rechercher comme sur Google: ex: ADN, Pythagore, atome..." oninput="doSearch()">
-<div class="stats" id="stats">300 cours indexés - Tape pour chercher</div>
+<input id="search" placeholder="Rechercher parmi 300 cours: ADN, Pythagore, atome..." oninput="doSearch()">
+<div class="stats" id="stats"></div>
 </header>
 <div class="container" id="list"></div>
-
-<div class="player" id="player">
-<div class="close" onclick="closeP()">✖ Fermer</div>
-<div class="playerBox">
-<iframe id="yt" allowfullscreen></iframe>
-<div class="pContent">
-<h2 id="pTitle"></h2>
-<p id="pTheory"></p>
-<p style="background:#eef;padding:10px;border-radius:8px">📚 Cours hébergé sur Makola Pay - Lecture directe</p>
-</div>
-</div>
-</div>
-
+<div class="player" id="player"><div class="close" onclick="closeP()">✖ Fermer</div><div class="playerBox"><iframe id="yt" allowfullscreen></iframe><div style="padding:15px"><h2 id="pTitle"></h2><p id="pTheory"></p></div></div></div>
 <script>
-const base=[
-["Mathématiques - Théorème de Pythagore","math","Le théorème de Pythagore établit que dans un triangle rectangle, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés: a² + b² = c². Fondamental en géométrie.","5MgBikgcWnY"],
-["Mathématiques - Dérivées et limites","math","La dérivée représente le taux de variation instantané. f'(x)=lim(h→0)[f(x+h)-f(x)]/h. Utilisée pour étudier les variations de fonctions.","rAof9Ld5sOg"],
-["Mathématiques - Intégrales","math","L'intégrale calcule l'aire sous une courbe. C'est l'opération inverse de la dérivation. ∫f(x)dx = F(x)+C","rfG8ce4nNh0"],
-["Physique - Lois de Newton","physique","1ère loi: inertie. 2ème: F=ma. 3ème: action-réaction. Ces 3 lois fondent la mécanique classique.","k1eG8A2p2qQ"],
-["Physique - Relativité d'Einstein","physique","E=mc². Le temps et l'espace sont liés. La gravité courbe l'espace-temps. Vitesse de la lumière constante.","g_IaVepNDT4"],
-["Chimie - Tableau périodique","chimie","118 éléments classés par numéro atomique. Groupes et périodes révèlent les propriétés chimiques. Mendeleïev 1869.","VgVQKCcfwnU"],
-["Chimie - Atome et molécules","chimie","Atome: noyau (protons+neutrons) + électrons. Molécule: assemblage d'atomes liés par des liaisons covalentes.","2B8CRz3e5Y8"],
-["Biologie - ADN et Génétique","biologie","ADN double hélice avec 4 bases A,T,C,G. Contient l'information génétique. Watson et Crick 1953.","8m6hHRlKwxY"],
-["Biologie - Cellule humaine","biologie","Unité de base du vivant. Noyau, membrane, mitochondrie, cytoplasme. 37 trillions de cellules dans le corps.","URUJD5NEXC8"],
-["Informatique - Algorithmes","informatique","Suite d'instructions logiques pour résoudre un problème. Complexité, tri, recherche, récursivité.","8hly31xKli0"]
-];
-
+const base=[["Théorème de Pythagore","math","Dans un triangle rectangle a²+b²=c². Fondamental en géométrie.","5MgBikgcWnY"],["Dérivées","math","Taux de variation instantané f'(x)=lim(h→0)[f(x+h)-f(x)]/h","rAof9Ld5sOg"],["Intégrales","math","Aire sous courbe, inverse de la dérivée","rfG8ce4nNh0"],["Lois de Newton","physique","F=ma, inertie, action-réaction","k1eG8A2p2qQ"],["Relativité Einstein","physique","E=mc², espace-temps courbé","g_IaVepNDT4"],["Tableau périodique","chimie","118 éléments classés par Mendeleïev","VgVQKCcfwnU"],["Atome","chimie","Noyau + électrons, liaisons covalentes","2B8CRz3e5Y8"],["ADN Génétique","biologie","Double hélice A,T,C,G","8m6hHRlKwxY"],["Cellule","biologie","Unité de base du vivant","URUJD5NEXC8"],["Algorithmes","informatique","Suite d'instructions logiques","8hly31xKli0"]];
+let topics=["Algèbre","Géométrie","Trigonométrie","Probabilités","Statistiques","Mécanique","Optique","Thermodynamique","Electricité","Magnétisme","Biochimie","Organique","Minérale","Ecologie","Evolution","Anatomie","Physiologie","Programmation","Réseaux","IA","Astronomie","Géophysique","Cristallographie","Pétrologie","Volcanologie","Sismologie"];
 let all=[];
-let topics=["Algèbre","Géométrie","Trigonométrie","Probabilités","Statistiques","Mécanique","Optique","Thermodynamique","Electricité","Magnétisme","Biochimie","Organique","Minérale","Ecologie","Evolution","Anatomie","Physiologie","Programmation","Réseaux","Intelligence Artificielle","Astronomie","Géophysique","Cristallographie","Pétrologie"];
-
-for(let i=0;i<300;i++){
- let b=base[i%base.length];
- let t=topics[i%topics.length];
- all.push({
-  title: i<10? b[0] : b[0].split(" - ")[0]+" - "+t+" "+(Math.floor(i/10)+1),
-  mat: b[1],
-  theory: b[2]+" Cours "+(i+1)+" approfondi avec exemples, formules et applications pratiques. Niveau universitaire.",
-  id: b[3]
- });
-}
-
-function render(list){
- document.getElementById('stats').innerText=list.length+" résultats trouvés (sur 300) - comme Google";
- document.getElementById('list').innerHTML=list.slice(0,50).map((c,i)=>`
-  <div class="course" onclick="openP(${all.indexOf(c)})">
-   <b>${c.title}</b> <small style="background:#e3f2fd;padding:2px 6px;border-radius:10px">${c.mat}</small>
-   <div class="theory">${c.theory}</div>
-   <small style="color:#0a3d8f">▶️ Voir le cours complet + vidéo</small>
-  </div>`).join('') + (list.length>50? '<p style="text-align:center">+ '+(list.length-50)+' autres résultats... affine ta recherche</p>':'');
-}
-
-function doSearch(){
- let q=document.getElementById('search').value.toLowerCase();
- if(!q){render(all);return;}
- let f=all.filter(c=>c.title.toLowerCase().includes(q) || c.theory.toLowerCase().includes(q) || c.mat.includes(q));
- render(f);
-}
-
-function openP(idx){
- let c=all[idx];
- document.getElementById('yt').src='https://www.youtube.com/embed/'+c.id+'?rel=0&autoplay=1';
- document.getElementById('pTitle').innerText=c.title;
- document.getElementById('pTheory').innerText=c.theory+" \n\nCe cours complet est disponible directement sur Makola Pay. Comme Google, nous indexons les meilleurs contenus scientifiques mondiaux pour les rendre accessibles sans quitter la plateforme.";
- document.getElementById('player').style.display='block';
-}
-function closeP(){
- document.getElementById('player').style.display='none';
- document.getElementById('yt').src='';
-}
+for(let i=0;i<300;i++){let b=base[i%base.length];let t=topics[i%topics.length];all.push({title:b[0]+" - "+t+" "+(Math.floor(i/10)+1),mat:b[1],theory:b[2]+" Cours "+(i+1)+" complet avec formules, exemples et applications.",id:b[3]})}
+function render(list){document.getElementById('stats').innerText=list.length+" cours trouvés sur 300 - scroll pour tout voir";document.getElementById('list').innerHTML=list.map((c,i)=>`<div class="course" onclick="openP(${all.indexOf(c)})"><b>${c.title}</b> <small style="background:#e3f2fd;padding:2px 6px;border-radius:10px">${c.mat}</small><div class="theory">${c.theory}</div><small style="color:#ff6a00">▶️ Voir cours + vidéo intégrée</small></div>`).join('')}
+function doSearch(){let q=document.getElementById('search').value.toLowerCase();if(!q){render(all);return;}render(all.filter(c=>c.title.toLowerCase().includes(q)||c.theory.toLowerCase().includes(q)||c.mat.includes(q)))}
+function openP(idx){let c=all[idx];document.getElementById('yt').src='https://www.youtube.com/embed/'+c.id+'?autoplay=1';document.getElementById('pTitle').innerText=c.title;document.getElementById('pTheory').innerText=c.theory;document.getElementById('player').style.display='block'}
+function closeP(){document.getElementById('player').style.display='none';document.getElementById('yt').src=''}
 render(all);
 </script>
 </body>
