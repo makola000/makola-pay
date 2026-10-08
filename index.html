@@ -1,29 +1,14 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA - YouTube + Google</title><style>body{font-family:Arial;background:#f0f2f5;padding:15px;max-width:900px;margin:auto}input{width:100%;padding:16px;font-size:20px;border-radius:10px;border:2px solid #1877f2;box-sizing:border-box}.card{background:white;padding:20px;border-radius:12px;margin-top:20px;box-shadow:0 2px 5px rgba(0,0,0,0.1)}a.btn{display:block;padding:14px;margin:8px 0;border-radius:8px;text-decoration:none;font-weight:bold;text-align:center}.yt{background:#ff0000;color:white}.gg{background:#1877f2;color:white}.pdf{background:#ff9800;color:white}</style></head><body>
-<h1>MAKOLA SCIENCE</h1><p>Tape un cours, je cherche sur YouTube et Google pour toi:</p><input id="q" placeholder="Ex: Astrologie, Biologie, Chimie..." onkeyup="if(event.key==='Enter')chercher()"><br><br><button onclick="chercher()" style="padding:12px 30px;background:#1877f2;color:white;border:none;border-radius:8px;font-size:18px">CHERCHER</button><div id="R"></div>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA</title><style>body{font-family:Arial;padding:12px;background:#f0f2f5}input{width:100%;padding:15px;font-size:18px;border-radius:8px;border:2px solid blue}.c{background:white;padding:15px;margin:10px 0;border-radius:10px}a{display:block;padding:12px;margin:5px 0;background:red;color:white;text-decoration:none;border-radius:6px;text-align:center}.b{background:blue}.o{background:orange}</style></head><body>
+<h2>MAKOLA SCIENCE</h2><input id="q" type="text" placeholder="Tape Astrologie ici..." oninput="go()">
+<div id="R"><p>Tape un cours ci-dessus ^</p></div>
 <script>
-function chercher(){
-var mot=document.getElementById('q').value.trim();
-if(mot==""){alert("Tape un cours d'abord");return;}
-var ytb="https://www.youtube.com/results?search_query="+encodeURIComponent(mot+" cours complet");
-var googDef="https://www.google.com/search?q="+encodeURIComponent(mot+" definition cours");
-var googPdf="https://www.google.com/search?q="+encodeURIComponent(mot+" cours pdf");
-var wiki="https://fr.wikipedia.org/wiki/"+encodeURIComponent(mot);
-document.getElementById('R').innerHTML=`
-<div class=card>
-<h2>📖 ${mot} - Définition</h2><p>Définition complète de ${mot} - Théories et formules</p>
-<a class=btn gg href="${googDef}" target="_blank">🔍 Voir définition sur Google</a>
-<a class=btn gg href="${wiki}" target="_blank">📚 Voir sur Wikipedia</a>
-</div>
-<div class=card>
-<h2>🎥 ${mot} - Vidéos YouTube</h2><p>Toutes les vidéos de ${mot}</p>
-<a class=btn yt href="${ytb}" target="_blank">▶️ Voir vidéos YouTube de ${mot}</a>
-<iframe width="100%" height="250" src="https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(mot+' cours')}" frameborder="0" allowfullscreen></iframe>
-</div>
-<div class=card>
-<h2>📄 ${mot} - PDF (hors site)</h2><p>PDF de ${mot} à lire hors ligne</p>
-<a class=btn pdf href="${googPdf}" target="_blank">⬇️ Télécharger PDF de ${mot} sur Google</a>
-</div>
-<div class=card><h3>✅ C'est comme YouTube + Google combinés!</h3><p>Chaque recherche de ${mot} montre définition + vidéos + PDF automatiquement. Ça marche pour les 300 cours.</p></div>
-`;
+function go(){
+var m=document.getElementById('q').value;
+if(m.length<2){document.getElementById('R').innerHTML="<p>Tape plus de 2 lettres...</p>";return;}
+var yt="https://www.youtube.com/results?search_query="+m+" cours";
+var gg="https://www.google.com/search?q="+m+" definition";
+var pdf="https://www.google.com/search?q="+m+" cours pdf";
+var html="<div class=c><h3>"+m+"</h3><p>Definition de "+m+"</p><a class=b href='"+gg+"' target=_blank>Voir Definition Google de "+m+"</a><a class=b href='https://fr.wikipedia.org/wiki/"+m+"' target=_blank>Voir Wikipedia "+m+"</a></div><div class=c><h3>Videos de "+m+"</h3><a href='"+yt+"' target=_blank>Voir YouTube "+m+"</a><br><br><iframe width=100% height=200 src='https://www.youtube.com/embed?listType=search&list="+m+" cours' frameborder=0 allowfullscreen></iframe></div><div class=c><h3>PDF de "+m+"</h3><a class=o href='"+pdf+"' target=_blank>Telecharger PDF "+m+"</a></div>";
+document.getElementById('R').innerHTML=html;
 }
 </script></body></html>
