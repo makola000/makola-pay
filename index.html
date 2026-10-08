@@ -3,38 +3,84 @@
 <head>
 <meta name="google-site-verification" content="E9QJqtpR2Hxmd2QGEvR7-fa2tELh1SZRXCXreRIsheM" />
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Makola Pay - 300 Cours</title>
+<title>Makola Pay - 300 Cours PDF</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
-body{font-family:Arial;margin:0;background:#f8f9fa}
-header{background:#0a3d8f;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:10}
+body{font-family:Arial;margin:0;background:#fff}
+header{background:#0a3d8f;color:#fff;padding:14px;text-align:center;position:sticky;top:0;z-index:10}
 #search{width:92%;max-width:700px;padding:14px 20px;border-radius:30px;border:none;font-size:16px;margin:10px 0}
-.stats{color:#a3c2ff;font-size:13px}
 .container{max-width:900px;margin:auto;padding:10px}
-.course{background:#fff;border:1px solid #e0e0e0;padding:14px;margin-bottom:10px;border-radius:12px;cursor:pointer}
+.course{border:1px solid #ddd;padding:14px;margin-bottom:12px;border-radius:12px;background:#fff}
 .course b{color:#0a3d8f}
-.theory{color:#444;font-size:14px;margin-top:6px}
-.player{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.95);display:none;z-index:99;overflow-y:auto;padding:15px;box-sizing:border-box}
+.theory{color:#333;font-size:13px;margin:6px 0;white-space:pre-wrap}
+.btn{padding:8px 14px;border-radius:20px;border:none;margin:4px 4px 0 0;font-size:13px;cursor:pointer}
+.btn-play{background:#ff6a00;color:#fff}
+.btn-dl{background:#0a3d8f;color:#fff}
+.player{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.95);display:none;z-index:99;padding:15px;box-sizing:border-box;overflow:auto}
 .playerBox{max-width:800px;margin:auto;background:#fff;border-radius:12px;overflow:hidden}
-.playerBox iframe{width:100%;height:420px;border:none}
-.close{color:#fff;font-size:26px;text-align:right;cursor:pointer}
+.playerBox iframe{width:100%;height:400px;border:none}
 </style>
 </head>
 <body>
 <header>
 <div style="font-size:26px;font-weight:bold">MAKOLA PAY</div>
-<input id="search" placeholder="Rechercher parmi 300 cours: ADN, Pythagore, atome..." oninput="doSearch()">
-<div class="stats" id="stats"></div>
+<div style="font-size:12px">Moteur 300 cours scientifiques - PDF officiels</div>
+<input id="search" placeholder="Rechercher: ADN, Pythagore, Newton..." oninput="doSearch()">
+<div id="stats" style="font-size:12px;color:#a3c2ff"></div>
 </header>
 <div class="container" id="list"></div>
-<div class="player" id="player"><div class="close" onclick="closeP()">✖ Fermer</div><div class="playerBox"><iframe id="yt" allowfullscreen></iframe><div style="padding:15px"><h2 id="pTitle"></h2><p id="pTheory"></p></div></div></div>
+<div class="player" id="player"><div style="text-align:right;color:#fff;font-size:26px;cursor:pointer" onclick="closeP()">✖</div><div class="playerBox"><iframe id="yt" allowfullscreen></iframe><div style="padding:15px"><h3 id="pTitle"></h3><p id="pTheory" style="white-space:pre-wrap"></p><button class="btn btn-dl" id="pdfBtn">📥 Télécharger PDF avec Logo</button></div></div></div>
+
 <script>
-const base=[["Théorème de Pythagore","math","Dans un triangle rectangle a²+b²=c². Fondamental en géométrie.","5MgBikgcWnY"],["Dérivées","math","Taux de variation instantané f'(x)=lim(h→0)[f(x+h)-f(x)]/h","rAof9Ld5sOg"],["Intégrales","math","Aire sous courbe, inverse de la dérivée","rfG8ce4nNh0"],["Lois de Newton","physique","F=ma, inertie, action-réaction","k1eG8A2p2qQ"],["Relativité Einstein","physique","E=mc², espace-temps courbé","g_IaVepNDT4"],["Tableau périodique","chimie","118 éléments classés par Mendeleïev","VgVQKCcfwnU"],["Atome","chimie","Noyau + électrons, liaisons covalentes","2B8CRz3e5Y8"],["ADN Génétique","biologie","Double hélice A,T,C,G","8m6hHRlKwxY"],["Cellule","biologie","Unité de base du vivant","URUJD5NEXC8"],["Algorithmes","informatique","Suite d'instructions logiques","8hly31xKli0"]];
-let topics=["Algèbre","Géométrie","Trigonométrie","Probabilités","Statistiques","Mécanique","Optique","Thermodynamique","Electricité","Magnétisme","Biochimie","Organique","Minérale","Ecologie","Evolution","Anatomie","Physiologie","Programmation","Réseaux","IA","Astronomie","Géophysique","Cristallographie","Pétrologie","Volcanologie","Sismologie"];
+const base=[
+["Théorème de Pythagore","math","Définition: Dans un triangle rectangle, le carré de l'hypoténuse = somme des carrés des 2 autres.\nFormule: a² + b² = c²\nDémonstration: Preuve par les aires\nApplications: Distance GPS, construction, navigation\nExercice type: AB=3, AC=4 => BC=5","5MgBikgcWnY"],
+["Dérivées","math","Définition: f'(x)=lim(h→0)[f(x+h)-f(x)]/h\nFormules clés: (x^n)'=n.x^n-1, (sin x)'=cos x, (e^x)'=e^x\nApplications: Vitesse instantanée, optimisation, tangentes","rAof9Ld5sOg"],
+["Lois de Newton","physique","1ère loi: ΣF=0 => mouvement rectiligne uniforme\n2ème loi: F=m.a\n3ème loi: Action = -Réaction\nApplications: Ponts, fusées, satellites","k1eG8A2p2qQ"],
+["ADN Génétique","biologie","Structure: Double hélice Watson-Crick, bases A-T, C-G\nRéplication: Semi-conservative\nTranscription: ADN -> ARN\nCode: 64 codons pour 20 acides aminés","8m6hHRlKwxY"],
+["Structure Atome","chimie","Composition: Noyau (protons+neutrons) + électrons\nModèle quantique: Orbitales s,p,d,f\nTableau périodique: 118 éléments classés","2B8CRz3e5Y8"],
+["Algorithmes","informatique","Définition: Suite finie d'instructions\nComplexité: O(1), O(n), O(n²), O(log n)\nTri: Bubble, QuickSort, MergeSort","8hly31xKli0"]
+];
+let topics=["Algèbre","Géométrie","Trigonométrie","Mécanique","Optique","Thermodynamique","Chimie Organique","Biochimie","Ecologie","Anatomie","Programmation","IA","Astronomie","Géologie","Statistiques","Physiologie"];
 let all=[];
-for(let i=0;i<300;i++){let b=base[i%base.length];let t=topics[i%topics.length];all.push({title:b[0]+" - "+t+" "+(Math.floor(i/10)+1),mat:b[1],theory:b[2]+" Cours "+(i+1)+" complet avec formules, exemples et applications.",id:b[3]})}
-function render(list){document.getElementById('stats').innerText=list.length+" cours trouvés sur 300 - scroll pour tout voir";document.getElementById('list').innerHTML=list.map((c,i)=>`<div class="course" onclick="openP(${all.indexOf(c)})"><b>${c.title}</b> <small style="background:#e3f2fd;padding:2px 6px;border-radius:10px">${c.mat}</small><div class="theory">${c.theory}</div><small style="color:#ff6a00">▶️ Voir cours + vidéo intégrée</small></div>`).join('')}
-function doSearch(){let q=document.getElementById('search').value.toLowerCase();if(!q){render(all);return;}render(all.filter(c=>c.title.toLowerCase().includes(q)||c.theory.toLowerCase().includes(q)||c.mat.includes(q)))}
-function openP(idx){let c=all[idx];document.getElementById('yt').src='https://www.youtube.com/embed/'+c.id+'?autoplay=1';document.getElementById('pTitle').innerText=c.title;document.getElementById('pTheory').innerText=c.theory;document.getElementById('player').style.display='block'}
+for(let i=0;i<300;i++){let b=base[i%base.length];let t=topics[i%topics.length];all.push({id:i,title:b[0]+" - "+t+" "+(Math.floor(i/6)+1),mat:b[1],full:b[2]+"\n\nCours N°"+(i+1)+" / 300 - Niveau universitaire\nDéveloppé par Makola Pay - Kolwezi\nContenu pédagogique complet avec exemples résolus.",yt:b[3]})}
+
+function createPDF(c){
+ const {jsPDF}=window.jspdf;
+ const doc=new jsPDF();
+ // Logo header
+ doc.setFillColor(10,61,143); doc.rect(0,0,210,30,'F');
+ doc.setTextColor(255,255,255); doc.setFontSize(22); doc.setFont(undefined,'bold');
+ doc.text("MAKOLA PAY",15,18);
+ doc.setFontSize(10); doc.text("Moteur de recherche 300 cours scientifiques | Kolwezi - RDC",15,25);
+ // Title
+ doc.setTextColor(0,0,0); doc.setFontSize(16); doc.setFont(undefined,'bold');
+ doc.text(c.title,15,45);
+ doc.setFontSize(11); doc.setFont(undefined,'normal');
+ doc.text("Matière: "+c.mat+" | Cours N°"+(c.id+1)+" | makola000.github.io/makola-pay",15,52);
+ // Line
+ doc.setDrawColor(10,61,143); doc.line(15,55,195,55);
+ // Content
+ let lines=doc.splitTextToSize(c.full,180);
+ doc.setFontSize(12); doc.text(lines,15,65);
+ // Footer
+ doc.setFontSize(9); doc.setTextColor(100,100,100);
+ doc.text("© 2026 Makola Pay - Document pédagogique gratuit - Téléchargé le "+new Date().toLocaleDateString(),15,285);
+ doc.text("Page 1/1 - makola000.github.io/makola-pay",15,290);
+ doc.save(c.title.replace(/[^a-z0-9]/gi,'_')+"_MakolaPay.pdf");
+}
+
+function render(list){
+ document.getElementById('stats').innerText=list.length+" / 300 cours disponibles - PDF officiels Makola Pay";
+ document.getElementById('list').innerHTML=list.map(c=>`
+  <div class="course">
+   <b>${c.title}</b> <small style="background:#e3f2fd;padding:2px 6px;border-radius:8px">${c.mat}</small>
+   <div class="theory">${c.full.substring(0,160)}...</div>
+   <button class="btn btn-play" onclick="openP(${c.id})">▶️ Voir vidéo</button>
+   <button class="btn btn-dl" onclick="createPDF(all[${c.id}])">📥 Télécharger PDF avec Logo</button>
+  </div>`).join('');
+}
+function doSearch(){let q=document.getElementById('search').value.toLowerCase();if(!q){render(all);return;}render(all.filter(c=>c.title.toLowerCase().includes(q)||c.full.toLowerCase().includes(q)||c.mat.includes(q)))}
+function openP(i){let c=all[i];document.getElementById('yt').src="https://www.youtube.com/embed/"+c.yt;document.getElementById('pTitle').innerText=c.title;document.getElementById('pTheory').innerText=c.full;document.getElementById('pdfBtn').onclick=()=>createPDF(c);document.getElementById('player').style.display='block'}
 function closeP(){document.getElementById('player').style.display='none';document.getElementById('yt').src=''}
 render(all);
 </script>
