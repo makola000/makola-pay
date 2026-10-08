@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA PAY</title>
-<style>body{font-family:Arial;padding:15px}input{width:100%;padding:20px;font-size:22px;border:3px solid blue;border-radius:12px}button{width:100%;padding:20px;font-size:22px;background:blue;color:white;margin-top:15px;border:none;border-radius:12px}a{display:block;padding:20px;margin-top:15px;text-align:center;color:white;text-decoration:none;border-radius:12px;font-size:20px}</style>
+<style>
+body{font-family:Arial;padding:10px;background:#f5f5f5;margin:0}
+.top{background:blue;color:white;padding:15px;text-align:center}
+.logo{font-size:32px;font-weight:bold;letter-spacing:2px}
+input{width:100%;padding:20px;font-size:22px;border:3px solid blue;border-radius:12px;box-sizing:border-box;margin-top:15px}
+button{width:100%;padding:20px;font-size:22px;background:blue;color:white;margin-top:15px;border:none;border-radius:12px;font-weight:bold}
+.card{background:white;padding:15px;border-radius:12px;margin-top:15px;box-shadow:0 2px 5px #ccc}
+a.btn{display:block;padding:18px;margin-top:12px;text-align:center;color:white;text-decoration:none;border-radius:12px;font-size:18px;font-weight:bold}
+iframe{width:100%;height:300px;border:none;border-radius:12px;margin-top:15px}
+</style>
 </head><body>
-<h1>MAKOLA PAY</h1>
-<input id="q" placeholder="Tape Astrologie, Football, Musique...">
-<button onclick="go()">RECHERCHER</button>
+<div class="top"><div class="logo">⭐ MAKOLA PAY</div><div>Moteur de Recherche Kolwezi</div></div>
+
+<input id="q" placeholder="Tape Astrologie, Musique, Football...">
+<button onclick="go()">🔍 CHERCHER MAINTENANT</button>
+
 <div id="R"></div>
+
 <script>
 function go(){
-var m=document.getElementById('q').value;
-if(!m){alert("Tape un mot");return;}
-document.getElementById('R').innerHTML="<h2>Résultat: "+m+"</h2><a href='https://www.youtube.com/results?search_query="+m+"' target='_blank' style='background:red'>▶ VOIR SUR YOUTUBE: "+m+"</a><a href='https://www.google.com/search?q="+m+"' target='_blank' style='background:#4285f4'>🔍 VOIR SUR GOOGLE: "+m+"</a><a href='https://fr.wikipedia.org/wiki/"+m+"' target='_blank' style='background:green'>📖 VOIR SUR WIKIPEDIA: "+m+"</a>";
+var m=document.getElementById('q').value.trim();
+if(!m){alert("Tape un mot d'abord");return;}
+document.getElementById('R').innerHTML=`
+<div class="card">
+<h2>🎯 Résultat: ${m}</h2>
+<iframe src="https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(m)}" allowfullscreen></iframe>
+<a class="btn" href="https://www.youtube.com/results?search_query=${encodeURIComponent(m)}" target="_blank" style="background:red">▶ PLUS SUR YOUTUBE</a>
+<a class="btn" href="https://www.google.com/search?q=${encodeURIComponent(m)}" target="_blank" style="background:#4285f4">🔍 VOIR SUR GOOGLE</a>
+<a class="btn" href="https://fr.wikipedia.org/wiki/${encodeURIComponent(m)}" target="_blank" style="background:green">📖 WIKIPEDIA</a>
+</div>`;
 }
 </script>
 </body></html>
