@@ -1,32 +1,16 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MAKOLA PAY</title>
-<style>
-body{font-family:Arial;padding:10px}
-input{width:100%;padding:18px;font-size:20px;border:2px solid blue;border-radius:10px}
-button{width:100%;padding:18px;font-size:20px;background:blue;color:white;border:none;border-radius:10px;margin-top:10px}
-a{display:block;padding:18px;margin-top:12px;text-align:center;color:white;text-decoration:none;border-radius:10px;font-size:18px}
-</style>
-</head>
-<body>
-<h1>MAKOLA PAY OK</h1>
-<input id="q" type="text" placeholder="Tape Astrologie ici">
-<button onclick="chercher()">RECHERCHER</button>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA PAY</title>
+<style>body{font-family:Arial;padding:15px}input{width:100%;padding:20px;font-size:22px;border:3px solid blue;border-radius:12px}button{width:100%;padding:20px;font-size:22px;background:blue;color:white;margin-top:15px;border:none;border-radius:12px}a{display:block;padding:20px;margin-top:15px;text-align:center;color:white;text-decoration:none;border-radius:12px;font-size:20px}</style>
+</head><body>
+<h1>MAKOLA PAY</h1>
+<input id="q" placeholder="Tape Astrologie, Football, Musique...">
+<button onclick="go()">RECHERCHER</button>
 <div id="R"></div>
-
 <script>
-function chercher(){
-var mot = document.getElementById('q').value;
-if(mot==""){alert("Tape un mot");return;}
-var r = document.getElementById('R');
-r.innerHTML = "<h2>"+mot+"</h2>" +
-"<a href='https://www.youtube.com/results?search_query="+mot+"' target='_blank' style='background:red'>▶ YOUTUBE: "+mot+"</a>" +
-"<a href='https://www.google.com/search?q="+mot+"' target='_blank' style='background:#4285f4'>🔍 GOOGLE: "+mot+"</a>" +
-"<a href='https://fr.wikipedia.org/wiki/"+mot+"' target='_blank' style='background:green'>📖 WIKIPEDIA: "+mot+"</a>";
+function go(){
+var m=document.getElementById('q').value;
+if(!m){alert("Tape un mot");return;}
+document.getElementById('R').innerHTML="<h2>Résultat: "+m+"</h2><a href='https://www.youtube.com/results?search_query="+m+"' target='_blank' style='background:red'>▶ VOIR SUR YOUTUBE: "+m+"</a><a href='https://www.google.com/search?q="+m+"' target='_blank' style='background:#4285f4'>🔍 VOIR SUR GOOGLE: "+m+"</a><a href='https://fr.wikipedia.org/wiki/"+m+"' target='_blank' style='background:green'>📖 VOIR SUR WIKIPEDIA: "+m+"</a>";
 }
 </script>
-</body>
-</html>
+</body></html>
