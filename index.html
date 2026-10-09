@@ -4,117 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MAKOLA PAY</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0000ff">
 <style>
 body{margin:0;font-family:Arial;background:#f2f2f2}
 .header{background:#0000ff;color:white;padding:15px;text-align:center;font-size:22px;font-weight:bold}
-.tabs{display:flex;background:white;overflow-x:auto}
-.tab{flex:1;padding:12px;text-align:center;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;font-size:13px}
+.tabs{display:flex;background:white}
+.tab{flex:1;padding:12px;text-align:center;cursor:pointer;border-bottom:3px solid transparent;font-size:12px}
 .tab.active{border-color:#0000ff;color:#0000ff;font-weight:bold}
 .content{padding:15px}
-.box{background:white;padding:15px;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
+.box{background:white;padding:15px;border-radius:10px}
 input{width:100%;padding:12px;border:2px solid #0000ff;border-radius:8px;box-sizing:border-box}
-button{width:100%;padding:12px;background:#0000ff;color:white;border:none;border-radius:8px;margin-top:10px;font-weight:bold;cursor:pointer}
-.result{margin-top:15px}
-iframe{width:100%;height:70vh;border:none;border-radius:8px}
-.price{font-size:28px;color:#0000ff;font-weight:bold;text-align:center}
+button{width:100%;padding:12px;background:#0000ff;color:white;border:none;border-radius:8px;margin-top:10px;font-weight:bold}
+iframe{width:100%;height:60vh;border:none;margin-top:10px}
+.price{font-size:24px;color:#0000ff;font-weight:bold;text-align:center;margin-top:10px}
 </style>
 </head>
 <body>
-<div class="header">MAKOLA PAY 🌍</div>
+<div class="header">MAKOLA PAY</div>
 <div class="tabs">
-<div class="tab active" onclick="openTab('youtube')">📺 YouTube</div>
-<div class="tab" onclick="openTab('google')">🌍 Google</div>
-<div class="tab" onclick="openTab('wiki')">📚 Wiki</div>
-<div class="tab" onclick="openTab('download')">⬇️ Télécharger</div>
-<div class="tab" onclick="openTab('convert')">💱 Dollar/FC</div>
+<div class="tab active" onclick="show('a',this)">YouTube</div>
+<div class="tab" onclick="show('b',this)">Google</div>
+<div class="tab" onclick="show('c',this)">Wiki</div>
+<div class="tab" onclick="show('d',this)">Telecharger</div>
+<div class="tab" onclick="show('e',this)">Dollar</div>
 </div>
-
 <div class="content">
-<!-- YOUTUBE -->
-<div id="youtube" class="box">
-<input id="ytInput" placeholder="Tape ex: Fally Ipupa">
-<button onclick="searchYT()">Rechercher YouTube</button>
-<div id="ytResult" class="result"></div>
+<div id="a" class="box"><input id="i1" placeholder="Cherche YouTube"><button onclick="document.getElementById('r1').innerHTML='<iframe src=https://www.youtube.com/results?search_query='+encodeURIComponent(document.getElementById('i1').value)+'></iframe>'">Rechercher</button><div id="r1"></div></div>
+<div id="b" class="box" style="display:none"><input id="i2" placeholder="Cherche Google"><button onclick="document.getElementById('r2').innerHTML='<iframe src=https://www.google.com/search?q='+encodeURIComponent(document.getElementById('i2').value)+'&igu=1></iframe>'">Rechercher</button><div id="r2"></div></div>
+<div id="c" class="box" style="display:none"><input id="i3" placeholder="Cherche Wikipedia"><button onclick="document.getElementById('r3').innerHTML='<iframe src=https://fr.wikipedia.org/wiki/'+encodeURIComponent(document.getElementById('i3').value)+'></iframe>'">Rechercher</button><div id="r3"></div></div>
+<div id="d" class="box" style="display:none"><h3>Telecharger YouTube</h3><input id="i4" placeholder="Colle lien youtube.com"><button onclick="let l=document.getElementById('i4').value;let id=l.split('v=')[1]?.split('&')[0]||l.split('/').pop();document.getElementById('r4').innerHTML='<a href=https://www.y2mate.com/youtube/'+id+' target=_blank><button>Ouvrir telechargement</button></a><iframe src=https://www.youtube.com/embed/'+id+'></iframe>'">Telecharger</button><div id="r4"></div></div>
+<div id="e" class="box" style="display:none"><h3>1$ = 2800 FC</h3><input id="dol" type="number" placeholder="Montant en $" oninput="document.getElementById('fcRes').innerText=this.value*2800+' FC'"><div id="fcRes" class="price">0 FC</div><input id="fcc" type="number" placeholder="Montant en FC" style="margin-top:15px" oninput="document.getElementById('dolRes').innerText=(this.value/2800).toFixed(2)+' $'"><div id="dolRes" class="price">0 $</div></div>
 </div>
-
-<!-- GOOGLE -->
-<div id="google" class="box" style="display:none">
-<input id="gInput" placeholder="Tape ta recherche Google">
-<button onclick="searchG()">Rechercher Google</button>
-<div id="gResult" class="result"></div>
-</div>
-
-<!-- WIKI -->
-<div id="wiki" class="box" style="display:none">
-<input id="wInput" placeholder="Tape ex: Kolwezi">
-<button onclick="searchW()">Rechercher Wikipedia</button>
-<div id="wResult" class="result"></div>
-</div>
-
-<!-- DOWNLOAD -->
-<div id="download" class="box" style="display:none">
-<h3>⬇️ Téléchargeur YouTube</h3>
-<p>Colle le lien YouTube ici:</p>
-<input id="dlInput" placeholder="https://youtube.com/watch?v=...">
-<button onclick="downloadYT()">Obtenir le téléchargement</button>
-<div id="dlResult" class="result"></div>
-</div>
-
-<!-- CONVERT -->
-<div id="convert" class="box" style="display:none">
-<h3>💱 Convertisseur Dollar / Franc</h3>
-<p>Taux du jour Kolwezi: 1$ = 2800 FC</p>
-<input id="dollar" type="number" placeholder="Montant en $ (ex: 10)" oninput="toFC()">
-<div class="price" id="fcResult">0 FC</div>
-<hr>
-<input id="fc" type="number" placeholder="Montant en FC (ex: 28000)" oninput="toDollar()">
-<div class="price" id="dollarResult">0 $</div>
-</div>
-</div>
-
 <script>
-function openTab(t){
+function show(id,el){
 document.querySelectorAll('.box').forEach(b=>b.style.display='none');
-document.querySelectorAll('.tab').forEach(tb=>tb.classList.remove('active'));
-document.getElementById(t).style.display='block';
-event.target.classList.add('active');
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.getElementById(id).style.display='block';
+el.classList.add('active');
 }
-function searchYT(){
-let q=document.getElementById('ytInput').value;
-if(!q)return;
-document.getElementById('ytResult').innerHTML=`<iframe src="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}"></iframe>`;
-}
-function searchG(){
-let q=document.getElementById('gInput').value;
-if(!q)return;
-document.getElementById('gResult').innerHTML=`<iframe src="https://www.google.com/search?q=${encodeURIComponent(q)}&igu=1"></iframe>`;
-}
-function searchW(){
-let q=document.getElementById('wInput').value;
-if(!q)return;
-document.getElementById('wResult').innerHTML=`<iframe src="https://fr.wikipedia.org/wiki/${encodeURIComponent(q)}"></iframe>`;
-}
-function downloadYT(){
-let link=document.getElementById('dlInput').value;
-if(!link)return alert('Colle le lien YouTube');
-let id=link.split('v=')[1]?.split('&')[0] || link.split('/').pop();
-document.getElementById('dlResult').innerHTML=`
-<p>Vidéo détectée!</p>
-<a href="https://www.y2mate.com/youtube/${id}" target="_blank"><button>Ouvrir page de téléchargement MP4/MP3</button></a>
-<iframe style="margin-top:10px" src="https://www.youtube.com/embed/${id}"></iframe>
-`;
-}
-function toFC(){
-let d=document.getElementById('dollar').value;
-document.getElementById('fcResult').innerText=(d*2800).toLocaleString()+' FC';
-}
-function toDollar(){
-let f=document.getElementById('fc').value;
-document.getElementById('dollarResult').innerText=(f/2800).toFixed(2)+' $';
-}
-if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
 </script>
 </body>
 </html>
