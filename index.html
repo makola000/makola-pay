@@ -3,39 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAKOLA PAY</title>
+<title>MAKOLA GOOGLE</title>
 <style>
 body{margin:0;font-family:Arial;background:#f2f2f2}
-.header{background:#0000ff;color:white;padding:15px;text-align:center;font-size:22px;font-weight:bold}
-.tabs{display:flex;background:white}
-.tab{flex:1;padding:12px;text-align:center;cursor:pointer;border-bottom:3px solid transparent;font-size:12px}
-.tab.active{border-color:#0000ff;color:#0000ff;font-weight:bold}
+.header{background:#0000ff;color:white;padding:16px;text-align:center;font-size:24px;font-weight:bold;letter-spacing:1px}
+.tabs{display:flex;background:white;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+.tab{flex:1;padding:14px;text-align:center;cursor:pointer;border-bottom:3px solid transparent;font-weight:bold}
+.tab.active{border-color:#0000ff;color:#0000ff}
 .content{padding:15px}
-.box{background:white;padding:15px;border-radius:10px}
-input{width:100%;padding:12px;border:2px solid #0000ff;border-radius:8px;box-sizing:border-box}
-button{width:100%;padding:12px;background:#0000ff;color:white;border:none;border-radius:8px;margin-top:10px;font-weight:bold}
-iframe{width:100%;height:60vh;border:none;margin-top:10px}
-.price{font-size:24px;color:#0000ff;font-weight:bold;text-align:center;margin-top:10px}
+.box{background:white;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+input{width:100%;padding:14px;border:2px solid #0000ff;border-radius:10px;box-sizing:border-box;font-size:16px}
+button{width:100%;padding:14px;background:#0000ff;color:white;border:none;border-radius:10px;margin-top:12px;font-weight:bold;font-size:16px;cursor:pointer}
+button:active{transform:scale(0.98)}
+iframe{width:100%;height:70vh;border:none;margin-top:12px;border-radius:8px}
+.footer{text-align:center;padding:20px;color:#666;font-size:12px}
 </style>
 </head>
 <body>
-<div class="header">MAKOLA PAY</div>
+<div class="header">MAKOLA GOOGLE 🌍</div>
 <div class="tabs">
-<div class="tab active" onclick="show('a',this)">YouTube</div>
-<div class="tab" onclick="show('b',this)">Google</div>
-<div class="tab" onclick="show('c',this)">Wiki</div>
-<div class="tab" onclick="show('d',this)">Telecharger</div>
-<div class="tab" onclick="show('e',this)">Dollar</div>
+<div class="tab active" onclick="showTab('a',this)">📺 YouTube</div>
+<div class="tab" onclick="showTab('b',this)">🌍 Google</div>
+<div class="tab" onclick="showTab('c',this)">📚 Wikipédia</div>
 </div>
 <div class="content">
-<div id="a" class="box"><input id="i1" placeholder="Cherche YouTube"><button onclick="document.getElementById('r1').innerHTML='<iframe src=https://www.youtube.com/results?search_query='+encodeURIComponent(document.getElementById('i1').value)+'></iframe>'">Rechercher</button><div id="r1"></div></div>
-<div id="b" class="box" style="display:none"><input id="i2" placeholder="Cherche Google"><button onclick="document.getElementById('r2').innerHTML='<iframe src=https://www.google.com/search?q='+encodeURIComponent(document.getElementById('i2').value)+'&igu=1></iframe>'">Rechercher</button><div id="r2"></div></div>
-<div id="c" class="box" style="display:none"><input id="i3" placeholder="Cherche Wikipedia"><button onclick="document.getElementById('r3').innerHTML='<iframe src=https://fr.wikipedia.org/wiki/'+encodeURIComponent(document.getElementById('i3').value)+'></iframe>'">Rechercher</button><div id="r3"></div></div>
-<div id="d" class="box" style="display:none"><h3>Telecharger YouTube</h3><input id="i4" placeholder="Colle lien youtube.com"><button onclick="let l=document.getElementById('i4').value;let id=l.split('v=')[1]?.split('&')[0]||l.split('/').pop();document.getElementById('r4').innerHTML='<a href=https://www.y2mate.com/youtube/'+id+' target=_blank><button>Ouvrir telechargement</button></a><iframe src=https://www.youtube.com/embed/'+id+'></iframe>'">Telecharger</button><div id="r4"></div></div>
-<div id="e" class="box" style="display:none"><h3>1$ = 2800 FC</h3><input id="dol" type="number" placeholder="Montant en $" oninput="document.getElementById('fcRes').innerText=this.value*2800+' FC'"><div id="fcRes" class="price">0 FC</div><input id="fcc" type="number" placeholder="Montant en FC" style="margin-top:15px" oninput="document.getElementById('dolRes').innerText=(this.value/2800).toFixed(2)+' $'"><div id="dolRes" class="price">0 $</div></div>
+<div id="a" class="box">
+<h3 style="margin-top:0">Rechercher sur YouTube</h3>
+<input id="i1" placeholder="Ex: Fally Ipupa - Bloqué">
+<button onclick="let v=document.getElementById('i1').value;if(!v)return alert('Tape quelque chose');document.getElementById('r1').innerHTML='<iframe src=https://www.youtube.com/results?search_query='+encodeURIComponent(v)+'></iframe>'">🔍 Rechercher</button>
+<div id="r1"></div>
 </div>
+<div id="b" class="box" style="display:none">
+<h3 style="margin-top:0">Rechercher sur Google</h3>
+<input id="i2" placeholder="Ex: Prix cuivre Kolwezi">
+<button onclick="let v=document.getElementById('i2').value;if(!v)return alert('Tape quelque chose');document.getElementById('r2').innerHTML='<iframe src=https://www.google.com/search?q='+encodeURIComponent(v)+'&igu=1></iframe>'">🔍 Rechercher</button>
+<div id="r2"></div>
+</div>
+<div id="c" class="box" style="display:none">
+<h3 style="margin-top:0">Rechercher sur Wikipédia</h3>
+<input id="i3" placeholder="Ex: Lubumbashi">
+<button onclick="let v=document.getElementById('i3').value;if(!v)return alert('Tape quelque chose');document.getElementById('r3').innerHTML='<iframe src=https://fr.wikipedia.org/wiki/'+encodeURIComponent(v)+'></iframe>'">🔍 Rechercher</button>
+<div id="r3"></div>
+</div>
+</div>
+<div class="footer">MAKOLA GOOGLE - Fait à Lubumbashi, pour le monde entier 🇨🇩</div>
 <script>
-function show(id,el){
+function showTab(id,el){
 document.querySelectorAll('.box').forEach(b=>b.style.display='none');
 document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
 document.getElementById(id).style.display='block';
