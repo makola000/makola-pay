@@ -1,14 +1,58 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAKOLA PAY</title>
-<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial;background:#0f0f0f;color:#fff}.h{background:#0000ff;padding:14px;text-align:center;font-weight:bold;position:sticky;top:0}.tabs{display:flex;background:#212121;position:sticky;top:48px}.tab{flex:1;padding:12px;text-align:center;cursor:pointer;border-bottom:3px solid transparent}.tab.a{border-color:#00c6ff;color:#00c6ff;background:#333}.box{padding:10px}input{width:100%;padding:13px;border-radius:25px;border:1px solid #444;background:#121212;color:#fff}button{width:100%;padding:12px;background:#0000ff;color:#fff;border:none;border-radius:25px;margin-top:8px;font-weight:bold}iframe{width:100%;height:78vh;border:none;border-radius:10px;background:#fff;margin-top:10px}</style></head>
-<body><div class="h">MAKOLA PAY V2 - TOUT JOUE ICI 🇨🇩</div><div class="tabs">
-<div class="tab a" id="tY" onclick="o('Y')">▶️ YouTube</div><div class="tab" id="tG" onclick="o('G')">🔍 Google</div><div class="tab" id="tW" onclick="o('W')">📚 Wiki</div></div>
-<div class="box" id="bY"><input id="qY" placeholder="Tape artiste: Fally Ipupa"><button onclick="pY()">JOUER DANS MAKOLA PAY</button><iframe id="fY" src="https://yewtu.be/search?q=musique+congolaise"></iframe></div>
-<div class="box" id="bG" style="display:none"><input id="qG" placeholder="Tape: météo Lubumbashi"><button onclick="pG()">CHERCHER DANS MAKOLA PAY</button><iframe id="fG" src="about:blank"></iframe></div>
-<div class="box" id="bW" style="display:none"><input id="qW" placeholder="Tape: RDC"><button onclick="pW()">CHERCHER DANS MAKOLA PAY</button><iframe id="fW" src="about:blank"></iframe></div>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAKOLA PAY - Navigateur</title>
+<style>
+body{margin:0;font-family:Arial;background:#0f172a;color:white}
+header{background:#1e293b;padding:10px;display:flex;gap:5px;align-items:center;position:sticky;top:0;z-index:10}
+.logo{font-weight:bold;color:#38bdf8;margin-right:10px}
+.tabs button{padding:8px 12px;border:none;border-radius:20px;cursor:pointer;background:#334155;color:white}
+.tabs button.active{background:#38bdf8;color:#000;font-weight:bold}
+.search-box{flex:1;display:flex;gap:5px}
+.search-box input{flex:1;padding:10px;border-radius:20px;border:none;outline:none}
+.search-box button{padding:10px 15px;border-radius:20px;border:none;background:#facc15;font-weight:bold;cursor:pointer}
+iframe{width:100%;height:calc(100vh - 60px);border:none;background:white}
+</style>
+</head>
+<body>
+<header>
+<span class="logo">MAKOLA PAY V3</span>
+<div class="tabs">
+<button id="btn-yt" class="active" onclick="switchTab('yt')">▶️ YouTube</button>
+<button id="btn-go" onclick="switchTab('go')">🔍 Google</button>
+<button id="btn-wiki" onclick="switchTab('wiki')">📚 Wiki</button>
+</div>
+<div class="search-box">
+<input id="q" placeholder="Tape: Fally Ipupa, Actualités..." onkeydown="if(event.key==='Enter')doSearch()">
+<button onclick="doSearch()">GO</button>
+</div>
+</header>
+<iframe id="view" src="https://www.youtube.com/embed?listType=search&list=musique%20congo%202026"></iframe>
+
 <script>
-function o(k){document.querySelectorAll('.box').forEach(x=>x.style.display='none');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('a'));document.getElementById('b'+k).style.display='block';document.getElementById('t'+k).classList.add('a');}
-function pY(){let q=document.getElementById('qY').value||'musique congolaise';document.getElementById('fY').src='https://yewtu.be/search?q='+encodeURIComponent(q);}
-function pG(){let q=document.getElementById('qG').value||'Lubumbashi';document.getElementById('fG').src='https://lite.duckduckgo.com/lite/?q='+encodeURIComponent(q);}
-function pW(){let q=document.getElementById('qW').value||'RDC';document.getElementById('fW').src='https://fr.m.wikipedia.org/w/index.php?search='+encodeURIComponent(q);}
-</script></body></html>
+let currentTab = 'yt';
+function switchTab(t){
+ currentTab=t;
+ document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+ document.getElementById('btn-'+t).classList.add('active');
+ doSearch();
+}
+function doSearch(){
+ let query = document.getElementById('q').value || 'musique congo';
+ let frame = document.getElementById('view');
+ let q = encodeURIComponent(query);
+ if(currentTab==='yt'){
+   // ASTUCE V3: embed search autorisé par YouTube
+   frame.src = `https://www.youtube.com/embed?listType=search&list=${q}&autoplay=1`;
+ }else if(currentTab==='go'){
+   // Google bloque iframe, on utilise DuckDuckGo qui autorise
+   frame.src = `https://duckduckgo.com/?q=${q}&ia=web`;
+ }else{
+   frame.src = `https://fr.wikipedia.org/wiki/Special:Search?search=${q}&go=Go`;
+ }
+}
+</script>
+</body>
+</html>
