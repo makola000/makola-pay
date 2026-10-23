@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Makola Chat - Interne</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{background:#111b21;color:#e9edef;height:100vh;display:flex;flex-direction:column}
+.header{background:#202c33;padding:12px 16px;display:flex;align-items:center;gap:10px}
+.header h1{font-size:18px}
+.main{display:flex;flex:1;overflow:hidden}
+.sidebar{width:35%;background:#111b21;border-right:1px solid #2a3942;overflow-y:auto}
+@media(max-width:700px){.sidebar{width:100%}.chat-area{display:none}.main.show-chat .sidebar{display:none}.main.show-chat .chat-area{display:flex}}
+.contact{padding:12px 16px;display:flex;gap:12px;align-items:center;cursor:pointer;border-bottom:1px solid #2a3942}
+.contact:hover{background:#202c33}
+.contact.active{background:#2a3942}
+.avatar{width:45px;height:45px;background:#00a884;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:18px}
+.info{flex:1;overflow:hidden}
+.info b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.info small{color:#8696a0;font-size:13px}
+.chat-area{flex:1;display:flex;flex-direction:column;background:#0b141a}
+.chat-top{background:#202c33;padding:12px 16px;display:flex;align-items:center;gap:12px}
+.messages{flex:1;padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;background:#0b141a url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcd19f9.png')}
+.msg{max-width:70%;padding:8px 10px;border-radius:8px;font-size:14px;line-height:1.4}
+.msg.me{align-self:flex-end;background:#005c4b}
+.msg.them{align-self:flex-start;background:#202c33}
+.input-bar{display:flex;gap:8px;padding:10px;background:#202c33;align-items:center}
+.input-bar input{flex:1;padding:12px 14px;border-radius:25px;border:none;background:#2a3942;color:#fff;outline:none}
+.btn{background:#00a884;border:none;color:#fff;padding:10px 16px;border-radius:50%;cursor:pointer;font-size:18px;width:44px;height:44px}
+.btn-add{background:#202c33;border:1px dashed #8696a0;padding:10px;width:100%;color:#8696a0;border-radius:8px;cursor:pointer;margin:10px}
+</style>
+</head>
+<body>
+<div class="header"><h1>💬 Makola Chat</h1><small style="margin-left:auto" id="myName"></small></div>
+<div class="main" id="main">
+<div class="sidebar" id="sidebar">
+<button class="btn-add" onclick="addContact()">+ Nouveau contact (choisir dans téléphone)</button>
+<button class="btn-add" onclick="addManual()">+ Ajouter manuellement</button>
+<div id="list"></div>
+</div>
+<div class="chat-area" id="chatArea">
+<div class="chat-top"><button onclick="back()" style="background:none;border:none;color:#fff;font-size:20px;margin-right:8px;display:none" id="backBtn">←</button><div class="avatar" id="chatAvatar">A</div><b id="chatName">Choisis un contact</b></div>
+<div class="messages" id="messages"></div>
+<div class="input-bar"><input id="msgInput" placeholder="Tape un message" onkeypress="if(event.key==='Enter')send()"><button class="btn" onclick="send()">➤</button></div>
+</div>
+</div>
+<script>
+let contacts = JSON.parse(localStorage.getItem('makola_contacts')||'[]');
+let chats = JSON.parse(localStorage.getItem('makola_chats')||'{}');
+let current = null;
+let myName = localStorage.getItem('makola_myname') || prompt("Ton nom pour le chat ?") || "Moi";
+localStorage.setItem('makola_myname',myName);
+document.getElementById('myName').innerText = myName;
+
+function save(){localStorage.setItem('makola_contacts',JSON.stringify(contacts));localStorage.setItem('makola_chats',JSON.stringify(chats));}
+function renderList(){
+ let html='';contacts.forEach((c,i)=>{
+  let last = (chats[c.id]||[]).slice(-1)[0]?.text||'Nouveau chat';
+  html+=`<div class="contact ${current===c.id?'active':''}" onclick="openChat('${c.id}')"><div class="avatar">${c.name[0].toUpperCase()}</div><div class="info"><b>${c.name}</b><small>${last}</small></div></div>`;
+ });document.getElementById('list').innerHTML=html||'<p style="padding:16px;color:#8696a0;text-align:center">Aucun contact<br>Clique en haut pour ajouter</p>';
+}
+async function addContact(){
+ if('contacts' in navigator && 'ContactsManager' in window){
+  try{const props=['name','tel'];const opts={multiple:false};const cont=await navigator.contacts.select(props,opts);if(cont.length){let c={id:Date.now().toString(),name:cont[0].name[0],phone:cont[0].tel[0]};contacts.push(c);save();renderList();}}catch(e){alert("Ton navigateur bloque. Utilise ajout manuel.");addManual();}
+ }else{addManual();}
+}
+function addManual(){
+ let n=prompt("Nom du contact ?");if(!n)return;let p=prompt("Numéro ? (optionnel)")||"";contacts.push({id:Date.now().toString(),name:n,phone:p});save();renderList();
+}
+function openChat(id){
+ current=id;let c=contacts.find(x=>x.id===id);document.getElementById('chatName').innerText=c.name;document.getElementById('chatAvatar').innerText=c.name[0].toUpperCase();renderMessages();renderList();
+ if(window.innerWidth<=700){document.getElementById('main').classList.add('show-chat');document.getElementById('backBtn').style.display='block';}
+}
+function back(){document.getElementById('main').classList.remove('show-chat');}
+function renderMessages(){
+ let m=document.getElementById('messages');let list=chats[current]||[];m.innerHTML=list.map(x=>`<div class="msg ${x.me?'me':'them'}">${x.text}<br><small style="font-size:10px;opacity:0.7">${x.time}</small></div>`).join('');m.scrollTop=m.scrollHeight;
+}
+function send(){
+ let input=document.getElementById('msgInput');let t=input.value.trim();if(!t||!current)return;if(!chats[current])chats[current]=[];chats[current].push({text:t,me:true,time:new Date().toLocaleTimeString().slice(0,5)});input.value='';save();renderMessages();renderList();
+ setTimeout(()=>{chats[current].push({text:"Reçu ! (mode démo local)",me:false,time:new Date().toLocaleTimeString().slice(0,5)});save();renderMessages();},800);
+}
+renderList();
+</script>
+</body>
+</html>
